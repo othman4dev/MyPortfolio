@@ -1,333 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Start your development with Meyawo landing page.">
-    <meta name="author" content="Devcrud">
-    <title>Othman Kharbouch | A full-stack web developer</title>
-    <!-- font icons -->
-    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
-    <!-- Bootstrap + Meyawo main styles -->
-    <link rel="stylesheet" href="assets/css/meyawo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" href="images/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/favicon.ico">
+    <link href="https://fonts.cdnfonts.com/css/cookie" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <meta name="theme-color" content="#ffffff">
+    <title>Othman Kharbouch</title>
 </head>
-
-<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
-
-    <!-- Page Navbar -->
-    <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
-        <div class="container">
-            <a class="logo" href="#">Othman Kharbouch</a>
-            <ul class="nav">
-                <li class="item">
-                    <a class="link" href="#home">Home</a>
-                </li>
-                <li class="item">
-                    <a class="link" href="#about">About</a>
-                </li>
-                <li class="item">
-                    <a class="link" href="#portfolio">Portfolio</a>
-                </li>
-                <li class="item">
-                    <a class="link" href="#blog">Blog</a>
-                </li>
-                <li class="item">
-                    <a class="link" href="#contacts">Contact</a>
-                </li>
-            </ul>
-            <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
-                <div class="hamburger-box">
-                    <div class="hamburger-inner"></div>
-                </div>
-            </a>
+<header class="header">
+    <div class="quote">
+        <h3 class="quote-text">
+            "We love what we do, so we do it best".
+        </h3>
+    </div>
+    <div class="pages">
+        <a href="" class="page">ABOUT</a>
+        <a href="" class="page">PROJECTS</a>
+        <a href="" class="page">PRICING</a>
+        <a href="" class="page">CONTACT</a>
+    </div>
+</header>
+<body>
+    <div class="fixed">
+        <div class="side-bar">
+            <div class="sidebar-links">
+                <img src="assets/github.png" class="link-img" alt="">
+                <img src="assets/github.png" class="link-img" alt="">
+                <img src="assets/github.png" class="link-img" alt="">
+            </div>
+            <div class="sidebar-indexes">
+                <a href="" class="sidebar-index current-sidebar-index">PROFILE</a>
+                <a href="" class="sidebar-index">ABOUT</a>
+                <a href="" class="sidebar-index">PROJECTS</a>
+                <a href="" class="sidebar-index">PRICING</a>
+                <a href="" class="sidebar-index">CONTACT</a>
+            </div>
         </div>
-    </nav><!-- End of Page Navbar -->
-
-    <!-- page header -->
-    <header id="home" class="header">
-        <div class="overlay"></div>
-        <div class="header-content container">
-            <h1 class="header-title">
-                <span class="up">HI!</span>
-                <span class="down">I am Othman Kharbouch</span>
-            </h1>
-            <p class="header-subtitle">FULL-STACK WEB DEVELOPER</p>
-
-            <a href="https://github.com/othman4dev"><button class="btn btn-primary">Visit My Works</button></a>
+        <div class="indexer">
+            <div class="line-full" id="lineFull"></div>
+            <p id="index" class="current-index index-text">PROFILE</p>
+            <div class="line-half">
+                <div class="next-index"></div>
+                <p class="next-index-text index-text" id="next-index">ABOUT</p>
+            </div>
         </div>
-    </header><!-- end of page header -->
-
-    <!-- about section -->
-    <section class="section pt-0" id="about">
-        <!-- container -->
-        <div class="container text-center">
-            <!-- about wrapper -->
-            <div class="about">
-                <div class="about-img-holder">
-                    <img src="assets/imgs/me.png" class="about-img"
-                        alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+    </div>
+    <main id="main">
+        <div class="hero-section section" id="section1">
+            <div class="hero-profile">
+                <div class="hero-texts">
+                    <h1 class="hero-title">OTMAN KHARBOUCH</h1>
+                    <p class="hero-subtitle">MERN Stack Developer</p>
+                    <p class="hero-description">
+                        I am a MERN Stack Developer with a passion for creating beautiful and functional web applications. I have experience in building full-stack applications using JavaScript, React, Node.js, and Express.js. I am always looking for new opportunities to learn and grow as a developer.
+                    </p>
                 </div>
-                <div class="about-caption">
-                    <p class="section-subtitle">Who Am I ?</p>
-                    <h2 class="section-title mb-3">About Me</h2>
-                    <p>
-                        I am a dynamic 19-year-old full-stack web developer hailing from Morocco. My journey commenced with a deep dive into front-end web development, where I spent nearly a year honing my skills in foundational web programming and mastering languages such as HTML5, CSS3, and JavaScript.
-                        <br>
-                        My passion for web development led me to enroll in Youcode, a cutting-edge institution renowned for its active pedagogy and immersive learning environment. Over the course of two enriching years, I delved into advanced mechanisms and explored a myriad of exciting technologies including PHP, Laravel, Vue.js, React, C, Bootstrap, Tailwind CSS, and beyond.
-                        <br>
-                        My experiences have equipped me with a comprehensive skill set and a fervent commitment to innovation, poised to tackle diverse challenges in the ever-evolving landscape of web development.
-                        </p>
-                    <button class="btn-rounded btn btn-outline-primary mt-4">Download CV</button>
+                <div class="hero-img">
+                    <img src="assets/othman.png" class="othman-img" alt="">
                 </div>
-            </div><!-- end of about wrapper -->
-        </div><!-- end of container -->
-    </section> <!-- end of about section -->
-
-    <!-- service section -->
-    <section class="section" id="service">
-        <div class="container text-center">
-            <p class="section-subtitle">What I Do ?</p>
-            <h6 class="section-title mb-6">Service</h6>
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <div class="body">
-                            <img src="assets/imgs/pencil-case.svg"
-                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
-                                class="icon">
-                            <h6 class="title">Web Design</h6>
-                            <p class="subtitle">I specialize in crafting beautiful website designs using Figma or Adobe XD.</p>
-                        </div>
+            </div>
+            <div class="technos">
+                <p class="technos-title">Technologies</p>
+                <div class="technos-inner">
+                    <div class="techno">
+                        <img class="techno-img" src="assets/js.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/vue-icon.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/react.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/node-js.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/express-js.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/js.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/vue-icon.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/react.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/node-js.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/express-js.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/js.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/vue-icon.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/react.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/node-js.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/express-js.png" alt="">
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <div class="body">
-                            <img src="assets/imgs/responsive.svg"
-                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
-                                class="icon">
-                            <h6 class="title">Front End</h6>
-                            <p class="subtitle">I possess the ability to transform graphical designs into functional realities with precision.</p> 
-                        </div>
+                <div class="grower">
+                    <div class="more-technos">
+                        <i class="bi bi-chevron-left"></i>
+                        <p class="more-technos-text">+5</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <div class="body">
-                            <img src="assets/imgs/toolbox.svg"
-                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
-                                class="icon">
-                            <h6 class="title">Backend</h6>
-                            <p class="subtitle">I can build intricate systems for immense web applications, prioritizing security and performance at every stage.</p>                                
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <div class="body">
-                            <img src="assets/imgs/analytics.svg"
-                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
-                                class="icon">
-                                <h6 class="title">Conception & Databases</h6>
-                                <p class="subtitle">I possess the ability to create database systems, including diagrams.</p>                                                
-                        </div>
-                    </div>
-                </div>
-            </div><!-- end of row -->
+            </div>
+        
         </div>
-    </section><!-- end of service section -->
+        <div class="hero-section section" id="section2">
+            <div class="main-card">
+                <div class="card-header">
+                    <div class="card-profile">
 
-    <!-- portfolio section -->
-    <section class="section" id="portfolio">
-        <div class="container text-center">
-            <p class="section-subtitle">What I Did ?</p>
-            <h6 class="section-title mb-6">Portfolio</h6>
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-4">
-                    <a href="https://github.com/othman4dev/Wiki.tm" class="portfolio-card">
-                        <img src="assets/imgs/wikis.svg" class="portfolio-card-img" height="350px"
-                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>Wiki.tm</h5>
-                                    <p class="font-weight-normal">Category: Full Stack Web Application</p>
-                            </span>
-                        </span>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="https://othman4dev.github.io/Fake-Socials/" class="portfolio-card">
-                        <img class="portfolio-card-img" src="assets/imgs/LOGO.svg" height="350px" class="img-responsive rounded"
-                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>Fake Socials (Under development)</h5>
-                                    <p class="font-weight-normal">Category: Front-end Web Application</p>
-                            </span>
-                        </span>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="https://othman4dev.github.io/Poker.io/" class="portfolio-card">
-                        <img class="portfolio-card-img" src="assets/imgs/poker.svg" height="350px" class="img-responsive rounded"
-                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>Poker.io (Under development)</h5>
-                                    <p class="font-weight-normal">Category: Real Time Web Game</p>
-                            </span>
-                        </span>
-                    </a>
-                </div>
-                <div class="seeMore">
-                    <a href="https://github.com/othman4dev">
-                        <div class="github">
-                            See More On GitHub
-                        </div>
-                    </a>
-                </div>
-            </div><!-- end of row -->
-        </div><!-- end of container -->
-    </section> <!-- end of portfolio section -->
-
-    <!-- section -->
-    <section class="section-sm bg-primary">
-        <!-- container -->
-        <div class="container text-center text-sm-left">
-            <!-- row -->
-            <div class="row align-items-center">
-                <div class="col-sm offset-md-1 mb-4 mb-md-0">
-                    <h6 class="title text-light">Want to work with me?</h6>
-                    <p class="m-0 text-light">Always feel Free to Contact & Hire me</p>
-                </div>
-                <div class="col-sm offset-sm-2 offset-md-3">
-                    <a href="mailto:otmankharbouch813@gmail.com" class="btn btn-lg my-font btn-light rounded">Hire Me</a>
-                </div>
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </section> <!-- end of section -->
-    <!-- blog section -->
-    <section class="section" id="blog">
-        <!-- container -->
-        <div class="container text-center">
-            <p class="section-subtitle">Recent Posts?</p>
-            <h6 class="section-title mb-6">Blog</h6>
-            <!-- blog-wrapper -->
-            <div class="blog-card">
-                <div class="blog-card-header">
-                    <img src="assets/imgs/j-77WCIoIORDMWsL.jpg" class="blog-card-img"
-                        alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                </div>
-                <div class="blog-card-body">
-                    <h5 class="blog-card-title">YouCode | UM6P | Youssoufia</h6>
-
-                        <p class="blog-card-caption">
-                            <a href="#">By: Otman Kharbouch</a>
-                        </p>
-                        <p>
-                            Youcode Maroc is a free programming school based in Morocco, 
-                            training young people in programming and web development for a career in technology.
-                        </p>
-                        <p><b></b>
-                            Over the course of 2 years at Youcode, you will gain valuable skills that will empower you to develop cutting-edge web applications using a wide range of technologies and services.
-                        </p>
-                        <a href="https://youcode.ma/" class="blog-card-link">YouCode Website <i class="ti-angle-double-right"></i></a>
-                </div>
-            </div><!-- end of blog wrapper -->
-
-            <!-- blog-wrapper -->
-            <div class="blog-card">
-                <div class="blog-card-header">
-                    <img src="assets/imgs/img-2.jpg" class="blog-card-img"
-                        alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                </div>
-                <div class="blog-card-body">
-                    <h5 class="blog-card-title">Self-learning in Front End Development</h6>
-
-                        <p class="blog-card-caption">
-                            <a href="#">By: Otman Kharbouch</a>
-                        </p>
-
-                        <p>My journey in front-end web development began at the age of 17, right after completing high school. I delved into HTML, CSS, and JavaScript, honing my skills in creating visually stunning web designs and captivating web pages. However, I soon realized that I yearned for more knowledge and growth in my craft. That's when I decided to enroll in an online course focused on React.js. The experience fueled my passion even further, leading me to apply to Youcode, a prestigious web development school.
-                        </p>
-
-                        <a href="#" class="blog-card-link">Read more <i class="ti-angle-double-right"></i></a>
-                </div>
-            </div><!-- end of blog wrapper -->
-
-        </div><!-- end of container -->
-    </section><!-- end of blog section -->
-    <section class="section-div">
-        <h2>My Contacts</h2>
-    </section>
-    <section class="contacts-new" id="contacts">
-        <a href="https://github.com/othman4dev">
-            <div class="contact-div">
-                <i class="bi bi-github"></i>
-                GitHub
+                    </div>
+                    <div class="card-desc">
+    
+                    </div>
+                </div> 
             </div>
-        </a>
-        <a href="https://www.linkedin.com/in/otman-kharbouch-ba44552a1/">
-            <div class="contact-div">
-                <i class="bi bi-linkedin"></i>
-                LinkedIn
+        </div>
+        <div class="hero-section section" id="section3">
+            <div class="hero-profile">
+                <div class="hero-texts">
+                    <h1 class="hero-title">OTMAN KHARBOUCH</h1>
+                    <p class="hero-subtitle">MERN Stack Developer</p>
+                    <p class="hero-description">
+                        I am a MERN Stack Developer with a passion for creating beautiful and functional web applications. I have experience in building full-stack applications using JavaScript, React, Node.js, and Express.js. I am always looking for new opportunities to learn and grow as a developer.
+                    </p>
+                </div>
+                <div class="hero-img">
+                    <img src="assets/othman.png" class="othman-img" alt="">
+                </div>
             </div>
-        </a>
-        <a href="https://www.instagram.com/othman4dev/">
-            <div class="contact-div">
-                <i class="bi bi-instagram"></i>
-                Instagram
+            <div class="technos">
+                <p class="technos-title">Technologies</p>
+                <div class="technos-inner">
+                    <div class="techno">
+                        <img class="techno-img" src="assets/js.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/vue-icon.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/react.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/node-js.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/express-js.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/js.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/vue-icon.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/react.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/node-js.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/express-js.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/js.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/vue-icon.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/react.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/node-js.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/express-js.png" alt="">
+                    </div>
+                </div>
+                <div class="grower">
+                    <div class="more-technos">
+                        <i class="bi bi-chevron-left"></i>
+                        <p class="more-technos-text">+5</p>
+                    </div>
+                </div>
             </div>
-        </a>
-        <a href="https://wa.me/212658934855"></a>
-            <div class="contact-div">
-                <i class="bi bi-whatsapp"></i>
-                Whatsapp
+        
+        </div>
+        <div class="hero-section section" id="section4">
+            <div class="hero-profile">
+                <div class="hero-texts">
+                    <h1 class="hero-title">OTMAN KHARBOUCH</h1>
+                    <p class="hero-subtitle">MERN Stack Developer</p>
+                    <p class="hero-description">
+                        I am a MERN Stack Developer with a passion for creating beautiful and functional web applications. I have experience in building full-stack applications using JavaScript, React, Node.js, and Express.js. I am always looking for new opportunities to learn and grow as a developer.
+                    </p>
+                </div>
+                <div class="hero-img">
+                    <img src="assets/othman.png" class="othman-img" alt="">
+                </div>
             </div>
-        </a>
-        <a href="mailto:otmankharbouch813@gmail.com">
-            <div class="contact-div">
-                <i class="bi bi-envelope-at-fill"></i>
-                Email
+            <div class="technos">
+                <p class="technos-title">Technologies</p>
+                <div class="technos-inner">
+                    <div class="techno">
+                        <img class="techno-img" src="assets/js.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/vue-icon.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/react.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/node-js.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/express-js.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/js.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/vue-icon.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/react.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/node-js.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/express-js.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/js.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/vue-icon.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/react.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/node-js.png" alt="">
+                    </div>
+                    <div class="techno">
+                        <img class="techno-img" src="assets/express-js.png" alt="">
+                    </div>
+                </div>
+                <div class="grower">
+                    <div class="more-technos">
+                        <i class="bi bi-chevron-left"></i>
+                        <p class="more-technos-text">+5</p>
+                    </div>
+                </div>
             </div>
-        </a>
-        <a href="tel:+212658934855" class="contact-div">
-            <i class="bi bi-telephone"></i>
-            Phone
-        </a>
-    </section>
-    <!-- footer -->
-    <div class="container">
-        <footer class="footer">
-            <p class="mb-0">Copyright
-                <script>document.write(new Date().getFullYear())</script> &copy; <a
-                    href="http://www.devcrud.com">Otman Kharbouch, </a> GitHub : <a
-                    href="https://themewagon.com">Othman4dev</a>
-            </p>
-            <div class="social-links text-right m-auto ml-sm-auto">
-                <a href="http://x.com/othman_is_me" class="link"><i class="ti-twitter-alt"></i></a>
-                <a href="mailto:otmankharbouch813@gmail.com" class="link"><i class="ti-google"></i></a>
-                <a href="https://github.com/othman4dev" class="link"><i class="bi bi-github"></i></a>
-                <a href="https://www.instagram.com/othman4dev/" class="link"><i class="ti-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/otman-kharbouch-ba44552a1/" class="link"><i class="ti-rss"></i></a>
-            </div>
-        </footer>
-    </div> <!-- end of page footer -->
-
-    <!-- core  -->
-    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
-    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
-
-    <!-- bootstrap 3 affix -->
-    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
-
-    <!-- Meyawo js -->
-    <script src="assets/js/meyawo.js"></script>
-
+        
+        </div>
+    </main>
+    <button class="scroll-btn" id="up" onclick="scrollUpIntoView(this,1)">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+    <button class="scroll-btn" id="down" onclick="scrollDownIntoView(this,2)">
+        <i class="bi bi-chevron-down"></i>
+    </button>
 </body>
-
 </html>

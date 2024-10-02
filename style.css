@@ -1,0 +1,352 @@
+* {
+    font-family: Montserrat;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+body {
+    background-color: #314466;
+    box-shadow: inset 0 0 150px 10px rgba(0, 0, 0, 0.51);
+    overflow: hidden;
+}
+.side-bar {
+    background-color: #1F293B;
+    color: #f0f0f0;
+    width: 70px;
+    min-height: 100vh;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.51);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: space-between;
+    z-index: 200;
+}
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+.sidebar-indexes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+.sidebar-index {
+    font-size: 12px;
+    color: #f0f0f0;
+    text-decoration: none;
+}
+.sidebar-index:hover {
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    transition: 0.2s;
+}
+.indexer {
+    height: 100vh;
+    width: 20px;
+    margin-left: 20px;
+}
+.line-full {
+    height: 46vh;
+    width: 5px;
+    background-color: #1F293B;
+}
+.current-index {
+    transform: rotate(90deg) translate(29px, 33px);
+    color: #f0f0f0;
+    margin-bottom: 60px;
+    font-size: 12px;
+    text-align: center;
+    width: 70px;
+}
+.line-half {
+    height: 42vh;
+    width: 5px;
+    background-color: #1F293B;
+    position: relative;
+}
+.line-half-prev {
+    height: 38vh;
+    width: 5px;
+    background-color: #1F293B;
+    position: relative;
+    top: 60px;
+    margin-bottom: 60px;
+}
+.next-index {
+    width: 20px;
+    height: 5px;
+    background-color: #1F293B;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.prev-index {
+    width: 20px;
+    height: 5px;
+    background-color: #1F293B;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.next-index-text {
+    position: absolute;
+    bottom: -5px;
+    left: 30px;
+    color: #f0f0f0;
+    font-size: 12px;
+}
+.prev-index-text {
+    position: absolute;
+    top: -5px;
+    left: 30px;
+    color: #f0f0f0;
+    font-size: 12px;
+}
+.link-img {
+    width: 40px;
+    cursor: pointer;
+}
+.hero-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.quote-text {
+    font-size: 26px;
+    color: #f0f0f0;
+    font-family: Cookie;
+    font-weight: 400;
+}
+.current-sidebar-index {
+    font-weight: 700;
+    font-size: 13px;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    padding-inline: 20px;
+    padding-left: 130px;
+    background-color: #0000;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background-image: linear-gradient(180deg, #1F293B, #0000);
+}
+.pages {
+    display: flex;
+    gap: 50px;
+    padding-inline: 40px;
+}
+.page:hover {
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    transition: 0.2s;
+}
+.pages a {
+    text-decoration: none;
+    color: #f0f0f0;
+    font-size: 13px;
+}
+.hero-profile {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 70%;
+    justify-content: space-between;
+}
+.othman-img {
+    width: 350px;
+}
+.technos {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    height: 80px;
+    width: 70%;
+    background-color: #0000;
+    backdrop-filter: blur(100px);
+    border-radius: 10px;
+    transform: translateY(-65px);
+    padding: 10px;
+    gap: 14px;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.152);
+}
+.technos-inner {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    flex-direction: row-reverse;
+    gap: 14px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    flex-grow: 1;
+}
+.technos-inner::-webkit-scrollbar {
+    height: 0px;
+    width: 0px;
+}
+.techno {
+    min-width: 60px;
+    min-height: 60px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+.techno:hover {
+    background-color: #00000021;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.techno-img {
+    width: 100%;
+}
+.grower {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+.more-technos {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    justify-content: center;
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+    border-radius: 18px;
+    background-color: #1F293B;
+}
+.more-technos-text {
+    font-size: 16px;
+    color: #f0f0f0;
+}
+.more-technos i {
+    color: #f0f0f0;
+    font-size: 20px;
+}
+.more-technos:hover {
+    color: #fff;
+    transition: 0.2s;
+    background-color: #00000021;
+}
+.technos-title {
+    position: absolute;
+    top: -22px;
+    left: 0;
+    color: #f0f0f0;
+    font-size: 12px;
+    margin-left: 10px;
+}
+.section {
+    min-height: 99vh;
+    margin-left: 120px;
+    width: calc( 100% - 120px );
+}
+.fixed {
+    width: fit-content;
+    min-width: 120px;
+    display: flex;
+    gap: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 6;
+}
+.hero-description {
+    font-size: 12px;
+    margin: 5px;
+}
+.hero-title {
+    font-size: 40px;
+}
+.hero-subtitle {
+    font-size: 16px;
+}
+.scroll-btn {
+    font-size: 20px;
+    background-color: #314466;
+    height: 40px;
+    width: 40px;
+    color: #f0f0f0;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0 13px 1px rgba(0, 0, 0, 0.2);
+}
+#up {
+    position: fixed;
+    top: 40px;
+    right: 50%;
+    z-index: 100;
+    display: none;
+    transform: translateX(50%);
+}
+.scroll-btn:hover {
+    background-color: #1F293B;
+    transition: 0.2s;
+    cursor: pointer;
+}
+#down {
+    position: fixed;
+    bottom: 20px;
+    right: 50%;
+    transform: translateX(50%);
+    z-index: 100;
+}
+@keyframes index-text-animation {
+    0% {
+        filter: blur(0px);
+    }
+    50% {
+        filter: blur(100px);
+    }
+    100% {
+        filter: blur(0px);
+    }
+}
+.index-text {
+    animation-duration: 0.3s;
+    animation-fill-mode: backwards;
+}
+.main-card {
+    background-color: #374A6C;
+    box-shadow: 0 0 16px 3px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    height: 100%;
+    min-width: 500px;
+    min-height: 300px;
+    border-radius: 10px;
+    position: relative;
+}
+.card-profile {
+    background-image: url('./assets/othman-profile.JPG');
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    min-width: 200px;
+    min-height: 200px;
+    position: absolute;
+    top: -100px;
+    left: 75px;
+    background-color: #ddd;
+}
