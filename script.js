@@ -14,6 +14,12 @@ function scrollDownIntoView(btn, element) {
     }
     btn.onclick = () => scrollDownIntoView(btn, element + 1);
     document.getElementById('up').onclick = () => scrollUpIntoView(document.getElementById('up'), element - 1);
+    document.getElementById('lens-effect').style.animationDirection = 'normal';
+
+    document.getElementById('lens-effect').style.animationName = 'lens-effect';
+    setTimeout(() => {
+        document.getElementById('lens-effect').style.animationName = 'none';
+    }, 600);
     indexDown();
 }
 
@@ -31,6 +37,11 @@ function scrollUpIntoView(btn, element) {
     }
     btn.onclick = () => scrollUpIntoView(btn, element - 1);
     document.getElementById('down').onclick = () => scrollDownIntoView(document.getElementById('down'), element + 1);
+    document.getElementById('lens-effect').style.animationDirection = 'reverse';
+    document.getElementById('lens-effect').style.animationName = 'lens-effect';
+    setTimeout(() => {
+        document.getElementById('lens-effect').style.animationName = 'none';
+    }, 600);
     indexDown();
 }
 

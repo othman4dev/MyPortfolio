@@ -637,4 +637,36 @@ body {
     border-radius: 50%;
     filter: blur(50px);
     background-color: rgba(176, 197, 255, 0.167);
+    animation-duration: 0.4s;
+    animation-timing-function: linear;
+  }
+
+  #lens-effect2 {
+    position: fixed;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    z-index: -100;
+    width: 70vw;
+    height:400px;
+    border-radius: 50%;
+    filter: blur(50px);
+    background-color: rgba(176, 197, 255, 0.167);
+    animation-duration: 0.6s;
+    animation-timing-function: linear;
+  }
+
+  @keyframes lens-effect {
+    0% {
+        top: 50%;
+    }
+    33% {
+        top: 200%;
+    }
+    66% {
+        top: -200%;
+    }
+    100% {
+        top: 50%;
+    }
   }
