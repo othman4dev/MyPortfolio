@@ -95,7 +95,21 @@ document.addEventListener('keydown', (e) => {
 
 // on window load , go to view section 1 mandatory
 
-window.onload = () => {
-    const section = document.getElementById(`section1`);
-    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-};
+// window.onload = () => {
+//     const section = document.getElementById(`section1`);
+//     section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+// };
+
+function searchTechs(input) {
+    var filter, techs, i, txtValue;
+    filter = input.value.toUpperCase();
+    techs = document.getElementById("searchResult").children;
+    for (i = 0; i < techs.length; i++) {
+        txtValue = techs[i].outerHTML || techs[i].alt;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            techs[i].style.display = "";
+        } else {
+            techs[i].style.display = "none";
+        }
+    }
+}
