@@ -32,6 +32,7 @@
     </div>
 </header>
 <body>
+    <div id="lens-effect"></div>
     <div class="fixed">
         <div class="side-bar">
             <div class="sidebar-links">
@@ -126,7 +127,6 @@
                     </div>
                 </div>
             </div>
-        
         </div>
         <div class="hero-section section" id="section2">
             <div class="main-card">
@@ -135,6 +135,9 @@
 
                     </div>
                     <div class="card-desc">
+                        <div class="card-title" style="margin-bottom: 10px;">
+                            About : 
+                        </div>
                         Otman Kharbouch, a versatile full-stack web developer, proficient in building robust web applications using both the MERN stack and the PHP Laravel & Vue.js stack. 
                         Passionate about embracing new technologies and continuously expanding my skillset, I am always eager to learn and grow. I am a team player with excellent communication skills and a strong work ethic. 
                         I am looking for new opportunities to work on exciting projects and collaborate with other developers.
@@ -317,75 +320,230 @@
             </div>
         </div>
         <div class="hero-section section" id="section3">
-            <div class="hero-profile">
-                <div class="hero-texts">
-                    <h1 class="hero-title">OTMAN KHARBOUCH</h1>
-                    <p class="hero-subtitle">MERN Stack Developer</p>
-                    <p class="hero-description">
-                        I am a MERN Stack Developer with a passion for creating beautiful and functional web applications. I have experience in building full-stack applications using JavaScript, React, Node.js, and Express.js. I am always looking for new opportunities to learn and grow as a developer.
-                    </p>
+            <div class="project-cards">
+                <div class="project-card card">
+                    <div class="inner">
+                        <div class="project-card-header">
+                            <div class="project-img" style="background-image: url('./assets/quicktable.png');"></div>
+                            <div class="project-texts">
+                                <div class="project-header">
+                                    <h1 class="project-title">QuickTable</h1>
+                                    <p class="project-date">April 2024</p>
+                                </div>
+                                
+                                <div class="project-desc-add">
+                                    This project was made in 1 month, nearly 100 hours of work, as a final project for the YouCode school's 1 year.
+                                </div>
+                                <div class="project-btns">
+                                    <a href="https://quicktable.coders-strike.tech/" class="visit-project">
+                                        <button class="visit-btn">
+                                            Visit Project
+                                        </button>
+                                    </a>
+                                    <a href="https://github.com/othman4dev/QuickTable" class="visit-project">
+                                        <button class="visit-btn">
+                                            Visit Repository
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card-bottom">
+                            <div class="project-desc">
+                                This solution enables users to seamlessly book tables at cafes and restaurants by items directly from their menu. Afterward, the table is reserved, allowing businesses to efficiently manage reservations and maximize table occupancy.
+                            </div>
+                            <div class="card-technos">
+                                <div class="tech-">
+                                    <img src="https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel">
+                                </div>
+                                
+                                <div class="tech-">
+                                    <img src="https://img.shields.io/badge/Blade-FF6C37.svg?style=for-the-badge&logo=laravel&logoColor=white" alt="Blade">
+                                </div>
+
+                                <div class="tech-">
+                                    <img src="https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white" alt="MariaDB Badge" />
+                                  </div>
+
+                                <div class="tech-">
+                                    <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript">
+                                </div>
+                                
+                                <div class="tech-">
+                                    <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" alt="CSS">
+                                </div>
+
+                                <div class="tech-">
+                                    <img src="https://img.shields.io/badge/hostinger-%23404d59.svg?style=for-the-badge&logo=hostinger&logoColor=white" alt="Hostinger">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blob"></div>
+                    <div class="fakeblob"></div>
                 </div>
-                <div class="hero-img">
-                    <img src="assets/othman.png" class="othman-img" alt="">
+                <div class="project-card card">
+                    <div class="inner">
+                        <div class="project-card-header">
+                            <div class="project-img" style="background-image: url('./assets/hint.png');"></div>
+                            <div class="project-texts">
+                                <div class="project-header">
+                                    <h1 class="project-title">Hint</h1>
+                                    <p class="project-date">Octobre 2024</p>
+                                </div>
+                                
+                                <div class="project-desc-add">
+                                    This project, built in about 70 hours by a team of 4 developers.
+                                </div>
+                                <div class="project-btns">
+                                    <a title="Will be available soon" class="visit-project">
+                                        <button class="visit-btn">
+                                            Visit Project
+                                        </button>
+                                    </a>
+                                    <a href="https://github.com/othman4dev/Hint" class="visit-project">
+                                        <button class="visit-btn">
+                                            Visit Repository
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card-bottom">
+                            <div class="project-desc">
+                                Hint is a blog platform created for Youcode students, enabling them to easily share articles, engage in discussions on their favorite topics, and react to one another’s posts. Designed with a user-friendly interface.
+                            </div>
+                            <div class="card-technos">
+                                <div class="tech-">
+                                    <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js Badge" />
+                                  </div>
+                                <div class="tech-">
+                                  <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express.js Badge" />
+                                </div>
+                                <div class="tech-">
+                                  <img src="https://img.shields.io/badge/EJS-6B4423?style=for-the-badge&logo=EJS&logoColor=white" alt="EJS Badge" />
+                                </div>
+                                <div class="tech-">
+                                  <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB Badge" />
+                                </div>
+                                <div class="tech-">
+                                  <img src="https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="AWS Badge" />
+                                </div>
+                                <div class="tech-">
+                                    <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS Badge" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blob"></div>
+                    <div class="fakeblob"></div>
+                </div>
+                <div class="project-card card">
+                    <div class="inner">
+                        <div class="project-card-header">
+                            <div class="project-img" style="background-image: url('./assets/ixo.png');"></div>
+                            <div class="project-texts">
+                                <div class="project-header">
+                                    <h1 class="project-title">ixo Multiplayer</h1>
+                                    <p class="project-date">Octobre 2024</p>
+                                </div>
+                                
+                                <div class="project-desc-add">
+                                    This is a minimalistic game, made in 3 days as an introduction to NodeJS.
+                                </div>
+                                <div class="project-btns">
+                                    <a href="http://ixo-multiplayer-io.onrender.com/" class="visit-project">
+                                        <button class="visit-btn">
+                                            Visit Project ( 50s Delay )
+                                        </button>
+                                    </a>
+                                    <a href="https://github.com/othman4dev/ixo-multiplayer.io" class="visit-project">
+                                        <button class="visit-btn">
+                                            Visit Repository
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card-bottom">
+                            <div class="project-desc">
+                                Ixo-Multiplayer is an online multiplayer game where two players compete to place 'X' and 'O' symbols on a 20x20 grid. The goal is to be the first to align 5 identical symbols horizontally, vertically, or diagonally while blocking your opponent's moves.
+                            </div>
+                            <div class="card-technos">
+                                <div class="tech-">
+                                    <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js Badge" />
+                                </div>
+                                <div class="tech-">
+                                    <img src="https://img.shields.io/badge/Socket.io-black?style=for-the-badge&logo=socket.io&badgeColor=010101" alt="Socket.io">
+                                </div>
+                                <div class="tech-">
+                                  <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript">
+                                </div>
+                                <div class="tech-">
+                                  <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+                                </div>
+                                <div class="tech-">
+                                  <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+                                </div>
+                                <div class="tech-">
+                                    <img src="https://img.shields.io/badge/Render-232F3E?style=for-the-badge&logo=render&logoColor=white" alt="MongoDB Badge" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blob"></div>
+                    <div class="fakeblob"></div>
+                </div>
+                <div class="project-card card">
+                    <div class="inner">
+                        <div class="project-card-header">
+                            <div class="project-img" style="background-image: url('./assets/allomedia.png');"></div>
+                            <div class="project-texts">
+                                <div class="project-header">
+                                    <h1 class="project-title">Auth API - AlloMedia</h1>
+                                    <p class="project-date">September 2024</p>
+                                </div>
+                                
+                                <div class="project-desc-add">
+                                    This is the first part of a longer project, made for a delivery system company called AlloMedia.
+                                </div>
+                                <div class="project-btns">
+                                    <a href="https://github.com/othman4dev/alloMedia" class="visit-project">
+                                        <button class="visit-btn">
+                                            Visit Repository
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card-bottom">
+                            <div class="project-desc">
+                                A RESTful API built with Node.js and Express.js that handles user authentication and authorization. It uses JWT tokens to authenticate users and protect routes. The API is connected to a MongoDB database to store user data securely.
+                            </div>
+                            <div class="card-technos">
+
+                                <div class="tech-">
+                                    <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js Badge" />
+                                </div>
+
+                                <div class="tech-">
+                                    <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express.js Badge" />
+                                </div>
+
+                                <div class="tech-">
+                                    <img src="https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens" alt="JWT">
+                                </div>
+
+                                <div class="tech-">
+                                    <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blob"></div>
+                    <div class="fakeblob"></div>
                 </div>
             </div>
-            <div class="technos">
-                <p class="technos-title">Technologies</p>
-                <div class="technos-inner">
-                    <div class="techno">
-                        <img class="techno-img" src="assets/js.png" alt="">
-                    </div>
-                    <div class="techno">
-                        <img class="techno-img" src="assets/vue-icon.png" alt="">
-                    </div>
-                    <div class="techno">
-                        <img class="techno-img" src="assets/react.png" alt="">
-                    </div>
-                    <div class="techno">
-                        <img class="techno-img" src="assets/node-js.png" alt="">
-                    </div>
-                    <div class="techno">
-                        <img class="techno-img" src="assets/express-js.png" alt="">
-                    </div>
-                    <div class="techno">
-                        <img class="techno-img" src="assets/js.png" alt="">
-                    </div>
-                    <div class="techno">
-                        <img class="techno-img" src="assets/vue-icon.png" alt="">
-                    </div>
-                    <div class="techno">
-                        <img class="techno-img" src="assets/react.png" alt="">
-                    </div>
-                    <div class="techno">
-                        <img class="techno-img" src="assets/node-js.png" alt="">
-                    </div>
-                    <div class="techno">
-                        <img class="techno-img" src="assets/express-js.png" alt="">
-                    </div>
-                    <div class="techno">
-                        <img class="techno-img" src="assets/js.png" alt="">
-                    </div>
-                    <div class="techno">
-                        <img class="techno-img" src="assets/vue-icon.png" alt="">
-                    </div>
-                    <div class="techno">
-                        <img class="techno-img" src="assets/react.png" alt="">
-                    </div>
-                    <div class="techno">
-                        <img class="techno-img" src="assets/node-js.png" alt="">
-                    </div>
-                    <div class="techno">
-                        <img class="techno-img" src="assets/express-js.png" alt="">
-                    </div>
-                </div>
-                <div class="grower">
-                    <div class="more-technos">
-                        <i class="bi bi-chevron-left"></i>
-                        <p class="more-technos-text">+5</p>
-                    </div>
-                </div>
-            </div>
-        
         </div>
         <div class="hero-section section" id="section4">
             <div class="hero-profile">
