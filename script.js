@@ -128,10 +128,10 @@ document.addEventListener("keydown", (e) => {
 
 // on window load , go to view section 1 mandatory
 
-// window.onload = () => {
-//   const section = document.getElementById(`section1`);
-//   section.scrollIntoView({ behavior: "smooth", block: "start" });
-// };
+window.onload = () => {
+  const section = document.getElementById(`section1`);
+  section.scrollIntoView({ behavior: "smooth", block: "start" });
+};
 
 function searchTechs(input) {
   var filter, techs, i, imgElement, txtValue;
