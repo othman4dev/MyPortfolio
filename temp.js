@@ -4,7 +4,7 @@ function scrollDownIntoView(btn, element) {
   const section = document.getElementById(`section${element}`);
   section.scrollIntoView({ behavior: "smooth", block: "start" });
   index++;
-  if (index === 6) {
+  if (index === 4) {
     btn.style.display = "none";
   } else {
     btn.style.display = "block";
@@ -21,6 +21,7 @@ function scrollDownIntoView(btn, element) {
     document.getElementById("lens-effect").style.animationName = "none";
   }, 600);
   indexDown();
+  indexDown();
 }
 
 function scrollUpIntoView(btn, element) {
@@ -32,7 +33,7 @@ function scrollUpIntoView(btn, element) {
   } else {
     btn.style.display = "block";
   }
-  if (index < 6) {
+  if (index < 4) {
     document.getElementById("down").style.display = "block";
   }
   btn.onclick = () => scrollUpIntoView(btn, element - 1);
@@ -44,7 +45,6 @@ function scrollUpIntoView(btn, element) {
   setTimeout(() => {
     document.getElementById("lens-effect").style.animationName = "none";
   }, 600);
-  indexDown();
 }
 
 function indexDown() {
@@ -54,14 +54,7 @@ function indexDown() {
   document
     .querySelectorAll(".sidebar-index")
     [index - 1].classList.add("current-sidebar-index");
-  const indexes = [
-    "PROFILE",
-    "ABOUT",
-    "PROJECTS",
-    "SERVICES",
-    "STATS",
-    "CONTACT",
-  ];
+  const indexes = ["PROFILE", "ABOUT", "PROJECTS", "PRICING", "CONTACT"];
   document.getElementById("index").innerHTML = indexes[index - 1];
   if (index > 1) {
     if (document.getElementById("lineFull")) {
@@ -74,15 +67,6 @@ function indexDown() {
     }
     document.querySelector("#prev-index").innerText = indexes[index - 2];
     document.querySelector("#next-index").innerText = indexes[index];
-
-    document.querySelectorAll(".index-text").forEach((el) => {
-      el.style.animationName = "index-text-animation";
-    });
-    setTimeout(() => {
-      document.querySelectorAll(".index-text").forEach((el) => {
-        el.style.animationName = "none";
-      });
-    }, 301);
   } else {
     if (document.getElementById("lineHalf")) {
       document.getElementById("lineHalf").outerHTML = `
@@ -128,29 +112,21 @@ document.addEventListener("keydown", (e) => {
 
 // on window load , go to view section 1 mandatory
 
-// window.onload = () => {
-//   const section = document.getElementById(`section1`);
-//   section.scrollIntoView({ behavior: "smooth", block: "start" });
-// };
+window.onload = () => {
+  const section = document.getElementById(`section1`);
+  section.scrollIntoView({ behavior: "smooth", block: "start" });
+};
 
 function searchTechs(input) {
-  var filter, techs, i, imgElement, txtValue;
+  var filter, techs, i, txtValue;
   filter = input.value.toUpperCase();
-  techs = document.getElementById("searchResult").children; // Assuming the container has children
-
+  techs = document.getElementById("searchResult").children;
   for (i = 0; i < techs.length; i++) {
-    // Assuming each 'tech' container has an 'img' element
-    imgElement = techs[i].querySelector("img"); // Find the image element inside the container
-
-    if (imgElement) {
-      // Check if img exists
-      txtValue = imgElement.getAttribute("alt"); // Get the alt text
-
-      if (txtValue && txtValue.toUpperCase().indexOf(filter) > -1) {
-        techs[i].style.display = ""; // Show the container
-      } else {
-        techs[i].style.display = "none"; // Hide the container
-      }
+    txtValue = techs[i].outerHTML || techs[i].alt;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      techs[i].style.display = "";
+    } else {
+      techs[i].style.display = "none";
     }
   }
 }

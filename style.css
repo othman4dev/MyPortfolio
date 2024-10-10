@@ -682,3 +682,277 @@ body {
 .education .inner {
   background-color: #314466;
 }
+
+.ag-format-container {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 60px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ag-courses_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+
+  padding: 50px 20px;
+}
+.ag-courses_item {
+  -ms-flex-preferred-size: calc(33.33333% - 30px);
+  flex-basis: calc(33.33333% - 30px);
+
+  margin: 0 15px 30px;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  height: 160px;
+  width: 240px;
+}
+.ag-courses-item_link {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px 20px;
+  background-color: #374a6c;
+
+  overflow: hidden;
+
+  position: relative;
+  height: 100%;
+}
+.ag-courses-item_link:hover,
+.ag-courses-item_link:hover .ag-courses-item_date {
+  text-decoration: none;
+  color: #fff;
+}
+.ag-courses-item_link:hover .ag-courses-item_bg {
+  -webkit-transform: scale(10);
+  -ms-transform: scale(10);
+  transform: scale(10);
+}
+.ag-courses-item_title {
+  overflow: hidden;
+
+  font-weight: bold;
+  font-size: 20px;
+  color: #fff;
+
+  z-index: 2;
+  position: relative;
+}
+.ag-courses-item_date-box {
+  font-size: 15px;
+  color: #fff;
+
+  z-index: 2;
+  position: relative;
+}
+.ag-courses-item_date {
+  font-weight: bold;
+  color: #f9b234;
+
+  -webkit-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+  transition: color 0.5s ease;
+}
+.ag-courses-item_bg {
+  height: 120px;
+  width: 120px;
+  background-color: #f9b234;
+
+  z-index: 1;
+  position: absolute;
+  top: -75px;
+  right: -75px;
+
+  border-radius: 50%;
+
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.ag-courses_item:nth-child(2n) .ag-courses-item_bg {
+  background-color: #3ecd5e;
+}
+.ag-courses_item:nth-child(3n) .ag-courses-item_bg {
+  background-color: #e44002;
+}
+.ag-courses_item:nth-child(4n) .ag-courses-item_bg {
+  background-color: #952aff;
+}
+.ag-courses_item:nth-child(5n) .ag-courses-item_bg {
+  background-color: #cd3e94;
+}
+.ag-courses_item:nth-child(6n) .ag-courses-item_bg {
+  background-color: #4c49ea;
+}
+
+.ag-courses_item:nth-child(7n) .ag-courses-item_bg {
+  background-color: #000;
+}
+
+.ag-courses_item:nth-child(8n) .ag-courses-item_bg {
+  background-color: #4e4e4e;
+}
+
+.ag-courses_item:nth-child(9n) .ag-courses-item_bg {
+  background-color: #3ec1cd;
+}
+
+@media only screen and (max-width: 979px) {
+  .ag-courses_item {
+    -ms-flex-preferred-size: calc(50% - 30px);
+    flex-basis: calc(50% - 30px);
+  }
+  .ag-courses-item_title {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .ag-format-container {
+    width: 96%;
+  }
+}
+@media only screen and (max-width: 639px) {
+  .ag-courses_item {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+  }
+  .ag-courses-item_title {
+    min-height: 72px;
+    line-height: 1;
+
+    font-size: 24px;
+  }
+  .ag-courses-item_link {
+    padding: 22px 40px;
+  }
+  .ag-courses-item_date-box {
+    font-size: 16px;
+  }
+}
+.commit-graph {
+  background-color: #1f293b;
+  padding: 10px;
+  border-radius: 10px;
+  width: fit-content;
+}
+.small-title {
+  color: #f0f0f0;
+  font-size: 13px;
+  margin-top: 10px;
+  margin-bottom: 2px;
+  padding-left: 10px;
+}
+.github-stat {
+  width: 100%;
+}
+.github-stats {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.flex {
+  display: flex;
+}
+.titles {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 284px;
+}
+.stats-container {
+  width: 100%;
+  gap: 10px;
+  max-height: 130px;
+}
+.github-acc {
+  background-color: #1f293b;
+  border-radius: 10px;
+  padding: 5px;
+  flex-grow: 1;
+}
+.personal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-direction: column;
+  padding: 10px;
+}
+.perso-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.perso-username {
+  font-size: 12px;
+  color: #f0f0f0;
+}
+.github-info {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 7px;
+  width: 100%;
+}
+.github-title {
+  font-size: 15px;
+}
+.github-count {
+  font-size: 13px;
+  color: #999;
+}
+.github-sub {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #f0f0f0;
+  width: 100%;
+}
+.github-link {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+.repos img {
+  width: fit-content;
+  min-width: 350px;
+  height: 150px;
+  border: solid #2c3d5b 1px;
+  border-radius: 15px;
+  margin: 10px;
+  margin-inline: 5px;
+}
+.repos {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  scrollbar-width: none;
+  overflow-x: scroll;
+  padding: 0;
+  padding-inline: 8px;
+}
+#section4 {
+  transform: scale(0.9);
+}
+.contacts {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+.contact {
+}
