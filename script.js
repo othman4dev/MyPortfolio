@@ -48,6 +48,8 @@ function scrollUpIntoView(btn, element) {
 }
 
 function indexDown() {
+  console.log(index);
+
   document
     .querySelector(".current-sidebar-index")
     .classList.remove("current-sidebar-index");
@@ -63,7 +65,15 @@ function indexDown() {
     "CONTACT",
   ];
   document.getElementById("index").innerHTML = indexes[index - 1];
-  if (index > 1) {
+  if (index > 1 && index < 6) {
+    if (document.getElementById("lineFull2")) {
+      document.getElementById("lineFull2").outerHTML = `
+                <div class="line-half" id="lineHalf2">
+                    <div class="next-index"></div>
+                    <p class="next-index-text index-text" id="next-index">HOME</p>
+                </div>
+            `;
+    }
     if (document.getElementById("lineFull")) {
       document.getElementById("lineFull").outerHTML = `
                 <div class="line-half-prev" id="lineHalf">
@@ -83,6 +93,22 @@ function indexDown() {
         el.style.animationName = "none";
       });
     }, 301);
+  } else if (index > 5) {
+    if (document.getElementById("lineHalf")) {
+      document.getElementById("lineHalf2").outerHTML = `
+                <div class="line-full" id="lineFull2"></div>
+            `;
+    }
+    document.querySelector("#prev-index").innerText = indexes[index - 2];
+    document.querySelector("#next-index").innerText = "CONTACT";
+    document.querySelectorAll(".index-text").forEach((el) => {
+      el.style.animationName = "index-text-animation";
+    });
+    setTimeout(() => {
+      document.querySelectorAll(".index-text").forEach((el) => {
+        el.style.animationName = "none";
+      });
+    }, 301);
   } else {
     if (document.getElementById("lineHalf")) {
       document.getElementById("lineHalf").outerHTML = `
@@ -91,9 +117,10 @@ function indexDown() {
     }
     if (index == 1) {
       document.querySelector("#next-index").innerText = "ABOUT";
+    } else {
+      document.querySelector("#prev-index").innerText = indexes[index - 2];
+      document.querySelector("#next-index").innerText = indexes[index];
     }
-    document.querySelector("#prev-index").innerText = indexes[index - 2];
-    document.querySelector("#next-index").innerText = indexes[index];
   }
 
   document.querySelectorAll(".index-text").forEach((el) => {
@@ -109,7 +136,7 @@ function indexDown() {
 // call the function scrollDownIntoView() when whell event is triggered
 
 document.addEventListener("wheel", (e) => {
-  if (e.deltaY > 0 && index < 4) {
+  if (e.deltaY > 0 && index < 6) {
     document.getElementById("down").click();
   } else if (e.deltaY < 0 && index > 1) {
     document.getElementById("up").click();
@@ -119,7 +146,7 @@ document.addEventListener("wheel", (e) => {
 // call the function scrollDownIntoView() when keydown event is triggered
 
 document.addEventListener("keydown", (e) => {
-  if (e.key === "ArrowDown" && index < 4) {
+  if (e.key === "ArrowDown" && index < 6) {
     document.getElementById("down").click();
   } else if (e.key === "ArrowUp" && index > 1) {
     document.getElementById("up").click();
@@ -128,10 +155,10 @@ document.addEventListener("keydown", (e) => {
 
 // on window load , go to view section 1 mandatory
 
-window.onload = () => {
-  const section = document.getElementById(`section1`);
-  section.scrollIntoView({ behavior: "smooth", block: "start" });
-};
+// window.onload = () => {
+//   const section = document.getElementById(`section1`);
+//   section.scrollIntoView({ behavior: "smooth", block: "start" });
+// };
 
 function searchTechs(input) {
   var filter, techs, i, imgElement, txtValue;
@@ -179,3 +206,30 @@ window.addEventListener("mousemove", (ev) => {
     );
   });
 });
+
+function copyToClipboard(text, btn) {
+  navigator.clipboard.writeText(text).then(
+    function () {
+      btn.innerHTML = "Copied <i class='bi bi-clipboard-check'></i>";
+      setTimeout(() => {
+        btn.innerHTML = "Copy Email <i class='bi bi-clipboard'></i>";
+      }, 1000);
+    },
+    function (err) {
+      console.error("Async: Could not copy text: ", err);
+    }
+  );
+}
+
+function toSection(index2) {
+  let clickCount = index2 - index;
+  if (clickCount > 0) {
+    for (let i = 0; i < clickCount; i++) {
+      document.getElementById("down").click();
+    }
+  } else {
+    for (let i = 0; i < Math.abs(clickCount); i++) {
+      document.getElementById("up").click();
+    }
+  }
+}

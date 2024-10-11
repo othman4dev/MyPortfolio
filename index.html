@@ -38,10 +38,12 @@
       <h3 class="quote-text">"We love what we do, so we do it best".</h3>
     </div>
     <div class="pages">
-      <a href="" class="page">ABOUT</a>
-      <a href="" class="page">PROJECTS</a>
-      <a href="" class="page">PRICING</a>
-      <a href="" class="page">CONTACT</a>
+      <a onclick="toSection(1)" class="page">PROFILE</a>
+      <a onclick="toSection(2)" class="page">ABOUT</a>
+      <a onclick="toSection(3)" class="page">PROJECTS</a>
+      <a onclick="toSection(4)" class="page">SERVICES</a>
+      <a onclick="toSection(5)" class="page">STATS</a>
+      <a onclick="toSection(6)" class="page">CONTACT</a>
     </div>
   </header>
   <body>
@@ -49,22 +51,37 @@
     <div class="fixed">
       <div class="side-bar">
         <div class="sidebar-links">
-          <img src="assets/github.png" class="link-img" alt="" />
-          <img src="assets/github.png" class="link-img" alt="" />
-          <img src="assets/github.png" class="link-img" alt="" />
+          <a href="https://github.com/othman4dev">
+            <div class="sidebar-link">
+              <i class="bi bi-github"></i>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/otman-kharbouch-ba44552a1/">
+            <div class="sidebar-link">
+              <i class="bi bi-linkedin"></i>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/othman.is.me/">
+            <div class="sidebar-link">
+              <i class="bi bi-instagram"></i>
+            </div>
+          </a>
         </div>
         <div class="sidebar-indexes">
-          <a href="" class="sidebar-index current-sidebar-index">PROFILE</a>
-          <a href="" class="sidebar-index">ABOUT</a>
-          <a href="" class="sidebar-index">PROJECTS</a>
-          <a href="" class="sidebar-index">SERVICES</a>
-          <a href="" class="sidebar-index">CONTACT</a>
+          <a onclick="toSection(1)" class="sidebar-index current-sidebar-index"
+            >PROFILE</a
+          >
+          <a onclick="toSection(2)" class="sidebar-index">ABOUT</a>
+          <a onclick="toSection(3)" class="sidebar-index">PROJECTS</a>
+          <a onclick="toSection(4)" class="sidebar-index">SERVICES</a>
+          <a onclick="toSection(5)" class="sidebar-index">STATS</a>
+          <a onclick="toSection(6)" class="sidebar-index">CONTACT</a>
         </div>
       </div>
       <div class="indexer">
         <div class="line-full" id="lineFull"></div>
         <p id="index" class="current-index index-text">PROFILE</p>
-        <div class="line-half">
+        <div class="line-half" id="lineHalf2">
           <div class="next-index"></div>
           <p class="next-index-text index-text" id="next-index">ABOUT</p>
         </div>
@@ -85,7 +102,7 @@
             </p>
           </div>
           <div class="hero-img">
-            <img src="assets/othman.png" class="othman-img" alt="" />
+            <img src="assets/othman.webp" class="othman-img" alt="" />
           </div>
         </div>
         <div class="technos">
@@ -95,46 +112,46 @@
               <img class="techno-img" src="assets/js.png" alt="" />
             </div>
             <div class="techno">
-              <img class="techno-img" src="assets/vue-icon.png" alt="" />
+              <img class="techno-img" src="assets/vue-icon.webp" alt="" />
             </div>
             <div class="techno">
-              <img class="techno-img" src="assets/react.png" alt="" />
+              <img class="techno-img" src="assets/react.webp" alt="" />
             </div>
             <div class="techno">
-              <img class="techno-img" src="assets/node-js.png" alt="" />
+              <img class="techno-img" src="assets/node-js.webp" alt="" />
             </div>
             <div class="techno">
-              <img class="techno-img" src="assets/express-js.png" alt="" />
-            </div>
-            <div class="techno">
-              <img class="techno-img" src="assets/js.png" alt="" />
-            </div>
-            <div class="techno">
-              <img class="techno-img" src="assets/vue-icon.png" alt="" />
-            </div>
-            <div class="techno">
-              <img class="techno-img" src="assets/react.png" alt="" />
-            </div>
-            <div class="techno">
-              <img class="techno-img" src="assets/node-js.png" alt="" />
-            </div>
-            <div class="techno">
-              <img class="techno-img" src="assets/express-js.png" alt="" />
+              <img class="techno-img" src="assets/express-js.webp" alt="" />
             </div>
             <div class="techno">
               <img class="techno-img" src="assets/js.png" alt="" />
             </div>
             <div class="techno">
-              <img class="techno-img" src="assets/vue-icon.png" alt="" />
+              <img class="techno-img" src="assets/vue-icon.webp" alt="" />
             </div>
             <div class="techno">
-              <img class="techno-img" src="assets/react.png" alt="" />
+              <img class="techno-img" src="assets/react.webp" alt="" />
             </div>
             <div class="techno">
-              <img class="techno-img" src="assets/node-js.png" alt="" />
+              <img class="techno-img" src="assets/node-js.webp" alt="" />
             </div>
             <div class="techno">
-              <img class="techno-img" src="assets/express-js.png" alt="" />
+              <img class="techno-img" src="assets/express-js.webp" alt="" />
+            </div>
+            <div class="techno">
+              <img class="techno-img" src="assets/js.png" alt="" />
+            </div>
+            <div class="techno">
+              <img class="techno-img" src="assets/vue-icon.webp" alt="" />
+            </div>
+            <div class="techno">
+              <img class="techno-img" src="assets/react.webp" alt="" />
+            </div>
+            <div class="techno">
+              <img class="techno-img" src="assets/node-js.webp" alt="" />
+            </div>
+            <div class="techno">
+              <img class="techno-img" src="assets/express-js.webp" alt="" />
             </div>
           </div>
           <div class="grower">
@@ -150,22 +167,29 @@
           <div class="card-header">
             <div class="profile-img card">
               <div class="inner">
-                <div class="card-profile"></div>
+                <div
+                  class="card-profile"
+                  style="
+                    background-image: url('https://avatars.githubusercontent.com/Othman4dev');
+                  "
+                ></div>
               </div>
               <div class="blob"></div>
               <div class="fakeblob"></div>
             </div>
             <div class="card-desc card">
               <div class="inner">
-                <div class="card-title">About :</div>
-                Otman Kharbouch, a versatile full-stack web developer,
-                proficient in building robust web applications using both the
-                MERN stack and the PHP Laravel & Vue.js stack. Passionate about
-                embracing new technologies and continuously expanding my
-                skillset, I am always eager to learn and grow. I am a team
-                player with excellent communication skills and a strong work
-                ethic. I am looking for new opportunities to work on exciting
-                projects and collaborate with other developers.
+                <div class="card-title">About Me :</div>
+                <p class="about-desc">
+                  Otman Kharbouch, a versatile full-stack web developer,
+                  proficient in building robust web applications using both the
+                  MERN stack and the PHP Laravel & Vue.js stack. Passionate
+                  about embracing new technologies and continuously expanding my
+                  skillset, I am always eager to learn and grow. I am a team
+                  player with excellent communication skills and a strong work
+                  ethic. I am looking for new opportunities to work on exciting
+                  projects and collaborate with other developers.
+                </p>
               </div>
               <div class="blob"></div>
               <div class="fakeblob"></div>
@@ -178,7 +202,7 @@
                 <div class="education-desc">
                   <div class="education-item">
                     <div class="education-item-title">
-                      Full-Stack Web Development Certificate :
+                      Full-Stack Web Development Certificate : 2023-2025
                     </div>
                     <div class="education-item-desc">
                       <img src="/assets/youcde.svg" alt="" class="school-img" />
@@ -186,37 +210,48 @@
                     </div>
                   </div>
                   <div class="education-desc">
-                    YouCode is an inclusive school that offers opportunities to
-                    everyone, placing the individual at the center of its
-                    teaching while promoting teamwork. "You" represents the
-                    individual, and "Code" stands for development, from web to
-                    algorithms. Located in Youssoufia and Safi, it provides an
-                    ideal learning environment for coding, away from the hustle
-                    of big cities.
+                    YouCode is an inclusive school focused on
+                    individual-centered learning and teamwork. "You" represents
+                    the person, and "Code" stands for development. Located in
+                    Youssoufia and Safi, it offers a perfect coding environment
+                    away from big city distractions.
                   </div>
                   <div class="education-item">
                     <div class="education-item-title">
-                      Auto-formation in Web Development :
+                      Auto-formation in Web Development : 2022
                     </div>
                     <div class="education-item-desc">
                       <img
-                        src="/assets/freecodecamp.jpg"
+                        src="/assets/codecademy.webp"
                         alt=""
                         class="school-img"
                       />
+                      &nbsp;
                       <img
-                        src="/assets/codecademy.png"
+                        src="/assets/freecodecamp.webp"
                         alt=""
                         class="school-img"
                       />
                     </div>
                   </div>
                   <div class="education-desc">
-                    I have completed several online courses in web development,
-                    including FreeCodeCamp's Responsive Web Design Certification
-                    and Codecademy's Full-Stack Engineer Career Path. These
-                    courses have helped me develop my skills in HTML, CSS,
-                    JavaScript, React, Node.js, and Express.js.
+                    I completed several online courses in web development,
+                    including FreeCodeCamp’s Responsive Web Design and
+                    Codecademy's JavaScript and MongoDB courses, strengthening
+                    my skills in HTML, CSS, JavaScript, and MongoDB.
+                  </div>
+                  <div class="education-item">
+                    <div class="education-item-title">
+                      Scientific Baccalaureate - Physics and Chemistry :
+                      2021-2022
+                    </div>
+                    <div class="education-item-desc">
+                      <img
+                        src="/assets/morocco.jpg"
+                        alt=""
+                        class="school-img"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -228,6 +263,7 @@
                 <div class="techno-title">Technologies :</div>
                 <div class="tech-search-form">
                   <input
+                    autocomplete="off"
                     type="text"
                     name="search"
                     oninput="searchTechs(this)"
@@ -635,7 +671,7 @@
               <div class="project-card-header">
                 <div
                   class="project-img"
-                  style="background-image: url('./assets/quicktable.png')"
+                  style="background-image: url('./assets/quicktable.webp')"
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
@@ -644,31 +680,35 @@
                   </div>
 
                   <div class="project-desc-add">
-                    This project was made in 1 month, nearly 100 hours of work,
-                    as a final project for the YouCode school's 1 year.
+                    This project was completed in 1 month and served as the
+                    final assignment for YouCode's first year
                   </div>
                   <div class="project-btns">
                     <a
                       href="https://quicktable.coders-strike.tech/"
                       class="visit-project"
                     >
-                      <button class="visit-btn">Visit Project</button>
+                      <button class="visit-btn">
+                        Visit Project <i class="bi bi-box-arrow-up-right"></i>
+                      </button>
                     </a>
                     <a
                       href="https://github.com/othman4dev/QuickTable"
                       class="visit-project"
                     >
-                      <button class="visit-btn">Visit Repository</button>
+                      <button class="visit-btn">
+                        Visit Repository
+                        <i class="bi bi-box-arrow-up-right"></i>
+                      </button>
                     </a>
                   </div>
                 </div>
               </div>
               <div class="project-card-bottom">
                 <div class="project-desc">
-                  This solution enables users to seamlessly book tables at cafes
-                  and restaurants by items directly from their menu. Afterward,
-                  the table is reserved, allowing businesses to efficiently
-                  manage reservations and maximize table occupancy.
+                  This solution allows users to easily book tables at cafes and
+                  restaurants directly from the menu, helping businesses
+                  efficiently manage reservations and optimize table occupancy.
                 </div>
                 <div class="card-technos">
                   <div class="tech-">
@@ -701,15 +741,8 @@
 
                   <div class="tech-">
                     <img
-                      src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white"
-                      alt="CSS"
-                    />
-                  </div>
-
-                  <div class="tech-">
-                    <img
-                      src="https://img.shields.io/badge/hostinger-%23404d59.svg?style=for-the-badge&logo=hostinger&logoColor=white"
-                      alt="Hostinger"
+                      src="https://img.shields.io/badge/aws-%23404d59.svg?style=for-the-badge&logo=aws&logoColor=white"
+                      alt="AWS"
                     />
                   </div>
                 </div>
@@ -723,7 +756,7 @@
               <div class="project-card-header">
                 <div
                   class="project-img"
-                  style="background-image: url('./assets/hint.png')"
+                  style="background-image: url('./assets/hint.webp')"
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
@@ -732,28 +765,31 @@
                   </div>
 
                   <div class="project-desc-add">
-                    This project, built in about 70 hours by a team of 4
-                    developers.
+                    This project was built in 1 week by a team of 4 developers.
                   </div>
                   <div class="project-btns">
                     <a title="Will be available soon" class="visit-project">
-                      <button class="visit-btn">Visit Project</button>
+                      <button class="visit-btn">
+                        Visit Project <i class="bi bi-box-arrow-up-right"></i>
+                      </button>
                     </a>
                     <a
                       href="https://github.com/othman4dev/Hint"
                       class="visit-project"
                     >
-                      <button class="visit-btn">Visit Repository</button>
+                      <button class="visit-btn">
+                        Visit Repository
+                        <i class="bi bi-box-arrow-up-right"></i>
+                      </button>
                     </a>
                   </div>
                 </div>
               </div>
               <div class="project-card-bottom">
                 <div class="project-desc">
-                  Hint is a blog platform created for Youcode students, enabling
-                  them to easily share articles, engage in discussions on their
-                  favorite topics, and react to one another’s posts. Designed
-                  with a user-friendly interface.
+                  Hint is a blog platform for Youcode students to share
+                  articles, discuss topics, and interact with each other—all
+                  through a user-friendly interface.
                 </div>
                 <div class="card-technos">
                   <div class="tech-">
@@ -780,16 +816,11 @@
                       alt="MongoDB Badge"
                     />
                   </div>
+
                   <div class="tech-">
                     <img
-                      src="https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white"
-                      alt="AWS Badge"
-                    />
-                  </div>
-                  <div class="tech-">
-                    <img
-                      src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white"
-                      alt="Tailwind CSS Badge"
+                      src="https://img.shields.io/badge/aws-%23404d59.svg?style=for-the-badge&logo=aws&logoColor=white"
+                      alt="AWS"
                     />
                   </div>
                 </div>
@@ -822,30 +853,33 @@
                     >
                       <button class="visit-btn">
                         Visit Project ( 50s Delay )
+                        <i class="bi bi-box-arrow-up-right"></i>
                       </button>
                     </a>
                     <a
                       href="https://github.com/othman4dev/ixo-multiplayer.io"
                       class="visit-project"
                     >
-                      <button class="visit-btn">Visit Repository</button>
+                      <button class="visit-btn">
+                        Visit Repository
+                        <i class="bi bi-box-arrow-up-right"></i>
+                      </button>
                     </a>
                   </div>
                 </div>
               </div>
               <div class="project-card-bottom">
                 <div class="project-desc">
-                  Ixo-Multiplayer is an online multiplayer game where two
-                  players compete to place 'X' and 'O' symbols on a 20x20 grid.
-                  The goal is to be the first to align 5 identical symbols
-                  horizontally, vertically, or diagonally while blocking your
-                  opponent's moves.
+                  Ixo-Multiplayer is an online game where two players compete on
+                  a 20x20 grid, aiming to align 5 'X' or 'O' symbols
+                  horizontally, vertically, or diagonally while blocking their
+                  opponent.
                 </div>
                 <div class="card-technos">
                   <div class="tech-">
                     <img
                       src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white"
-                      alt="Node.js Badge"
+                      alt="Node.js"
                     />
                   </div>
                   <div class="tech-">
@@ -862,20 +896,8 @@
                   </div>
                   <div class="tech-">
                     <img
-                      src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white"
-                      alt="CSS3"
-                    />
-                  </div>
-                  <div class="tech-">
-                    <img
-                      src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white"
-                      alt="HTML5"
-                    />
-                  </div>
-                  <div class="tech-">
-                    <img
                       src="https://img.shields.io/badge/Render-232F3E?style=for-the-badge&logo=render&logoColor=white"
-                      alt="MongoDB Badge"
+                      alt="Render"
                     />
                   </div>
                 </div>
@@ -889,7 +911,7 @@
               <div class="project-card-header">
                 <div
                   class="project-img"
-                  style="background-image: url('./assets/allomedia.png')"
+                  style="background-image: url('./assets/allomedia.webp')"
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
@@ -898,25 +920,28 @@
                   </div>
 
                   <div class="project-desc-add">
-                    This is the first part of a longer project, made for a
-                    delivery system company called AlloMedia.
+                    This is the initial phase of a larger project developed for
+                    a delivery service company called AlloMedia.
                   </div>
                   <div class="project-btns">
                     <a
                       href="https://github.com/othman4dev/alloMedia"
                       class="visit-project"
                     >
-                      <button class="visit-btn">Visit Repository</button>
+                      <button class="visit-btn">
+                        Visit Repository
+                        <i class="bi bi-box-arrow-up-right"></i>
+                      </button>
                     </a>
                   </div>
                 </div>
               </div>
               <div class="project-card-bottom">
                 <div class="project-desc">
-                  A RESTful API built with Node.js and Express.js that handles
-                  user authentication and authorization. It uses JWT tokens to
-                  authenticate users and protect routes. The API is connected to
-                  a MongoDB database to store user data securely.
+                  A RESTful API built with Node.js and Express.js for user
+                  authentication and authorization, using JWT tokens to secure
+                  routes. It connects to a MongoDB database to securely store
+                  user data.
                 </div>
                 <div class="card-technos">
                   <div class="tech-">
@@ -952,6 +977,11 @@
             <div class="blob"></div>
             <div class="fakeblob"></div>
           </div>
+          <a class="more-projects-link" href="projects.html">
+            <button class="more-projects">
+              See more<i class="bi bi-arrow-right"></i>
+            </button>
+          </a>
         </div>
       </div>
       <div class="hero-section section" id="section4">
@@ -1096,11 +1126,14 @@
         </div>
       </div>
       <div class="hero-section section" id="section5">
-        <div class="main-card card">
+        <div
+          class="main-card card"
+          style="box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.2)"
+        >
           <div class="inner">
             <div class="github-stats">
               <div class="github-stat">
-                <div class="card-title">GitHub Stats:</div>
+                <div class="card-title stats-title">GitHub Stats:</div>
                 <div class="titles">
                   <p class="small-title">Account Overview</p>
                   <p class="small-title">Commit Graph</p>
@@ -1120,18 +1153,18 @@
                     <div class="github-info">
                       <div class="github-sub">
                         <div class="github-title">Total commits:</div>
-                        <p class="github-count">2000</p>
+                        <p class="github-count">2900+</p>
                       </div>
 
                       <div class="github-sub">
                         <div class="github-title">Repositories count:</div>
-                        <p class="github-count">60</p>
+                        <p class="github-count">61</p>
                       </div>
 
                       <div class="github-sub">
-                        <div class="github-title">Followers:</div>
+                        <div class="github-title">Stars:</div>
 
-                        <p class="github-count">11</p>
+                        <p class="github-count">30</p>
                       </div>
                       <div class="github-sub">
                         <a
@@ -1176,15 +1209,140 @@
         </div>
       </div>
       <div class="hero-section section" id="section6">
+        <div class="contact-me">
+          <div class="contact-">
+            <h1 class="contact-big">Feel free to contact me</h1>
+            <p class="contact-small">I respond immediately</p>
+          </div>
+        </div>
         <div class="contacts">
-          <div class="contact">
-            <div class="contact-icon">
-              <i class="bi bi-geo-alt"></i>
+          <div class="contact card">
+            <div class="inner">
+              <div class="contact-icon">
+                <i class="bi bi-linkedin"></i>
+              </div>
+              <div class="carret-down">
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="contact-text">
+                <p class="contact-title">LinkedIn:</p>
+                <p class="contact-info">
+                  <a href="https://www.linkedin.com/in/othman-kharbouch/">
+                    Otman Kharbouch
+                  </a>
+                </p>
+                <a
+                  href="https://www.linkedin.com/in/otman-kharbouch-ba44552a1/"
+                  target="_blank"
+                >
+                  <button class="contact-btn">
+                    Visit Account<i class="bi bi-chat-fill"></i>
+                  </button>
+                </a>
+              </div>
             </div>
-            <div class="contact-text">
-              <p class="contact-title">Location:</p>
-              <p class="contact-info">Casablanca, Morocco</p>
+            <div class="blob"></div>
+            <div class="fakeblob"></div>
+          </div>
+          <div class="contact card">
+            <div class="inner">
+              <div class="contact-icon">
+                <i class="bi bi-envelope-paper"></i>
+              </div>
+              <div class="carret-down">
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="contact-text">
+                <p class="contact-title">Email:</p>
+                <p class="contact-info">
+                  <a href="mailto:otmankharbouch813@gmail.com">
+                    otmankharbouch813 @gmail.com
+                  </a>
+                </p>
+                <button
+                  class="contact-btn"
+                  onclick="copyToClipboard('otmankharbouch813@gmail.com',this)"
+                >
+                  Copy Email<i class="bi bi-clipboard"></i>
+                </button>
+              </div>
             </div>
+            <div class="blob"></div>
+            <div class="fakeblob"></div>
+          </div>
+          <div class="contact card">
+            <div class="inner">
+              <div class="contact-icon">
+                <i class="bi bi-whatsapp"></i>
+              </div>
+              <div class="carret-down">
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="contact-text">
+                <p class="contact-title">WhatsApp :</p>
+                <p class="contact-info">
+                  <a href="tel:+212 6 07 07 07 07">+212 6 58 93 48 55</a>
+                </p>
+                <a href="https://wa.me/212658934855" target="_blank">
+                  <button class="contact-btn">
+                    Start a chat<i class="bi bi-chat-fill"></i>
+                  </button>
+                </a>
+              </div>
+            </div>
+            <div class="blob"></div>
+            <div class="fakeblob"></div>
+          </div>
+          <div class="contact card">
+            <div class="inner">
+              <div class="contact-icon">
+                <i class="bi bi-github"></i>
+              </div>
+              <div class="carret-down">
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="contact-text">
+                <p class="contact-title">GitHub:</p>
+                <p class="contact-info">
+                  <a href="https://github.com/othman4dev">othman4dev</a>
+                </p>
+                <a href="https://github.com/othman4dev" target="_blank">
+                  <button class="contact-btn">
+                    Visit Profile<i class="bi bi-box-arrow-up-right"></i>
+                  </button>
+                </a>
+              </div>
+            </div>
+            <div class="blob"></div>
+            <div class="fakeblob"></div>
+          </div>
+          <div class="contact card">
+            <div class="inner">
+              <div class="contact-icon">
+                <i class="bi bi-instagram"></i>
+              </div>
+              <div class="carret-down">
+                <i class="bi bi-chevron-down"></i>
+              </div>
+              <div class="contact-text">
+                <p class="contact-title">Instagram:</p>
+                <p class="contact-info">
+                  <a href="https://www.instagram.com/othman.is.me/  "
+                    >@othman.is.me</a
+                  >
+                </p>
+                <a
+                  href="https://www.instagram.com/othman.is.me/"
+                  target="_blank"
+                >
+                  <button class="contact-btn">
+                    Visit Profile<i class="bi bi-box-arrow-up-right"></i>
+                  </button>
+                </a>
+              </div>
+            </div>
+            <div class="fakeblob"></div>
+            <div class="blob"></div>
           </div>
         </div>
       </div>

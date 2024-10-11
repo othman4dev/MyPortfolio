@@ -1,5 +1,6 @@
+@import url("https://fonts.cdnfonts.com/css/euclid-circular-a");
 * {
-  font-family: Montserrat;
+  font-family: "Euclid Circular A", "Montserrat";
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -44,6 +45,7 @@ body {
   font-size: 12px;
   color: #f0f0f0;
   text-decoration: none;
+  cursor: pointer;
 }
 .sidebar-index:hover {
   color: #fff;
@@ -153,6 +155,9 @@ body {
   display: flex;
   gap: 50px;
   padding-inline: 40px;
+}
+.page {
+  cursor: pointer;
 }
 .page:hover {
   color: #fff;
@@ -335,7 +340,7 @@ body {
 .main-card {
   background-color: #0000;
   backdrop-filter: 50px;
-  box-shadow: 0 0 16px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.2);
   width: 80%;
   height: 100%;
   min-width: 500px;
@@ -362,7 +367,6 @@ body {
   height: 150px;
 }
 .card-profile {
-  background-image: url("./assets/othman-profile.JPG");
   background-position: center;
   background-size: cover;
   border-radius: 50%;
@@ -386,7 +390,8 @@ body {
   color: #f0f0f0;
 }
 .education-title {
-  font-size: 23px;
+  font-size: 19px;
+  font-weight: 700;
 }
 .education-item {
   display: flex;
@@ -396,12 +401,16 @@ body {
   margin-top: 10px;
   margin-bottom: 5px;
 }
+.education .inner {
+  min-height: 290px;
+}
 .education-item-title {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
+  text-decoration: underline;
 }
 .school-img {
-  height: 22px;
+  height: 20px;
 }
 .education-desc {
   font-size: 14px;
@@ -420,6 +429,7 @@ body {
 }
 .techno-title {
   font-size: 23px;
+  font-weight: 700;
   color: #f0f0f0;
 }
 .tech-search-form {
@@ -477,22 +487,64 @@ body {
   backdrop-filter: blur(20px);
 }
 .card-title {
-  font-size: 20px;
+  font-size: 17px;
   color: #f0f0f0;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.stats-title {
+  font-size: 24px;
+  color: #f0f0f0;
+  font-weight: 700;
 }
 /* Every projects should contain 2 x 2 cards*/
 .project-cards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 600px));
   gap: 20px;
+  position: relative;
+}
+.more-projects {
+  background-color: #374a6c;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: none;
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+}
+.about-desc {
+  font-size: 14px;
+  text-indent: 10px;
+}
+.more-projects:hover {
+  background-color: #1f293b;
+  transition: 0.3s;
+}
+.more-projects-link {
+  text-decoration: none;
+  color: #fff;
 }
 .project-card {
   background-color: #314466;
   border-radius: 10px;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
-  min-height: 250px;
-  min-width: 500px;
+  min-height: 200px;
+  max-height: 270px;
+  min-width: 480px;
   padding: 15px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .project-card-header {
   display: flex;
@@ -500,6 +552,12 @@ body {
   justify-content: flex-start;
   height: 50%;
   gap: 10px;
+}
+.project-card-bottom {
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 .project-img {
   min-width: 200px;
@@ -586,7 +644,7 @@ body {
 .visit-btn {
   background-color: #1f293b;
   color: #f0f0f0;
-  padding: 8px;
+  padding: 5px 8px;
   border: none;
   border-radius: 0px;
   cursor: pointer;
@@ -594,6 +652,9 @@ body {
 .visit-btn:hover {
   background-color: #314466;
   transition: 0.3s;
+}
+.project-card .tech- img {
+  height: 28px;
 }
 .project-desc {
   color: #dedede;
@@ -708,6 +769,7 @@ body {
 .ag-courses_item {
   -ms-flex-preferred-size: calc(33.33333% - 30px);
   flex-basis: calc(33.33333% - 30px);
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.2);
 
   margin: 0 15px 30px;
 
@@ -944,15 +1006,144 @@ body {
   scrollbar-width: none;
   overflow-x: scroll;
   padding: 0;
-  padding-inline: 8px;
+  padding-inline: 4px;
+  border-radius: 20px;
 }
 #section4 {
   transform: scale(0.9);
 }
 .contacts {
   display: flex;
-  height: 100vh;
+  height: 300px;
   width: 100%;
+  align-items: start;
+  justify-content: space-evenly;
 }
 .contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background-color: #374a6c50;
+  color: #fff;
+  padding: 7px;
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+  height: 190px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.2);
+}
+.contact .inner {
+  background-color: #31446650;
+}
+.contact:hover {
+  height: 300px;
+  transition: 0.5s;
+}
+.carret-down {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #374a6c;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact .inner {
+  overflow: hidden;
+}
+.carret-down i {
+  font-size: 20px;
+}
+.contact-icon i {
+  font-size: 70px;
+  color: #374a6c;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 50%;
+}
+.contact-icon {
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+.contact-title {
+  font-size: 20px;
+}
+.contact-info {
+  font-size: 14px;
+}
+.contact-info,
+.contact-info a {
+  color: #b1b1b1;
+  text-decoration: none;
+}
+.contact-btn {
+  background-color: #374a6c;
+  color: #fff;
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 100%;
+}
+.contact-text a {
+  text-decoration: none;
+}
+.contact-btn:hover {
+  background-color: #3f567e;
+  transition: 0.3s;
+}
+#section6 {
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.contact- {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  flex-direction: column;
+}
+.contact-big {
+  font-size: 80px;
+  color: #fff;
+  text-shadow: 10px 10px 0px #244a82;
+}
+.contact-small {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  text-shadow: 5px 5px 0px #244a82;
+}
+.sidebar-link {
+  background-color: #fff;
+  color: #1f293b;
+  width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  height: 45px;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 0 0 3px #1f293b, 0 0 0 1px #fff;
+}
+.sidebar-link:hover {
+  box-shadow: 0 0 0 2px #1f293b, 0 0 0 4px #fff;
+  transition: 0.2s;
 }
