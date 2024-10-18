@@ -1098,6 +1098,10 @@
 <style>
   body {
     overflow: auto;
+    scrollbar-width: thin;
+  }
+  html {
+    scrollbar-width: unset;
   }
   .section {
     padding-top: 20px;
@@ -1105,5 +1109,13 @@
   }
   .message-text {
     color: #f0f0f0;
+  }
+  html::-webkit-scrollbar {
+    width: 7px;
+    background-color: #314466;
+  }
+  html::-webkit-scrollbar-thumb {
+    background-color: #1f293b;
+    border-radius: 10px;
   }
 </style>

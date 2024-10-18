@@ -107,6 +107,13 @@ body {
   left: 30px;
   color: #f0f0f0;
   font-size: 12px;
+  cursor: pointer;
+}
+.next-index-text:hover {
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  transition: 0.2s;
 }
 .prev-index-text {
   position: absolute;
@@ -114,6 +121,13 @@ body {
   left: 30px;
   color: #f0f0f0;
   font-size: 12px;
+  cursor: pointer;
+}
+.prev-index-text:hover {
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  transition: 0.2s;
 }
 .link-img {
   width: 40px;
@@ -1175,4 +1189,7 @@ body {
   100% {
     box-shadow: 0 0 0 0 #fff0;
   }
+}
+.copy-text {
+  color: #f0f0f0;
 }

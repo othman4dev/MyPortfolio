@@ -1224,18 +1224,18 @@
                     <div class="github-info">
                       <div class="github-sub">
                         <div class="github-title">Total commits:</div>
-                        <p class="github-count">2900+</p>
+                        <p class="github-count" id="total-commits">2900+</p>
                       </div>
 
                       <div class="github-sub">
                         <div class="github-title">Repositories count:</div>
-                        <p class="github-count">61</p>
+                        <p class="github-count" id="repo-count">61</p>
                       </div>
 
                       <div class="github-sub">
-                        <div class="github-title">Stars:</div>
+                        <div class="github-title">Followers:</div>
 
-                        <p class="github-count">30</p>
+                        <p class="github-count" id="followers">30</p>
                       </div>
                       <div class="github-sub">
                         <a
@@ -1256,20 +1256,24 @@
                 </div>
               </div>
               <div class="github-stat">
-                <div class="card-title">Top Repositories:</div>
-                <p class="small-title">Personal Projects</p>
+                <div class="card-title">More Stats :</div>
                 <div class="commit-graph repos">
+                  <!-- GitHub Profile Stats -->
                   <img
-                    src="https://github-readme-stats.vercel.app/api/pin/?username=Othman4dev&repo=jssv2.0&theme=transparent&hide_border=true"
-                    alt="Repo Stats"
+                    src="https://github-readme-stats.vercel.app/api?username=Othman4dev&show_icons=true&theme=gotham&count_private=true&hide_border=true"
+                    alt="GitHub Profile Stats"
                   />
+
+                  <!-- Languages Breakdown -->
                   <img
-                    src="https://github-readme-stats.vercel.app/api/pin/?username=Othman4dev&repo=hint&theme=transparent&hide_border=true"
-                    alt="Repo Stats"
+                    src="https://github-readme-stats.vercel.app/api/top-langs/?username=Othman4dev&layout=compact&theme=gotham&hide_border=true"
+                    alt="Languages Breakdown"
                   />
+
+                  <!-- Commit Streak -->
                   <img
-                    src="https://github-readme-stats.vercel.app/api/pin/?username=Othman4dev&repo=allomedia&theme=transparent&hide_border=true"
-                    alt="Repo Stats"
+                    src="https://github-readme-streak-stats.herokuapp.com/?user=Othman4dev&theme=gotham&hide_border=true  "
+                    alt="Commit Streak"
                   />
                 </div>
               </div>
@@ -1416,6 +1420,12 @@
             <div class="blob"></div>
           </div>
         </div>
+        <div class="copyright">
+          <p class="copy-text">
+            &copy; 2024 Otman Kharbouch. All rights reserved. Designed and
+            developed by Otman Kharbouch.
+          </p>
+        </div>
       </div>
     </main>
     <button class="scroll-btn" id="up" onclick="scrollUpIntoView(this,1)">
@@ -1426,3 +1436,11 @@
     </button>
   </body>
 </html>
+<script>
+  fetch("https://api.github.com/users/Othman4dev")
+    .then((response) => response.json())
+    .then((data) => {
+      document.getElementById("repo-count").innerText = data.public_repos;
+      document.getElementById("followers").innerText = data.followers;
+    });
+</script>
