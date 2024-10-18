@@ -1,0 +1,27 @@
+@media screen and (max-width: 1450px) {
+  .hero-profile {
+    width: 80%;
+  }
+  .main-card {
+    width: 90%;
+  }
+  .technos {
+    width: 79%;
+  }
+}
+@media screen and (max-width: 1343px) {
+  .school-img {
+    height: 15px;
+  }
+}
+@media screen and (max-width: 1205px) {
+  .about-desc {
+    font-size: 12px;
+  }
+  .education-desc-text {
+    font-size: 12px;
+  }
+  .education-item-title {
+    font-size: 14px;
+  }
+}

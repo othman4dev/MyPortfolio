@@ -8,7 +8,8 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
     <link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="images/favicon.ico" />
@@ -29,7 +30,7 @@
       href="images/favicon.ico"
     />
     <link href="https://fonts.cdnfonts.com/css/cookie" rel="stylesheet" />
-    <script src="script.js" defer></script>
+    <script src="/scripts/script.js" defer></script>
     <meta name="theme-color" content="#ffffff" />
     <title>Othman Kharbouch</title>
   </head>
@@ -102,62 +103,87 @@
             </p>
           </div>
           <div class="hero-img">
-            <img src="assets/othman.webp" class="othman-img" alt="" />
+            <img src="assets/images/othman.webp" class="othman-img" alt="" />
           </div>
         </div>
         <div class="technos">
           <p class="technos-title">Technologies</p>
           <div class="technos-inner">
             <div class="techno">
-              <img class="techno-img" src="assets/js.png" alt="" />
+              <img class="techno-img" src="assets/technos/js.png" alt="" />
             </div>
             <div class="techno">
-              <img class="techno-img" src="assets/vue-icon.webp" alt="" />
+              <img
+                class="techno-img"
+                src="assets/technos/vue-icon.webp"
+                alt=""
+              />
             </div>
             <div class="techno">
-              <img class="techno-img" src="assets/react.webp" alt="" />
+              <img class="techno-img" src="assets/technos/mongodb.png" alt="" />
             </div>
             <div class="techno">
-              <img class="techno-img" src="assets/node-js.webp" alt="" />
+              <img class="techno-img" src="assets/technos/react.webp" alt="" />
             </div>
             <div class="techno">
-              <img class="techno-img" src="assets/express-js.webp" alt="" />
+              <img
+                class="techno-img"
+                src="assets/technos/node-js.webp"
+                alt=""
+              />
             </div>
             <div class="techno">
-              <img class="techno-img" src="assets/js.png" alt="" />
+              <img
+                class="techno-img"
+                src="assets/technos/express-js.webp"
+                alt=""
+              />
             </div>
             <div class="techno">
-              <img class="techno-img" src="assets/vue-icon.webp" alt="" />
+              <img class="techno-img" src="assets/technos/aws.png" alt="" />
             </div>
             <div class="techno">
-              <img class="techno-img" src="assets/react.webp" alt="" />
+              <img
+                class="techno-img"
+                style="border-radius: 50%"
+                src="assets/technos/docker.png"
+                alt=""
+              />
             </div>
             <div class="techno">
-              <img class="techno-img" src="assets/node-js.webp" alt="" />
+              <img class="techno-img" src="assets/technos/php.png" alt="" />
             </div>
             <div class="techno">
-              <img class="techno-img" src="assets/express-js.webp" alt="" />
+              <img
+                class="techno-img"
+                style="border-radius: 50%"
+                src="assets/technos/laravel.png"
+                alt=""
+              />
             </div>
             <div class="techno">
-              <img class="techno-img" src="assets/js.png" alt="" />
+              <img
+                class="techno-img"
+                style="border-radius: 10px"
+                src="assets/technos/mariadb.png"
+                alt=""
+              />
             </div>
             <div class="techno">
-              <img class="techno-img" src="assets/vue-icon.webp" alt="" />
-            </div>
-            <div class="techno">
-              <img class="techno-img" src="assets/react.webp" alt="" />
-            </div>
-            <div class="techno">
-              <img class="techno-img" src="assets/node-js.webp" alt="" />
-            </div>
-            <div class="techno">
-              <img class="techno-img" src="assets/express-js.webp" alt="" />
+              <img
+                class="techno-img"
+                src="assets/technos/jquery-badge.png"
+                alt=""
+              />
             </div>
           </div>
           <div class="grower">
-            <div class="more-technos">
+            <div
+              class="more-technos"
+              onclick="toSection(2);selectCard(document.getElementById('techno-cards'))"
+            >
               <i class="bi bi-chevron-left"></i>
-              <p class="more-technos-text">+5</p>
+              <p class="more-technos-text">SEE MORE</p>
             </div>
           </div>
         </div>
@@ -205,11 +231,19 @@
                       Full-Stack Web Development Certificate : 2023-2025
                     </div>
                     <div class="education-item-desc">
-                      <img src="/assets/youcde.svg" alt="" class="school-img" />
-                      <img src="/assets/ump6.svg" alt="" class="school-img" />
+                      <img
+                        src="/assets/schools/youcde.svg"
+                        alt=""
+                        class="school-img"
+                      />
+                      <img
+                        src="/assets/schools/ump6.svg"
+                        alt=""
+                        class="school-img"
+                      />
                     </div>
                   </div>
-                  <div class="education-desc">
+                  <div class="education-desc education-desc-text">
                     YouCode is an inclusive school focused on
                     individual-centered learning and teamwork. "You" represents
                     the person, and "Code" stands for development. Located in
@@ -222,19 +256,19 @@
                     </div>
                     <div class="education-item-desc">
                       <img
-                        src="/assets/codecademy.webp"
+                        src="/assets/schools/codecademy.webp"
                         alt=""
                         class="school-img"
                       />
                       &nbsp;
                       <img
-                        src="/assets/freecodecamp.webp"
+                        src="/assets/schools/freecodecamp.webp"
                         alt=""
                         class="school-img"
                       />
                     </div>
                   </div>
-                  <div class="education-desc">
+                  <div class="education-desc education-desc-text">
                     I completed several online courses in web development,
                     including FreeCodeCamp’s Responsive Web Design and
                     Codecademy's JavaScript and MongoDB courses, strengthening
@@ -247,7 +281,7 @@
                     </div>
                     <div class="education-item-desc">
                       <img
-                        src="/assets/morocco.jpg"
+                        src="/assets//schools/morocco.jpg"
                         alt=""
                         class="school-img"
                       />
@@ -258,7 +292,7 @@
               <div class="blob"></div>
               <div class="fakeblob"></div>
             </div>
-            <div class="techno-search card">
+            <div class="techno-search card" id="techno-cards">
               <div class="inner">
                 <div class="techno-title">Technologies :</div>
                 <div class="tech-search-form">
@@ -292,6 +326,12 @@
                     <img
                       src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB"
                       alt="React"
+                    />
+                  </div>
+                  <div class="tech-">
+                    <img
+                      src="https://img.shields.io/badge/Terraform-623CE4.svg?style=for-the-badge&logo=terraform&logoColor=white"
+                      alt="Terraform"
                     />
                   </div>
                   <div class="tech-">
@@ -671,7 +711,9 @@
               <div class="project-card-header">
                 <div
                   class="project-img"
-                  style="background-image: url('./assets/quicktable.webp')"
+                  style="
+                    background-image: url('./assets/projects/quicktable.webp');
+                  "
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
@@ -756,7 +798,7 @@
               <div class="project-card-header">
                 <div
                   class="project-img"
-                  style="background-image: url('./assets/hint.webp')"
+                  style="background-image: url('./assets/projects/hint.webp')"
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
@@ -834,7 +876,7 @@
               <div class="project-card-header">
                 <div
                   class="project-img"
-                  style="background-image: url('./assets/ixo.png')"
+                  style="background-image: url('./assets/projects/ixo.png')"
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
@@ -911,7 +953,9 @@
               <div class="project-card-header">
                 <div
                   class="project-img"
-                  style="background-image: url('./assets/allomedia.webp')"
+                  style="
+                    background-image: url('./assets/projects/allomedia.webp');
+                  "
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
@@ -977,7 +1021,7 @@
             <div class="blob"></div>
             <div class="fakeblob"></div>
           </div>
-          <a class="more-projects-link" href="projects.html">
+          <a class="more-projects-link" href="./pages/projects.html">
             <button class="more-projects">
               See more<i class="bi bi-arrow-right"></i>
             </button>
@@ -988,7 +1032,10 @@
         <div class="ag-format-container">
           <div class="ag-courses_box">
             <div class="ag-courses_item">
-              <a href="#" class="ag-courses-item_link">
+              <a
+                onclick="toSection(6);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-linkedin'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-twitter'));selectCard(document.getElementById('contact-instagram'));"
+                class="ag-courses-item_link"
+              >
                 <div class="ag-courses-item_bg"></div>
 
                 <div class="ag-courses-item_title">Logo Graphic design</div>
@@ -1001,7 +1048,10 @@
             </div>
 
             <div class="ag-courses_item">
-              <a href="#" class="ag-courses-item_link">
+              <a
+                onclick="toSection(6);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-linkedin'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-twitter'));selectCard(document.getElementById('contact-instagram'));"
+                class="ag-courses-item_link"
+              >
                 <div class="ag-courses-item_bg"></div>
 
                 <div class="ag-courses-item_title">
@@ -1016,7 +1066,10 @@
             </div>
 
             <div class="ag-courses_item">
-              <a href="#" class="ag-courses-item_link">
+              <a
+                onclick="toSection(6);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-linkedin'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-twitter'));selectCard(document.getElementById('contact-instagram'));"
+                class="ag-courses-item_link"
+              >
                 <div class="ag-courses-item_bg"></div>
 
                 <div class="ag-courses-item_title">Front-end development</div>
@@ -1031,7 +1084,10 @@
             </div>
 
             <div class="ag-courses_item">
-              <a href="#" class="ag-courses-item_link">
+              <a
+                onclick="toSection(6);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-linkedin'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-twitter'));selectCard(document.getElementById('contact-instagram'));"
+                class="ag-courses-item_link"
+              >
                 <div class="ag-courses-item_bg"></div>
 
                 <div class="ag-courses-item_title">
@@ -1048,7 +1104,10 @@
             </div>
 
             <div class="ag-courses_item">
-              <a href="#" class="ag-courses-item_link">
+              <a
+                onclick="toSection(6);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-linkedin'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-twitter'));selectCard(document.getElementById('contact-instagram'));"
+                class="ag-courses-item_link"
+              >
                 <div class="ag-courses-item_bg"></div>
 
                 <div class="ag-courses-item_title">
@@ -1063,7 +1122,10 @@
             </div>
 
             <div class="ag-courses_item">
-              <a href="#" class="ag-courses-item_link">
+              <a
+                onclick="toSection(6);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-linkedin'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-twitter'));selectCard(document.getElementById('contact-instagram'));"
+                class="ag-courses-item_link"
+              >
                 <div class="ag-courses-item_bg"></div>
 
                 <div class="ag-courses-item_title">
@@ -1078,7 +1140,10 @@
             </div>
 
             <div class="ag-courses_item">
-              <a href="#" class="ag-courses-item_link">
+              <a
+                onclick="toSection(6);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-linkedin'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-twitter'));selectCard(document.getElementById('contact-instagram'));"
+                class="ag-courses-item_link"
+              >
                 <div class="ag-courses-item_bg"></div>
                 <div class="ag-courses-item_title">
                   Back-end development by framework
@@ -1093,7 +1158,10 @@
             </div>
 
             <div class="ag-courses_item">
-              <a href="#" class="ag-courses-item_link">
+              <a
+                onclick="toSection(6);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-linkedin'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-twitter'));selectCard(document.getElementById('contact-instagram'));"
+                class="ag-courses-item_link"
+              >
                 <div class="ag-courses-item_bg"></div>
 
                 <div class="ag-courses-item_title">
@@ -1108,7 +1176,10 @@
             </div>
 
             <div class="ag-courses_item">
-              <a href="#" class="ag-courses-item_link">
+              <a
+                onclick="toSection(6);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-linkedin'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-twitter'));selectCard(document.getElementById('contact-instagram'));"
+                class="ag-courses-item_link"
+              >
                 <div class="ag-courses-item_bg"></div>
 
                 <div class="ag-courses-item_title">DevOps & Cloud Services</div>
@@ -1212,11 +1283,11 @@
         <div class="contact-me">
           <div class="contact-">
             <h1 class="contact-big">Feel free to contact me</h1>
-            <p class="contact-small">I respond immediately</p>
+            <p class="contact-small">I respond immediately !</p>
           </div>
         </div>
         <div class="contacts">
-          <div class="contact card">
+          <div class="contact card" id="contact-linkedin">
             <div class="inner">
               <div class="contact-icon">
                 <i class="bi bi-linkedin"></i>
@@ -1244,7 +1315,7 @@
             <div class="blob"></div>
             <div class="fakeblob"></div>
           </div>
-          <div class="contact card">
+          <div class="contact card" id="contact-email">
             <div class="inner">
               <div class="contact-icon">
                 <i class="bi bi-envelope-paper"></i>
@@ -1270,7 +1341,7 @@
             <div class="blob"></div>
             <div class="fakeblob"></div>
           </div>
-          <div class="contact card">
+          <div class="contact card" id="contact-whatsapp">
             <div class="inner">
               <div class="contact-icon">
                 <i class="bi bi-whatsapp"></i>
@@ -1293,7 +1364,7 @@
             <div class="blob"></div>
             <div class="fakeblob"></div>
           </div>
-          <div class="contact card">
+          <div class="contact card" id="contact-github">
             <div class="inner">
               <div class="contact-icon">
                 <i class="bi bi-github"></i>
@@ -1316,7 +1387,7 @@
             <div class="blob"></div>
             <div class="fakeblob"></div>
           </div>
-          <div class="contact card">
+          <div class="contact card" id="contact-instagram">
             <div class="inner">
               <div class="contact-icon">
                 <i class="bi bi-instagram"></i>
