@@ -1014,9 +1014,7 @@ body {
 }
 .repos img {
   width: fit-content;
-  min-width: 350px;
   height: 150px;
-  border: solid #2c3d5b 1px;
   border-radius: 15px;
   margin: 10px;
   margin-inline: 5px;
@@ -1024,7 +1022,7 @@ body {
 .repos {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   width: 100%;
   scrollbar-width: none;
   overflow-x: scroll;
@@ -1128,7 +1126,7 @@ body {
   transition: 0.3s;
 }
 #section6 {
-  padding: 100px;
+  padding: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1192,4 +1190,7 @@ body {
 }
 .copy-text {
   color: #f0f0f0;
+}
+#orientation {
+  display: none;
 }

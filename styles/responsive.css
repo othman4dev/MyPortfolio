@@ -8,10 +8,99 @@
   .technos {
     width: 79%;
   }
+  .project-cards {
+    transform: scale(0.9);
+  }
 }
 @media screen and (max-width: 1343px) {
   .school-img {
     height: 15px;
+  }
+}
+@media screen and (max-width: 1337px) {
+  .repos img {
+    height: 140px;
+  }
+  .titles {
+    gap: 200px;
+  }
+  .github-title {
+    font-size: 13px;
+  }
+  .github-link {
+    font-size: 14px;
+  }
+  .github-count {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 1372px) {
+  .titles {
+    gap: 260px;
+  }
+  .contacts {
+    width: 100%;
+  }
+  #section6 {
+    transform: scale(0.9);
+    padding: 50px;
+  }
+}
+@media screen and (max-width: 1350px) {
+  .titles {
+    gap: 240px;
+  }
+}
+@media screen and (max-width: 1324px) {
+  .titles {
+    gap: 220px;
+  }
+}
+@media screen and (max-width: 1288px) {
+  .titles {
+    gap: 200px;
+  }
+}
+@media screen and (max-width: 1258px) {
+  .titles {
+    gap: 180px;
+  }
+  .contacts {
+    transform: scale(0.8);
+    width: 120%;
+  }
+}
+@media screen and (max-width: 1286px) {
+  .repos img {
+    height: 130px;
+  }
+}
+@media screen and (max-width: 1277px) {
+  .project-cards {
+    transform: scale(0.85);
+    width: 110%;
+  }
+}
+@media screen and (max-width: 1244px) {
+  .main-card {
+    padding: 10px;
+  }
+  .education-desc {
+    font-size: 13px;
+  }
+  .card-body {
+    margin-top: 5px;
+  }
+  .about-desc {
+    font-size: 13px;
+  }
+  .titles {
+    gap: 150px;
+  }
+}
+@media screen and (max-width: 1228px) {
+  .commits-img {
+    height: 100px;
   }
 }
 @media screen and (max-width: 1205px) {
@@ -23,5 +112,136 @@
   }
   .education-item-title {
     font-size: 14px;
+  }
+  .repos img {
+    height: 120px;
+  }
+  .stats-container.flex {
+    flex-direction: column;
+    height: fit-content;
+    max-height: unset;
+  }
+  .stats-container .commit-graph {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .titles .small-title:nth-of-type(2) {
+    display: none;
+  }
+  .repos img:nth-of-type(2) {
+    display: none;
+  }
+  .ag-courses_box {
+    padding-inline: 0;
+  }
+}
+@media screen and (max-width: 1095px) {
+  .quote-text {
+    font-size: 23px;
+  }
+  .pages {
+    gap: 1rem;
+  }
+}
+@media screen and (max-width: 1120px) {
+  #section6 {
+    transform: scale(0.8);
+    width: 110%;
+    margin-left: 0;
+  }
+  .ag-format-container {
+    min-height: 110vh;
+  }
+}
+@media screen and (max-width: 1082px) {
+  #section4 {
+    transform: scale(0.8);
+    width: 110%;
+    margin-left: 0px;
+  }
+  .project-cards {
+    transform: scale(0.8);
+    width: 120%;
+  }
+  .main-card {
+    transform: scale(0.85);
+    width: 110%;
+  }
+  .hero-profile {
+    transform: scale(0.85);
+    width: 110%;
+  }
+  .technos {
+    scale: 0.9;
+    width: 100%;
+    transform: translateY(-100px);
+  }
+}
+@media screen and (max-width: 979px) {
+  #section4 {
+    transform: scale(0.7);
+  }
+  .ag-courses_box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    min-width: 100vw;
+  }
+  .ag-courses_item {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 932px) {
+  .project-cards {
+    transform: scale(0.7);
+    width: 120vw;
+  }
+  .project-card {
+    max-width: 550px;
+  }
+  .project-img {
+    min-height: 100px;
+  }
+  .ag-format-container {
+    min-height: 134vh;
+  }
+  .contact-big {
+    font-size: 70px;
+  }
+  .ag-courses-item_link {
+    padding: 15px 20px;
+  }
+}
+@media screen and (max-width: 891px) {
+  .quote-text {
+    font-size: 20px;
+  }
+  .search-result img {
+    height: 22px;
+  }
+}
+@media screen and (max-width: 828px) {
+  .fixed {
+    display: none;
+  }
+  .section {
+    margin: 0;
+    width: 100vw;
+  }
+  body {
+    overflow: scroll;
+  }
+  .header {
+    padding-left: 30px;
+  }
+  #section4 {
+    transform: scale(0.8) translateX(-90px);
+    width: 120vw;
+    min-height: 120vh;
+    max-height: 120vh;
+  }
+  #section6 {
+    transform: scale(0.8) translateX(-90px);
+    width: 120vw;
   }
 }
