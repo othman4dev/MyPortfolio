@@ -1,6 +1,18 @@
 let index = 1;
 
 function scrollDownIntoView(btn, element) {
+  if (index === 5) {
+    notify("bi-whatsapp", "I recommend contacting me via whatsapp if urgent.");
+  }
+  if (index === 3) {
+    notify(
+      "bi-question-circle-fill",
+      "If you come with some new technology and make the right offer, I am ready to learn it."
+    );
+  }
+  if (index == 2) {
+    notify("bi-info-circle-fill", "I am always working on something new.");
+  }
   const section = document.getElementById(`section${element}`);
   section.scrollIntoView({ behavior: "smooth", block: "start" });
   index++;
@@ -248,3 +260,99 @@ function selectCard(card) {
     card.style.animationName = "none";
   }, 1500);
 }
+function checkIfUserWithPhoneOrTablet() {
+  if (
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    )
+  ) {
+    console.log("User is on phone or tablet");
+
+    return true;
+  }
+}
+
+window.onload = () => {
+  checkIfUserWithPhoneOrTablet();
+};
+window.addEventListener("resize", () => {
+  checkIfUserWithPhoneOrTablet();
+});
+
+function makeNotification(icon, message, id) {
+  return `
+  <div class="notification" id ="${id}" style="animation-name: notification">
+      <div class="warning-header">
+        <i class="bi ${icon}"></i>
+      </div>
+      <p class="warning-text">
+        ${message}
+      </p>
+      <button class="note-close" onclick="this.parentNode.remove()">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+  `;
+}
+
+const notificationContainer = document.getElementById("notification-container");
+
+function notify(icon, message) {
+  let id = "id" + Math.floor(Math.random() * 1000);
+  let notificationHTML = makeNotification(icon, message, id);
+  let tempDiv = document.createElement("div");
+  tempDiv.innerHTML = notificationHTML.trim();
+  let notificationElement = tempDiv.firstChild;
+
+  notificationContainer.insertAdjacentElement(
+    "afterbegin",
+    notificationElement
+  );
+
+  setTimeout(() => {
+    notificationElement.style.animationName = "none";
+    notificationElement.style.animationName = "notification-close";
+    notificationElement.remove();
+  }, 5001);
+}
+
+setTimeout(() => {
+  notify("bi-emoji-smile-fill", "Welcome to my portfolio");
+}, 1000);
+setTimeout(() => {
+  notify(
+    "bi-puzzle-fill",
+    "If you like this website and want to use it, contact me and we can make a deal."
+  );
+}, 10000);
+
+function checkResolutionAndNotify() {
+  if (checkIfUserWithPhoneOrTablet()) {
+    if (window.innerHeight > 828 && window.innerHeight > window.innerWidth) {
+      notify(
+        "bi-arrow-repeat",
+        "For better experience, please rotate you screen."
+      );
+    } else if (window.innerHeight > 800 && window.innerWidth < 565) {
+      notify(
+        "bi-info-circle-fill",
+        "For better experience, visit this website in portrait mode."
+      );
+    } else if (window.innerWidth < 828) {
+      notify(
+        "bi-pc-display",
+        "For better experience, visit this website from a pc or a tablet."
+      );
+    }
+  }
+}
+
+window.onload = () => {
+  checkIfUserWithPhoneOrTablet();
+  checkResolutionAndNotify();
+};
+
+window.addEventListener("resize", () => {
+  checkIfUserWithPhoneOrTablet();
+  checkResolutionAndNotify();
+});
