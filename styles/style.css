@@ -789,6 +789,12 @@ body {
 
   padding: 50px 20px;
 }
+.mobile-index {
+  color: #f0f0f0;
+  font-size: 20px;
+  font-weight: bold;
+  display: none;
+}
 .ag-courses_item {
   -ms-flex-preferred-size: calc(33.33333% - 30px);
   flex-basis: calc(33.33333% - 30px);

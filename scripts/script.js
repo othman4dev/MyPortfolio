@@ -134,6 +134,9 @@ function indexDown() {
 // call the function scrollDownIntoView() when whell event is triggered
 
 document.addEventListener("wheel", (e) => {
+  if (window.innerWidth < 828) {
+    return;
+  }
   if (e.deltaY > 0 && index < 6) {
     document.getElementById("down").click();
   } else if (e.deltaY < 0 && index > 1) {
@@ -144,6 +147,9 @@ document.addEventListener("wheel", (e) => {
 // call the function scrollDownIntoView() when keydown event is triggered
 
 document.addEventListener("keydown", (e) => {
+  if (window.innerWidth < 828) {
+    return;
+  }
   if (e.key === "ArrowDown" && index < 6) {
     document.getElementById("down").click();
   } else if (e.key === "ArrowUp" && index > 1) {
@@ -154,6 +160,9 @@ document.addEventListener("keydown", (e) => {
 // on window load , go to view section 1 mandatory
 
 // window.onload = () => {
+// if (window.innerWidth < 828) {
+//   return;
+// }
 //   const section = document.getElementById(`section1`);
 //   section.scrollIntoView({ behavior: "smooth", block: "start" });
 // };

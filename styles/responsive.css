@@ -224,12 +224,90 @@
   .fixed {
     display: none;
   }
-  .section {
-    margin: 0;
-    width: 100vw;
+  html {
+    scrollbar-width: thin;
+    overflow-x: hidden;
+    overflow-y: scroll;
   }
   body {
     overflow: scroll;
+    scrollbar-width: none;
+  }
+  html::-webkit-scrollbar {
+    background-color: transparent;
+    width: 10px;
+  }
+  html::-webkit-scrollbar-thumb {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  #up,
+  #down {
+    height: 0px;
+    opacity: 0;
+  }
+  .project-cards {
+    transform: scale(0.8);
+  }
+  .section {
+    margin-left: 0px !important;
+    transform: scale(1) !important;
+    width: 99vw;
+  }
+  .ag-courses_box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    min-width: unset;
+    width: 100%;
+  }
+  .mobile-index {
+    display: block;
+  }
+  .ag-format-container {
+    min-height: unset;
+  }
+  .ag-courses_item {
+    flex-basis: calc(45.333% - 20px) !important;
+    height: 160px;
+    max-width: 220px !important;
+    max-height: 135px;
+  }
+  .ag-courses-item_title {
+    font-size: 15px;
+  }
+  .ag-courses-item_date {
+    font-size: 12px;
+  }
+  .ag-courses-item_date-box {
+    font-size: 13px;
+  }
+  .project-card {
+    max-height: 300px;
+  }
+  .project-card-header {
+    height: 55%;
+  }
+  .project-btns {
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .project-texts {
+    gap: 4px;
+  }
+  #section4 {
+    max-height: unset;
+    min-height: unset;
+    width: 100% !important;
+  }
+  body {
+    overflow: scroll;
+  }
+  .ag-courses_item {
+    flex-basis: calc(33.333% - 20px);
   }
   .header {
     padding-left: 30px;
@@ -237,11 +315,140 @@
   #section4 {
     transform: scale(0.8) translateX(-90px);
     width: 120vw;
-    min-height: 120vh;
-    max-height: 120vh;
+    min-height: 100vh;
+    max-height: 100vh;
   }
   #section6 {
     transform: scale(0.8) translateX(-90px);
-    width: 120vw;
+    width: 100vw;
+    padding: 30px;
+  }
+  .contact-big {
+    font-size: 50px;
+  }
+  .contacts {
+    width: 120%;
+    transform: scale(0.8);
+    gap: 5px;
+  }
+  .contact {
+    width: 150px;
+    height: 164px;
+  }
+  .contact-icon i {
+    font-size: 50px;
+  }
+  .contact-title {
+    font-size: 15px;
+  }
+  .contact-info {
+    font-size: 12px;
+  }
+  .project-cards {
+    transform: scale(0.7);
+    width: 130vw;
+  }
+  #section3 {
+    padding-bottom: 40px;
+  }
+  .ag-format-container {
+    margin-top: 0;
+  }
+  .main-card {
+    margin-top: 0px;
+  }
+  .project-cards {
+    margin-top: -60px;
+  }
+}
+@media screen and (max-width: 785px) {
+  .education {
+    width: unset;
+    min-height: unset;
+  }
+  .education .inner {
+    min-height: unset;
+  }
+  .techno-search {
+    max-width: unset;
+    min-height: unset;
+  }
+  .card-body {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 767px) {
+  #section4 {
+    max-height: unset;
+  }
+  .project-cards {
+    width: 140vw;
+  }
+  .pages {
+    gap: 0.7rem;
+    padding-inline: 10px;
+  }
+}
+
+@media screen and (max-width: 712px) {
+  .profile-img {
+    display: none;
+  }
+  .education {
+    width: unset;
+    min-height: unset;
+  }
+  .education .inner {
+    min-height: unset;
+  }
+  .techno-search {
+    max-width: unset;
+    min-height: unset;
+  }
+  .card-body {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 700px) {
+  .project-cards {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 20px;
+    position: relative;
+    justify-items: center;
+    transform: none !important;
+    min-width: unset;
+    width: unset;
+  }
+  .project-cards {
+    margin-top: 30px;
+  }
+  .card-title {
+    font-size: 20px;
+  }
+  .about-desc {
+    font-size: 14px;
+  }
+  .education-desc-text {
+    font-size: 14px;
+  }
+  .ag-courses_item {
+    max-width: unset !important;
+  }
+  .pages a {
+    font-size: 12px;
+  }
+  .pages a:hover {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 649px) {
+  .quote-text {
+    display: none;
+  }
+  .pages {
+    width: 100%;
+    justify-content: space-evenly;
   }
 }
