@@ -266,9 +266,12 @@ function checkIfUserWithPhoneOrTablet() {
       navigator.userAgent
     )
   ) {
-    console.log("User is on phone or tablet");
-
-    return true;
+    if (window.innerWidth < 828 && window.innerHeight < 680) {
+      notify(
+        "bi-pc-display",
+        "For the best experience, visit this website from a computer or a laptop."
+      );
+    }
   }
 }
 
@@ -281,7 +284,7 @@ window.addEventListener("resize", () => {
 
 function makeNotification(icon, message, id) {
   return `
-  <div class="notification" id ="${id}" style="animation-name: notification">
+  <div class="notification type-${icon}" id ="${id}" style="animation-name: notification">
       <div class="warning-header">
         <i class="bi ${icon}"></i>
       </div>
@@ -298,6 +301,9 @@ function makeNotification(icon, message, id) {
 const notificationContainer = document.getElementById("notification-container");
 
 function notify(icon, message) {
+  if (document.querySelectorAll(`.type-${icon}`).length > 0) {
+    return;
+  }
   let id = "id" + Math.floor(Math.random() * 1000);
   let notificationHTML = makeNotification(icon, message, id);
   let tempDiv = document.createElement("div");
@@ -327,23 +333,16 @@ setTimeout(() => {
 }, 10000);
 
 function checkResolutionAndNotify() {
-  if (checkIfUserWithPhoneOrTablet()) {
-    if (window.innerHeight > 828 && window.innerHeight > window.innerWidth) {
-      notify(
-        "bi-arrow-repeat",
-        "For better experience, please rotate you screen."
-      );
-    } else if (window.innerHeight > 800 && window.innerWidth < 565) {
-      notify(
-        "bi-info-circle-fill",
-        "For better experience, visit this website in portrait mode."
-      );
-    } else if (window.innerWidth < 828) {
-      notify(
-        "bi-pc-display",
-        "For better experience, visit this website from a pc or a tablet."
-      );
-    }
+  if (window.innerHeight > 828 && window.innerHeight > window.innerWidth) {
+    notify(
+      "bi-arrow-repeat",
+      "For better experience, please rotate you screen."
+    );
+  } else if (window.innerHeight > 800 && window.innerWidth < 565) {
+    notify(
+      "bi-info-circle-fill",
+      "For better experience, visit this website in portrait mode."
+    );
   }
 }
 
