@@ -307,6 +307,7 @@ function notify(icon, message) {
   let id = "id" + Math.floor(Math.random() * 1000);
   let notificationHTML = makeNotification(icon, message, id);
   let tempDiv = document.createElement("div");
+  tempDiv.classList.add("notification");
   tempDiv.innerHTML = notificationHTML.trim();
   let notificationElement = tempDiv.firstChild;
 
@@ -322,15 +323,15 @@ function notify(icon, message) {
   }, 5001);
 }
 
-setTimeout(() => {
-  notify("bi-emoji-smile-fill", "Welcome to my portfolio");
-}, 1000);
-setTimeout(() => {
-  notify(
-    "bi-puzzle-fill",
-    "If you like this website and want to use it, contact me and we can make a deal."
-  );
-}, 10000);
+// setTimeout(() => {
+//   notify("bi-emoji-smile-fill", "Welcome to my portfolio");
+// }, 1000);
+// setTimeout(() => {
+//   notify(
+//     "bi-puzzle-fill",
+//     "If you like this website and want to use it, contact me and we can make a deal."
+//   );
+// }, 10000);
 
 function checkResolutionAndNotify() {
   if (window.innerHeight > 828 && window.innerHeight > window.innerWidth) {
@@ -355,3 +356,111 @@ window.addEventListener("resize", () => {
   checkIfUserWithPhoneOrTablet();
   checkResolutionAndNotify();
 });
+
+function openEducation(num) {
+  document.getElementById("protection").style.display = "block";
+  if (num == 1) {
+    document.getElementById("youcode").style.display = "block";
+  } else if (num == 2) {
+    document.getElementById("codecademy").style.display = "block";
+  }
+}
+function animation() {
+  window.addEventListener("load", () => {
+    const loader = document.querySelector(".loading-animation");
+    const heroImage = document.querySelector(".othman-img");
+
+    if (heroImage.complete) {
+      loader.innerHTML = `
+      <div class="wrapper">
+        <div class="typing-demo welcome">
+          Welcome to my portfolio.
+        </div>
+      </div>
+      `;
+      setTimeout(() => {
+        loader.style.display = "none";
+        if (!localStorage.getItem("tutorial")) {
+          tutorial();
+        }
+      }, 10);
+    } else {
+      heroImage.addEventListener("load", () => {
+        loader.style.opacity = "0";
+        setTimeout(() => {
+          loader.style.display = "none";
+        }, 2000);
+      });
+    }
+  });
+}
+animation();
+
+function tutorial() {
+  document.getElementById("tutorial").style.display = "block";
+  setTimeout(() => {
+    highlightElement(document.getElementById("down"));
+  }, 500);
+}
+
+var tuto = document.getElementById("step1");
+var tutoModal = document.getElementById("tuto-text");
+var includes = document.getElementById("includes");
+var step = 1;
+
+function nextTuto() {
+  localStorage.setItem("tutorial", "done");
+  if (step == 1) {
+    tutoModal.innerText = `Or use the arrow keys on your keyboard to navigate.`;
+    includes.innerHTML = `<img src="./assets/images/arrows2.png" alt="arrow keys" class="includes-img" />`;
+    tuto.style.top = "80%";
+  } else if (step == 2) {
+    includes.innerHTML = "";
+    tutoModal.innerText = `You can also use the sidebar to navigate.`;
+    tuto.style.top = "10%";
+    tuto.style.left = "unset";
+    tuto.style.right = "-140px";
+
+    document.querySelectorAll(".page").forEach((el) => {
+      highlightElement(el);
+    });
+  } else if (step == 3) {
+    tutoModal.innerText = `Watch for the notifications in this corner.`;
+    tuto.style.top = "85%";
+    tuto.style.right = "-140px";
+    notify("bi-info-circle-fill", "This is a notification");
+    highlightElement(document.querySelector(".notification"));
+  } else if (step == 4) {
+    tuto.style.top = "35%";
+    tuto.style.right = "10%";
+    document.getElementById("down").click();
+    tutoModal.innerText = `Search here for technologies.`;
+    document.getElementById("techno-cards").style.zIndex = "100";
+    highlightElement(document.getElementById("tech-search"));
+    const searshed = "javascript";
+    let i = 0;
+    const intervalId = setInterval(() => {
+      document.getElementById("tech-search").value += searshed[i];
+      searchTechs(document.getElementById("tech-search"));
+      i++;
+      if (i >= searshed.length) {
+        clearInterval(intervalId);
+      }
+    }, 100);
+  } else {
+    document.getElementById("tech-search").value = "";
+    searchTechs(document.getElementById("tech-search"));
+    tuto.style.display = "none";
+    document.getElementById("tutorial").style.display = "none";
+    document.getElementById("up").click();
+  }
+  step++;
+}
+
+function highlightElement(element) {
+  element.style.animationName = "highlight";
+  element.style.animationDuration = "1s";
+  setTimeout(() => {
+    element.style.animationName = "none";
+  }, 1000);
+}

@@ -1,3 +1,8 @@
+@media screen and (min-width: 1451px) {
+  .project-cards {
+    transform: none;
+  }
+}
 @media screen and (max-width: 1450px) {
   .hero-profile {
     width: 80%;
@@ -387,6 +392,15 @@
   .pages {
     gap: 0.7rem;
     padding-inline: 10px;
+  }
+  .contacts {
+    display: none;
+  }
+  .contacts-mobile {
+    display: grid;
+  }
+  .copy-text {
+    text-align: center;
   }
 }
 

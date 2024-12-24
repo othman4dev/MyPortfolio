@@ -31,6 +31,12 @@
     />
     <link href="https://fonts.cdnfonts.com/css/cookie" rel="stylesheet" />
     <script src="/scripts/script.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <meta name="theme-color" content="#ffffff" />
     <title>Othman Kharbouch</title>
   </head>
@@ -110,26 +116,59 @@
           <p class="technos-title">Technologies</p>
           <div class="technos-inner">
             <div class="techno">
-              <img class="techno-img" src="assets/technos/js.png" alt="" />
+              <img
+                class="techno-img"
+                src="assets/technos/html.webp"
+                alt="HTML"
+                title="HTML"
+              />
+            </div>
+            <div class="techno">
+              <img
+                class="techno-img"
+                src="assets/technos/css.webp"
+                alt="CSS"
+                title="CSS"
+              />
+            </div>
+            <div class="techno">
+              <img
+                class="techno-img"
+                src="assets/technos/js.png"
+                alt="JavaScript"
+                title="JavaScript"
+              />
             </div>
             <div class="techno">
               <img
                 class="techno-img"
                 src="assets/technos/vue-icon.webp"
-                alt=""
+                alt="Vue.js"
+                title="Vue.js"
               />
             </div>
             <div class="techno">
-              <img class="techno-img" src="assets/technos/mongodb.png" alt="" />
+              <img
+                class="techno-img"
+                src="assets/technos/mongodb.png"
+                alt="MongoDB"
+                title="MongoDB"
+              />
             </div>
             <div class="techno">
-              <img class="techno-img" src="assets/technos/react.webp" alt="" />
+              <img
+                class="techno-img"
+                src="assets/technos/react.webp"
+                alt="React"
+                title="React"
+              />
             </div>
             <div class="techno">
               <img
                 class="techno-img"
                 src="assets/technos/node-js.webp"
-                alt=""
+                alt="Nodejs"
+                title="Node.js"
               />
             </div>
             <div class="techno">
@@ -137,6 +176,14 @@
                 class="techno-img"
                 src="assets/technos/express-js.webp"
                 alt=""
+              />
+            </div>
+            <div class="techno">
+              <img
+                class="techno-img"
+                src="assets/technos/nestjs.png"
+                alt="Nestjs"
+                title="Nest.js"
               />
             </div>
             <div class="techno">
@@ -173,6 +220,20 @@
               <img
                 class="techno-img"
                 src="assets/technos/jquery-badge.png"
+                alt=""
+              />
+            </div>
+            <div class="techno">
+              <img
+                class="techno-img"
+                src="assets/technos/bootstrap.png"
+                alt=""
+              />
+            </div>
+            <div class="techno">
+              <img
+                class="techno-img"
+                src="assets/technos/tailwind.png"
                 alt=""
               />
             </div>
@@ -228,65 +289,84 @@
               <div class="inner">
                 <div class="education-title">Education :</div>
                 <div class="education-desc">
-                  <div class="education-item">
-                    <div class="education-item-title">
-                      Full-Stack Web Development Certificate : 2023-2025
+                  <div class="education-set">
+                    <div class="education-item">
+                      <div class="education-item-title">
+                        Full-Stack Web Development Certificate : 2023-2025
+                      </div>
+                      <div class="education-item-desc">
+                        <img
+                          src="/assets/schools/youcde.svg"
+                          alt=""
+                          class="school-img"
+                        />
+                        <img
+                          src="/assets/schools/ump6.svg"
+                          alt=""
+                          class="school-img"
+                        />
+                      </div>
                     </div>
-                    <div class="education-item-desc">
-                      <img
-                        src="/assets/schools/youcde.svg"
-                        alt=""
-                        class="school-img"
-                      />
-                      <img
-                        src="/assets/schools/ump6.svg"
-                        alt=""
-                        class="school-img"
-                      />
+                    <div class="education-desc education-desc-text">
+                      YouCode is an inclusive school focused on
+                      individual-centered learning and teamwork. "You"
+                      represents the person, and "Code" stands for development.
+                      More info at
+                      <a href="https://youcode.ma" class="link-prm"
+                        >Youcode.ma</a
+                      >
                     </div>
-                  </div>
-                  <div class="education-desc education-desc-text">
-                    YouCode is an inclusive school focused on
-                    individual-centered learning and teamwork. "You" represents
-                    the person, and "Code" stands for development. Located in
-                    Youssoufia and Safi, it offers a perfect coding environment
-                    away from big city distractions.
-                  </div>
-                  <div class="education-item">
-                    <div class="education-item-title">
-                      Auto-formation in Web Development : 2022
-                    </div>
-                    <div class="education-item-desc">
-                      <img
-                        src="/assets/schools/codecademy.webp"
-                        alt=""
-                        class="school-img"
-                      />
-                      &nbsp;
-                      <img
-                        src="/assets/schools/freecodecamp.webp"
-                        alt=""
-                        class="school-img"
-                      />
+                    <div class="scaler" onclick="openEducation(1)">
+                      <i class="bi bi-box-arrow-up-right"></i>
                     </div>
                   </div>
-                  <div class="education-desc education-desc-text">
-                    I completed several online courses in web development,
-                    including FreeCodeCamp’s Responsive Web Design and
-                    Codecademy's JavaScript and MongoDB courses, strengthening
-                    my skills in HTML, CSS, JavaScript, and MongoDB.
-                  </div>
-                  <div class="education-item">
-                    <div class="education-item-title">
-                      Scientific Baccalaureate - Physics and Chemistry :
-                      2021-2022
+                  <div class="education-set">
+                    <div class="education-item">
+                      <div class="education-item-title">
+                        Auto-formation in Web Development : 2022
+                      </div>
+                      <div class="education-item-desc">
+                        <img
+                          src="/assets/schools/codecademy.webp"
+                          alt=""
+                          class="school-img"
+                        />
+                        &nbsp;
+                        <img
+                          src="/assets/schools/freecodecamp.webp"
+                          alt=""
+                          class="school-img"
+                        />
+                      </div>
                     </div>
-                    <div class="education-item-desc">
-                      <img
-                        src="/assets//schools/morocco.jpg"
-                        alt=""
-                        class="school-img"
-                      />
+                    <div class="education-desc education-desc-text">
+                      I completed online courses in web development, including
+                      FreeCodeCamp's Responsive Web Design and Codecademy's
+                      JavaScript and MongoDB, enhancing my skills in HTML, CSS,
+                      JavaScript, and MongoDB.
+                    </div>
+                    <div class="scaler" onclick="openEducation(2)">
+                      <i class="bi bi-box-arrow-up-right"></i>
+                    </div>
+                  </div>
+                  <div class="education-set">
+                    <div class="education-item">
+                      <div class="education-item-title">
+                        Scientific Baccalaureate - Physics and Chemistry :
+                        2021-2022
+                      </div>
+                      <div class="education-item-desc">
+                        <img
+                          src="/assets//schools/morocco.jpg"
+                          alt=""
+                          class="school-img"
+                        />
+                      </div>
+                    </div>
+                    <div class="education-desc education-desc-text">
+                      I completed my high school education with a scientific
+                      baccalaureate in physics and chemistry, which helped me
+                      develop my analytical and problem-solving skills.
                     </div>
                   </div>
                 </div>
@@ -1237,60 +1317,71 @@
             <div class="github-stats">
               <div class="github-stat">
                 <div class="card-title stats-title">GitHub Stats:</div>
-                <div class="titles">
-                  <p class="small-title">Account Overview</p>
-                  <p class="small-title">Commit Graph</p>
-                  <span></span>
-                </div>
 
                 <div class="stats-container flex">
-                  <div class="github-acc flex">
-                    <div class="personal">
-                      <img
-                        class="perso-img"
-                        src="https://avatars.githubusercontent.com/Othman4dev"
-                        alt="Profile Picture"
-                      />
-                      <div class="perso-username">Othman4dev</div>
-                    </div>
-                    <div class="github-info">
-                      <div class="github-sub">
-                        <div class="github-title">Total commits:</div>
-                        <p class="github-count" id="total-commits">2900+</p>
+                  <div class="github-fix">
+                    <p class="stat-title">
+                      <i class="bi bi-person"></i>Account Overview
+                    </p>
+                    <div class="github-acc flex">
+                      <div class="personal">
+                        <img
+                          class="perso-img"
+                          src="https://avatars.githubusercontent.com/Othman4dev"
+                          alt="Profile Picture"
+                        />
+                        <div class="perso-username">Othman4dev</div>
                       </div>
-
-                      <div class="github-sub">
-                        <div class="github-title">Repositories count:</div>
-                        <p class="github-count" id="repo-count">61</p>
-                      </div>
-
-                      <div class="github-sub">
-                        <div class="github-title">Followers:</div>
-
-                        <p class="github-count" id="followers">30</p>
-                      </div>
-                      <div class="github-sub">
-                        <a
-                          class="github-link"
-                          href="https://github.com/othman4dev"
-                        >
-                          Visit Account <i class="bi bi-box-arrow-up-right"></i>
-                        </a>
+                      <div class="github-info">
+                        <div class="github-sub">
+                          <div class="github-title">Total commits:</div>
+                          <p class="github-count" id="total-commits">3,7k</p>
+                        </div>
+                        <div class="github-sub">
+                          <div class="github-title">Repositories count:</div>
+                          <p class="github-count" id="repo-count">61</p>
+                        </div>
+                        <div class="github-sub">
+                          <div class="github-title">Followers:</div>
+                          <p class="github-count" id="followers">30</p>
+                        </div>
+                        <div class="github-sub">
+                          <div class="github-title">Stars:</div>
+                          <p class="github-count" id="stars">17</p>
+                        </div>
+                        <div class="github-sub">
+                          <a
+                            class="github-link"
+                            href="https://github.com/othman4dev"
+                          >
+                            Visit Account
+                            <i class="bi bi-box-arrow-up-right"></i>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div class="commit-graph">
-                    <img
-                      class="commits-img"
-                      src="https://ghchart.rshah.org/othman4dev"
-                      alt="GitHub Contributions Graph"
-                    />
+                  <div class="github-fix">
+                    <p class="stat-title">
+                      <i class="bi bi-graph-up"></i>Commits Graph
+                    </p>
+                    <div class="commit-graph icon">
+                      <img
+                        class="commits-img"
+                        src="https://ghchart.rshah.org/othman4dev"
+                        alt="GitHub Contributions Graph"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
               <div class="github-stat">
                 <div class="card-title">More Stats :</div>
-                <div class="commit-graph repos">
+                <div class="commit-graph repos icon">
+                  <img
+                    src="https://github-readme-streak-stats.herokuapp.com/?user=Othman4dev&theme=gotham&hide_border=true  "
+                    alt="Commit Streak"
+                  />
                   <!-- GitHub Profile Stats -->
                   <img
                     src="https://github-readme-stats.vercel.app/api?username=Othman4dev&show_icons=true&theme=gotham&count_private=true&hide_border=true"
@@ -1304,16 +1395,12 @@
                   />
 
                   <!-- Commit Streak -->
-                  <img
-                    src="https://github-readme-streak-stats.herokuapp.com/?user=Othman4dev&theme=gotham&hide_border=true  "
-                    alt="Commit Streak"
-                  />
                 </div>
               </div>
             </div>
           </div>
-          <div class="fakeblob"></div>
           <div class="blob"></div>
+          <div class="fakeblob"></div>
         </div>
       </div>
 
@@ -1455,6 +1542,98 @@
             <div class="blob"></div>
           </div>
         </div>
+        <div class="contacts-mobile">
+          <div class="contact-mobile">
+            <div class="contact-icon">
+              <i class="bi bi-linkedin"></i>
+            </div>
+            <div class="contact-text">
+              <p class="contact-title">LinkedIn:</p>
+              <p class="contact-info">
+                <a href="https://www.linkedin.com/in/othman-kharbouch/">
+                  Otman Kharbouch
+                </a>
+              </p>
+              <a
+                href="https://www.linkedin.com/in/otman-kharbouch-ba44552a1/"
+                target="_blank"
+              >
+                <button class="contact-btn">
+                  Visit Account<i class="bi bi-chat-fill"></i>
+                </button>
+              </a>
+            </div>
+          </div>
+          <div class="contact-mobile">
+            <div class="contact-icon">
+              <i class="bi bi-envelope-paper"></i>
+            </div>
+            <div class="contact-text">
+              <p class="contact-title">Email:</p>
+              <p class="contact-info">
+                <a href="mailto:otmankharbouch813@gmail.com">
+                  otmankharbouch813 @gmail.com
+                </a>
+              </p>
+              <button
+                class="contact-btn"
+                onclick="copyToClipboard('otmankharbouch813@gmail.com',this)"
+              >
+                Copy Email<i class="bi bi-clipboard"></i>
+              </button>
+            </div>
+          </div>
+          <div class="contact-mobile">
+            <div class="contact-icon">
+              <i class="bi bi-whatsapp"></i>
+            </div>
+            <div class="contact-text">
+              <p class="contact-title">WhatsApp :</p>
+              <p class="contact-info">
+                <a href="tel:+212 6 07 07 07 07">+212 6 58 93 48 55</a>
+              </p>
+              <a href="https://wa.me/212658934855" target="_blank">
+                <button class="contact-btn">
+                  Start a chat<i class="bi bi-chat-fill"></i>
+                </button>
+              </a>
+            </div>
+          </div>
+          <div class="contact-mobile">
+            <div class="contact-icon">
+              <i class="bi bi-github"></i>
+            </div>
+            <div class="contact-text">
+              <p class="contact-title">GitHub:</p>
+              <p class="contact-info">
+                <a href="https://github.com/othman4dev">othman4dev</a>
+              </p>
+              <a href="https://github.com/othman4dev" target="_blank">
+                <button class="contact-btn">
+                  Visit Profile<i class="bi bi-box-arrow-up-right"></i>
+                </button>
+              </a>
+            </div>
+          </div>
+          <div class="contact-mobile">
+            <div class="contact-icon">
+              <i class="bi bi-instagram"></i>
+            </div>
+            <div class="contact-text">
+              <p class="contact-title">Instagram:</p>
+              <p class="contact-info">
+                <a href="https://www.instagram.com/othman.is.me/  "
+                  >@othman.is.me</a
+                >
+              </p>
+              <a href="https://www.instagram.com/othman.is.me/" target="_blank">
+                <button class="contact-btn">
+                  Visit Profile<i class="bi bi-box-arrow-up-right"></i>
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
         <div class="copyright">
           <p class="copy-text">
             &copy; 2024 Otman Kharbouch. All rights reserved. Designed and
@@ -1463,12 +1642,230 @@
         </div>
       </div>
     </main>
+    <div class="education-modal" id="youcode">
+      <div class="education-header">
+        <h1 class="modal-title">Education</h1>
+        <button
+          class="education-close"
+          onclick="this.parentNode.parentNode.style.display='none';document.getElementById('protection').style.display='none'"
+        >
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+      <div class="education-modal-title">
+        <h1 class="education-modal-title">YouCode</h1>
+        <p class="education-date">2023 - 2025</p>
+      </div>
+      <div class="education-body">
+        <div class="education-part1">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide" id="slide1-youcode"></div>
+              <div class="swiper-slide" id="slide2-youcode"></div>
+              <div class="swiper-slide" id="slide3-youcode"></div>
+              <div class="swiper-slide" id="slide4-youcode"></div>
+              <div class="swiper-slide" id="slide5-youcode"></div>
+              ...
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
+          </div>
+          <div class="swiper-text">
+            <p class="education-modal-desc">
+                 <strong>YouCode</strong> is more than a bootcamp—it’s a
+              transformative two-year web development program designed to shape
+              future tech leaders. In partnership with UM6P (Mohammed VI
+              Polytechnic University) and inspired by the Simplon.co model,
+              <strong>YouCode</strong> blends hands-on training in front-end and
+              back-end technologies with essential soft skills like teamwork and
+              project management.
+              <br />
+                 Through its project-based learning approach, students work on
+              real-world challenges, collaborate with peers, and build a strong
+              professional network. Backed by the OCP Group and collaborating
+              with the prestigious 1337 network (Leet),
+              <strong>YouCode</strong> provides access to cutting-edge resources
+              and a dynamic, innovation-driven environment.
+              <br />
+                 At <strong>YouCode</strong>, students don’t just learn to
+              code—they grow into confident, industry-ready professionals.
+            </p>
+            <div class="learn-more">
+              Learn more about <strong>YouCode</strong> at
+              <a href="https://youcode.ma">YouCode</a>
+            </div>
+          </div>
+        </div>
+        <div class="education-part2">
+          <h1 class="education-program-title">Program of Study:</h1>
+          <p class="education-program-desc">
+            At YouCode, the curriculum is designed to provide a comprehensive
+            foundation in both front-end and back-end web development, along
+            with essential tools and methodologies for modern software
+            development.
+          </p>
+          <h3 class="education-subtitle">Technologies and Tools</h3>
+          <ul class="education-list">
+            <li>
+              Front-End Development: HTML, CSS, JavaScript, React, Angular,
+              Vue.js, Next.js
+            </li>
+            <li>Back-End Development: PHP, Laravel, Nest.js</li>
+            <li>Databases: MongoDB, MariaDB</li>
+            <li>Web Servers: Apache</li>
+            <li>Operating Systems and Scripting: Linux, Bash</li>
+            <li>Project Management: Jira, Trello</li>
+            <li>
+              Development Practices: Agile methodologies, version control
+              (Git/GitHub)
+            </li>
+          </ul>
+          By engaging with this diverse stack, students graduate as versatile
+          developers equipped to tackle real-world challenges and adapt to the
+          ever-changing tech landscape.
+        </div>
+      </div>
+    </div>
+    <div class="education-modal" id="codecademy">
+      <div class="education-header">
+        <h1 class="modal-title">Education</h1>
+        <button
+          class="education-close"
+          onclick="this.parentNode.parentNode.style.display='none';document.getElementById('protection').style.display='none'"
+        >
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+      <div class="education-modal-title">
+        <h1 class="education-modal-title">E-learning</h1>
+        <p class="education-date">2023 - 2021</p>
+      </div>
+      <div class="education-body">
+        <div class="education-part1">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide" id="slide1-e"></div>
+              <div class="swiper-slide" id="slide2-e"></div>
+              <div class="swiper-slide" id="slide3-e"></div>
+              ...
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
+          </div>
+          <div class="swiper-text">
+            <p class="education-modal-desc">
+                 <strong>Codecademy</strong> and
+              <strong>FreeCodeCamp</strong> are leading platforms in the realm
+              of e-learning, offering comprehensive courses in web development
+              and programming. These platforms provide a flexible and accessible
+              way to learn coding skills, catering to both beginners and
+              advanced learners.
+              <br />
+                 <strong>Codecademy</strong> offers interactive coding lessons
+              in various programming languages, including JavaScript, Python,
+              and HTML/CSS. Their hands-on approach ensures that learners can
+              immediately apply what they learn through practical exercises and
+              projects.
+              <br />
+                 <strong>FreeCodeCamp</strong> is renowned for its extensive
+              curriculum that covers front-end and back-end development. It
+              emphasizes project-based learning, allowing students to build
+              real-world applications and gain practical experience. The
+              platform also offers certifications upon completion of its
+              rigorous courses.
+            </p>
+            <div class="learn-more">
+              Learn more about <strong>Codecademy</strong> at
+              <a href="https://www.codecademy.com">Codecademy</a> and
+              <strong>FreeCodeCamp</strong> at
+              <a href="https://www.freecodecamp.org">FreeCodeCamp</a>
+            </div>
+          </div>
+        </div>
+        <div class="education-part2">
+          <h1 class="education-program-title">Program of Study:</h1>
+          <p class="education-program-desc">
+            The curriculum for the Responsive Web Design course on FreeCodeCamp
+            and the JavaScript course on Codecademy is designed to provide a
+            solid foundation in web development and programming.
+          </p>
+          <div class="flex-lists">
+            <div class="wrap-list">
+              <h3 class="education-subtitle">
+                FreeCodeCamp - Responsive Web Design
+              </h3>
+              <ul class="education-list">
+                <li>Basic HTML and HTML5</li>
+                <li>Basic CSS</li>
+                <li>Applied Visual Design</li>
+                <li>Applied Accessibility</li>
+                <li>Responsive Web Design Principles</li>
+                <li>CSS Flexbox</li>
+                <li>CSS Grid</li>
+                <li>Responsive Web Design Projects</li>
+              </ul>
+            </div>
+            <div class="wrap-list">
+              <h3 class="education-subtitle">Codecademy - JavaScript</h3>
+              <ul class="education-list">
+                <li>Introduction to JavaScript</li>
+                <li>JavaScript Syntax</li>
+                <li>Functions</li>
+                <li>Conditionals, Arrays, Loops, Iterators, Objects, Scope</li>
+                <li>Classes</li>
+                <li>Browser Compatibility and Transpilation</li>
+                <li>JavaScript Projects</li>
+              </ul>
+            </div>
+          </div>
+          By engaging with these comprehensive courses, students gain the skills
+          needed to build responsive websites and develop proficiency in
+          JavaScript programming.
+        </div>
+      </div>
+    </div>
+    <div id="protection"></div>
+    <div class="loading-animation">
+      <h3 class="loading-text">Loading</h3>
+      <span class="loader"></span>
+    </div>
     <button class="scroll-btn" id="up" onclick="scrollUpIntoView(this,1)">
       <i class="bi bi-chevron-up"></i>
     </button>
     <button class="scroll-btn" id="down" onclick="scrollDownIntoView(this,2)">
       <i class="bi bi-chevron-down"></i>
     </button>
+    <div class="tuto" id="tutorial">
+      <div class="step" id="step1">
+        <div class="step1-text">
+          <p class="step-title" id="tuto-text">
+            You can navigate using these arrows
+          </p>
+          <div id="includes"></div>
+        </div>
+        <div class="actions">
+          <button class="next" onclick="nextTuto()">
+            Next <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
   </body>
   <div class="notification-container" id="notification-container"></div>
 </html>
@@ -1479,4 +1876,26 @@
       document.getElementById("repo-count").innerText = data.public_repos;
       document.getElementById("followers").innerText = data.followers;
     });
+
+  const swiper = new Swiper(".swiper", {
+    // Optional parameters
+    direction: "horizontal",
+    loop: true,
+
+    // If we need pagination
+    pagination: {
+      el: ".swiper-pagination",
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+
+    // And if we need scrollbar
+    scrollbar: {
+      el: ".swiper-scrollbar",
+    },
+  });
 </script>
