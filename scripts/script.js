@@ -171,13 +171,13 @@ document.addEventListener("keydown", (e) => {
 
 // on window load , go to view section 1 mandatory
 
-// window.onload = () => {
-// if (window.innerWidth < 828) {
-//   return;
-// }
-//   const section = document.getElementById(`section1`);
-//   section.scrollIntoView({ behavior: "smooth", block: "start" });
-// };
+window.onload = () => {
+  if (window.innerWidth < 828) {
+    return;
+  }
+  const section = document.getElementById(`section1`);
+  section.scrollIntoView({ behavior: "smooth", block: "start" });
+};
 
 function searchTechs(input) {
   var filter, techs, i, imgElement, txtValue;
@@ -326,12 +326,12 @@ function notify(icon, message) {
 // setTimeout(() => {
 //   notify("bi-emoji-smile-fill", "Welcome to my portfolio");
 // }, 1000);
-// setTimeout(() => {
-//   notify(
-//     "bi-puzzle-fill",
-//     "If you like this website and want to use it, contact me and we can make a deal."
-//   );
-// }, 10000);
+setTimeout(() => {
+  notify(
+    "bi-puzzle-fill",
+    "If you like this website and want to use it, contact me and we can make a deal."
+  );
+}, 10000);
 
 function checkResolutionAndNotify() {
   if (window.innerHeight > 828 && window.innerHeight > window.innerWidth) {
@@ -380,10 +380,12 @@ function animation() {
       `;
       setTimeout(() => {
         loader.style.display = "none";
-        if (!localStorage.getItem("tutorial")) {
-          tutorial();
+        if (localStorage.getItem("tutorial") !== "done") {
+          setTimeout(() => {
+            tutorial();
+          }, 500);
         }
-      }, 10);
+      }, 3000);
     } else {
       heroImage.addEventListener("load", () => {
         loader.style.opacity = "0";
