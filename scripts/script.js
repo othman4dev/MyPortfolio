@@ -331,7 +331,7 @@ setTimeout(() => {
     "bi-puzzle-fill",
     "If you like this website and want to use it, contact me and we can make a deal."
   );
-}, 10000);
+}, 20000);
 
 function checkResolutionAndNotify() {
   if (window.innerHeight > 828 && window.innerHeight > window.innerWidth) {
@@ -370,6 +370,12 @@ function animation() {
     const loader = document.querySelector(".loading-animation");
     const heroImage = document.querySelector(".othman-img");
 
+    const stopAnimation = () => {
+      loader.style.display = "none";
+    };
+
+    const maxDuration = setTimeout(stopAnimation, 5000);
+
     if (heroImage.complete) {
       loader.innerHTML = `
       <div class="wrapper">
@@ -379,18 +385,21 @@ function animation() {
       </div>
       `;
       setTimeout(() => {
-        loader.style.display = "none";
-        if (localStorage.getItem("tutorial") !== "done") {
+        clearTimeout(maxDuration);
+        stopAnimation();
+        let tutorials = localStorage.getItem("tutorial");
+        if (tutorials !== "done") {
           setTimeout(() => {
             tutorial();
-          }, 500);
+          }, 1000);
         }
       }, 3000);
     } else {
       heroImage.addEventListener("load", () => {
         loader.style.opacity = "0";
         setTimeout(() => {
-          loader.style.display = "none";
+          clearTimeout(maxDuration);
+          stopAnimation();
         }, 2000);
       });
     }
@@ -435,26 +444,29 @@ function nextTuto() {
   } else if (step == 4) {
     tuto.style.top = "35%";
     tuto.style.right = "10%";
-    document.getElementById("down").click();
+    toSection(2);
     tutoModal.innerText = `Search here for technologies.`;
     document.getElementById("techno-cards").style.zIndex = "100";
-    highlightElement(document.getElementById("tech-search"));
-    const searshed = "javascript";
-    let i = 0;
-    const intervalId = setInterval(() => {
-      document.getElementById("tech-search").value += searshed[i];
-      searchTechs(document.getElementById("tech-search"));
-      i++;
-      if (i >= searshed.length) {
-        clearInterval(intervalId);
-      }
-    }, 100);
+    setTimeout(() => {
+      highlightElement(document.getElementById("tech-search"));
+      const searshed = "javascript";
+      let i = 0;
+      const intervalId = setInterval(() => {
+        document.getElementById("tech-search").value += searshed[i];
+        searchTechs(document.getElementById("tech-search"));
+        i++;
+        if (i >= searshed.length) {
+          clearInterval(intervalId);
+        }
+      }, 100);
+    }, 1000);
   } else {
+    document.getElementById("techno-cards").style.zIndex = "1";
     document.getElementById("tech-search").value = "";
     searchTechs(document.getElementById("tech-search"));
     tuto.style.display = "none";
     document.getElementById("tutorial").style.display = "none";
-    document.getElementById("up").click();
+    toSection(1);
   }
   step++;
 }
@@ -465,4 +477,10 @@ function highlightElement(element) {
   setTimeout(() => {
     element.style.animationName = "none";
   }, 1000);
+}
+
+function skipTuto() {
+  localStorage.setItem("tutorial", "done");
+  step = 5;
+  nextTuto();
 }
