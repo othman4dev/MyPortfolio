@@ -366,48 +366,33 @@ function openEducation(num) {
   }
 }
 function animation() {
-  window.addEventListener("load", () => {
-    const loader = document.querySelector(".loading-animation");
-    const heroImage = document.querySelector(".othman-img");
+  const loader = document.querySelector(".loading-animation");
 
-    const stopAnimation = () => {
-      loader.style.display = "none";
-    };
+  const stopAnimation = () => {
+    loader.style.display = "none";
+  };
 
-    const maxDuration = setTimeout(stopAnimation, 5000);
-
-    if (heroImage.complete) {
-      loader.innerHTML = `
+  setTimeout(() => {
+    stopAnimation();
+    loader.innerHTML = `
       <div class="wrapper">
         <div class="typing-demo welcome">
           Welcome to my portfolio.
         </div>
       </div>
       `;
+    let tutorials = localStorage.getItem("tutorial");
+    if (tutorials !== "done") {
       setTimeout(() => {
-        clearTimeout(maxDuration);
-        stopAnimation();
-        let tutorials = localStorage.getItem("tutorial");
-        if (tutorials !== "done") {
-          setTimeout(() => {
-            tutorial();
-          }, 1000);
-        }
-      }, 3000);
-    } else {
-      heroImage.addEventListener("load", () => {
-        loader.style.opacity = "0";
-        setTimeout(() => {
-          clearTimeout(maxDuration);
-          stopAnimation();
-        }, 2000);
-      });
+        tutorial();
+      }, 500);
     }
-  });
+  }, 2000);
 }
 animation();
 
 function tutorial() {
+  console.log(document.getElementById("tutorial"));
   document.getElementById("tutorial").style.display = "block";
   setTimeout(() => {
     highlightElement(document.getElementById("down"));

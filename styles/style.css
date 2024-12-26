@@ -1702,6 +1702,9 @@ body {
   left: 0;
   background-color: #00000099;
 }
+#tutorial {
+  display: none;
+}
 .step {
   background-color: #314466;
   color: #f0f0f0;
@@ -1713,7 +1716,8 @@ body {
   top: 85%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: 1s;
+  transition: 0.5s;
+  z-index: 100000000;
 }
 
 @keyframes highlight {
