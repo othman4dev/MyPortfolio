@@ -979,7 +979,7 @@
             <div class="blob"></div>
             <div class="fakeblob"></div>
           </div>
-          <div class="project-card card">
+          <div class="project-card card project-to-hide">
             <div class="inner">
               <div class="project-card-header">
                 <div
@@ -1056,7 +1056,7 @@
             <div class="blob"></div>
             <div class="fakeblob"></div>
           </div>
-          <div class="project-card card">
+          <div class="project-card card project-to-hide">
             <div class="inner">
               <div class="project-card-header">
                 <div
@@ -1130,7 +1130,7 @@
             <div class="fakeblob"></div>
           </div>
           <a class="more-projects-link" href="./pages/projects.html">
-            <button class="more-projects">
+            <button class="more-projects" id="more-projects">
               See more<i class="bi bi-arrow-right"></i>
             </button>
           </a>
@@ -1680,23 +1680,25 @@
           </div>
           <div class="swiper-text">
             <p class="education-modal-desc">
-                 <strong>YouCode</strong> is more than a bootcamp—it’s a
-              transformative two-year web development program designed to shape
-              future tech leaders. In partnership with UM6P (Mohammed VI
-              Polytechnic University) and inspired by the Simplon.co model,
-              <strong>YouCode</strong> blends hands-on training in front-end and
-              back-end technologies with essential soft skills like teamwork and
-              project management.
+              <strong>YouCode</strong> is a transformative two-year web
+              development program that blends front-end and back-end training
+              with soft skills like teamwork and project management. Partnered
+              with UM6P and inspired by the Simplon.co model, it adopts a
+              project-based learning approach to tackle real-world challenges.
               <br />
-                 Through its project-based learning approach, students work on
-              real-world challenges, collaborate with peers, and build a strong
-              professional network. Backed by the OCP Group and collaborating
-              with the prestigious 1337 network (Leet),
-              <strong>YouCode</strong> provides access to cutting-edge resources
-              and a dynamic, innovation-driven environment.
-              <br />
-                 At <strong>YouCode</strong>, students don’t just learn to
-              code—they grow into confident, industry-ready professionals.
+              Supported by OCP and connected to the 1337 network,
+              <strong>YouCode</strong> offers access to cutting-edge resources
+              in a dynamic environment. Students graduate as confident,
+              industry-ready professionals, equipped for future tech leadership.
+            </p>
+            <h1 class="education-program-title" style="color: #fff">
+              Program of Study:
+            </h1>
+            <p class="education-program-desc" style="color: #fff">
+              At YouCode, the curriculum is designed to provide a comprehensive
+              foundation in both front-end and back-end web development, along
+              with essential tools and methodologies for modern software
+              development.
             </p>
             <div class="learn-more">
               Learn more about <strong>YouCode</strong> at
@@ -1705,13 +1707,6 @@
           </div>
         </div>
         <div class="education-part2">
-          <h1 class="education-program-title">Program of Study:</h1>
-          <p class="education-program-desc">
-            At YouCode, the curriculum is designed to provide a comprehensive
-            foundation in both front-end and back-end web development, along
-            with essential tools and methodologies for modern software
-            development.
-          </p>
           <h3 class="education-subtitle">Technologies and Tools</h3>
           <ul class="education-list">
             <li>
@@ -1866,6 +1861,44 @@
           <button class="next" onclick="nextTuto()">
             Next <i class="bi bi-arrow-right"></i>
           </button>
+        </div>
+      </div>
+    </div>
+    <div class="dev-alert-container">
+      <div class="dev-alert">
+        <div class="dev-alert-header">
+          <div class="p1">
+            <i class="bi bi-exclamation-triangle"></i>
+            <h2>Alert</h2>
+          </div>
+          <div class="closer">
+            <button
+              class="close"
+              onclick="this.parentNode.parentNode.parentNode.parentNode.style.display='none'"
+            >
+              <i class="bi bi-x"></i>
+            </button>
+          </div>
+        </div>
+        <div class="dev-alert-text">
+          <p class="dev-alert-title">Under development</p>
+          <p class="dev-alert-desc">
+            This website is currently <strong>under development</strong>. Some
+            features may not be fully functional or not responsive yet. Thank
+            you for your understanding.
+          </p>
+          <p class="alert-tip">
+            For the best experience use this website on a
+            <strong>computer device</strong>
+          </p>
+          <div class="alert-buttons">
+            <button
+              class="ok"
+              onclick="this.parentNode.parentNode.parentNode.parentNode.style.display='none'"
+            >
+              Ok
+            </button>
+          </div>
         </div>
       </div>
     </div>

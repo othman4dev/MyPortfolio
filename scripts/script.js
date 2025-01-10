@@ -2,16 +2,17 @@ let index = 1;
 
 function scrollDownIntoView(btn, element) {
   if (index === 5) {
-    notify("bi-whatsapp", "I recommend contacting me via whatsapp if urgent.");
+    notify("bi-whatsapp", "For emergency, contact me on WhatsApp.");
   }
   if (index === 3) {
     notify(
       "bi-question-circle-fill",
-      "If you come with some new technology and make the right offer, I am ready to learn it."
+      "I can learn any new technologie easily and quickly."
     );
   }
   if (index == 2) {
-    notify("bi-info-circle-fill", "I am always working on something new.");
+    notify("bi-info-circle-fill", "I am always working on new projects");
+    selectCard(document.getElementById("more-projects"));
   }
   const section = document.getElementById(`section${element}`);
   section.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -171,13 +172,10 @@ document.addEventListener("keydown", (e) => {
 
 // on window load , go to view section 1 mandatory
 
-window.onload = () => {
-  if (window.innerWidth < 828) {
-    return;
-  }
+if (window.innerWidth > 828) {
   const section = document.getElementById(`section1`);
   section.scrollIntoView({ behavior: "smooth", block: "start" });
-};
+}
 
 function searchTechs(input) {
   var filter, techs, i, imgElement, txtValue;

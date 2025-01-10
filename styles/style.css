@@ -602,9 +602,9 @@ body {
   background-color: #314466;
   border-radius: 10px;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
-  min-height: 320px;
+  min-height: 280px;
   max-height: 320px;
-  min-width: 500px;
+  min-width: 420px;
   padding: 15px;
   box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -991,6 +991,10 @@ body {
   width: 100%;
   flex-grow: 1;
   cursor: pointer;
+  height: 83%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
 }
 .commits-img {
   width: 100%;
@@ -1415,11 +1419,11 @@ body {
   justify-content: flex-start;
 }
 .swiper {
-  width: 45%;
-  height: 300px;
+  width: 35%;
+  height: 270px;
 }
 .swiper-text {
-  width: 45%;
+  width: 55%;
 }
 .education-modal-desc {
   font-size: 16px;
@@ -1439,6 +1443,9 @@ body {
 }
 .education-program-title {
   font-size: 20px;
+  color: #fff;
+  margin-top: 7px;
+  margin-bottom: 7px;
 }
 .education-part2 {
   padding: 7px;
@@ -1784,4 +1791,86 @@ body {
 .skip:hover {
   background-color: #314466;
   transition: 0.3s;
+}
+.dev-alert-container {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.dev-alert {
+  background-color: #314466;
+  color: #f0f0f0;
+  width: 500px;
+  padding: 8px;
+  border-radius: 7px;
+}
+.p1 i {
+  font-size: 20px;
+}
+.close {
+  background-color: transparent;
+  color: #f0f0f0;
+  border: none;
+  font-size: 25px;
+}
+.close:hover {
+  color: #fff;
+  cursor: pointer;
+}
+.dev-alert-title {
+  font-size: 18px;
+  margin: 5px;
+}
+.p1 {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.dev-alert-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  padding-inline: 15px;
+}
+.dev-alert-title {
+  font-size: 20px;
+  padding-inline: 5px;
+}
+.dev-alert-desc {
+  font-size: 15px;
+  padding-inline: 10px;
+}
+.alert-tip {
+  padding-inline: 10px;
+  font-size: 15px;
+  margin-top: 4px;
+}
+.alert-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-inline: 15px;
+  margin-top: 10px;
+}
+.ok {
+  background-color: #1f293b;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  padding-inline: 40px;
+  border: solid 2px;
+  border-color: #1f293b;
+}
+.ok:hover {
+  background-color: #314466;
+  transition: 0.3s;
+  cursor: pointer;
+  border-color: #f0f0f0;
 }

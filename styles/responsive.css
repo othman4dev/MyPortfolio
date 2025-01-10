@@ -1,6 +1,75 @@
+@media screen and (max-width: 1756px) {
+  .techno-search {
+    height: 360px;
+  }
+}
+@media screen and (max-width: 1693px) {
+  .techno-search {
+    height: 383px;
+  }
+  .search-result {
+    max-height: 240px;
+  }
+}
+@media screen and (max-width: 1643px) {
+  .techno-search {
+    height: 406px;
+  }
+  .search-result {
+    max-height: 260px;
+  }
+}
+@media screen and (max-width: 1615px) {
+  .techno-search {
+    height: 426px;
+  }
+  .search-result {
+    max-height: 280px;
+  }
+}
+@media screen and (max-width: 1880px) {
+  .repos img {
+    height: 10vw;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .card-header {
+    max-height: 170px;
+  }
+  .card-desc {
+    height: fit-content;
+  }
+  .project-card .tech- img {
+    height: 26px;
+  }
+  .education-desc {
+    font-size: 14px;
+  }
+  .project-cards {
+    width: 88%;
+  }
+  .main-card {
+    width: 88%;
+  }
+  .more-projects {
+    font-size: 16px;
+  }
+  .visit-btn {
+    font-size: 14px;
+  }
+}
 @media screen and (min-width: 1451px) {
   .project-cards {
     transform: none;
+  }
+}
+
+@media screen and (max-width: 1545px) {
+  .project-desc {
+    font-size: 14px;
+  }
+  .project-desc-add {
+    font-size: 14px;
   }
 }
 @media screen and (max-width: 1450px) {
@@ -15,6 +84,11 @@
   }
   .project-cards {
     transform: scale(0.9);
+  }
+}
+@media screen and (max-width: 1424px) {
+  .education-modal {
+    width: 90%;
   }
 }
 @media screen and (max-width: 1343px) {
@@ -65,6 +139,20 @@
   .titles {
     gap: 200px;
   }
+  .ag-courses-item_title {
+    font-size: 19px;
+  }
+  .ag-courses-item_date-box {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 1282px) {
+  .about-desc {
+    font-size: 14px;
+  }
+  .search-result img {
+    height: 26px;
+  }
 }
 @media screen and (max-width: 1258px) {
   .titles {
@@ -103,6 +191,15 @@
     gap: 150px;
   }
 }
+@media screen and (max-width: 1232px) {
+  .education-part2,
+  .education-program-desc {
+    font-size: 14px;
+  }
+  .education-modal-desc {
+    font-size: 14px;
+  }
+}
 @media screen and (max-width: 1228px) {
   .commits-img {
     height: 100px;
@@ -134,9 +231,6 @@
   .titles .small-title:nth-of-type(2) {
     display: none;
   }
-  .repos img:nth-of-type(2) {
-    display: none;
-  }
   .ag-courses_box {
     padding-inline: 0;
   }
@@ -149,6 +243,11 @@
     gap: 1rem;
   }
 }
+@media screen and (max-width: 1206px) {
+  .github-fix:nth-of-type(1) {
+    max-width: unset;
+  }
+}
 @media screen and (max-width: 1120px) {
   #section6 {
     transform: scale(0.8);
@@ -158,6 +257,21 @@
   .ag-format-container {
     min-height: 110vh;
   }
+  .project-to-hide {
+    display: none;
+  }
+  .project-cards {
+    grid-template-columns: repeat(1, 1fr);
+    width: 62%;
+    scale: unset;
+    transform: scale(1);
+  }
+  .profile-img.card {
+    display: none;
+  }
+  .hero-profile {
+    width: 85%;
+  }
 }
 @media screen and (max-width: 1082px) {
   #section4 {
@@ -166,13 +280,12 @@
     margin-left: 0px;
   }
   .project-cards {
-    transform: scale(0.8);
-    width: 120%;
+    width: 70%;
   }
-  .main-card {
+  /* .main-card {
     transform: scale(0.85);
     width: 110%;
-  }
+  } */
   .hero-profile {
     transform: scale(0.85);
     width: 110%;
@@ -183,27 +296,40 @@
     transform: translateY(-100px);
   }
 }
+@media screen and (max-width: 1000px) {
+  .card-body {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .education {
+    width: 100%;
+  }
+  .techno-search {
+    max-width: unset;
+    height: 225px;
+  }
+  .search-result {
+    max-height: 100px;
+    min-height: 100px;
+  }
+}
 @media screen and (max-width: 979px) {
   #section4 {
     transform: scale(0.7);
   }
   .ag-courses_box {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     min-width: 100vw;
   }
   .ag-courses_item {
     width: 90%;
   }
+  .ag-format-container {
+    margin-top: 110px;
+  }
 }
 @media screen and (max-width: 932px) {
-  .project-cards {
-    transform: scale(0.7);
-    width: 120vw;
-  }
-  .project-card {
-    max-width: 550px;
-  }
   .project-img {
     min-height: 100px;
   }
@@ -212,9 +338,6 @@
   }
   .contact-big {
     font-size: 70px;
-  }
-  .ag-courses-item_link {
-    padding: 15px 20px;
   }
 }
 @media screen and (max-width: 891px) {
