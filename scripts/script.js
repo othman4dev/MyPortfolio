@@ -1,10 +1,10 @@
 let index = 1;
 
 function scrollDownIntoView(btn, element) {
-  if (index === 5) {
+  if (index === 6) {
     notify("bi-whatsapp", "For emergency, contact me on WhatsApp.");
   }
-  if (index === 3) {
+  if (index === 1) {
     notify(
       "bi-question-circle-fill",
       "I can learn any new technologie easily and quickly."
@@ -17,7 +17,7 @@ function scrollDownIntoView(btn, element) {
   const section = document.getElementById(`section${element}`);
   section.scrollIntoView({ behavior: "smooth", block: "start" });
   index++;
-  if (index === 6) {
+  if (index === 7) {
     btn.style.display = "none";
   } else {
     btn.style.display = "block";
@@ -45,7 +45,7 @@ function scrollUpIntoView(btn, element) {
   } else {
     btn.style.display = "block";
   }
-  if (index < 6) {
+  if (index < 7) {
     document.getElementById("down").style.display = "block";
   }
   btn.onclick = () => scrollUpIntoView(btn, element - 1);
@@ -61,22 +61,17 @@ function scrollUpIntoView(btn, element) {
 }
 
 function indexDown() {
-  document
-    .querySelector(".current-sidebar-index")
-    .classList.remove("current-sidebar-index");
-  document
-    .querySelectorAll(".sidebar-index")
-    [index - 1].classList.add("current-sidebar-index");
   const indexes = [
     "PROFILE",
     "ABOUT",
     "PROJECTS",
+    "EXPERIENCE",
     "SERVICES",
     "STATS",
     "CONTACT",
   ];
   document.getElementById("index").innerHTML = indexes[index - 1];
-  if (index > 1 && index < 6) {
+  if (index > 1 && index < 7) {
     if (document.getElementById("lineFull2")) {
       document.getElementById("lineFull2").outerHTML = `
                 <div class="line-half" id="lineHalf2">
@@ -104,7 +99,7 @@ function indexDown() {
         el.style.animationName = "none";
       });
     }, 301);
-  } else if (index > 5) {
+  } else if (index > 6) {
     if (document.getElementById("lineHalf")) {
       document.getElementById("lineHalf2").outerHTML = `
                 <div class="line-full" id="lineFull2"></div>
@@ -150,7 +145,7 @@ document.addEventListener("wheel", (e) => {
   if (window.innerWidth < 828) {
     return;
   }
-  if (e.deltaY > 0 && index < 6) {
+  if (e.deltaY > 0 && index < 7) {
     document.getElementById("down").click();
   } else if (e.deltaY < 0 && index > 1) {
     document.getElementById("up").click();
@@ -163,7 +158,7 @@ document.addEventListener("keydown", (e) => {
   if (window.innerWidth < 828) {
     return;
   }
-  if (e.key === "ArrowDown" && index < 6) {
+  if (e.key === "ArrowDown" && index < 7) {
     document.getElementById("down").click();
   } else if (e.key === "ArrowUp" && index > 1) {
     document.getElementById("up").click();

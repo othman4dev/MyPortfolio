@@ -10,24 +10,24 @@
     <link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet" />
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/responsive.css" />
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="images/favicon.ico" />
-    <link rel="apple-touch-icon-precomposed" href="images/favicon.ico" />
+    <link rel="icon" href="assets/images/otman_favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="assets/images/otman_favicon.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="assets/images/otman_favicon.png" />
+    <link rel="apple-touch-icon-precomposed" href="assets/images/otman_favicon.png" />
     <link
       rel="apple-touch-icon-precomposed"
       sizes="152x152"
-      href="images/favicon.ico"
+      href="assets/images/otman_favicon.png"
     />
     <link
       rel="apple-touch-icon-precomposed"
       sizes="144x144"
-      href="images/favicon.ico"
+      href="assets/images/otman_favicon.png"
     />
     <link
       rel="apple-touch-icon-precomposed"
       sizes="120x120"
-      href="images/favicon.ico"
+      href="assets/images/otman_favicon.png"
     />
     <link href="https://fonts.cdnfonts.com/css/cookie" rel="stylesheet" />
     <script src="/scripts/script.js" defer></script>
@@ -48,9 +48,10 @@
       <a onclick="toSection(1)" class="page">PROFILE</a>
       <a onclick="toSection(2)" class="page">ABOUT</a>
       <a onclick="toSection(3)" class="page">PROJECTS</a>
-      <a onclick="toSection(4)" class="page">SERVICES</a>
-      <a onclick="toSection(5)" class="page">STATS</a>
-      <a onclick="toSection(6)" class="page">CONTACT</a>
+      <a onclick="toSection(4)" class="page">EXPERIENCES</a>
+      <a onclick="toSection(5)" class="page">SERVICES</a>
+      <a onclick="toSection(6)" class="page">STATS</a>
+      <a onclick="toSection(7)" class="page">CONTACT</a>
     </div>
   </header>
   <body>
@@ -58,32 +59,45 @@
     <div class="fixed">
       <div class="side-bar">
         <div class="sidebar-links">
-          <a href="https://github.com/othman4dev">
+          <a href="https://github.com/othman4dev" target="_blank">
             <div class="sidebar-link">
               <i class="bi bi-github"></i>
             </div>
           </a>
-          <a href="https://www.linkedin.com/in/otman-kharbouch-ba44552a1/">
+          <a href="https://www.linkedin.com/in/otman-kharbouch-ba44552a1/" target="_blank">
             <div class="sidebar-link">
               <i class="bi bi-linkedin"></i>
             </div>
           </a>
-          <a href="https://www.instagram.com/othman.is.me/">
+          <a href="https://www.instagram.com/othman.is.me/" target="_blank">
             <div class="sidebar-link">
               <i class="bi bi-instagram"></i>
             </div>
           </a>
+          <a href="https://wa.me/212658934855" target="_blank">
+            <div class="sidebar-link">
+              <i class="bi bi-whatsapp"></i>
+            </div>
+          </a>
         </div>
-        <div class="sidebar-indexes">
+        <div id="connection-status" class="speed-test">
+          <i id="status-icon" class="bi bi-wifi-off text-danger"></i>
+          <span id="status-text" class="status-text">Offline</span>
+          <span id="ping-value" class="speed"></span>
+          <br>
+          <span id="time"></span>
+        </div>
+        <!-- <div class="sidebar-indexes">
           <a onclick="toSection(1)" class="sidebar-index current-sidebar-index"
             >PROFILE</a
           >
           <a onclick="toSection(2)" class="sidebar-index">ABOUT</a>
           <a onclick="toSection(3)" class="sidebar-index">PROJECTS</a>
-          <a onclick="toSection(4)" class="sidebar-index">SERVICES</a>
-          <a onclick="toSection(5)" class="sidebar-index">STATS</a>
-          <a onclick="toSection(6)" class="sidebar-index">CONTACT</a>
-        </div>
+          <a onclick="toSection(4)" class="sidebar-index">EXPERIENCE</a>
+          <a onclick="toSection(5)" class="sidebar-index">SERVICES</a>
+          <a onclick="toSection(6)" class="sidebar-index">STATS</a>
+          <a onclick="toSection(7)" class="sidebar-index">CONTACT</a>
+        </div> -->
       </div>
       <div class="indexer">
         <div class="line-full" id="lineFull"></div>
@@ -312,12 +326,12 @@
                       individual-centered learning and teamwork. "You"
                       represents the person, and "Code" stands for development.
                       More info at
-                      <a href="https://youcode.ma" class="link-prm"
+                      <a href="https://youcode.ma" target="_blank" class="link-prm"
                         >Youcode.ma</a
                       >
                     </div>
                     <div class="scaler" onclick="openEducation(1)">
-                      <i class="bi bi-box-arrow-up-right"></i>
+                      <i class="bi bi-eye"></i>
                     </div>
                   </div>
                   <div class="education-set">
@@ -346,7 +360,7 @@
                       JavaScript, and MongoDB.
                     </div>
                     <div class="scaler" onclick="openEducation(2)">
-                      <i class="bi bi-box-arrow-up-right"></i>
+                      <i class="bi bi-eye"></i>
                     </div>
                   </div>
                   <div class="education-set">
@@ -409,6 +423,12 @@
                     <img
                       src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB"
                       alt="React"
+                    />
+                  </div>
+                  <div class="tech-">
+                    <img
+                      src="https://img.shields.io/badge/remix-000000?style=for-the-badge&logo=remix&logoColor=white"
+                      alt="Remix"
                     />
                   </div>
                   <div class="tech-">
@@ -832,20 +852,20 @@
                   </div>
                   <div class="project-btns">
                     <a
-                      href="https://quicktable.coders-strike.tech/"
+                      href="https://quicktable.coders-strike.tech/" target="_blank"
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Project <i class="bi bi-box-arrow-up-right"></i>
+                        Visit Project <i class="bi bi-link-45deg"></i>
                       </button>
                     </a>
                     <a
-                      href="https://github.com/othman4dev/QuickTable"
+                      href="https://github.com/othman4dev/QuickTable" target="_blank"
                       class="visit-project"
                     >
                       <button class="visit-btn">
                         Visit Repository
-                        <i class="bi bi-box-arrow-up-right"></i>
+                        <i class="bi bi-link-45deg"></i>
                       </button>
                     </a>
                   </div>
@@ -916,20 +936,20 @@
                   </div>
                   <div class="project-btns">
                     <a
-                      href="https://hint.otmankharbouch.live"
+                      href="https://hint.otmankharbouch.live" target="_blank"
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Project <i class="bi bi-box-arrow-up-right"></i>
+                        Visit Project <i class="bi bi-link-45deg"></i>
                       </button>
                     </a>
                     <a
-                      href="https://github.com/othman4dev/Hint"
+                      href="https://github.com/othman4dev/Hint" target="_blank"
                       class="visit-project"
                     >
                       <button class="visit-btn">
                         Visit Repository
-                        <i class="bi bi-box-arrow-up-right"></i>
+                        <i class="bi bi-link-45deg"></i>
                       </button>
                     </a>
                   </div>
@@ -998,21 +1018,21 @@
                   </div>
                   <div class="project-btns">
                     <a
-                      href="http://ixo-multiplayer-io.onrender.com/"
+                      href="http://ixo-multiplayer-io.onrender.com/" target="_blank"
                       class="visit-project"
                     >
                       <button class="visit-btn">
                         Visit Project
-                        <i class="bi bi-box-arrow-up-right"></i>
+                        <i class="bi bi-link-45deg"></i>
                       </button>
                     </a>
                     <a
-                      href="https://github.com/othman4dev/ixo-multiplayer.io"
+                      href="https://github.com/othman4dev/ixo-multiplayer.io" target="_blank"
                       class="visit-project"
                     >
                       <button class="visit-btn">
                         Visit Repository
-                        <i class="bi bi-box-arrow-up-right"></i>
+                        <i class="bi bi-link-45deg"></i>
                       </button>
                     </a>
                   </div>
@@ -1077,12 +1097,12 @@
                   </div>
                   <div class="project-btns">
                     <a
-                      href="https://github.com/othman4dev/alloMedia"
+                      href="https://github.com/othman4dev/alloMedia" target="_blank"
                       class="visit-project"
                     >
                       <button class="visit-btn">
                         Visit Repository
-                        <i class="bi bi-box-arrow-up-right"></i>
+                        <i class="bi bi-link-45deg"></i>
                       </button>
                     </a>
                   </div>
@@ -1138,6 +1158,239 @@
       </div>
 
       <div class="hero-section section" id="section4">
+        <div class="mobile-index">Experience</div>
+        <div class="experience-cards">
+          <div class="experience-card card">
+            <div class="inner">
+              <div class="experience-card-header">
+                <div
+                  class="experience-img"
+                  style="
+                    background-image: url('./assets/experiences/cegedim.png');
+                  "
+                ></div>
+                <div class="project-texts">
+                  <div class="project-header">
+                    <h1 class="project-title">Cegedim - Internship</h1>
+                    <p class="project-date">April 2025 - July 2025</p>
+                  </div>
+
+                  <div class="project-desc-add">
+                    Cegedim is a global tech and services group specializing in healthcare, 
+                    data management, and CRM solutions for life sciences, insurers, and 
+                    healthcare professionals.
+                  </div>
+                  <div class="project-btns">
+                    <a
+                      href="https://www.cegedim.fr/" target="_blank"
+                      class="visit-project"
+                    >
+                      <button class="visit-btn">
+                        Visit their website &nbsp; <i class="bi bi-link-45deg"></i>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-card-bottom">
+                <h4 class="education-title" style="color: #fff;">Contributions:</h4>
+                <div class="project-desc">
+                  - Maintained and enhanced an existing project during my internship at Cegedim.
+                  <br> - Improved overall security by identifying and resolving key vulnerabilities.
+                  <br> - Enhanced UI/UX for a more intuitive and user-friendly interface.
+                  <br> - Contributed to stability and performance optimizations through refactoring.
+                  <br> - Collaborated with the team to ensure secure and scalable code practices.
+                </div>
+                <h4 class="education-title" style="color: #fff;">Tech stack:</h4>
+                <div class="card-technos">
+                  <div class="tech-">
+                    <img
+                      src="https://img.shields.io/badge/vue.js-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D"
+                      alt="Vue.js"
+                    />
+                  </div>
+                  <div class="tech-">
+                    <img
+                      src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white"
+                      alt="Node.js Badge"
+                    />
+                  </div>
+                  <div class="tech-">
+                    <img
+                      src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white"
+                      alt="Express.js Badge"
+                    />
+                  </div>
+                  <div class="tech-">
+                    <img
+                      src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white"
+                      alt="MongoDB Badge"
+                    />
+                  </div>
+                  <div class="tech-">
+                    <img
+                      src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"
+                      alt="JavaScript"
+                    />
+                  </div>
+                  <div class="tech-">
+                    <img
+                      src="https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white"
+                      alt="SASS"
+                    />
+                  </div>
+                  <div class="tech-">
+                    <img
+                      src="https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white"
+                      alt="MySQL"
+                    />
+                  </div>
+                  <div class="tech-">
+                    <img
+                      src="https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white"
+                      alt="PHP"
+                    />
+                  </div>
+                  <div class="tech-">
+                    <img
+                      src="https://img.shields.io/badge/jira-%230A0FFF.svg?style=for-the-badge&logo=jira&logoColor=white"
+                      alt="Jira"
+                    />
+                  </div>
+                  <div class="tech-">
+                    <img
+                      src="https://img.shields.io/badge/gitlab-%23181717.svg?style=for-the-badge&logo=gitlab&logoColor=white"
+                      alt="GitLab"
+                    />
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="blob"></div>
+            <div class="fakeblob"></div>
+          </div>
+          <div class="experience-card card">
+            <div class="inner">
+              <div class="experience-card-header">
+                <div
+                  class="experience-img"
+                  style="
+                    background-image: url('./assets/experiences/moussasoft.png');
+                  "
+                ></div>
+                <div class="project-texts">
+                  <div class="project-header">
+                    <h1 class="project-title">Moussasoft - Internship</h1>
+                    <p class="project-date">May 2024 - July 2024</p>
+                  </div>
+
+                  <div class="project-desc-add">
+                    Moussasoft is a Moroccan IT company specializing in web 
+                    and mobile development, digital solutions, and custom 
+                    software tailored for businesses to enhance their digital 
+                    presence and operational efficiency.
+                  </div>
+                  <div class="project-btns">
+                    <a
+                      href="https://www.moussasoft.com/" target="_blank"
+                      class="visit-project"
+                    >
+                      <button class="visit-btn">
+                        Visit their website &nbsp; <i class="bi bi-link-45deg"></i>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="project-card-bottom">
+                <h4 class="education-title" style="color: #fff;">Contributions:</h4>
+                <div class="project-desc">
+                  - Contributed to website development by implementing requested changes and fixing bugs.
+                  <br>
+                  - Responsible for deploying tested and stable versions to production.
+                  <br>
+                  - Led a small development team, coordinating tasks and ensuring deadlines.
+                  <br>
+                  - Ensured code quality and version control across all updates.
+                </div>
+                <h4 class="education-title" style="color: #fff;">Tech stack:</h4>
+                <div class="card-technos">
+                  <div class="tech-">
+                    <img
+                      src="https://img.shields.io/badge/vue.js-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D"
+                      alt="Vue.js"
+                    />
+                  </div>
+                  <div class="tech-">
+                    <img
+                      src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white"
+                      alt="Node.js Badge"
+                    />
+                  </div>
+                  <div class="tech-">
+                    <img
+                      src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white"
+                      alt="Express.js Badge"
+                    />
+                  </div>
+                  <div class="tech-">
+                    <img
+                      src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white"
+                      alt="MongoDB Badge"
+                    />
+                  </div>
+                  <div class="tech-">
+                    <img
+                      src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"
+                      alt="JavaScript"
+                    />
+                  </div>
+                  <div class="tech-">
+                    <img
+                      src="https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white"
+                      alt="SASS"
+                    />
+                  </div>
+                  <div class="tech-">
+                    <img
+                      src="https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white"
+                      alt="MySQL"
+                    />
+                  </div>
+                  <div class="tech-">
+                    <img
+                      src="https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white"
+                      alt="PHP"
+                    />
+                  </div>
+                  <div class="tech-">
+                    <img
+                      src="https://img.shields.io/badge/jira-%230A0FFF.svg?style=for-the-badge&logo=jira&logoColor=white"
+                      alt="Jira"
+                    />
+                  </div>
+                  <div class="tech-">
+                    <img
+                      src="https://img.shields.io/badge/gitlab-%23181717.svg?style=for-the-badge&logo=gitlab&logoColor=white"
+                      alt="GitLab"
+                    />
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="blob"></div>
+            <div class="fakeblob"></div>
+          </div>
+          <button class="more-exp" id="freelance">
+            <i class="bi bi-info-circle-fill"></i> I've also completed various freelance projects, which I prefer not to list due to client confidentiality and personal discretion, as I don't consider them part of my core professional experience.
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-section section" id="section5">
         <div class="mobile-index">Services</div>
         <div class="ag-format-container">
           <div class="ag-courses_box">
@@ -1261,7 +1514,7 @@
                 <div class="ag-courses-item_date-box">
                   Technologies:
                   <span class="ag-courses-item_date">
-                    Express.js + Nest.js + Laravel
+                    Express.js + Nest.js + Laravel + Remix
                   </span>
                 </div>
               </a>
@@ -1307,7 +1560,7 @@
         </div>
       </div>
 
-      <div class="hero-section section" id="section5">
+      <div class="hero-section section" id="section6">
         <div class="mobile-index">Stats</div>
         <div
           class="main-card card"
@@ -1335,27 +1588,27 @@
                       <div class="github-info">
                         <div class="github-sub">
                           <div class="github-title">Total commits:</div>
-                          <p class="github-count" id="total-commits">3,7k</p>
+                          <p class="github-count" id="total-commits">6,8k</p>
                         </div>
                         <div class="github-sub">
                           <div class="github-title">Repositories count:</div>
-                          <p class="github-count" id="repo-count">61</p>
+                          <p class="github-count" id="repo-count">85</p>
                         </div>
                         <div class="github-sub">
                           <div class="github-title">Followers:</div>
-                          <p class="github-count" id="followers">30</p>
+                          <p class="github-count" id="followers">26</p>
                         </div>
                         <div class="github-sub">
                           <div class="github-title">Stars:</div>
-                          <p class="github-count" id="stars">17</p>
+                          <p class="github-count" id="stars">76</p>
                         </div>
                         <div class="github-sub">
                           <a
                             class="github-link"
-                            href="https://github.com/othman4dev"
+                            href="https://github.com/othman4dev" target="_blank"
                           >
                             Visit Account
-                            <i class="bi bi-box-arrow-up-right"></i>
+                            <i class="bi bi-link-45deg"></i>
                           </a>
                         </div>
                       </div>
@@ -1404,7 +1657,7 @@
         </div>
       </div>
 
-      <div class="hero-section section" id="section6">
+      <div class="hero-section section" id="section7">
         <div class="mobile-index">Contact</div>
         <div class="contact-me">
           <div class="contact-">
@@ -1424,7 +1677,7 @@
               <div class="contact-text">
                 <p class="contact-title">LinkedIn:</p>
                 <p class="contact-info">
-                  <a href="https://www.linkedin.com/in/othman-kharbouch/">
+                  <a href="https://www.linkedin.com/in/othman-kharbouch/" target="_blank">
                     Otman Kharbouch
                   </a>
                 </p>
@@ -1440,6 +1693,9 @@
             </div>
             <div class="blob"></div>
             <div class="fakeblob"></div>
+            <div class="blocker">
+                <p>Currently unavailable</p>
+            </div>
           </div>
           <div class="contact card" id="contact-email">
             <div class="inner">
@@ -1452,7 +1708,7 @@
               <div class="contact-text">
                 <p class="contact-title">Email:</p>
                 <p class="contact-info">
-                  <a href="mailto:otmankharbouch813@gmail.com">
+                  <a href="mailto:otmankharbouch813@gmail.com" target="_blank">
                     otmankharbouch813 @gmail.com
                   </a>
                 </p>
@@ -1478,9 +1734,9 @@
               <div class="contact-text">
                 <p class="contact-title">WhatsApp :</p>
                 <p class="contact-info">
-                  <a href="tel:+212 6 07 07 07 07">+212 6 58 93 48 55</a>
+                  <a href="tel:+212 6 07 07 07 07" target="_blank">+212 6 58 93 48 55</a>
                 </p>
-                <a href="https://wa.me/212658934855" target="_blank">
+                <a href="https://wa.me/212658934855" target="_blank" target="_blank">
                   <button class="contact-btn">
                     Start a chat<i class="bi bi-chat-fill"></i>
                   </button>
@@ -1501,11 +1757,11 @@
               <div class="contact-text">
                 <p class="contact-title">GitHub:</p>
                 <p class="contact-info">
-                  <a href="https://github.com/othman4dev">othman4dev</a>
+                  <a href="https://github.com/othman4dev" target="_blank">othman4dev</a>
                 </p>
                 <a href="https://github.com/othman4dev" target="_blank">
                   <button class="contact-btn">
-                    Visit Profile<i class="bi bi-box-arrow-up-right"></i>
+                    Visit Profile<i class="bi bi-link-45deg"></i>
                   </button>
                 </a>
               </div>
@@ -1524,7 +1780,7 @@
               <div class="contact-text">
                 <p class="contact-title">Instagram:</p>
                 <p class="contact-info">
-                  <a href="https://www.instagram.com/othman.is.me/  "
+                  <a href="https://www.instagram.com/othman.is.me/" target="_blank"
                     >@othman.is.me</a
                   >
                 </p>
@@ -1533,7 +1789,7 @@
                   target="_blank"
                 >
                   <button class="contact-btn">
-                    Visit Profile<i class="bi bi-box-arrow-up-right"></i>
+                    Visit Profile<i class="bi bi-link-45deg"></i>
                   </button>
                 </a>
               </div>
@@ -1550,7 +1806,7 @@
             <div class="contact-text">
               <p class="contact-title">LinkedIn:</p>
               <p class="contact-info">
-                <a href="https://www.linkedin.com/in/othman-kharbouch/">
+                <a href="https://www.linkedin.com/in/othman-kharbouch/" target="_blank">
                   Otman Kharbouch
                 </a>
               </p>
@@ -1571,7 +1827,7 @@
             <div class="contact-text">
               <p class="contact-title">Email:</p>
               <p class="contact-info">
-                <a href="mailto:otmankharbouch813@gmail.com">
+                <a href="mailto:otmankharbouch813@gmail.com" target="_blank">
                   otmankharbouch813 @gmail.com
                 </a>
               </p>
@@ -1590,7 +1846,7 @@
             <div class="contact-text">
               <p class="contact-title">WhatsApp :</p>
               <p class="contact-info">
-                <a href="tel:+212 6 07 07 07 07">+212 6 58 93 48 55</a>
+                <a href="tel:+212 6 07 07 07 07" target="_blank">+212 6 58 93 48 55</a>
               </p>
               <a href="https://wa.me/212658934855" target="_blank">
                 <button class="contact-btn">
@@ -1606,11 +1862,11 @@
             <div class="contact-text">
               <p class="contact-title">GitHub:</p>
               <p class="contact-info">
-                <a href="https://github.com/othman4dev">othman4dev</a>
+                <a href="https://github.com/othman4dev" target="_blank">othman4dev</a>
               </p>
               <a href="https://github.com/othman4dev" target="_blank">
                 <button class="contact-btn">
-                  Visit Profile<i class="bi bi-box-arrow-up-right"></i>
+                  Visit Profile<i class="bi bi-link-45deg"></i>
                 </button>
               </a>
             </div>
@@ -1622,13 +1878,13 @@
             <div class="contact-text">
               <p class="contact-title">Instagram:</p>
               <p class="contact-info">
-                <a href="https://www.instagram.com/othman.is.me/  "
+                <a href="https://www.instagram.com/othman.is.me/" target="_blank"
                   >@othman.is.me</a
                 >
               </p>
               <a href="https://www.instagram.com/othman.is.me/" target="_blank">
                 <button class="contact-btn">
-                  Visit Profile<i class="bi bi-box-arrow-up-right"></i>
+                  Visit Profile<i class="bi bi-link-45deg"></i>
                 </button>
               </a>
             </div>
@@ -1636,7 +1892,7 @@
         </div>
         <div class="copyright">
           <p class="copy-text">
-            &copy; 2024 Otman Kharbouch. All rights reserved. Designed and
+            &copy; 2025 Otman Kharbouch. All rights reserved. Designed and
             developed by Otman Kharbouch.
           </p>
         </div>
@@ -1702,7 +1958,7 @@
             </p>
             <div class="learn-more">
               Learn more about <strong>YouCode</strong> at
-              <a href="https://youcode.ma">YouCode</a>
+              <a href="https://youcode.ma" target="_blank">YouCode</a>
             </div>
           </div>
         </div>
@@ -1711,12 +1967,12 @@
           <ul class="education-list">
             <li>
               Front-End Development: HTML, CSS, JavaScript, React, Angular,
-              Vue.js, Next.js
+              Vue.js, Next.js, React Native.
             </li>
-            <li>Back-End Development: PHP, Laravel, Nest.js</li>
-            <li>Databases: MongoDB, MariaDB</li>
-            <li>Web Servers: Apache</li>
-            <li>Operating Systems and Scripting: Linux, Bash</li>
+            <li>Back-End Development: PHP, Laravel, Nest.js, ExpressJs</li>
+            <li>Databases: MongoDB, MySQL, DynamoDB</li>
+            <li>Web Servers: Apache, Nginx.</li>
+            <li>Operating Systems and Scripting: Linux, Bash, CMD.</li>
             <li>Project Management: Jira, Trello</li>
             <li>
               Development Practices: Agile methodologies, version control
@@ -1787,9 +2043,9 @@
             </p>
             <div class="learn-more">
               Learn more about <strong>Codecademy</strong> at
-              <a href="https://www.codecademy.com">Codecademy</a> and
+              <a href="https://www.codecademy.com" target="_blank">Codecademy</a> and
               <strong>FreeCodeCamp</strong> at
-              <a href="https://www.freecodecamp.org">FreeCodeCamp</a>
+              <a href="https://www.freecodecamp.org" target="_blank">FreeCodeCamp</a>
             </div>
           </div>
         </div>
@@ -1868,10 +2124,10 @@
       <div class="dev-alert">
         <div class="dev-alert-header">
           <div class="p1">
-            <i class="bi bi-exclamation-triangle"></i>
-            <h2>Alert</h2>
+            <i class="bi bi-code-square"></i>
+            <h2> Under development</h2>
           </div>
-          <div class="closer">
+          <div class="header-closer">
             <button
               class="close"
               onclick="this.parentNode.parentNode.parentNode.parentNode.style.display='none'"
@@ -1881,24 +2137,21 @@
           </div>
         </div>
         <div class="dev-alert-text">
-          <p class="dev-alert-title">Under development</p>
           <p class="dev-alert-desc">
-            This website is currently <strong>under development</strong>. Some
-            features may not be fully functional or not responsive yet. Thank
-            you for your understanding.
+            This website is continuously <strong>under development</strong>. Some features may be incomplete or not yet optimized for all devices. We appreciate your patience and understanding.
           </p>
           <p class="alert-tip">
-            For the best experience use this website on a
-            <strong>computer device</strong>
+            For the best experience, please use a <strong>computer</strong> or a <strong>tablet</strong>.
           </p>
-          <div class="alert-buttons">
+          <br>
+          <!-- <div class="alert-buttons">
             <button
               class="ok"
               onclick="this.parentNode.parentNode.parentNode.parentNode.style.display='none'"
             >
               Ok
             </button>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -1934,4 +2187,54 @@
       el: ".swiper-scrollbar",
     },
   });
+
+  const statusIcon = document.getElementById("status-icon");
+  const statusText = document.getElementById("status-text");
+  const pingValue = document.getElementById("ping-value");
+
+  async function measurePing() {
+    const pingUrl = "assets/images/otman_favicon.png";
+    const start = performance.now();
+    try {
+      await fetch(pingUrl, { method: "HEAD", cache: "no-store" });
+      const ping = Math.round(performance.now() - start);
+      updateStatus(true, ping);
+    } catch {
+      updateStatus(false);
+    }
+  }
+
+  function updateStatus(isOnline, ping = null) {
+    if (isOnline) {
+      statusIcon.className = "bi bi-wifi text-success";
+      statusText.textContent = "";
+      pingValue.textContent = ping !== null ? `${ping} ms` : "";
+    } else {
+      statusIcon.className = "bi bi-wifi-off text-danger";
+      statusText.textContent = "Offline";
+      pingValue.textContent = "";
+    }
+  }
+
+  // Check connection every 10 seconds
+  setInterval(measurePing, 10000);
+  window.addEventListener("online", measurePing);
+  window.addEventListener("offline", () => updateStatus(false));
+
+  // Initial check
+  document.getElementById('time').innerText = new Date().toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true
+  });
+
+  setInterval(() => {
+    document.getElementById('time').innerText = new Date().toLocaleTimeString('en-US', {
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true
+    });
+  }, 1000);
+
+  measurePing();
 </script>
