@@ -509,7 +509,7 @@ async function setLang(lang) {
 
   notify("bi-globe2", lang === 'fr' ? 'La langue a été définie sur le français' : 'Language has been set to English');
 
-  const response = await fetch(`lang/${lang}.json`);
+  const response = await fetch(`./lang/${lang}.json`);
   console.log(response);
   const translations = await response.json();
   console.log(translations);
