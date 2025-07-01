@@ -1,17 +1,20 @@
 let index = 1;
 
+let lang = localStorage.getItem('lang') || 'en';
+
 function scrollDownIntoView(btn, element) {
   if (index === 6) {
-    notify("bi-whatsapp", "For emergency, contact me on WhatsApp.");
+    notify("bi-whatsapp", lang == "en" ? "For emergency, contact me on WhatsApp." : "Pour urgence, contacte-moi sur WhatsApp.");
   }
   if (index === 1) {
     notify(
       "bi-question-circle-fill",
-      "I can learn any new technologie easily and quickly."
+      lang == "en" ?
+      "I can learn any new technologie easily and quickly." : "Pour urgence, contacte-moi sur WhatsApp."
     );
   }
   if (index == 2) {
-    notify("bi-info-circle-fill", "I am always working on new projects");
+    notify("bi-info-circle-fill", lang == "en" ? "I am always working on new projects" : "Je travaille toujours sur de nouveaux projets.");
     selectCard(document.getElementById("more-projects"));
   }
   const section = document.getElementById(`section${element}`);
@@ -61,7 +64,7 @@ function scrollUpIntoView(btn, element) {
 }
 
 function indexDown() {
-  const indexes = [
+  const indexes = lang == 'en' ? [
     "PROFILE",
     "ABOUT",
     "PROJECTS",
@@ -69,22 +72,40 @@ function indexDown() {
     "SERVICES",
     "STATS",
     "CONTACT",
+  ] : [
+    "PROFIL",
+    "À PROPOS",
+    "PROJETS",
+    "EXPÉRIENCE",
+    "SERVICES",
+    "STATS",
+    "CONTACT"
   ];
   document.getElementById("index").innerHTML = indexes[index - 1];
   if (index > 1 && index < 7) {
     if (document.getElementById("lineFull2")) {
-      document.getElementById("lineFull2").outerHTML = `
+      document.getElementById("lineFull2").outerHTML = lang == "en" ? `
                 <div class="line-half" id="lineHalf2">
                     <div class="next-index"></div>
                     <p class="next-index-text index-text" id="next-index">HOME</p>
                 </div>
+            ` : `
+                <div class="line-half" id="lineHalf2">
+                    <div class="next-index"></div>
+                    <p class="next-index-text index-text" id="next-index">Acceuil</p>
+                </div>
             `;
     }
     if (document.getElementById("lineFull")) {
-      document.getElementById("lineFull").outerHTML = `
+      document.getElementById("lineFull").outerHTML = lang == "en" ? `
                 <div class="line-half-prev" id="lineHalf">
                     <div class="prev-index"></div>
                     <p class="prev-index-text index-text" id="prev-index">HOME</p>
+                </div>
+            ` : `
+                <div class="line-half-prev" id="lineHalf">
+                    <div class="prev-index"></div>
+                    <p class="prev-index-text index-text" id="prev-index">Acceuil</p>
                 </div>
             `;
     }
@@ -222,9 +243,9 @@ window.addEventListener("mousemove", (ev) => {
 function copyToClipboard(text, btn) {
   navigator.clipboard.writeText(text).then(
     function () {
-      btn.innerHTML = "Copied <i class='bi bi-clipboard-check'></i>";
+      btn.innerHTML = lang == "en" ? "Copied <i class='bi bi-clipboard-check'></i>" : "Copié <i class='bi bi-clipboard-check'></i>";
       setTimeout(() => {
-        btn.innerHTML = "Copy Email <i class='bi bi-clipboard'></i>";
+        btn.innerHTML = lang == "en" ? "Copy Email <i class='bi bi-clipboard'></i>" : "Copier l'Email <i class='bi bi-clipboard'></i>";
       }, 1000);
     },
     function (err) {
@@ -262,7 +283,7 @@ function checkIfUserWithPhoneOrTablet() {
     if (window.innerWidth < 828 && window.innerHeight < 680) {
       notify(
         "bi-pc-display",
-        "For the best experience, visit this website from a computer or a laptop."
+        lang == 'en' ? "For the best experience, visit this website from a computer or a laptop." : "Pour une meilleure expérience, visitez ce site depuis un ordinateur ou un portable."
       );
     }
   }
@@ -271,9 +292,9 @@ function checkIfUserWithPhoneOrTablet() {
 window.onload = () => {
   checkIfUserWithPhoneOrTablet();
 };
-window.addEventListener("resize", () => {
-  checkIfUserWithPhoneOrTablet();
-});
+// window.addEventListener("resize", () => {
+//   checkIfUserWithPhoneOrTablet();
+// });
 
 function makeNotification(icon, message, id) {
   return `
@@ -322,20 +343,20 @@ function notify(icon, message) {
 setTimeout(() => {
   notify(
     "bi-puzzle-fill",
-    "If you like this website and want to use it, contact me and we can make a deal."
+    lang == "en" ? "If you like this website and want to use it, contact me and we can make a deal." : "Si ce site vous plaît et que vous souhaitez l’utiliser, contactez-moi et on peut faire un accord."
   );
-}, 20000);
+}, 40000);
 
 function checkResolutionAndNotify() {
   if (window.innerHeight > 828 && window.innerHeight > window.innerWidth) {
     notify(
-      "bi-arrow-repeat",
-      "For better experience, please rotate you screen."
+      "bi-arrow-repeat", lang == "en" ?
+      "For better experience, please rotate you screen." : "Pour une meilleure expérience, veuillez tourner votre écran."
     );
   } else if (window.innerHeight > 800 && window.innerWidth < 565) {
     notify(
-      "bi-info-circle-fill",
-      "For better experience, visit this website in portrait mode."
+      "bi-info-circle-fill", lang == "en" ?
+      "For better experience, visit this website in portrait mode." : "Pour une meilleure expérience, visitez ce site en mode portrait."
     );
   }
 }
@@ -366,11 +387,16 @@ function animation() {
   };
 
   setTimeout(() => {
-    stopAnimation();
-    loader.innerHTML = `
+    loader.innerHTML = lang == 'en' ? `
       <div class="wrapper">
         <div class="typing-demo welcome">
           Welcome to my portfolio.
+        </div>
+      </div>
+      ` : `
+      <div class="wrapper">
+        <div class="typing-demo2 welcome">
+          Bienvenue sur mon portfolio.
         </div>
       </div>
       `;
@@ -378,9 +404,12 @@ function animation() {
     if (tutorials !== "done") {
       setTimeout(() => {
         tutorial();
-      }, 500);
+      }, 3000);
     }
-  }, 2000);
+    setTimeout(() => {
+      stopAnimation();
+    }, 3000);
+  }, 1000);
 }
 animation();
 
@@ -400,12 +429,12 @@ var step = 1;
 function nextTuto() {
   localStorage.setItem("tutorial", "done");
   if (step == 1) {
-    tutoModal.innerText = `Or use the arrow keys on your keyboard to navigate.`;
+    tutoModal.innerText = lang == 'en' ? `Or use the arrow keys on your keyboard to navigate.` : `Ou utilisez les flèches de votre clavier pour naviguer.`;
     includes.innerHTML = `<img src="./assets/images/arrows2.png" alt="arrow keys" class="includes-img" />`;
     tuto.style.top = "80%";
   } else if (step == 2) {
     includes.innerHTML = "";
-    tutoModal.innerText = `You can also use the sidebar to navigate.`;
+    tutoModal.innerText = lang == 'en' ? `You can also use the navbar to navigate.` : "Vous pouvez aussi utiliser la barre de navigation pour naviguer.";
     tuto.style.top = "10%";
     tuto.style.left = "unset";
     tuto.style.right = "-140px";
@@ -414,16 +443,16 @@ function nextTuto() {
       highlightElement(el);
     });
   } else if (step == 3) {
-    tutoModal.innerText = `Watch for the notifications in this corner.`;
+    tutoModal.innerText = lang == 'en' ? `Watch for the notifications in this corner.` : `Surveillez les notifications dans ce coin.`;
     tuto.style.top = "85%";
     tuto.style.right = "-140px";
-    notify("bi-info-circle-fill", "This is a notification");
+    notify("bi-info-circle-fill", lang == 'en' ? "This is a notification" : "Ceci est une notification.");
     highlightElement(document.querySelector(".notification"));
   } else if (step == 4) {
     tuto.style.top = "35%";
     tuto.style.right = "10%";
     toSection(2);
-    tutoModal.innerText = `Search here for technologies.`;
+    tutoModal.innerText = lang == 'en' ? `Search here for technologies.` : `Recherchez ici les technologies.`;
     document.getElementById("techno-cards").style.zIndex = "100";
     setTimeout(() => {
       highlightElement(document.getElementById("tech-search"));
@@ -462,3 +491,45 @@ function skipTuto() {
   step = 5;
   nextTuto();
 }
+
+let langModal = false
+function chooseLang() {
+  document.getElementById('langModal').style.display = langModal ? 'none' : 'flex';
+  langModal = !langModal;
+}
+
+
+async function setLang(lang) {
+  if (localStorage.getItem('lang')) {
+    localStorage.removeItem('lang');
+    localStorage.setItem('lang', lang);
+  } else {
+    localStorage.setItem('lang', lang);
+  }
+
+  notify("bi-globe2", lang === 'fr' ? 'La langue a été définie sur le français' : 'Language has been set to English');
+
+  const response = await fetch(`lang/${lang}.json`);
+  console.log(response);
+  const translations = await response.json();
+  console.log(translations);
+  
+
+  document.querySelectorAll('[data-translate]').forEach(el => {
+    const key = el.getAttribute('data-translate');
+    el.innerHTML = translations[key] || key;
+  });
+
+  // Optionally store lang in localStorage
+  localStorage.setItem('lang', lang);
+
+}
+// Load language from localStorage on page load
+window.addEventListener('DOMContentLoaded', () => {
+
+  const savedLang = localStorage.getItem('lang') || 'en';
+  document.documentElement.setAttribute("lang", savedLang);
+
+  setLang(savedLang);
+
+});

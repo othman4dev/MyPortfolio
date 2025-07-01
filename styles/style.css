@@ -1758,6 +1758,16 @@ body {
     opacity: 0;
   }
 }
+.typing-demo2 {
+  width: 28ch;
+  animation: typing 2s steps(32), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+}
+
 .tuto {
   position: fixed;
   height: 100%;
@@ -2054,5 +2064,81 @@ body {
   flex-direction: column;
 }
 #time {
-  font-size: 13px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.download-btn {
+  background-color: #1f293b;
+  border: none;
+  padding: 3px;
+  color: #fff;
+  border-radius: 5px;
+  height: 80px;
+  width: 54px !important;
+}
+.download-btn i {
+  font-size: 30px;
+}
+.download-btn:hover {
+  background-color: #2c3d5b;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.download-text {
+  font-size: 10px;
+}
+.lang-changer {
+  position: relative;
+}
+.lang-modal {
+  position: absolute;
+  right: -110%;
+  top: 50%;
+  border-radius: 100px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1f293b;
+  padding: 4px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.2);
+}
+.lang-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: transparent;
+  border: none;
+  width: 40px;
+  overflow: hidden;
+  height: 40px;
+}
+.lang-option:hover {
+  cursor: pointer;
+  background-color: #314466;
+}
+.lang-option span {
+  font-size: 1.2rem;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+.fi-us {
+  background-position: center;
+  background-size: cover !important;
+}
+.fi-fr {
+  background-position: center;
+  background-size: cover !important;
+}
+.fi-sa {
+  background-position: center;
+  background-size: cover !important;
+}
+#langModal {
+  display: none;
+}
+.lang-disabled {
+  filter: grayscale(1);
 }

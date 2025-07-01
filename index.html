@@ -35,23 +35,24 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
-
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <meta name="theme-color" content="#ffffff" />
     <title>Othman Kharbouch</title>
   </head>
   <header class="header">
     <div class="quote">
-      <h3 class="quote-text">"We love what we do, so we do it best".</h3>
+      <h3 class="quote-text" data-translate="quote"></h3>
     </div>
     <div class="pages">
-      <a onclick="toSection(1)" class="page">PROFILE</a>
-      <a onclick="toSection(2)" class="page">ABOUT</a>
-      <a onclick="toSection(3)" class="page">PROJECTS</a>
-      <a onclick="toSection(4)" class="page">EXPERIENCES</a>
-      <a onclick="toSection(5)" class="page">SERVICES</a>
-      <a onclick="toSection(6)" class="page">STATS</a>
-      <a onclick="toSection(7)" class="page">CONTACT</a>
+      <a onclick="toSection(1)" class="page" data-translate="PROFILE"></a>
+      <a onclick="toSection(2)" class="page" data-translate="ABOUT"></a>
+      <a onclick="toSection(3)" class="page" data-translate="PROJECTS"></a>
+      <a onclick="toSection(4)" class="page" data-translate="EXPERIENCES"></a>
+      <a onclick="toSection(5)" class="page" data-translate="SERVICES"></a>
+      <a onclick="toSection(6)" class="page" data-translate="STATS"></a>
+      <a onclick="toSection(7)" class="page" data-translate="CONTACT"></a>
     </div>
   </header>
   <body>
@@ -72,7 +73,7 @@
           <a href="https://www.instagram.com/othman.is.me/" target="_blank">
             <div class="sidebar-link">
               <i class="bi bi-instagram"></i>
-            </div>
+            </div>  
           </a>
           <a href="https://wa.me/212658934855" target="_blank">
             <div class="sidebar-link">
@@ -80,6 +81,28 @@
             </div>
           </a>
         </div>
+        <div>
+          <div class="cv-downloader">
+            <a href="assets/cv/OTMAN_KHARBOUCH_FULLSTACK_FR.pdf" download>
+              <button class="download-btn" title="Download CV">
+                <i class="bi bi-person-vcard"></i>
+                <p class="download-text" data-translate="cv"></p>
+              </button>
+            </a>
+          </div>
+          <div class="lang-changer" onblur="chooseLang()">
+            <button class="download-btn" onclick="chooseLang()">
+              <i class="bi bi-globe2"></i>
+              <p class="download-text" data-translate="lang"></p>
+            </button>
+            <div class="lang-modal" id="langModal">
+              <button class="lang-option" onclick="setLang('en');chooseLang()"><span class="fi fi-us"></span></button>
+              <button class="lang-option" onclick="setLang('fr');chooseLang()"><span class="fi fi-fr"></span></button>
+              <button class="lang-option lang-disabled" title="Currently unavailable"><span class="fi fi-sa"></span></button>
+            </div>
+          </div>
+        </div>
+        
         <div id="connection-status" class="speed-test">
           <i id="status-icon" class="bi bi-wifi-off text-danger"></i>
           <span id="status-text" class="status-text">Offline</span>
@@ -101,10 +124,10 @@
       </div>
       <div class="indexer">
         <div class="line-full" id="lineFull"></div>
-        <p id="index" class="current-index index-text">PROFILE</p>
+        <p id="index" class="current-index index-text" data-translate="PROFILE"></p>
         <div class="line-half" id="lineHalf2">
           <div class="next-index"></div>
-          <p class="next-index-text index-text" id="next-index">ABOUT</p>
+          <p class="next-index-text index-text" id="next-index" data-translate="ABOUT"></p>
         </div>
       </div>
     </div>
@@ -112,22 +135,16 @@
       <div class="hero-section section" id="section1">
         <div class="hero-profile">
           <div class="hero-texts">
-            <h1 class="hero-title">OTMAN KHARBOUCH</h1>
-            <p class="hero-subtitle">MERN Stack Developer</p>
-            <p class="hero-description">
-              I am a MERN Stack Developer with a passion for creating beautiful
-              and functional web applications. I have experience in building
-              full-stack applications using JavaScript, React, Node.js, and
-              Express.js. I am always looking for new opportunities to learn and
-              grow as a developer.
-            </p>
+            <h1 class="hero-title" data-translate="name"></h1>
+            <p class="hero-subtitle"  data-translate="profession"></p>
+            <p class="hero-description" data-translate="description"></p>
           </div>
           <div class="hero-img">
             <img src="assets/images/othman.webp" class="othman-img" alt="" />
           </div>
         </div>
         <div class="technos">
-          <p class="technos-title">Technologies</p>
+          <p class="technos-title" data-translate="technos"></p>
           <div class="technos-inner">
             <div class="techno">
               <img
@@ -258,14 +275,14 @@
               onclick="toSection(2);selectCard(document.getElementById('techno-cards'))"
             >
               <i class="bi bi-chevron-left"></i>
-              <p class="more-technos-text">SEE MORE</p>
+              <p class="more-technos-text" data-translate="more"></p>
             </div>
           </div>
         </div>
       </div>
 
       <div class="hero-section section" id="section2">
-        <div class="mobile-index">About</div>
+        <div class="mobile-index" data-translate="about"></div>
         <div class="main-card">
           <div class="card-header">
             <div class="profile-img card">
@@ -282,17 +299,8 @@
             </div>
             <div class="card-desc card">
               <div class="inner">
-                <div class="card-title">About Me :</div>
-                <p class="about-desc">
-                  Otman Kharbouch, a versatile full-stack web developer,
-                  proficient in building robust web applications using both the
-                  MERN stack and the PHP Laravel & Vue.js stack. Passionate
-                  about embracing new technologies and continuously expanding my
-                  skillset, I am always eager to learn and grow. I am a team
-                  player with excellent communication skills and a strong work
-                  ethic. I am looking for new opportunities to work on exciting
-                  projects and collaborate with other developers.
-                </p>
+                <div class="card-title" data-translate="about-me"></div>
+                <p class="about-desc" data-translate="about-text"></p>
               </div>
               <div class="blob"></div>
               <div class="fakeblob"></div>
@@ -301,13 +309,11 @@
           <div class="card-body">
             <div class="education card">
               <div class="inner">
-                <div class="education-title">Education :</div>
+                <div class="education-title" data-translate="education"></div>
                 <div class="education-desc">
                   <div class="education-set">
                     <div class="education-item">
-                      <div class="education-item-title">
-                        Full-Stack Web Development Certificate : 2023-2025
-                      </div>
+                      <div class="education-item-title" data-translate="education1-title"></div>
                       <div class="education-item-desc">
                         <img
                           src="/assets/schools/youcde.svg"
@@ -321,24 +327,14 @@
                         />
                       </div>
                     </div>
-                    <div class="education-desc education-desc-text">
-                      YouCode is an inclusive school focused on
-                      individual-centered learning and teamwork. "You"
-                      represents the person, and "Code" stands for development.
-                      More info at
-                      <a href="https://youcode.ma" target="_blank" class="link-prm"
-                        >Youcode.ma</a
-                      >
-                    </div>
+                    <div class="education-desc education-desc-text" data-translate="education1-description1"></div>
                     <div class="scaler" onclick="openEducation(1)">
                       <i class="bi bi-eye"></i>
                     </div>
                   </div>
                   <div class="education-set">
                     <div class="education-item">
-                      <div class="education-item-title">
-                        Auto-formation in Web Development : 2022
-                      </div>
+                      <div class="education-item-title" data-translate="education2-title"></div>
                       <div class="education-item-desc">
                         <img
                           src="/assets/schools/codecademy.webp"
@@ -353,22 +349,14 @@
                         />
                       </div>
                     </div>
-                    <div class="education-desc education-desc-text">
-                      I completed online courses in web development, including
-                      FreeCodeCamp's Responsive Web Design and Codecademy's
-                      JavaScript and MongoDB, enhancing my skills in HTML, CSS,
-                      JavaScript, and MongoDB.
-                    </div>
+                    <div class="education-desc education-desc-text" data-translate="education2-description1"></div>
                     <div class="scaler" onclick="openEducation(2)">
                       <i class="bi bi-eye"></i>
                     </div>
                   </div>
                   <div class="education-set">
                     <div class="education-item">
-                      <div class="education-item-title">
-                        Scientific Baccalaureate - Physics and Chemistry :
-                        2021-2022
-                      </div>
+                      <div class="education-item-title" data-translate="education3-title"></div>
                       <div class="education-item-desc">
                         <img
                           src="/assets//schools/morocco.jpg"
@@ -377,11 +365,7 @@
                         />
                       </div>
                     </div>
-                    <div class="education-desc education-desc-text">
-                      I completed my high school education with a scientific
-                      baccalaureate in physics and chemistry, which helped me
-                      develop my analytical and problem-solving skills.
-                    </div>
+                    <div class="education-desc education-desc-text" data-translate="education3-description1"></div>
                   </div>
                 </div>
               </div>
@@ -390,7 +374,7 @@
             </div>
             <div class="techno-search card" id="techno-cards">
               <div class="inner">
-                <div class="techno-title">Technologies :</div>
+                <div class="techno-title" data-translate="technologies"></div>
                 <div class="tech-search-form">
                   <input
                     autocomplete="off"
@@ -818,7 +802,7 @@
                   </div>
                 </div>
                 <div class="search-bottom">
-                  <p class="more-tech">64+ technologies</p>
+                  <p class="more-tech" data-translate="tech-count"></p>
                 </div>
               </div>
               <div class="fakeblob"></div>
@@ -829,7 +813,7 @@
       </div>
 
       <div class="hero-section section" id="section3">
-        <div class="mobile-index">Projects</div>
+        <div class="mobile-index" data-translate="projects"></div>
         <div class="project-cards">
           <div class="project-card card">
             <div class="inner">
@@ -843,20 +827,17 @@
                 <div class="project-texts">
                   <div class="project-header">
                     <h1 class="project-title">QuickTable</h1>
-                    <p class="project-date">April 2024</p>
+                    <p class="project-date" data-translate="p1-date"></p>
                   </div>
 
-                  <div class="project-desc-add">
-                    This project was completed in 1 month and served as the
-                    final assignment for YouCode's first year
-                  </div>
+                  <div class="project-desc-add" data-translate="p1-context"></div>
                   <div class="project-btns">
                     <a
                       href="https://quicktable.coders-strike.tech/" target="_blank"
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Project <i class="bi bi-link-45deg"></i>
+                        <span data-translate="visit-project"></span> <i class="bi bi-link-45deg"></i>
                       </button>
                     </a>
                     <a
@@ -864,7 +845,7 @@
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Repository
+                        <span data-translate="visit-repo"></span>
                         <i class="bi bi-link-45deg"></i>
                       </button>
                     </a>
@@ -872,11 +853,7 @@
                 </div>
               </div>
               <div class="project-card-bottom">
-                <div class="project-desc">
-                  This solution allows users to easily book tables at cafes and
-                  restaurants directly from the menu, helping businesses
-                  efficiently manage reservations and optimize table occupancy.
-                </div>
+                <div class="project-desc" data-translate="p1-description"></div>
                 <div class="card-technos">
                   <div class="tech-">
                     <img
@@ -927,20 +904,18 @@
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
-                    <h1 class="project-title">Hint</h1>
-                    <p class="project-date">Octobre 2024</p>
+                    <h1 class="project-title" data-translate="p2-name"></h1>
+                    <p class="project-date" data-translate="p2-date"></p>
                   </div>
 
-                  <div class="project-desc-add">
-                    This project was built in 1 week by a team of 4 developers.
-                  </div>
+                  <div class="project-desc-add" data-translate="p2-context"></div>
                   <div class="project-btns">
                     <a
                       href="https://hint.otmankharbouch.live" target="_blank"
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Project <i class="bi bi-link-45deg"></i>
+                        <span data-translate="visit-project"></span> <i class="bi bi-link-45deg"></i>
                       </button>
                     </a>
                     <a
@@ -948,7 +923,7 @@
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Repository
+                        <span data-translate="visit-repo"></span>
                         <i class="bi bi-link-45deg"></i>
                       </button>
                     </a>
@@ -956,11 +931,7 @@
                 </div>
               </div>
               <div class="project-card-bottom">
-                <div class="project-desc">
-                  Hint is a blog platform for Youcode students to share
-                  articles, discuss topics, and interact with each other—all
-                  through a user-friendly interface.
-                </div>
+                <div class="project-desc" data-translate="p2-description"></div>
                 <div class="card-technos">
                   <div class="tech-">
                     <img
@@ -1008,21 +979,18 @@
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
-                    <h1 class="project-title">ixo Multiplayer</h1>
-                    <p class="project-date">Octobre 2024</p>
+                    <h1 class="project-title" data-translate="p3-name"></h1>
+                    <p class="project-date" data-translate="p3-date"></p>
                   </div>
 
-                  <div class="project-desc-add">
-                    This is a minimalistic game, made in 3 days as an
-                    introduction to NodeJS.
-                  </div>
+                  <div class="project-desc-add" data-translate="p3-context"></div>
                   <div class="project-btns">
                     <a
                       href="http://ixo-multiplayer-io.onrender.com/" target="_blank"
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Project
+                        <span data-translate="visit-project"></span>
                         <i class="bi bi-link-45deg"></i>
                       </button>
                     </a>
@@ -1031,7 +999,7 @@
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Repository
+                        <span data-translate="visit-repo"></span>
                         <i class="bi bi-link-45deg"></i>
                       </button>
                     </a>
@@ -1039,12 +1007,7 @@
                 </div>
               </div>
               <div class="project-card-bottom">
-                <div class="project-desc">
-                  Ixo-Multiplayer is an online game where two players compete on
-                  a 20x20 grid, aiming to align 5 'X' or 'O' symbols
-                  horizontally, vertically, or diagonally while blocking their
-                  opponent.
-                </div>
+                <div class="project-desc" data-translate="p3-description"></div>
                 <div class="card-technos">
                   <div class="tech-">
                     <img
@@ -1087,21 +1050,18 @@
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
-                    <h1 class="project-title">Auth API</h1>
-                    <p class="project-date">September 2024</p>
+                    <h1 class="project-title" data-translate="p4-name"></h1>
+                    <p class="project-date" data-translate="p4-date"></p>
                   </div>
 
-                  <div class="project-desc-add">
-                    This is part of a larger project developed for a delivery
-                    service called AlloMedia.
-                  </div>
+                  <div class="project-desc-add" data-translate="p4-context"></div>
                   <div class="project-btns">
                     <a
                       href="https://github.com/othman4dev/alloMedia" target="_blank"
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Repository
+                        <span data-translate="visit-repo"></span>
                         <i class="bi bi-link-45deg"></i>
                       </button>
                     </a>
@@ -1109,12 +1069,7 @@
                 </div>
               </div>
               <div class="project-card-bottom">
-                <div class="project-desc">
-                  A RESTful API built with Node.js and Express.js for user
-                  authentication and authorization, using JWT tokens to secure
-                  routes. It connects to a MongoDB database to securely store
-                  user data.
-                </div>
+                <div class="project-desc" data-translate="p4-description"></div>
                 <div class="card-technos">
                   <div class="tech-">
                     <img
@@ -1151,7 +1106,7 @@
           </div>
           <a class="more-projects-link" href="./pages/projects.html">
             <button class="more-projects" id="more-projects">
-              See more<i class="bi bi-arrow-right"></i>
+              <span data-translate="more-projects"></span><i class="bi bi-arrow-right"></i>
             </button>
           </a>
         </div>
@@ -1171,37 +1126,27 @@
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
-                    <h1 class="project-title">Cegedim - Internship</h1>
-                    <p class="project-date">April 2025 - July 2025</p>
+                    <h1 class="project-title" data-translate="exp1"></h1>
+                    <p class="project-date" data-translate="exp1-date"></p>
                   </div>
 
-                  <div class="project-desc-add">
-                    Cegedim is a global tech and services group specializing in healthcare, 
-                    data management, and CRM solutions for life sciences, insurers, and 
-                    healthcare professionals.
-                  </div>
+                  <div class="project-desc-add" data-translate="exp1-description"></div>
                   <div class="project-btns">
                     <a
                       href="https://www.cegedim.fr/" target="_blank"
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit their website &nbsp; <i class="bi bi-link-45deg"></i>
+                        <span data-translate="exp-visit"></span> &nbsp; <i class="bi bi-link-45deg"></i>
                       </button>
                     </a>
                   </div>
                 </div>
               </div>
               <div class="project-card-bottom">
-                <h4 class="education-title" style="color: #fff;">Contributions:</h4>
-                <div class="project-desc">
-                  - Maintained and enhanced an existing project during my internship at Cegedim.
-                  <br> - Improved overall security by identifying and resolving key vulnerabilities.
-                  <br> - Enhanced UI/UX for a more intuitive and user-friendly interface.
-                  <br> - Contributed to stability and performance optimizations through refactoring.
-                  <br> - Collaborated with the team to ensure secure and scalable code practices.
-                </div>
-                <h4 class="education-title" style="color: #fff;">Tech stack:</h4>
+                <h4 class="education-title" style="color: #fff;" data-translate="exp-contribution">Contributions:</h4>
+                <div class="project-desc" data-translate="exp1-contributions"></div>
+                <h4 class="education-title" style="color: #fff;" data-translate="exp-stack"></h4>
                 <div class="card-technos">
                   <div class="tech-">
                     <img
@@ -1281,23 +1226,18 @@
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
-                    <h1 class="project-title">Moussasoft - Internship</h1>
-                    <p class="project-date">May 2024 - July 2024</p>
+                    <h1 class="project-title" data-translate="exp2"></h1>
+                    <p class="project-date" data-translate="exp2-date"></p>
                   </div>
 
-                  <div class="project-desc-add">
-                    Moussasoft is a Moroccan IT company specializing in web 
-                    and mobile development, digital solutions, and custom 
-                    software tailored for businesses to enhance their digital 
-                    presence and operational efficiency.
-                  </div>
+                  <div class="project-desc-add" data-translate="exp2-description"></div>
                   <div class="project-btns">
                     <a
                       href="https://www.moussasoft.com/" target="_blank"
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit their website &nbsp; <i class="bi bi-link-45deg"></i>
+                        <span data-translate="exp-visit"></span> &nbsp; <i class="bi bi-link-45deg"></i>
                       </button>
                     </a>
                   </div>
@@ -1305,17 +1245,9 @@
               </div>
               <br>
               <div class="project-card-bottom">
-                <h4 class="education-title" style="color: #fff;">Contributions:</h4>
-                <div class="project-desc">
-                  - Contributed to website development by implementing requested changes and fixing bugs.
-                  <br>
-                  - Responsible for deploying tested and stable versions to production.
-                  <br>
-                  - Led a small development team, coordinating tasks and ensuring deadlines.
-                  <br>
-                  - Ensured code quality and version control across all updates.
-                </div>
-                <h4 class="education-title" style="color: #fff;">Tech stack:</h4>
+                <h4 class="education-title" style="color: #fff;" data-translate="exp-contributions"></h4>
+                <div class="project-desc" data-translate="exp2-contributions"></div>
+                <h4 class="education-title" style="color: #fff;" data-translate="exp-stack"></h4>
                 <div class="card-technos">
                   <div class="tech-">
                     <img
@@ -1385,26 +1317,25 @@
             <div class="fakeblob"></div>
           </div>
           <button class="more-exp" id="freelance">
-            <i class="bi bi-info-circle-fill"></i> I've also completed various freelance projects, which I prefer not to list due to client confidentiality and personal discretion, as I don't consider them part of my core professional experience.
+            <i class="bi bi-info-circle-fill"></i><span data-translate="exp-note"></span>
           </button>
         </div>
       </div>
-
       <div class="hero-section section" id="section5">
-        <div class="mobile-index">Services</div>
+        <div class="mobile-index" data-translate="services"></div>
         <div class="ag-format-container">
           <div class="ag-courses_box">
             <div class="ag-courses_item">
               <a
-                onclick="toSection(6);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-linkedin'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-whatsapp'));selectCard(document.getElementById('contact-instagram'));"
+                onclick="toSection(7);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-whatsapp'));selectCard(document.getElementById('contact-instagram'));"
                 class="ag-courses-item_link"
               >
                 <div class="ag-courses-item_bg"></div>
 
-                <div class="ag-courses-item_title">Logo Graphic design</div>
+                <div class="ag-courses-item_title" data-translate="s1"></div>
 
                 <div class="ag-courses-item_date-box">
-                  Technologies:
+                  <span data-translate="services-tech"></span>
                   <span class="ag-courses-item_date"> Figma + Adobe XD </span>
                 </div>
               </a>
@@ -1412,17 +1343,15 @@
 
             <div class="ag-courses_item">
               <a
-                onclick="toSection(6);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-linkedin'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-whatsapp'));selectCard(document.getElementById('contact-instagram'));"
+                onclick="toSection(7);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-whatsapp'));selectCard(document.getElementById('contact-instagram'));"
                 class="ag-courses-item_link"
               >
                 <div class="ag-courses-item_bg"></div>
 
-                <div class="ag-courses-item_title">
-                  UX/UI Web-Design&#160;+ Mobile Design
-                </div>
+                <div class="ag-courses-item_title" data-translate="s2"></div>
 
                 <div class="ag-courses-item_date-box">
-                  Technologies:
+                  <span data-translate="services-tech"></span>
                   <span class="ag-courses-item_date"> Figma + Adobe XD </span>
                 </div>
               </a>
@@ -1430,15 +1359,15 @@
 
             <div class="ag-courses_item">
               <a
-                onclick="toSection(6);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-linkedin'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-whatsapp'));selectCard(document.getElementById('contact-instagram'));"
+                onclick="toSection(7);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-whatsapp'));selectCard(document.getElementById('contact-instagram'));"
                 class="ag-courses-item_link"
               >
                 <div class="ag-courses-item_bg"></div>
 
-                <div class="ag-courses-item_title">Front-end development</div>
+                <div class="ag-courses-item_title" data-translate="s3"></div>
 
                 <div class="ag-courses-item_date-box">
-                  Technologies:
+                  <span data-translate="services-tech"></span>
                   <span class="ag-courses-item_date">
                     HTML + CSS + JavaScript
                   </span>
@@ -1448,17 +1377,15 @@
 
             <div class="ag-courses_item">
               <a
-                onclick="toSection(6);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-linkedin'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-whatsapp'));selectCard(document.getElementById('contact-instagram'));"
+                onclick="toSection(7);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-whatsapp'));selectCard(document.getElementById('contact-instagram'));"
                 class="ag-courses-item_link"
               >
                 <div class="ag-courses-item_bg"></div>
 
-                <div class="ag-courses-item_title">
-                  Front-end development by Framework
-                </div>
+                <div class="ag-courses-item_title" data-translate="s4"></div>
 
                 <div class="ag-courses-item_date-box">
-                  Technologies:
+                  <span data-translate="services-tech"></span>
                   <span class="ag-courses-item_date">
                     Reactjs + Vuejs + EJS + PUG + Blade</span
                   >
@@ -1468,35 +1395,31 @@
 
             <div class="ag-courses_item">
               <a
-                onclick="toSection(6);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-linkedin'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-whatsapp'));selectCard(document.getElementById('contact-instagram'));"
+                onclick="toSection(7);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-whatsapp'));selectCard(document.getElementById('contact-instagram'));"
                 class="ag-courses-item_link"
               >
                 <div class="ag-courses-item_bg"></div>
 
-                <div class="ag-courses-item_title">
-                  Mobile Front-end development
-                </div>
+                <div class="ag-courses-item_title" data-translate="s5"></div>
 
                 <div class="ag-courses-item_date-box">
-                  Technologies:
-                  <span class="ag-courses-item_date"> React Native </span>
+                  <span data-translate="services-tech"></span>
+                  <span class="ag-courses-item_date"> React Native + Expo</span>
                 </div>
               </a>
             </div>
 
             <div class="ag-courses_item">
               <a
-                onclick="toSection(6);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-linkedin'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-whatsapp'));selectCard(document.getElementById('contact-instagram'));"
+                onclick="toSection(7);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-whatsapp'));selectCard(document.getElementById('contact-instagram'));"
                 class="ag-courses-item_link"
               >
                 <div class="ag-courses-item_bg"></div>
 
-                <div class="ag-courses-item_title">
-                  Back-end development ( Native )
-                </div>
+                <div class="ag-courses-item_title" data-translate="s6"></div>
 
                 <div class="ag-courses-item_date-box">
-                  Technologies :
+                  <span data-translate="services-tech"></span>
                   <span class="ag-courses-item_date"> PHP + Nodejs </span>
                 </div>
               </a>
@@ -1504,15 +1427,13 @@
 
             <div class="ag-courses_item">
               <a
-                onclick="toSection(6);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-linkedin'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-whatsapp'));selectCard(document.getElementById('contact-instagram'));"
+                onclick="toSection(7);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-whatsapp'));selectCard(document.getElementById('contact-instagram'));"
                 class="ag-courses-item_link"
               >
                 <div class="ag-courses-item_bg"></div>
-                <div class="ag-courses-item_title">
-                  Back-end development by framework
-                </div>
+                <div class="ag-courses-item_title" data-translate="s7"></div>
                 <div class="ag-courses-item_date-box">
-                  Technologies:
+                  <span data-translate="services-tech"></span>
                   <span class="ag-courses-item_date">
                     Express.js + Nest.js + Laravel + Remix
                   </span>
@@ -1522,17 +1443,15 @@
 
             <div class="ag-courses_item">
               <a
-                onclick="toSection(6);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-linkedin'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-whatsapp'));selectCard(document.getElementById('contact-instagram'));"
+                onclick="toSection(7);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-whatsapp'));selectCard(document.getElementById('contact-instagram'));"
                 class="ag-courses-item_link"
               >
                 <div class="ag-courses-item_bg"></div>
 
-                <div class="ag-courses-item_title">
-                  Database conception & management
-                </div>
+                <div class="ag-courses-item_title" data-translate="s8"></div>
 
                 <div class="ag-courses-item_date-box">
-                  Technologies:
+                  <span data-translate="services-tech"></span>
                   <span class="ag-courses-item_date"> MariaDB + MongoDB </span>
                 </div>
               </a>
@@ -1540,15 +1459,15 @@
 
             <div class="ag-courses_item">
               <a
-                onclick="toSection(6);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-linkedin'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-whatsapp'));selectCard(document.getElementById('contact-instagram'));"
+                onclick="toSection(7);selectCard(document.getElementById('contact-email'));selectCard(document.getElementById('contact-github'));selectCard(document.getElementById('contact-whatsapp'));selectCard(document.getElementById('contact-instagram'));"
                 class="ag-courses-item_link"
               >
                 <div class="ag-courses-item_bg"></div>
 
-                <div class="ag-courses-item_title">DevOps & Cloud Services</div>
+                <div class="ag-courses-item_title" data-translate="s9"></div>
 
                 <div class="ag-courses-item_date-box">
-                  Technologies:
+                  <span data-translate="services-tech"></span>
                   <span class="ag-courses-item_date">
                     AWS : EC2 + S3 + RDS + Lambda Function + CodePipeLine +
                     Elastic Bean Stalk ...
@@ -1561,7 +1480,7 @@
       </div>
 
       <div class="hero-section section" id="section6">
-        <div class="mobile-index">Stats</div>
+        <div class="mobile-index" data-translate="stats"></div>
         <div
           class="main-card card"
           style="box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.2)"
@@ -1569,12 +1488,12 @@
           <div class="inner">
             <div class="github-stats">
               <div class="github-stat">
-                <div class="card-title stats-title">GitHub Stats:</div>
+                <div class="card-title stats-title" data-translate="github-stats"></div>
 
                 <div class="stats-container flex">
                   <div class="github-fix">
                     <p class="stat-title">
-                      <i class="bi bi-person"></i>Account Overview
+                      <i class="bi bi-person"></i><span data-translate="account-overview"></span>
                     </p>
                     <div class="github-acc flex">
                       <div class="personal">
@@ -1583,31 +1502,31 @@
                           src="https://avatars.githubusercontent.com/Othman4dev"
                           alt="Profile Picture"
                         />
-                        <div class="perso-username">Othman4dev</div>
+                        <div class="perso-username" data-translate="account-username"></div>
                       </div>
                       <div class="github-info">
                         <div class="github-sub">
-                          <div class="github-title">Total commits:</div>
-                          <p class="github-count" id="total-commits">6,8k</p>
+                          <div class="github-title" data-translate="total-commit"></div>
+                          <p class="github-count" id="total-commits" data-translate="commit-count"></p>
                         </div>
                         <div class="github-sub">
-                          <div class="github-title">Repositories count:</div>
-                          <p class="github-count" id="repo-count">85</p>
+                          <div class="github-title" data-translate="total-repos"></div>
+                          <p class="github-count" id="repo-count" data-translate="repos-count"></p>
                         </div>
                         <div class="github-sub">
-                          <div class="github-title">Followers:</div>
-                          <p class="github-count" id="followers">26</p>
+                          <div class="github-title" data-translate="total-followers"></div>
+                          <p class="github-count" id="followers" data-translate="followers-count"></p>
                         </div>
                         <div class="github-sub">
-                          <div class="github-title">Stars:</div>
-                          <p class="github-count" id="stars">76</p>
+                          <div class="github-title" data-translate="total-stars"></div>
+                          <p class="github-count" id="stars" data-translate="stars-count"></p>
                         </div>
                         <div class="github-sub">
                           <a
                             class="github-link"
                             href="https://github.com/othman4dev" target="_blank"
                           >
-                            Visit Account
+                            <span data-translate="visit-profile"></span>
                             <i class="bi bi-link-45deg"></i>
                           </a>
                         </div>
@@ -1616,7 +1535,7 @@
                   </div>
                   <div class="github-fix">
                     <p class="stat-title">
-                      <i class="bi bi-graph-up"></i>Commits Graph
+                      <i class="bi bi-graph-up"></i><span data-translate="commit-graph"></span>
                     </p>
                     <div class="commit-graph icon">
                       <img
@@ -1629,7 +1548,7 @@
                 </div>
               </div>
               <div class="github-stat">
-                <div class="card-title">More Stats :</div>
+                <div class="card-title" data-translate="more-stats"></div>
                 <div class="commit-graph repos icon">
                   <img
                     src="https://github-readme-streak-stats.herokuapp.com/?user=Othman4dev&theme=gotham&hide_border=true  "
@@ -1658,11 +1577,11 @@
       </div>
 
       <div class="hero-section section" id="section7">
-        <div class="mobile-index">Contact</div>
+        <div class="mobile-index" data-translate="contact"></div>
         <div class="contact-me">
           <div class="contact-">
-            <h1 class="contact-big">Feel free to contact me</h1>
-            <p class="contact-small">I respond immediately !</p>
+            <h1 class="contact-big" data-translate="contact-big"></h1>
+            <p class="contact-small"data-translate="contact-small"></p>
           </div>
         </div>
         <div class="contacts">
@@ -1675,18 +1594,16 @@
                 <i class="bi bi-chevron-down"></i>
               </div>
               <div class="contact-text">
-                <p class="contact-title">LinkedIn:</p>
+                <p class="contact-title" data-translate="linkedin"></p>
                 <p class="contact-info">
-                  <a href="https://www.linkedin.com/in/othman-kharbouch/" target="_blank">
-                    Otman Kharbouch
-                  </a>
+                  <a href="https://www.linkedin.com/in/othman-kharbouch/" target="_blank" data-translate="contact-name"></a>
                 </p>
                 <a
                   href="https://www.linkedin.com/in/otman-kharbouch-ba44552a1/"
                   target="_blank"
                 >
                   <button class="contact-btn">
-                    Visit Account<i class="bi bi-chat-fill"></i>
+                    <span data-translate="visit-profile"></span><i class="bi bi-chat-fill"></i>
                   </button>
                 </a>
               </div>
@@ -1694,7 +1611,7 @@
             <div class="blob"></div>
             <div class="fakeblob"></div>
             <div class="blocker">
-                <p>Currently unavailable</p>
+                <p data-translate="unavailable"></p>
             </div>
           </div>
           <div class="contact card" id="contact-email">
@@ -1706,7 +1623,7 @@
                 <i class="bi bi-chevron-down"></i>
               </div>
               <div class="contact-text">
-                <p class="contact-title">Email:</p>
+                <p class="contact-title" data-translate="email"></p>
                 <p class="contact-info">
                   <a href="mailto:otmankharbouch813@gmail.com" target="_blank">
                     otmankharbouch813 @gmail.com
@@ -1716,7 +1633,7 @@
                   class="contact-btn"
                   onclick="copyToClipboard('otmankharbouch813@gmail.com',this)"
                 >
-                  Copy Email<i class="bi bi-clipboard"></i>
+                  <span data-translate="copy-email"></span><i class="bi bi-clipboard"></i>
                 </button>
               </div>
             </div>
@@ -1732,13 +1649,13 @@
                 <i class="bi bi-chevron-down"></i>
               </div>
               <div class="contact-text">
-                <p class="contact-title">WhatsApp :</p>
+                <p class="contact-title" data-translate="whatsapp"></p>
                 <p class="contact-info">
                   <a href="tel:+212 6 07 07 07 07" target="_blank">+212 6 58 93 48 55</a>
                 </p>
                 <a href="https://wa.me/212658934855" target="_blank" target="_blank">
                   <button class="contact-btn">
-                    Start a chat<i class="bi bi-chat-fill"></i>
+                    <span data-translate="start-chat"></span><i class="bi bi-chat-fill"></i>
                   </button>
                 </a>
               </div>
@@ -1755,13 +1672,13 @@
                 <i class="bi bi-chevron-down"></i>
               </div>
               <div class="contact-text">
-                <p class="contact-title">GitHub:</p>
+                <p class="contact-title" data-translate="github"></p>
                 <p class="contact-info">
                   <a href="https://github.com/othman4dev" target="_blank">othman4dev</a>
                 </p>
                 <a href="https://github.com/othman4dev" target="_blank">
                   <button class="contact-btn">
-                    Visit Profile<i class="bi bi-link-45deg"></i>
+                    <span data-translate="visit-profile"></span><i class="bi bi-link-45deg"></i>
                   </button>
                 </a>
               </div>
@@ -1778,7 +1695,7 @@
                 <i class="bi bi-chevron-down"></i>
               </div>
               <div class="contact-text">
-                <p class="contact-title">Instagram:</p>
+                <p class="contact-title" data-translate="instagram"></p>
                 <p class="contact-info">
                   <a href="https://www.instagram.com/othman.is.me/" target="_blank"
                     >@othman.is.me</a
@@ -1789,7 +1706,7 @@
                   target="_blank"
                 >
                   <button class="contact-btn">
-                    Visit Profile<i class="bi bi-link-45deg"></i>
+                    <span data-translate="visit-profile"></span><i class="bi bi-link-45deg"></i>
                   </button>
                 </a>
               </div>
@@ -1804,18 +1721,16 @@
               <i class="bi bi-linkedin"></i>
             </div>
             <div class="contact-text">
-              <p class="contact-title">LinkedIn:</p>
+              <p class="contact-title" data-translate="linkedin"></p>
               <p class="contact-info">
-                <a href="https://www.linkedin.com/in/othman-kharbouch/" target="_blank">
-                  Otman Kharbouch
-                </a>
+                <a href="https://www.linkedin.com/in/othman-kharbouch/" target="_blank" data-translate="contact-name"></a>
               </p>
               <a
                 href="https://www.linkedin.com/in/otman-kharbouch-ba44552a1/"
                 target="_blank"
               >
                 <button class="contact-btn">
-                  Visit Account<i class="bi bi-chat-fill"></i>
+                  <span data-translate="visit-account"></span><i class="bi bi-chat-fill"></i>
                 </button>
               </a>
             </div>
@@ -1825,7 +1740,7 @@
               <i class="bi bi-envelope-paper"></i>
             </div>
             <div class="contact-text">
-              <p class="contact-title">Email:</p>
+              <p class="contact-title" data-translate="email"></p>
               <p class="contact-info">
                 <a href="mailto:otmankharbouch813@gmail.com" target="_blank">
                   otmankharbouch813 @gmail.com
@@ -1835,7 +1750,7 @@
                 class="contact-btn"
                 onclick="copyToClipboard('otmankharbouch813@gmail.com',this)"
               >
-                Copy Email<i class="bi bi-clipboard"></i>
+                <span data-translate="copy-email"></span><i class="bi bi-clipboard"></i>
               </button>
             </div>
           </div>
@@ -1844,13 +1759,13 @@
               <i class="bi bi-whatsapp"></i>
             </div>
             <div class="contact-text">
-              <p class="contact-title">WhatsApp :</p>
+              <p class="contact-title" data-translate="whatsapp"></p>
               <p class="contact-info">
                 <a href="tel:+212 6 07 07 07 07" target="_blank">+212 6 58 93 48 55</a>
               </p>
               <a href="https://wa.me/212658934855" target="_blank">
                 <button class="contact-btn">
-                  Start a chat<i class="bi bi-chat-fill"></i>
+                  <span data-translate="start-chat"></span><i class="bi bi-chat-fill"></i>
                 </button>
               </a>
             </div>
@@ -1860,13 +1775,13 @@
               <i class="bi bi-github"></i>
             </div>
             <div class="contact-text">
-              <p class="contact-title">GitHub:</p>
+              <p class="contact-title" data-translate="github"></p>
               <p class="contact-info">
                 <a href="https://github.com/othman4dev" target="_blank">othman4dev</a>
               </p>
               <a href="https://github.com/othman4dev" target="_blank">
                 <button class="contact-btn">
-                  Visit Profile<i class="bi bi-link-45deg"></i>
+                  <span data-translate="visit-profile"></span><i class="bi bi-link-45deg"></i>
                 </button>
               </a>
             </div>
@@ -1876,7 +1791,7 @@
               <i class="bi bi-instagram"></i>
             </div>
             <div class="contact-text">
-              <p class="contact-title">Instagram:</p>
+              <p class="contact-title" data-translate="instagram"></p>
               <p class="contact-info">
                 <a href="https://www.instagram.com/othman.is.me/" target="_blank"
                   >@othman.is.me</a
@@ -1884,7 +1799,7 @@
               </p>
               <a href="https://www.instagram.com/othman.is.me/" target="_blank">
                 <button class="contact-btn">
-                  Visit Profile<i class="bi bi-link-45deg"></i>
+                  <span data-translate="visit-profile"></span><i class="bi bi-link-45deg"></i>
                 </button>
               </a>
             </div>
@@ -1892,15 +1807,15 @@
         </div>
         <div class="copyright">
           <p class="copy-text">
-            &copy; 2025 Otman Kharbouch. All rights reserved. Designed and
-            developed by Otman Kharbouch.
+            &copy;
+            <span data-translate="copy"></span>
           </p>
         </div>
       </div>
     </main>
     <div class="education-modal" id="youcode">
       <div class="education-header">
-        <h1 class="modal-title">Education</h1>
+        <h1 class="modal-title" data-translate="education"></h1>
         <button
           class="education-close"
           onclick="this.parentNode.parentNode.style.display='none';document.getElementById('protection').style.display='none'"
@@ -1909,8 +1824,8 @@
         </button>
       </div>
       <div class="education-modal-title">
-        <h1 class="education-modal-title">YouCode</h1>
-        <p class="education-date">2023 - 2025</p>
+        <h1 class="education-modal-title" data-translate="youcode"></h1>
+        <p class="education-date" data-translate="education1-date"></p>
       </div>
       <div class="education-body">
         <div class="education-part1">
@@ -1935,59 +1850,25 @@
             <div class="swiper-scrollbar"></div>
           </div>
           <div class="swiper-text">
-            <p class="education-modal-desc">
-              <strong>YouCode</strong> is a transformative two-year web
-              development program that blends front-end and back-end training
-              with soft skills like teamwork and project management. Partnered
-              with UM6P and inspired by the Simplon.co model, it adopts a
-              project-based learning approach to tackle real-world challenges.
-              <br />
-              Supported by OCP and connected to the 1337 network,
-              <strong>YouCode</strong> offers access to cutting-edge resources
-              in a dynamic environment. Students graduate as confident,
-              industry-ready professionals, equipped for future tech leadership.
-            </p>
-            <h1 class="education-program-title" style="color: #fff">
-              Program of Study:
-            </h1>
-            <p class="education-program-desc" style="color: #fff">
-              At YouCode, the curriculum is designed to provide a comprehensive
-              foundation in both front-end and back-end web development, along
-              with essential tools and methodologies for modern software
-              development.
-            </p>
+            <p class="education-modal-desc" data-translate="education1-description"></p>
+            <h1 class="education-program-title" style="color: #fff" data-translate="education-program"></h1>
+            <p class="education-program-desc" style="color: #fff" data-translate="education1-program-description"></p>
             <div class="learn-more">
-              Learn more about <strong>YouCode</strong> at
+              <span data-translate="education1-learn"></span>
               <a href="https://youcode.ma" target="_blank">YouCode</a>
             </div>
           </div>
         </div>
         <div class="education-part2">
           <h3 class="education-subtitle">Technologies and Tools</h3>
-          <ul class="education-list">
-            <li>
-              Front-End Development: HTML, CSS, JavaScript, React, Angular,
-              Vue.js, Next.js, React Native.
-            </li>
-            <li>Back-End Development: PHP, Laravel, Nest.js, ExpressJs</li>
-            <li>Databases: MongoDB, MySQL, DynamoDB</li>
-            <li>Web Servers: Apache, Nginx.</li>
-            <li>Operating Systems and Scripting: Linux, Bash, CMD.</li>
-            <li>Project Management: Jira, Trello</li>
-            <li>
-              Development Practices: Agile methodologies, version control
-              (Git/GitHub)
-            </li>
-          </ul>
-          By engaging with this diverse stack, students graduate as versatile
-          developers equipped to tackle real-world challenges and adapt to the
-          ever-changing tech landscape.
+          <ul class="education-list" data-translate="education1-list"></ul>
+          <span data-translate="education1-final"></span>
         </div>
       </div>
     </div>
     <div class="education-modal" id="codecademy">
       <div class="education-header">
-        <h1 class="modal-title">Education</h1>
+        <h1 class="modal-title" data-translate="education"></h1>
         <button
           class="education-close"
           onclick="this.parentNode.parentNode.style.display='none';document.getElementById('protection').style.display='none'"
@@ -1996,8 +1877,8 @@
         </button>
       </div>
       <div class="education-modal-title">
-        <h1 class="education-modal-title">E-learning</h1>
-        <p class="education-date">2023 - 2021</p>
+        <h1 class="education-modal-title" data-translate="education2-title2"></h1>
+        <p class="education-date" data-translate="education2-date"></p>
       </div>
       <div class="education-body">
         <div class="education-part1">
@@ -2020,80 +1901,21 @@
             <div class="swiper-scrollbar"></div>
           </div>
           <div class="swiper-text">
-            <p class="education-modal-desc">
-                 <strong>Codecademy</strong> and
-              <strong>FreeCodeCamp</strong> are leading platforms in the realm
-              of e-learning, offering comprehensive courses in web development
-              and programming. These platforms provide a flexible and accessible
-              way to learn coding skills, catering to both beginners and
-              advanced learners.
-              <br />
-                 <strong>Codecademy</strong> offers interactive coding lessons
-              in various programming languages, including JavaScript, Python,
-              and HTML/CSS. Their hands-on approach ensures that learners can
-              immediately apply what they learn through practical exercises and
-              projects.
-              <br />
-                 <strong>FreeCodeCamp</strong> is renowned for its extensive
-              curriculum that covers front-end and back-end development. It
-              emphasizes project-based learning, allowing students to build
-              real-world applications and gain practical experience. The
-              platform also offers certifications upon completion of its
-              rigorous courses.
-            </p>
-            <div class="learn-more">
-              Learn more about <strong>Codecademy</strong> at
-              <a href="https://www.codecademy.com" target="_blank">Codecademy</a> and
-              <strong>FreeCodeCamp</strong> at
-              <a href="https://www.freecodecamp.org" target="_blank">FreeCodeCamp</a>
-            </div>
+            <p class="education-modal-desc" data-translate="education2-description"></p>
+            <div class="learn-more" data-translate="education2-learn"></div>
           </div>
         </div>
         <div class="education-part2">
-          <h1 class="education-program-title">Program of Study:</h1>
-          <p class="education-program-desc">
-            The curriculum for the Responsive Web Design course on FreeCodeCamp
-            and the JavaScript course on Codecademy is designed to provide a
-            solid foundation in web development and programming.
-          </p>
-          <div class="flex-lists">
-            <div class="wrap-list">
-              <h3 class="education-subtitle">
-                FreeCodeCamp - Responsive Web Design
-              </h3>
-              <ul class="education-list">
-                <li>Basic HTML and HTML5</li>
-                <li>Basic CSS</li>
-                <li>Applied Visual Design</li>
-                <li>Applied Accessibility</li>
-                <li>Responsive Web Design Principles</li>
-                <li>CSS Flexbox</li>
-                <li>CSS Grid</li>
-                <li>Responsive Web Design Projects</li>
-              </ul>
-            </div>
-            <div class="wrap-list">
-              <h3 class="education-subtitle">Codecademy - JavaScript</h3>
-              <ul class="education-list">
-                <li>Introduction to JavaScript</li>
-                <li>JavaScript Syntax</li>
-                <li>Functions</li>
-                <li>Conditionals, Arrays, Loops, Iterators, Objects, Scope</li>
-                <li>Classes</li>
-                <li>Browser Compatibility and Transpilation</li>
-                <li>JavaScript Projects</li>
-              </ul>
-            </div>
-          </div>
-          By engaging with these comprehensive courses, students gain the skills
-          needed to build responsive websites and develop proficiency in
-          JavaScript programming.
+          <h1 class="education-program-title" data-translate="education-program"></h1>
+          <p class="education-program-desc" data-translate="education2-program-description"></p>
+          <div class="flex-lists" data-translate="education2-list"></div>
+          <span data-translate="education2-final"></span>
         </div>
       </div>
     </div>
     <div id="protection"></div>
     <div class="loading-animation">
-      <h3 class="loading-text">Loading</h3>
+      <h3 class="loading-text" data-translate="loading"></h3>
       <span class="loader"></span>
     </div>
     <button class="scroll-btn" id="up" onclick="scrollUpIntoView(this,1)">
@@ -2105,27 +1927,25 @@
     <div class="tuto" id="tutorial">
       <div class="step" id="step1">
         <div class="step1-text">
-          <p class="step-title" id="tuto-text">
-            You can navigate using these arrows
-          </p>
+          <p class="step-title" id="tuto-text" data-translate="tuto-1"></p>
           <div id="includes"></div>
         </div>
         <div class="actions">
           <button class="skip" onclick="skipTuto()">
-            Skip All <i class="bi bi-x"></i>
+            <span data-translate="skip-all"></span><i class="bi bi-x"></i>
           </button>
           <button class="next" onclick="nextTuto()">
-            Next <i class="bi bi-arrow-right"></i>
+            <span data-translate="next"></span><i class="bi bi-arrow-right"></i>
           </button>
         </div>
       </div>
     </div>
-    <div class="dev-alert-container">
+    <!-- <div class="dev-alert-container">
       <div class="dev-alert">
         <div class="dev-alert-header">
           <div class="p1">
             <i class="bi bi-code-square"></i>
-            <h2> Under development</h2>
+            <h2 data-translate="dev"></h2>
           </div>
           <div class="header-closer">
             <button
@@ -2137,24 +1957,12 @@
           </div>
         </div>
         <div class="dev-alert-text">
-          <p class="dev-alert-desc">
-            This website is continuously <strong>under development</strong>. Some features may be incomplete or not yet optimized for all devices. We appreciate your patience and understanding.
-          </p>
-          <p class="alert-tip">
-            For the best experience, please use a <strong>computer</strong> or a <strong>tablet</strong>.
-          </p>
+          <p class="dev-alert-desc" data-translate="dev-desc"></p>
+          <p class="alert-tip" data-translate="dev-tip"></p>
           <br>
-          <!-- <div class="alert-buttons">
-            <button
-              class="ok"
-              onclick="this.parentNode.parentNode.parentNode.parentNode.style.display='none'"
-            >
-              Ok
-            </button>
-          </div> -->
         </div>
       </div>
-    </div>
+    </div> -->
   </body>
   <div class="notification-container" id="notification-container"></div>
 </html>
@@ -2207,12 +2015,10 @@
   function updateStatus(isOnline, ping = null) {
     if (isOnline) {
       statusIcon.className = "bi bi-wifi text-success";
-      statusText.textContent = "";
       pingValue.textContent = ping !== null ? `${ping} ms` : "";
     } else {
       statusIcon.className = "bi bi-wifi-off text-danger";
-      statusText.textContent = "Offline";
-      pingValue.textContent = "";
+      pingValue.textContent = "Offline";
     }
   }
 
