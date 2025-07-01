@@ -1,9 +1,6 @@
 # 🚀 Otman Kharbouch - Interactive Portfolio
 
 <div align="center">
-
-![Portfolio Banner](assets/images/othman.webp)
-
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20Portfolio-blue?style=for-the-badge&logo=vercel)](https://your-portfolio-url.com)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/othman4dev)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/otman-kharbouch)
