@@ -1,9 +1,9 @@
 # 🚀 Otman Kharbouch - Interactive Portfolio
 
 <div align="center">
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20Portfolio-blue?style=for-the-badge&logo=vercel)](https://your-portfolio-url.com)
+  
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20Portfolio-blue?style=for-the-badge&logo=vercel)](https://othman4dev.tech)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/othman4dev)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/otman-kharbouch)
 
 **A uniquely designed, interactive portfolio showcasing modern web development skills**
 
