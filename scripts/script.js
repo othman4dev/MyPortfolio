@@ -3,6 +3,7 @@ let index = 1;
 let lang = localStorage.getItem('lang') || 'en';
 
 function scrollDownIntoView(btn, element) {
+  lang = localStorage.getItem('lang') || 'en';
   if (index === 6) {
     notify("bi-whatsapp", lang == "en" ? "For emergency, contact me on WhatsApp." : "Pour urgence, contacte-moi sur WhatsApp.");
   }
