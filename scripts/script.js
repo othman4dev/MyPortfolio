@@ -414,7 +414,6 @@ function animation() {
 animation();
 
 function tutorial() {
-  console.log(document.getElementById("tutorial"));
   document.getElementById("tutorial").style.display = "block";
   setTimeout(() => {
     highlightElement(document.getElementById("down"));
@@ -510,10 +509,7 @@ async function setLang(lang) {
   notify("bi-globe2", lang === 'fr' ? 'La langue a été définie sur le français' : 'Language has been set to English');
 
   const response = await fetch(`./lang/${lang}.json`);
-  console.log(response);
   const translations = await response.json();
-  console.log(translations);
-  
 
   document.querySelectorAll('[data-translate]').forEach(el => {
     const key = el.getAttribute('data-translate');
