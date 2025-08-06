@@ -105,7 +105,7 @@
         
         <div id="connection-status" class="speed-test">
           <i id="status-icon" class="bi bi-wifi-off text-danger"></i>
-          <span id="status-text" class="status-text"></span>
+          <span id="status-text" class="status-text">Offline</span>
           <span id="ping-value" class="speed"></span>
           <br>
           <span id="time"></span>
@@ -2015,10 +2015,12 @@
   function updateStatus(isOnline, ping = null) {
     if (isOnline) {
       statusIcon.className = "bi bi-wifi text-success";
+      statusText.textContent = "Online";
       pingValue.textContent = ping !== null ? `${ping} ms` : "";
     } else {
       statusIcon.className = "bi bi-wifi-off text-danger";
-      pingValue.textContent = "Offline";
+      statusText.textContent = "Offline";
+      pingValue.textContent = "";
     }
   }
 
