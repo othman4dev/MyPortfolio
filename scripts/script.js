@@ -64,6 +64,7 @@ function scrollUpIntoView(btn, element) {
 }
 
 function indexDown() {
+  lang = localStorage.getItem('lang') || 'en';
   const indexes = lang == 'en' ? [
     "PROFILE",
     "ABOUT",
