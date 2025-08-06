@@ -104,6 +104,7 @@
     "education1-list":"<li>Développement Front-End : HTML, CSS, JavaScript, React, Angular, Vue.js, Next.js, React Native.</li><li>Développement Back-End : PHP, Laravel, Nest.js, ExpressJs</li><li>Bases de données : MongoDB, MySQL, DynamoDB</li><li>Serveurs Web : Apache, Nginx.</li><li>Systèmes d'exploitation et scripts : Linux, Bash, CMD.</li><li>Gestion de projet : Jira, Trello</li><li>Pratiques de développement : Méthodologies agiles, contrôle de version (Git/GitHub)</li>",
     "education1-final":"En s'engageant avec cette pile diversifiée, les étudiants diplômés deviennent des développeurs polyvalents équipés pour relever les défis du monde réel et s'adapter au paysage technologique en constante évolution.",
     "e-learning":"E-learning",
+    "education1-date":"2023 - 2025",
     "education2-date":"2023 - 2021",
     "education2-description":"<strong>Codecademy</strong> et <strong>FreeCodeCamp</strong> sont des plateformes leaders dans le domaine de l'e-learning, offrant des cours complets en développement web et programmation. Ces plateformes fournissent un moyen flexible et accessible d'apprendre les compétences de codage, s'adressant aux débutants comme aux apprenants avancés. <br /> <strong>Codecademy</strong> propose des leçons de codage interactives dans divers langages de programmation, notamment JavaScript, Python et HTML/CSS. Leur approche pratique garantit que les apprenants peuvent immédiatement appliquer ce qu'ils apprennent à travers des exercices pratiques et des projets. <br /> <strong>FreeCodeCamp</strong> est renommé pour son programme étendu qui couvre le développement front-end et back-end. Il met l'accent sur l'apprentissage basé sur les projets, permettant aux étudiants de construire des applications du monde réel et d'acquérir une expérience pratique. La plateforme offre également des certifications à la fin de ses cours rigoureux.",
     "education2-learn":"<span>En savoir plus sur <strong>Codecademy</strong> sur</span> <a href=\"https://www.codecademy.com\" target=\"_blank\">Codecademy</a> et <strong>FreeCodeCamp</strong> sur <a href=\"https://www.freecodecamp.org\" target=\"_blank\">FreeCodeCamp</a>",
@@ -121,4 +122,5 @@
     "lang":"Langue",
     "offline":"Hors ligne",
     "unavailable":"Actuellement <br /> indisponible"
+
 }
