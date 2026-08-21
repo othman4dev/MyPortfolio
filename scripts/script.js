@@ -1,21 +1,32 @@
 let index = 1;
 
-let lang = localStorage.getItem('lang') || 'en';
+let lang = localStorage.getItem("lang") || "en";
 
 function scrollDownIntoView(btn, element) {
-  lang = localStorage.getItem('lang') || 'en';
+  lang = localStorage.getItem("lang") || "en";
   if (index === 6) {
-    notify("bi-whatsapp", lang == "en" ? "For emergency, contact me on WhatsApp." : "Pour urgence, contacte-moi sur WhatsApp.");
+    notify(
+      "bi-whatsapp",
+      lang == "en"
+        ? "For emergency, contact me on WhatsApp."
+        : "Pour urgence, contacte-moi sur WhatsApp.",
+    );
   }
   if (index === 1) {
     notify(
       "bi-question-circle-fill",
-      lang == "en" ?
-      "I can learn any new technologie easily and quickly." : "Pour urgence, contacte-moi sur WhatsApp."
+      lang == "en"
+        ? "I can learn any new technologie easily and quickly."
+        : "Pour urgence, contacte-moi sur WhatsApp.",
     );
   }
   if (index == 2) {
-    notify("bi-info-circle-fill", lang == "en" ? "I am always working on new projects" : "Je travaille toujours sur de nouveaux projets.");
+    notify(
+      "bi-info-circle-fill",
+      lang == "en"
+        ? "I am always working on new projects"
+        : "Je travaille toujours sur de nouveaux projets.",
+    );
     selectCard(document.getElementById("more-projects"));
   }
   const section = document.getElementById(`section${element}`);
@@ -65,33 +76,39 @@ function scrollUpIntoView(btn, element) {
 }
 
 function indexDown() {
-  lang = localStorage.getItem('lang') || 'en';
-  const indexes = lang == 'en' ? [
-    "PROFILE",
-    "ABOUT",
-    "PROJECTS",
-    "EXPERIENCE",
-    "SERVICES",
-    "STATS",
-    "CONTACT",
-  ] : [
-    "PROFIL",
-    "À PROPOS",
-    "PROJETS",
-    "EXPÉRIENCE",
-    "SERVICES",
-    "STATS",
-    "CONTACT"
-  ];
+  lang = localStorage.getItem("lang") || "en";
+  const indexes =
+    lang == "en"
+      ? [
+          "PROFILE",
+          "ABOUT",
+          "PROJECTS",
+          "EXPERIENCE",
+          "SERVICES",
+          "STATS",
+          "CONTACT",
+        ]
+      : [
+          "PROFIL",
+          "À PROPOS",
+          "PROJETS",
+          "EXPÉRIENCE",
+          "SERVICES",
+          "STATS",
+          "CONTACT",
+        ];
   document.getElementById("index").innerHTML = indexes[index - 1];
   if (index > 1 && index < 7) {
     if (document.getElementById("lineFull2")) {
-      document.getElementById("lineFull2").outerHTML = lang == "en" ? `
+      document.getElementById("lineFull2").outerHTML =
+        lang == "en"
+          ? `
                 <div class="line-half" id="lineHalf2">
                     <div class="next-index"></div>
                     <p class="next-index-text index-text" id="next-index">HOME</p>
                 </div>
-            ` : `
+            `
+          : `
                 <div class="line-half" id="lineHalf2">
                     <div class="next-index"></div>
                     <p class="next-index-text index-text" id="next-index">Acceuil</p>
@@ -99,12 +116,15 @@ function indexDown() {
             `;
     }
     if (document.getElementById("lineFull")) {
-      document.getElementById("lineFull").outerHTML = lang == "en" ? `
+      document.getElementById("lineFull").outerHTML =
+        lang == "en"
+          ? `
                 <div class="line-half-prev" id="lineHalf">
                     <div class="prev-index"></div>
                     <p class="prev-index-text index-text" id="prev-index">HOME</p>
                 </div>
-            ` : `
+            `
+          : `
                 <div class="line-half-prev" id="lineHalf">
                     <div class="prev-index"></div>
                     <p class="prev-index-text index-text" id="prev-index">Acceuil</p>
@@ -190,10 +210,10 @@ document.addEventListener("keydown", (e) => {
 
 // on window load , go to view section 1 mandatory
 
-if (window.innerWidth > 828) {
-  const section = document.getElementById(`section1`);
-  section.scrollIntoView({ behavior: "smooth", block: "start" });
-}
+// if (window.innerWidth > 828) {
+//   const section = document.getElementById(`section1`);
+//   section.scrollIntoView({ behavior: "smooth", block: "start" });
+// }
 
 function searchTechs(input) {
   var filter, techs, i, imgElement, txtValue;
@@ -237,7 +257,7 @@ window.addEventListener("mousemove", (ev) => {
       {
         duration: 300,
         fill: "forwards",
-      }
+      },
     );
   });
 });
@@ -245,14 +265,20 @@ window.addEventListener("mousemove", (ev) => {
 function copyToClipboard(text, btn) {
   navigator.clipboard.writeText(text).then(
     function () {
-      btn.innerHTML = lang == "en" ? "Copied <i class='bi bi-clipboard-check'></i>" : "Copié <i class='bi bi-clipboard-check'></i>";
+      btn.innerHTML =
+        lang == "en"
+          ? "Copied <i class='bi bi-clipboard-check'></i>"
+          : "Copié <i class='bi bi-clipboard-check'></i>";
       setTimeout(() => {
-        btn.innerHTML = lang == "en" ? "Copy Email <i class='bi bi-clipboard'></i>" : "Copier l'Email <i class='bi bi-clipboard'></i>";
+        btn.innerHTML =
+          lang == "en"
+            ? "Copy Email <i class='bi bi-clipboard'></i>"
+            : "Copier l'Email <i class='bi bi-clipboard'></i>";
       }, 1000);
     },
     function (err) {
       console.error("Async: Could not copy text: ", err);
-    }
+    },
   );
 }
 
@@ -279,21 +305,23 @@ function selectCard(card) {
 function checkIfUserWithPhoneOrTablet() {
   if (
     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent
+      navigator.userAgent,
     )
   ) {
     if (window.innerWidth < 828 && window.innerHeight < 680) {
       notify(
         "bi-pc-display",
-        lang == 'en' ? "For the best experience, visit this website from a computer or a laptop." : "Pour une meilleure expérience, visitez ce site depuis un ordinateur ou un portable."
+        lang == "en"
+          ? "For the best experience, visit this website from a computer or a laptop."
+          : "Pour une meilleure expérience, visitez ce site depuis un ordinateur ou un portable.",
       );
     }
   }
 }
 
-window.onload = () => {
-  checkIfUserWithPhoneOrTablet();
-};
+// window.onload = () => {
+//   checkIfUserWithPhoneOrTablet();
+// };
 // window.addEventListener("resize", () => {
 //   checkIfUserWithPhoneOrTablet();
 // });
@@ -329,7 +357,7 @@ function notify(icon, message) {
 
   notificationContainer.insertAdjacentElement(
     "afterbegin",
-    notificationElement
+    notificationElement,
   );
 
   setTimeout(() => {
@@ -345,20 +373,26 @@ function notify(icon, message) {
 setTimeout(() => {
   notify(
     "bi-puzzle-fill",
-    lang == "en" ? "If you like this website and want to use it, contact me and we can make a deal." : "Si ce site vous plaît et que vous souhaitez l’utiliser, contactez-moi et on peut faire un accord."
+    lang == "en"
+      ? "If you like this website and want to use it, contact me and we can make a deal."
+      : "Si ce site vous plaît et que vous souhaitez l’utiliser, contactez-moi et on peut faire un accord.",
   );
 }, 40000);
 
 function checkResolutionAndNotify() {
   if (window.innerHeight > 828 && window.innerHeight > window.innerWidth) {
     notify(
-      "bi-arrow-repeat", lang == "en" ?
-      "For better experience, please rotate you screen." : "Pour une meilleure expérience, veuillez tourner votre écran."
+      "bi-arrow-repeat",
+      lang == "en"
+        ? "For better experience, please rotate you screen."
+        : "Pour une meilleure expérience, veuillez tourner votre écran.",
     );
   } else if (window.innerHeight > 800 && window.innerWidth < 565) {
     notify(
-      "bi-info-circle-fill", lang == "en" ?
-      "For better experience, visit this website in portrait mode." : "Pour une meilleure expérience, visitez ce site en mode portrait."
+      "bi-info-circle-fill",
+      lang == "en"
+        ? "For better experience, visit this website in portrait mode."
+        : "Pour une meilleure expérience, visitez ce site en mode portrait.",
     );
   }
 }
@@ -388,7 +422,9 @@ function animation() {
     loader.style.display = "none";
   };
 
-  setTimeout(() => {
+  stopAnimation();
+
+  /* setTimeout(() => {
     loader.innerHTML = lang == 'en' ? `
       <div class="wrapper">
         <div class="typing-demo welcome">
@@ -411,7 +447,7 @@ function animation() {
     setTimeout(() => {
       stopAnimation();
     }, 3000);
-  }, 1000);
+  }, 1000); */
 }
 animation();
 
@@ -430,12 +466,18 @@ var step = 1;
 function nextTuto() {
   localStorage.setItem("tutorial", "done");
   if (step == 1) {
-    tutoModal.innerText = lang == 'en' ? `Or use the arrow keys on your keyboard to navigate.` : `Ou utilisez les flèches de votre clavier pour naviguer.`;
+    tutoModal.innerText =
+      lang == "en"
+        ? `Or use the arrow keys on your keyboard to navigate.`
+        : `Ou utilisez les flèches de votre clavier pour naviguer.`;
     includes.innerHTML = `<img src="./assets/images/arrows2.png" alt="arrow keys" class="includes-img" />`;
     tuto.style.top = "80%";
   } else if (step == 2) {
     includes.innerHTML = "";
-    tutoModal.innerText = lang == 'en' ? `You can also use the navbar to navigate.` : "Vous pouvez aussi utiliser la barre de navigation pour naviguer.";
+    tutoModal.innerText =
+      lang == "en"
+        ? `You can also use the navbar to navigate.`
+        : "Vous pouvez aussi utiliser la barre de navigation pour naviguer.";
     tuto.style.top = "10%";
     tuto.style.left = "unset";
     tuto.style.right = "-140px";
@@ -444,16 +486,25 @@ function nextTuto() {
       highlightElement(el);
     });
   } else if (step == 3) {
-    tutoModal.innerText = lang == 'en' ? `Watch for the notifications in this corner.` : `Surveillez les notifications dans ce coin.`;
+    tutoModal.innerText =
+      lang == "en"
+        ? `Watch for the notifications in this corner.`
+        : `Surveillez les notifications dans ce coin.`;
     tuto.style.top = "85%";
     tuto.style.right = "-140px";
-    notify("bi-info-circle-fill", lang == 'en' ? "This is a notification" : "Ceci est une notification.");
+    notify(
+      "bi-info-circle-fill",
+      lang == "en" ? "This is a notification" : "Ceci est une notification.",
+    );
     highlightElement(document.querySelector(".notification"));
   } else if (step == 4) {
     tuto.style.top = "35%";
     tuto.style.right = "10%";
     toSection(2);
-    tutoModal.innerText = lang == 'en' ? `Search here for technologies.` : `Recherchez ici les technologies.`;
+    tutoModal.innerText =
+      lang == "en"
+        ? `Search here for technologies.`
+        : `Recherchez ici les technologies.`;
     document.getElementById("techno-cards").style.zIndex = "100";
     setTimeout(() => {
       highlightElement(document.getElementById("tech-search"));
@@ -493,41 +544,44 @@ function skipTuto() {
   nextTuto();
 }
 
-let langModal = false
+let langModal = false;
 function chooseLang() {
-  document.getElementById('langModal').style.display = langModal ? 'none' : 'flex';
+  document.getElementById("langModal").style.display = langModal
+    ? "none"
+    : "flex";
   langModal = !langModal;
 }
 
-
 async function setLang(lang) {
-  if (localStorage.getItem('lang')) {
-    localStorage.removeItem('lang');
-    localStorage.setItem('lang', lang);
+  if (localStorage.getItem("lang")) {
+    localStorage.removeItem("lang");
+    localStorage.setItem("lang", lang);
   } else {
-    localStorage.setItem('lang', lang);
+    localStorage.setItem("lang", lang);
   }
 
-  notify("bi-globe2", lang === 'fr' ? 'La langue a été définie sur le français' : 'Language has been set to English');
+  notify(
+    "bi-globe2",
+    lang === "fr"
+      ? "La langue a été définie sur le français"
+      : "Language has been set to English",
+  );
 
   const response = await fetch(`./lang/${lang}.json`);
   const translations = await response.json();
 
-  document.querySelectorAll('[data-translate]').forEach(el => {
-    const key = el.getAttribute('data-translate');
+  document.querySelectorAll("[data-translate]").forEach((el) => {
+    const key = el.getAttribute("data-translate");
     el.innerHTML = translations[key] || key;
   });
 
   // Optionally store lang in localStorage
-  localStorage.setItem('lang', lang);
-
+  localStorage.setItem("lang", lang);
 }
 // Load language from localStorage on page load
-window.addEventListener('DOMContentLoaded', () => {
-
-  const savedLang = localStorage.getItem('lang') || 'en';
+window.addEventListener("DOMContentLoaded", () => {
+  const savedLang = localStorage.getItem("lang") || "en";
   document.documentElement.setAttribute("lang", savedLang);
 
   setLang(savedLang);
-
 });
