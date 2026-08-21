@@ -2,6 +2,8 @@ let index = 1;
 
 let lang = localStorage.getItem("lang") || "en";
 
+let welcomed = localStorage.getItem("welcomed") || "false";
+
 function scrollDownIntoView(btn, element) {
   lang = localStorage.getItem("lang") || "en";
   if (index === 6) {
@@ -422,16 +424,17 @@ function animation() {
     loader.style.display = "none";
   };
 
-  stopAnimation();
-
-  /* setTimeout(() => {
-    loader.innerHTML = lang == 'en' ? `
+  setTimeout(() => {
+    loader.innerHTML =
+      lang == "en"
+        ? `
       <div class="wrapper">
         <div class="typing-demo welcome">
           Welcome to my portfolio.
         </div>
       </div>
-      ` : `
+      `
+        : `
       <div class="wrapper">
         <div class="typing-demo2 welcome">
           Bienvenue sur mon portfolio.
@@ -447,7 +450,13 @@ function animation() {
     setTimeout(() => {
       stopAnimation();
     }, 3000);
-  }, 1000); */
+  }, 1000);
+}
+if (welcomed !== "true") {
+  localStorage.setItem("welcomed", "true");
+  animation();
+} else {
+  document.querySelector(".loading-animation").style.display = "none";
 }
 animation();
 
