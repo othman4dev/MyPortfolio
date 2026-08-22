@@ -1,4 +1,4 @@
-let index = 1;
+let index = Number(localStorage.getItem("index") || 1);
 
 let lang = localStorage.getItem("lang") || "en";
 
@@ -34,6 +34,7 @@ function scrollDownIntoView(btn, element) {
   const section = document.getElementById(`section${element}`);
   section.scrollIntoView({ behavior: "smooth", block: "start" });
   index++;
+  localStorage.setItem("index", String(index));
   if (index === 7) {
     btn.style.display = "none";
   } else {
@@ -57,6 +58,7 @@ function scrollUpIntoView(btn, element) {
   const section = document.getElementById(`section${element}`);
   section.scrollIntoView({ behavior: "smooth", block: "start" });
   index--;
+  localStorage.setItem("index", String(index));
   if (index === 1) {
     btn.style.display = "none";
   } else {
@@ -186,16 +188,45 @@ function indexDown() {
 
 // call the function scrollDownIntoView() when whell event is triggered
 
-document.addEventListener("wheel", (e) => {
-  if (window.innerWidth < 828) {
-    return;
-  }
-  if (e.deltaY > 0 && index < 7) {
-    document.getElementById("down").click();
-  } else if (e.deltaY < 0 && index > 1) {
-    document.getElementById("up").click();
-  }
-});
+let _isTouching = false;
+// Wheel accumulation & throttle to avoid multi-section jumps on sensitive touchpads
+let _wheelAccum = 0;
+let _lastWheelTime = 0;
+const WHEEL_THRESHOLD = 100; // accumulated deltaY required to trigger
+const WHEEL_COOLDOWN = 450; // ms cooldown after triggering
+
+document.addEventListener(
+  "wheel",
+  (e) => {
+    // ignore wheel events during an active touch gesture
+    if (_isTouching) return;
+    if (window.innerWidth < 828) return;
+
+    const now = Date.now();
+    // ignore wheel events during cooldown
+    if (now - _lastWheelTime < WHEEL_COOLDOWN) return;
+
+    // accumulate deltaY
+    _wheelAccum += e.deltaY;
+
+    // if accumulation exceeds threshold, trigger one section and reset
+    if (Math.abs(_wheelAccum) >= WHEEL_THRESHOLD) {
+      if (_wheelAccum > 0 && index < 7) {
+        document.getElementById("down").click();
+      } else if (_wheelAccum < 0 && index > 1) {
+        document.getElementById("up").click();
+      }
+      _wheelAccum = 0;
+      _lastWheelTime = now;
+    }
+    // clear accumulation shortly after inactivity to avoid long memory
+    clearTimeout(document._wheelAccumTimeout);
+    document._wheelAccumTimeout = setTimeout(() => {
+      _wheelAccum = 0;
+    }, 150);
+  },
+  { passive: true },
+);
 
 // call the function scrollDownIntoView() when keydown event is triggered
 
@@ -209,6 +240,84 @@ document.addEventListener("keydown", (e) => {
     document.getElementById("up").click();
   }
 });
+
+// Touch handling: detect swipe and move one section per swipe (throttled)
+let _touchStartY = null;
+let _lastTouchTime = 0;
+const _SWIPE_THRESHOLD = 50; // px
+const _SWIPE_COOLDOWN = 600; // ms between swipes
+
+// Improved touch handling: prevent native scroll during gesture and ensure single action per swipe
+let _touchMoved = false;
+document.addEventListener(
+  "touchstart",
+  (e) => {
+    if (e.touches && e.touches.length > 1) return; // ignore multi-touch
+    _touchStartY = e.touches[0].clientY;
+    _touchMoved = false;
+    _isTouching = true;
+  },
+  { passive: true },
+);
+
+document.addEventListener(
+  "touchmove",
+  (e) => {
+    if (_touchStartY === null) return;
+    const currentY = e.touches[0].clientY;
+    const delta = Math.abs(_touchStartY - currentY);
+    // small movement threshold to decide when to lock scrolling
+    if (delta > 10 && !_touchMoved) {
+      // prevent native scrolling so the page doesn't jump multiple sections
+      try {
+        e.preventDefault();
+      } catch (err) {}
+      _touchMoved = true;
+    }
+  },
+  { passive: false },
+);
+
+document.addEventListener(
+  "touchend",
+  (e) => {
+    try {
+      if (_touchStartY === null) return;
+      const touch = (e.changedTouches && e.changedTouches[0]) || null;
+      if (!touch) {
+        _touchStartY = null;
+        _isTouching = false;
+        return;
+      }
+      const touchEndY = touch.clientY;
+      const deltaY = _touchStartY - touchEndY;
+      const now = Date.now();
+      if (now - _lastTouchTime < _SWIPE_COOLDOWN) {
+        _touchStartY = null;
+        _isTouching = false;
+        return;
+      }
+
+      if (Math.abs(deltaY) > _SWIPE_THRESHOLD) {
+        if (deltaY > 0 && index < 7) {
+          const downBtn = document.getElementById("down");
+          if (downBtn) downBtn.click();
+          _lastTouchTime = now;
+        } else if (deltaY < 0 && index > 1) {
+          const upBtn = document.getElementById("up");
+          if (upBtn) upBtn.click();
+          _lastTouchTime = now;
+        }
+      }
+    } finally {
+      _touchStartY = null;
+      _touchMoved = false;
+      // small delay before clearing _isTouching to avoid wheel events immediately after
+      setTimeout(() => (_isTouching = false), 80);
+    }
+  },
+  { passive: true },
+);
 
 // on window load , go to view section 1 mandatory
 
@@ -398,6 +507,151 @@ function checkResolutionAndNotify() {
     );
   }
 }
+
+function toggleContributions(btn, action) {
+  try {
+    const inner = btn.closest(".inner");
+    if (!inner) return;
+
+    const header = inner.querySelector(".experience-card-header");
+    const bottom = inner.querySelector(".project-card-bottom");
+    const contributionsWrapper = inner.querySelector(".contributions-hidden");
+    const contributionsCard = contributionsWrapper
+      ? contributionsWrapper.querySelector(".contributions-card")
+      : null;
+
+    if (action === "show") {
+      if (header) header.style.display = "none";
+      if (bottom) bottom.style.display = "none";
+      if (contributionsWrapper) {
+        contributionsWrapper.style.display = "flex";
+        if (contributionsCard) {
+          contributionsCard.style.animationName = "modal-animation";
+          setTimeout(() => {
+            contributionsCard.style.animationName = "none";
+          }, 400);
+        }
+      }
+    } else if (action === "hide") {
+      if (contributionsWrapper) {
+        contributionsWrapper.style.display = "none";
+      }
+      if (header) header.style.display = "flex";
+      if (bottom) bottom.style.display = "block";
+      // return focus to the first visit button if available
+      const backToBtn = inner.querySelector(".project-btns .visit-btn");
+      if (backToBtn) backToBtn.focus();
+    }
+  } catch (e) {
+    console.error("toggleContributions error:", e);
+  }
+}
+
+// Hide contributions on mouseleave for each experience card
+function hideContributionsForInner(inner) {
+  const header = inner.querySelector(".experience-card-header");
+  const bottom = inner.querySelector(".project-card-bottom");
+  const contributionsWrapper = inner.querySelector(".contributions-hidden");
+  if (contributionsWrapper) {
+    contributionsWrapper.style.display = "none";
+  }
+  if (header) header.style.display = "flex";
+  if (bottom) bottom.style.display = "block";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".experience-card").forEach((card) => {
+    card.addEventListener("mouseleave", () => {
+      const inner = card.querySelector(".inner");
+      if (inner) hideContributionsForInner(inner);
+    });
+  });
+});
+
+/* Text animate initializer
+   - Detects elements with `.text-animate`
+   - When element enters viewport, adds an absolute overlay that covers the text
+   - After 0.3s delay the overlay shrinks (width -> 0) creating a reveal effect
+*/
+function initTextAnimate() {
+  const elems = Array.from(document.querySelectorAll(".text-animate"));
+  if (!elems.length) return;
+  const animateElement = (el) => {
+    // prevent overlapping animations while one is running
+    if (el.dataset.__animating === "true") return;
+    // Ensure positioning context
+    const cs = getComputedStyle(el);
+    if (cs.position === "static") {
+      el.style.position = "relative";
+    }
+    el.style.overflow = "hidden";
+
+    // create overlay
+    const overlay = document.createElement("div");
+    overlay.className = "text-animate__overlay";
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.top = "0";
+
+    // direction: default is mirrored (anchor to right). Accept data-reveal-direction="ltr" to anchor left.
+    const dir = (
+      el.getAttribute("data-reveal-direction") || "mirror"
+    ).toLowerCase();
+    if (dir === "ltr" || dir === "left") {
+      overlay.style.left = "0";
+      overlay.style.right = "auto";
+    } else {
+      overlay.style.right = "0";
+      overlay.style.left = "auto";
+    }
+
+    el.appendChild(overlay);
+
+    // start shrink after 0.3s
+    setTimeout(() => {
+      requestAnimationFrame(() => {
+        overlay.classList.add("shrinking");
+      });
+    }, 300);
+
+    overlay.addEventListener(
+      "transitionend",
+      () => {
+        try {
+          overlay.remove();
+        } catch (e) {}
+        // clear animating flag so the element can animate again next time
+        try {
+          delete el.dataset.__animating;
+        } catch (e) {}
+      },
+      { once: true },
+    );
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        animateElement(entry.target);
+      });
+    },
+    { root: null, rootMargin: "0px", threshold: 0.15 },
+  );
+
+  elems.forEach((e) => {
+    // animate immediately if already in viewport, but keep observing for future entries
+    const rect = e.getBoundingClientRect();
+    const inView = rect.top < window.innerHeight && rect.bottom > 0;
+    if (inView) {
+      animateElement(e);
+    }
+    observer.observe(e);
+  });
+}
+
+// initialize on DOM ready
+document.addEventListener("DOMContentLoaded", initTextAnimate);
 
 window.onload = () => {
   checkIfUserWithPhoneOrTablet();
@@ -593,4 +847,29 @@ window.addEventListener("DOMContentLoaded", () => {
   document.documentElement.setAttribute("lang", savedLang);
 
   setLang(savedLang);
+});
+
+// Restore navigation index on load and wire navigation buttons
+window.addEventListener("DOMContentLoaded", () => {
+  // ensure index variable is in range
+  if (!index || isNaN(index) || index < 1) index = 1;
+  if (index > 7) index = 7;
+
+  // update labels and UI
+  indexDown();
+
+  const downBtn = document.getElementById("down");
+  const upBtn = document.getElementById("up");
+
+  if (index > 1 && upBtn) upBtn.style.display = "block";
+  else if (upBtn) upBtn.style.display = "none";
+
+  if (index < 7 && downBtn) downBtn.style.display = "block";
+  else if (downBtn) downBtn.style.display = "none";
+
+  // set initial click handlers so they move relative to current index
+  if (downBtn)
+    downBtn.onclick = () => scrollDownIntoView(downBtn, Math.min(7, index + 1));
+  if (upBtn)
+    upBtn.onclick = () => scrollUpIntoView(upBtn, Math.max(1, index - 1));
 });
