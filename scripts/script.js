@@ -32,6 +32,13 @@ function scrollDownIntoView(btn, element) {
     selectCard(document.getElementById("more-projects"));
   }
   const section = document.getElementById(`section${element}`);
+  // lock input while smooth scrolling to prevent multiple section moves
+  isAnimatingScroll = true;
+  clearTimeout(_scrollSafetyTimeout);
+  _scrollSafetyTimeout = setTimeout(() => {
+    isAnimatingScroll = false;
+  }, 1200);
+
   section.scrollIntoView({ behavior: "smooth", block: "start" });
   index++;
   localStorage.setItem("index", String(index));
@@ -56,6 +63,13 @@ function scrollDownIntoView(btn, element) {
 
 function scrollUpIntoView(btn, element) {
   const section = document.getElementById(`section${element}`);
+  // lock input while smooth scrolling to prevent multiple section moves
+  isAnimatingScroll = true;
+  clearTimeout(_scrollSafetyTimeout);
+  _scrollSafetyTimeout = setTimeout(() => {
+    isAnimatingScroll = false;
+  }, 1200);
+
   section.scrollIntoView({ behavior: "smooth", block: "start" });
   index--;
   localStorage.setItem("index", String(index));
@@ -195,6 +209,11 @@ let _lastWheelTime = 0;
 const WHEEL_THRESHOLD = 100; // accumulated deltaY required to trigger
 const WHEEL_COOLDOWN = 450; // ms cooldown after triggering
 
+// Lock while a smooth scroll animation is in progress to avoid double-triggers
+let isAnimatingScroll = false;
+let _scrollEndTimeout = null;
+let _scrollSafetyTimeout = null;
+
 document.addEventListener(
   "wheel",
   (e) => {
@@ -205,6 +224,9 @@ document.addEventListener(
     const now = Date.now();
     // ignore wheel events during cooldown
     if (now - _lastWheelTime < WHEEL_COOLDOWN) return;
+
+    // ignore wheel events while a programmatic smooth scroll is animating
+    if (isAnimatingScroll) return;
 
     // accumulate deltaY
     _wheelAccum += e.deltaY;
@@ -245,7 +267,7 @@ document.addEventListener("keydown", (e) => {
 let _touchStartY = null;
 let _lastTouchTime = 0;
 const _SWIPE_THRESHOLD = 50; // px
-const _SWIPE_COOLDOWN = 600; // ms between swipes
+const _SWIPE_COOLDOWN = 200; // ms between swipes
 
 // Improved touch handling: prevent native scroll during gesture and ensure single action per swipe
 let _touchMoved = false;
@@ -292,6 +314,12 @@ document.addEventListener(
       const touchEndY = touch.clientY;
       const deltaY = _touchStartY - touchEndY;
       const now = Date.now();
+      // if a programmatic smooth scroll is happening, ignore this gesture
+      if (isAnimatingScroll) {
+        _touchStartY = null;
+        _isTouching = false;
+        return;
+      }
       if (now - _lastTouchTime < _SWIPE_COOLDOWN) {
         _touchStartY = null;
         _isTouching = false;
@@ -315,6 +343,20 @@ document.addEventListener(
       // small delay before clearing _isTouching to avoid wheel events immediately after
       setTimeout(() => (_isTouching = false), 80);
     }
+  },
+  { passive: true },
+);
+
+// Listen for scroll events and treat a lack of scroll activity as scroll-end
+window.addEventListener(
+  "scroll",
+  () => {
+    if (!isAnimatingScroll) return;
+    clearTimeout(_scrollEndTimeout);
+    _scrollEndTimeout = setTimeout(() => {
+      isAnimatingScroll = false;
+      clearTimeout(_scrollSafetyTimeout);
+    }, 250);
   },
   { passive: true },
 );
