@@ -867,6 +867,40 @@ window.addEventListener("resize", () => {
   /* checkResolutionAndNotify(); */
 });
 
+const techTrack = document.querySelector(".technos-inner");
+
+if (techTrack) {
+  let direction = -1;
+  const speed = 0.8;
+
+  function runTechMarquee() {
+    /* if (window.innerWidth < 828) {
+      techTrack.scrollLeft = 0;
+      requestAnimationFrame(runTechMarquee);
+      return;
+    } */
+
+    const maxScroll = techTrack.scrollWidth - techTrack.clientWidth;
+    const minScroll = -maxScroll;
+
+    const nextPosition = techTrack.scrollLeft + direction * speed;
+
+    if (nextPosition <= minScroll) {
+      techTrack.scrollLeft = minScroll;
+      direction = 1;
+    } else if (nextPosition >= 0) {
+      techTrack.scrollLeft = 0;
+      direction = -1;
+    } else {
+      techTrack.scrollLeft = nextPosition;
+    }
+
+    requestAnimationFrame(runTechMarquee);
+  }
+
+  requestAnimationFrame(runTechMarquee);
+}
+
 function openEducation(num) {
   document.getElementById("protection").style.display = "block";
   if (num == 1) {
