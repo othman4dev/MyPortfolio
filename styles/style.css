@@ -18,7 +18,9 @@ body {
 .quote-mobile {
   display: none;
 }
-
+.mobile-sidebar {
+  display: none;
+}
 .side-bar {
   background-color: #1f293b;
   color: #f0f0f0;

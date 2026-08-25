@@ -608,7 +608,88 @@ document.addEventListener("DOMContentLoaded", () => {
       if (inner) hideContributionsForInner(inner);
     });
   });
+
+  // Wire mobile sidebar toggle button
+  try {
+    const mobileSidebar = document.querySelector(".mobile-sidebar");
+    if (mobileSidebar) {
+      const sbBtn = mobileSidebar.querySelector(".sidebar-button");
+      if (sbBtn) {
+        sbBtn.addEventListener("click", (ev) => {
+          ev.stopPropagation();
+          toggleMobileSidebar();
+        });
+      }
+    }
+  } catch (e) {}
 });
+
+function toggleMobileSidebar() {
+  const sidebar = document.querySelector(".mobile-sidebar");
+  if (!sidebar) return;
+  // toggle via helper so icon/state stay consistent
+  const collapsed = !sidebar.classList.contains("collapsed");
+  setMobileSidebarCollapsed(collapsed);
+}
+
+function setMobileSidebarCollapsed(collapsed) {
+  const sidebar = document.querySelector(".mobile-sidebar");
+  if (!sidebar) return;
+  const btn = sidebar.querySelector(".sidebar-button");
+  const icon = btn ? btn.querySelector("i") : null;
+
+  if (collapsed) {
+    sidebar.classList.add("collapsed");
+    if (icon) icon.className = "bi bi-chevron-double-left";
+    if (btn) btn.setAttribute("aria-expanded", "false");
+  } else {
+    sidebar.classList.remove("collapsed");
+    if (icon) icon.className = "bi bi-list";
+    if (btn) btn.setAttribute("aria-expanded", "true");
+  }
+}
+
+// Collapse sidebar when clicking outside or after interacting with any item inside (except the toggle button)
+document.addEventListener(
+  "pointerdown",
+  (e) => {
+    try {
+      const sidebar = document.querySelector(".mobile-sidebar");
+      if (!sidebar) return;
+      // if already collapsed, nothing to do
+      if (sidebar.classList.contains("collapsed"))
+        setMobileSidebarCollapsed(true);
+      // if click/tap is inside sidebar or on the toggle button, ignore here
+      if (
+        sidebar.contains(e.target) ||
+        (e.target && e.target.closest && e.target.closest(".sidebar-button"))
+      )
+        return;
+      // otherwise collapse
+      setMobileSidebarCollapsed(false);
+    } catch (err) {}
+  },
+  { passive: true },
+);
+
+// Any interaction inside the sidebar (links, buttons, touches) should collapse it — except the toggle button
+document.addEventListener(
+  "pointerup",
+  (e) => {
+    try {
+      const sidebar = document.querySelector(".mobile-sidebar");
+      if (!sidebar) return;
+      // if the interaction originated inside the sidebar
+      if (sidebar.contains(e.target)) {
+        // ignore clicks on the toggle button itself
+        if (e.target.closest && e.target.closest(".sidebar-button")) return;
+        // collapse after a tiny timeout to allow link navigation/default actions
+        setTimeout(() => setMobileSidebarCollapsed(true), 50);
+      }
+    } catch (err) {}
+  },
+  { passive: true },
+);
 
 /* Text animate initializer
    - Detects elements with `.text-animate`

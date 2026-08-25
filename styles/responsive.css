@@ -579,9 +579,18 @@
   .quote-text {
     font-size: 27px;
   }
+  /* .main-card { */
+  /* background-color: rgba(0, 0, 0, 0); */
+  /* box-shadow: none; */
+  /* } */
+  .card-header {
+    max-height: 201px;
+  }
   .main-card {
-    background-color: rgba(0, 0, 0, 0);
-    box-shadow: none;
+    padding: 4px;
+  }
+  .project-cards {
+    margin-top: 0px !important ;
   }
   .techno-search {
     height: 350px;
@@ -611,7 +620,7 @@
   #section4 {
     min-height: unset;
     height: fit-content;
-    margin-bottom: 50px;
+    margin-bottom: 90px;
   }
 
   .experience-cards {
@@ -672,6 +681,10 @@
   .ag-courses-item_date-box {
     font-size: 15px;
   }
+  .contact-big {
+    font-size: 45px;
+    margin-bottom: 15px;
+  }
 }
 
 @media screen and (max-width: 712px) {
@@ -731,5 +744,172 @@
   .pages {
     width: 100%;
     justify-content: space-evenly;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .pages {
+    display: none;
+  }
+  .mobile-sidebar {
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50vw;
+    z-index: 1000;
+    background-color: #1f293b;
+    transform: translateX(-100%);
+    transition: transform 300ms ease;
+  }
+  .mobile-pages {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    color: white !important;
+  }
+  .mobile-page:first-of-type {
+    border-top: 1px solid #374151;
+  }
+  .mobile-sidebar {
+    display: block;
+  }
+  .mobile-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    padding: 10px 20px;
+    text-align: center;
+    border-bottom: 1px solid #374151;
+    color: white !important;
+  }
+  .mobile-pages-title {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    padding: 10px 20px;
+    width: 100%;
+    text-align: start;
+    color: #fff;
+  }
+  .sidebar-button {
+    /* make the button fixed so it stays visible even when sidebar translates away */
+    position: fixed;
+    top: 5px;
+    right: -40px;
+    width: 40px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: #141a25;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 1100;
+  }
+
+  /* collapsed state: move sidebar fully out of view to the right */
+  .mobile-sidebar.collapsed {
+    transform: translateX(0%);
+  }
+
+  .card-desc {
+    max-width: 98vw;
+  }
+  .about-desc {
+    font-size: 16px;
+    overflow: hidden;
+    line-height: 1.5;
+    padding-bottom: 10px;
+    padding-top: 6px;
+    padding-inline: 10px;
+  }
+  .card-body {
+    max-width: 98vw;
+  }
+  .project-card {
+    max-height: unset;
+  }
+  .project-card-header {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  .project-card .inner {
+    padding: 5px;
+  }
+  .main-card {
+    max-width: 98vw;
+    box-shadow: none;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+  }
+  .education .inner {
+    max-width: 98vw;
+  }
+  .card-header {
+    max-height: unset;
+  }
+  .education-desc-text {
+    font-size: 16px;
+    line-height: 1.5;
+    padding-bottom: 10px;
+    padding-top: 6px;
+  }
+  .education-item-title {
+    font-size: 18px;
+  }
+  .project-img {
+    max-height: unset;
+    width: 100%;
+    min-height: 150px;
+  }
+  .project-desc-add,
+  .project-desc {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .project-card .tech- img {
+    height: 30px;
+  }
+  .visit-project {
+    height: 30px;
+    margin-right: 5px;
+  }
+  #section3 {
+    margin-top: 80px;
+    padding: 0px 5px;
+  }
+  .experience-cards {
+    width: 100%;
+  }
+  #section4 {
+    margin-top: 80px;
+  }
+  .experience-card {
+    min-height: 545px;
+  }
+  .experience-img {
+    min-height: 35%;
+  }
+  .experience-cards {
+    min-height: 140vh;
+  }
+  .more-exp {
+    text-align: left;
+    margin: 5px;
+  }
+  .ag-courses-item_title {
+    min-height: 40px;
+  }
+  .ag-courses_item {
+    margin-inline: 0px;
+    width: 100%;
   }
 }
