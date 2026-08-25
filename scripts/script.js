@@ -864,7 +864,7 @@ window.onload = () => {
 
 window.addEventListener("resize", () => {
   checkIfUserWithPhoneOrTablet();
-  checkResolutionAndNotify();
+  /* checkResolutionAndNotify(); */
 });
 
 function openEducation(num) {
@@ -1028,12 +1028,12 @@ async function setLang(lang) {
     localStorage.setItem("lang", lang);
   }
 
-  notify(
+  /* notify(
     "bi-globe2",
     lang === "fr"
       ? "La langue a été définie sur le français"
       : "Language has been set to English",
-  );
+  ); */
 
   const response = await fetch(`./lang/${lang}.json`);
   const translations = await response.json();
