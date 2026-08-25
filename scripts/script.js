@@ -214,10 +214,11 @@ let isAnimatingScroll = false;
 let _scrollEndTimeout = null;
 let _scrollSafetyTimeout = null;
 
-// Allow toggling the custom scroll behaviour (wheel/touch) when native scrolling is preferred
+// Allow toggling the custom scroll behaviour (wheel/touch) when native scrolling is preferred.
+// It is desktop-only: phones/tablets should use the normal page scroll.
 let customScrollEnabled = true;
 function setCustomScrollEnabled(enabled) {
-  customScrollEnabled = !!enabled;
+  customScrollEnabled = window.innerWidth >= 828 && !!enabled;
 }
 
 document.addEventListener(
@@ -228,8 +229,8 @@ document.addEventListener(
     if (window.innerWidth < 828) return;
 
     const now = Date.now();
-    // ignore wheel events when custom scroll is disabled
-    if (!customScrollEnabled) return;
+    // ignore wheel events when custom scroll is disabled or on phones
+    if (!customScrollEnabled || window.innerWidth < 828) return;
     // ignore wheel events during cooldown
     if (now - _lastWheelTime < WHEEL_COOLDOWN) return;
 
@@ -261,6 +262,7 @@ document.addEventListener(
 // call the function scrollDownIntoView() when keydown event is triggered
 
 document.addEventListener("keydown", (e) => {
+  if (window.innerWidth < 828) return;
   if (!customScrollEnabled) return;
   if (e.key === "ArrowDown" && index < 7) {
     document.getElementById("down").click();
@@ -280,6 +282,7 @@ let _touchMoved = false;
 document.addEventListener(
   "touchstart",
   (e) => {
+    if (window.innerWidth < 828) return;
     if (e.touches && e.touches.length > 1) return; // ignore multi-touch
     if (!customScrollEnabled) return;
     _touchStartY = e.touches[0].clientY;
@@ -292,6 +295,7 @@ document.addEventListener(
 document.addEventListener(
   "touchmove",
   (e) => {
+    if (window.innerWidth < 828) return;
     if (!customScrollEnabled) return;
     if (_touchStartY === null) return;
     const currentY = e.touches[0].clientY;
@@ -312,6 +316,7 @@ document.addEventListener(
   "touchend",
   (e) => {
     try {
+      if (window.innerWidth < 828) return;
       if (!customScrollEnabled) return;
       if (_touchStartY === null) return;
       const touch = (e.changedTouches && e.changedTouches[0]) || null;
@@ -514,7 +519,8 @@ function toSection(index2) {
   localStorage.setItem("index", String(index));
 
   if (document.getElementById("down")) {
-    document.getElementById("down").style.display = index < 7 ? "block" : "none";
+    document.getElementById("down").style.display =
+      index < 7 ? "block" : "none";
   }
   if (document.getElementById("up")) {
     document.getElementById("up").style.display = index > 1 ? "block" : "none";
@@ -610,17 +616,17 @@ setTimeout(() => {
 function checkResolutionAndNotify() {
   if (window.innerHeight > 828 && window.innerHeight > window.innerWidth) {
     notify(
-      "bi-arrow-repeat",
+      "bi-pc-display",
       lang == "en"
-        ? "For better experience, please rotate you screen."
-        : "Pour une meilleure expérience, veuillez tourner votre écran.",
+        ? "For the best experience, visit this website from a computer or a laptop."
+        : "Pour une meilleure expérience, visitez ce site depuis un ordinateur ou un portable.",
     );
   } else if (window.innerHeight > 800 && window.innerWidth < 565) {
     notify(
-      "bi-info-circle-fill",
+      "bi-pc-display",
       lang == "en"
-        ? "For better experience, visit this website in portrait mode."
-        : "Pour une meilleure expérience, visitez ce site en mode portrait.",
+        ? "For the best experience, visit this website from a computer or a laptop."
+        : "Pour une meilleure expérience, visitez ce site depuis un ordinateur ou un portable.",
     );
   }
 }
@@ -894,7 +900,8 @@ function animation() {
       </div>
       `;
     let tutorials = localStorage.getItem("tutorial");
-    if (tutorials !== "done") {
+    const isMobileViewport = window.innerWidth < 828;
+    if (!isMobileViewport && tutorials !== "done") {
       setTimeout(() => {
         tutorial();
       }, 3000);
