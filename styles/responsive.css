@@ -233,6 +233,7 @@
   }
   .ag-courses_box {
     padding-inline: 0;
+    padding-top: 10px;
   }
 }
 @media screen and (max-width: 1095px) {
@@ -684,6 +685,7 @@
   .contact-big {
     font-size: 45px;
     margin-bottom: 15px;
+    text-align: center;
   }
 }
 
@@ -886,14 +888,21 @@
     margin-top: 80px;
     padding: 0px 5px;
   }
+  .project-cards {
+    width: 95%;
+  }
+  .project-card {
+    min-width: unset;
+  }
   .experience-cards {
-    width: 100%;
+    width: 95%;
   }
   #section4 {
     margin-top: 80px;
   }
   .experience-card {
     min-height: 545px;
+    min-width: unset;
   }
   .experience-img {
     min-height: 35%;
@@ -911,5 +920,102 @@
   .ag-courses_item {
     margin-inline: 0px;
     width: 100%;
+  }
+  #section6 {
+    padding-inline: 5px;
+  }
+  #section6 .main-card {
+    min-width: unset;
+    width: 100%;
+  }
+  .commits-img {
+    height: 83px;
+  }
+  .contacts-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 100px;
+  }
+  .contact-mobile a {
+    width: 90%;
+  }
+  .contact-mobile button {
+    width: 90%;
+  }
+  .contact-mobile a button {
+    width: 100%;
+  }
+  .copy-text span {
+    font-size: 13px;
+  }
+  .mobile-island {
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+    min-width: 70%;
+    border-radius: 200px;
+    background-color: #141a25;
+    padding: 10px;
+    color: #fff;
+    gap: 10px;
+  }
+  .header {
+    height: fit-content;
+  }
+  .contact-mobile .contact-title {
+    font-size: 17px;
+  }
+  .current-lang {
+    overflow: hidden;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: #1f293b;
+    display: flex;
+    align-items: center;
+  }
+  #section1 {
+    min-height: 104vh;
+  }
+  .mobile-island .status-text {
+    font-size: 12px;
+  }
+  .mobile-island .speed {
+    font-size: 10px;
+  }
+  .main-card {
+    min-width: 98vw;
+  }
+  .mobile-island .current-lang span {
+    width: 100%;
+    height: 100%;
+  }
+  .mobile-page {
+    align-items: center;
+    display: flex;
+    justify-content: start;
+  }
+  .mobile-page span {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .download-cv {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+  .download-cv-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #fff;
   }
 }

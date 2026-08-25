@@ -86,12 +86,35 @@
       ></a>
       <div class="mobile-pages-title" data-translate="Languages"></div>
       <a
-        onclick="toSection(7)"
-        class="mobile-page"
-        data-translate="English"
-      ></a>
-      <a onclick="toSection(7)" class="mobile-page" data-translate="French"></a>
-      <a onclick="toSection(7)" class="mobile-page" data-translate="Arabic"></a>
+        class="mobile-page mobile-lang"
+        onclick="
+          setLang('en');
+          setMobileSidebarCollapsed(true);
+        "
+      >
+        <span class="fi fi-us mobile-lang-flag"></span>
+        <span class="mobile-lang-text" data-translate="English">English</span>
+      </a>
+      <a
+        class="mobile-page mobile-lang"
+        onclick="
+          setLang('fr');
+          setMobileSidebarCollapsed(true);
+        "
+      >
+        <span class="fi fi-fr mobile-lang-flag"></span>
+        <span class="mobile-lang-text" data-translate="French">French</span>
+      </a>
+      <a
+        class="mobile-page mobile-lang"
+        onclick="
+          setLang('ar');
+          setMobileSidebarCollapsed(true);
+        "
+      >
+        <span class="fi fi-sa mobile-lang-flag"></span>
+        <span class="mobile-lang-text" data-translate="Arabic">Arabic</span>
+      </a>
     </div>
     <div class="sidebar-button"><i class="bi bi-list"></i></div>
     <div class="mobile-pages-title" data-translate="Downloads"></div>
@@ -106,6 +129,19 @@
     </div>
   </div>
   <header class="header">
+    <div class="mobile-island">
+      <div class="current-lang" id="currentLang"></div>
+      <div class="ping">
+        <div class="status-text" id="status-text"></div>
+        <div class="speed" id="ping-value"></div>
+      </div>
+      <div class="download-cv">
+        <a href="assets/cv/OTMAN_KHARBOUCH_FULLSTACK_FR.pdf" download>
+          <div class="download-cv-btn">
+            <i class="bi bi-person-vcard"></i></div
+        ></a>
+      </div>
+    </div>
     <div class="quote">
       <h3 class="quote-text text-animate" data-translate="quote"></h3>
     </div>
@@ -1959,7 +1995,6 @@
       </div>
 
       <div class="hero-section section" id="section7">
-        <div class="mobile-index" data-translate="contact"></div>
         <div class="contact-me">
           <div class="contact-">
             <h1 class="contact-big" data-translate="contact-big"></h1>
@@ -2132,8 +2167,8 @@
                 target="_blank"
               >
                 <button class="contact-btn">
-                  <span data-translate="visit-account"></span
-                  ><i class="bi bi-chat-fill"></i>
+                  <span data-translate="visit-profile"></span
+                  ><i class="bi bi-linkedin"></i>
                 </button>
               </a>
             </div>

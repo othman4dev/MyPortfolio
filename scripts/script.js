@@ -214,6 +214,12 @@ let isAnimatingScroll = false;
 let _scrollEndTimeout = null;
 let _scrollSafetyTimeout = null;
 
+// Allow toggling the custom scroll behaviour (wheel/touch) when native scrolling is preferred
+let customScrollEnabled = true;
+function setCustomScrollEnabled(enabled) {
+  customScrollEnabled = !!enabled;
+}
+
 document.addEventListener(
   "wheel",
   (e) => {
@@ -222,6 +228,8 @@ document.addEventListener(
     if (window.innerWidth < 828) return;
 
     const now = Date.now();
+    // ignore wheel events when custom scroll is disabled
+    if (!customScrollEnabled) return;
     // ignore wheel events during cooldown
     if (now - _lastWheelTime < WHEEL_COOLDOWN) return;
 
@@ -253,9 +261,7 @@ document.addEventListener(
 // call the function scrollDownIntoView() when keydown event is triggered
 
 document.addEventListener("keydown", (e) => {
-  if (window.innerWidth < 828) {
-    return;
-  }
+  if (!customScrollEnabled) return;
   if (e.key === "ArrowDown" && index < 7) {
     document.getElementById("down").click();
   } else if (e.key === "ArrowUp" && index > 1) {
@@ -275,6 +281,7 @@ document.addEventListener(
   "touchstart",
   (e) => {
     if (e.touches && e.touches.length > 1) return; // ignore multi-touch
+    if (!customScrollEnabled) return;
     _touchStartY = e.touches[0].clientY;
     _touchMoved = false;
     _isTouching = true;
@@ -285,6 +292,7 @@ document.addEventListener(
 document.addEventListener(
   "touchmove",
   (e) => {
+    if (!customScrollEnabled) return;
     if (_touchStartY === null) return;
     const currentY = e.touches[0].clientY;
     const delta = Math.abs(_touchStartY - currentY);
@@ -304,6 +312,7 @@ document.addEventListener(
   "touchend",
   (e) => {
     try {
+      if (!customScrollEnabled) return;
       if (_touchStartY === null) return;
       const touch = (e.changedTouches && e.changedTouches[0]) || null;
       if (!touch) {
@@ -346,6 +355,45 @@ document.addEventListener(
   },
   { passive: true },
 );
+
+// Automatically disable custom scroll when both navigation arrows are hidden (native scrolling expected)
+function watchArrowVisibility() {
+  const up = document.getElementById("up");
+  const down = document.getElementById("down");
+  if (!up || !down) return;
+
+  const checkAndToggle = () => {
+    // Only react when inline styles are used (script-driven). Avoid reacting to CSS media queries.
+    const upHasInline = up.hasAttribute("style");
+    const downHasInline = down.hasAttribute("style");
+    if (!upHasInline && !downHasInline) return; // no script-driven change detected
+
+    const upHidden = up.style.display === "none";
+    const downHidden = down.style.display === "none";
+    // if both hidden -> disable custom scroll; otherwise enable
+    setCustomScrollEnabled(!(upHidden && downHidden));
+  };
+
+  // initial check
+  checkAndToggle();
+
+  // observe attribute changes on both buttons
+  const obs = new MutationObserver(checkAndToggle);
+  obs.observe(up, { attributes: true, attributeFilter: ["style", "class"] });
+  obs.observe(down, { attributes: true, attributeFilter: ["style", "class"] });
+
+  // fallback: periodic check in case styles are changed via CSS classes
+  const intervalId = setInterval(checkAndToggle, 800);
+  // stop interval when page unloads
+  window.addEventListener("beforeunload", () => clearInterval(intervalId));
+}
+
+// wire watcher on DOM ready
+document.addEventListener("DOMContentLoaded", () => {
+  try {
+    watchArrowVisibility();
+  } catch (e) {}
+});
 
 // Listen for scroll events and treat a lack of scroll activity as scroll-end
 window.addEventListener(
@@ -436,16 +484,43 @@ function copyToClipboard(text, btn) {
 }
 
 function toSection(index2) {
-  let clickCount = index2 - index;
-  if (clickCount > 0) {
-    for (let i = 0; i < clickCount; i++) {
-      document.getElementById("down").click();
+  const target = Math.max(1, Math.min(7, Number(index2) || 1));
+  const current = Number(index) || 1;
+
+  if (target === current) {
+    const section = document.getElementById(`section${target}`);
+    if (section) {
+      isAnimatingScroll = true;
+      clearTimeout(_scrollSafetyTimeout);
+      _scrollSafetyTimeout = setTimeout(() => {
+        isAnimatingScroll = false;
+      }, 1200);
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  } else {
-    for (let i = 0; i < Math.abs(clickCount); i++) {
-      document.getElementById("up").click();
-    }
+    return;
   }
+
+  const section = document.getElementById(`section${target}`);
+  if (!section) return;
+
+  isAnimatingScroll = true;
+  clearTimeout(_scrollSafetyTimeout);
+  _scrollSafetyTimeout = setTimeout(() => {
+    isAnimatingScroll = false;
+  }, 1200);
+
+  section.scrollIntoView({ behavior: "smooth", block: "start" });
+  index = target;
+  localStorage.setItem("index", String(index));
+
+  if (document.getElementById("down")) {
+    document.getElementById("down").style.display = index < 7 ? "block" : "none";
+  }
+  if (document.getElementById("up")) {
+    document.getElementById("up").style.display = index > 1 ? "block" : "none";
+  }
+
+  indexDown();
 }
 function selectCard(card) {
   card.style.animationDelay = "0.7s";
@@ -963,6 +1038,15 @@ async function setLang(lang) {
 
   // Optionally store lang in localStorage
   localStorage.setItem("lang", lang);
+  // update current language circle in header
+  try {
+    const current = document.getElementById("currentLang");
+    if (current) {
+      const map = { en: "fi fi-us", fr: "fi fi-fr", ar: "fi fi-sa" };
+      const cls = map[lang] || "fi fi-us";
+      current.innerHTML = `<span class="${cls}"></span>`;
+    }
+  } catch (e) {}
 }
 // Load language from localStorage on page load
 window.addEventListener("DOMContentLoaded", () => {
