@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/admin.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <title>Admin Login</title>
+  </head>
+  <body class="login-page">
+    <main class="login-outer">
+      <div class="login-card">
+        <i class="bi bi-shield-lock login-icon"></i>
+        <h1>Admin Login</h1>
+        <p>Sign in to manage the portfolio translations.</p>
+        <form id="login-form" hidden>
+          <label for="username">Username</label>
+          <input
+            id="username"
+            name="username"
+            value="admin"
+            autocomplete="username"
+            required
+          />
+          <label for="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            required
+            autofocus
+          />
+          <button type="submit" class="form-btn form-btn-primary">
+            Sign in
+          </button>
+          <p id="login-status" class="login-status" role="alert"></p>
+        </form>
+        <section class="server-unavailable" id="server-unavailable" hidden>
+          <i class="bi bi-cloud-slash"></i>
+          <h2>Admin server unavailable</h2>
+          <p>
+            The admin dashboard only works when this project is running on your
+            own machine. GitHub Pages is a static host, so it cannot save
+            changes to the language files or process a login.
+          </p>
+          <p style="margin-bottom: 3px">Start the server by running:</p>
+          <code>node server.js</code>
+        </section>
+      </div>
+    </main>
+    <script>
+      const form = document.getElementById("login-form");
+      const status = document.getElementById("login-status");
+      const unavailable = document.getElementById("server-unavailable");
+      let serverAvailable = false;
+      async function checkServer() {
+        try {
+          const response = await fetch("/api/admin/status", {
+            cache: "no-store",
+          });
+          if (!response.ok) throw new Error("Server unavailable");
+          serverAvailable = true;
+          form.hidden = false;
+        } catch (error) {
+          form.hidden = true;
+          unavailable.hidden = false;
+        }
+      }
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        if (!serverAvailable) return;
+        status.textContent = "Checking credentials...";
+        status.style.color = "#fff";
+        try {
+          const response = await fetch("/api/admin/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              username: document.getElementById("username").value,
+              password: document.getElementById("password").value,
+            }),
+          });
+          if (!response.ok) throw new Error("Invalid credentials");
+          localStorage.setItem(
+            "admin_password",
+            document.getElementById("password").value,
+          );
+          window.location.href = "/admin/admin.html";
+        } catch (error) {
+          status.style.color = "#f00";
+          status.textContent = "Invalid username or password.";
+          document.getElementById("password").select();
+        }
+      });
+      checkServer();
+    </script>
+  </body>
+</html>

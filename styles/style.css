@@ -578,8 +578,9 @@ body {
   width: 80%;
 }
 .experience-cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  justify-content: right;
+  flex-wrap: wrap;
   gap: 20px;
   position: relative;
   width: 80%;
@@ -612,7 +613,7 @@ body {
   justify-content: center;
   gap: 10px;
   border: none;
-  position: absolute;
+  float: right;
   right: 0;
   bottom: -55px;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
@@ -691,6 +692,7 @@ body {
   min-height: 480px;
   height: 480px;
   min-width: 420px;
+  width: 48%;
   padding: 15px;
   box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -1261,13 +1263,8 @@ body {
   font-size: 70px;
   color: #374a6c;
   background-color: #fff;
-  width: 70px;
-  height: 70px;
-  display: inline-block;
+  padding: 10px 20px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .contact-icon {
   margin-top: 20px;
@@ -1502,6 +1499,16 @@ body {
   padding: 15px;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
   z-index: 1002;
+  overflow-y: scroll;
+}
+.education-modal::-webkit-scrollbar {
+  width: 15px;
+  background-color: transparent;
+  padding: 5px;
+}
+.education-modal::-webkit-scrollbar-thumb {
+  width: 5px;
+  background-color: #1f293b;
 }
 #youcode {
   display: none;

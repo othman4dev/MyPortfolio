@@ -615,7 +615,7 @@
     height: 26px;
   }
   .experience-cards {
-    grid-template-columns: repeat(1, 1fr);
+    flex-direction: column;
     /* min-height: 140vh; */
   }
   #section4 {
@@ -903,6 +903,8 @@
   .experience-card {
     min-height: 545px;
     min-width: unset;
+    width: 100%;
+    justify-content: center;
   }
   .experience-img {
     min-height: 35%;
@@ -1027,5 +1029,66 @@
   }
   #section7 {
     padding-inline: 10px;
+  }
+  .experience-cards {
+    min-height: 1250px;
+  }
+  .projects-header {
+    display: none;
+  }
+  .message-text {
+    margin-bottom: 100px;
+    margin-top: 50px;
+    text-align: center;
+  }
+  .education-modal {
+    width: 95%;
+    max-height: unset;
+    height: 98%;
+    overflow-y: scroll;
+  }
+  .education-part1 {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .swiper {
+    width: 100%;
+  }
+  .swiper-text {
+    width: 100%;
+    margin-top: 15px;
+  }
+  .education-part2 {
+    padding-inline: 0;
+  }
+  .education-modal-title {
+    padding-inline: 0px;
+    margin-top: 10px;
+  }
+  .education-modal-desc {
+    font-size: 16px;
+  }
+  .education-list {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .education-part2 span {
+    font-size: 16px;
+  }
+  .flex-lists {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .contact-icon i {
+    font-size: 45px;
+    color: #374a6c;
+    background-color: #fff;
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

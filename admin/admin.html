@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/admin.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <title>Admin Dashboard</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-texts">
+        <h2 class="header-title">
+          <i class="bi bi-easel3-fill"></i> &nbsp; DASHBOARD
+        </h2>
+        <p class="header-sub">
+          This will only allow you to change locally, any changes on the
+          production won't be effective.
+        </p>
+      </div>
+
+      <div class="header-btns">
+        <button class="header-btn" id="logout-btn" title="Log out">
+          <i class="bi bi-box-arrow-right"></i>
+        </button>
+        <button class="header-btn" id="settings-btn" title="Settings">
+          <i class="bi bi-gear"></i>
+        </button>
+        <button class="header-btn" id="home-btn" title="Open portfolio">
+          <i class="bi bi-house-door"></i>
+        </button>
+      </div>
+    </header>
+    <main>
+      <div class="tab-selector">
+        <button class="tab-btn active" data-tab="hero">Hero</button>
+        <button class="tab-btn" data-tab="about">About &amp; Education</button>
+        <button class="tab-btn" data-tab="experience">Experience</button>
+        <button class="tab-btn" data-tab="stats">Stats</button>
+        <button class="tab-btn" data-tab="contacts">Contacts</button>
+        <button class="tab-btn" data-tab="comparison">Compare</button>
+      </div>
+      <section class="tab">
+        <div class="info-bar">
+          <p class="editor-status" id="editor-status" role="status"></p>
+        </div>
+        <div class="editor-toolbar">
+          <label class="language-picker" for="language-select">
+            Language
+            <select id="language-select">
+              <option value="en">English</option>
+              <option value="fr">French</option>
+              <option value="ar">Arabic</option>
+            </select>
+          </label>
+          <label class="search-picker" for="translation-search">
+            Search
+            <div class="search-input-wrap">
+              <i class="bi bi-search"></i>
+              <input
+                id="translation-search"
+                type="search"
+                placeholder="Search attributes..."
+                autocomplete="off"
+              />
+            </div>
+          </label>
+          <button
+            class="add-attribute-btn"
+            id="add-attribute-btn"
+            type="button"
+          >
+            <i class="bi bi-plus-lg"></i>
+            Add attribute
+          </button>
+          <button class="undo-attribute-btn" id="undo-btn" type="button">
+            <i class="bi bi-arrow-counterclockwise"></i>
+            Undo
+          </button>
+        </div>
+        <form class="attribute-form" id="attribute-form" hidden>
+          <label>
+            Attribute key
+            <input id="attribute-key" type="text" autocomplete="off" required />
+          </label>
+          <label>
+            Value
+            <textarea id="attribute-value" rows="2" required></textarea>
+          </label>
+          <div class="attribute-actions">
+            <button type="submit" class="form-btn form-btn-primary">Add</button>
+            <button type="button" class="form-btn" id="cancel-attribute-btn">
+              Cancel
+            </button>
+          </div>
+        </form>
+        <div class="fields" id="fields"></div>
+        <section class="comparison-panel" id="comparison-panel">
+          <div class="comparison-toolbar">
+            <label class="language-picker" for="comparison-source">
+              Compare from
+              <select id="comparison-source">
+                <option value="en">English</option>
+                <option value="fr">French</option>
+                <option value="ar">Arabic</option>
+              </select>
+            </label>
+            <i class="bi bi-arrow-right comparison-arrow"></i>
+            <label class="language-picker" for="comparison-target">
+              Missing in
+              <select id="comparison-target">
+                <option value="fr">French</option>
+                <option value="en">English</option>
+                <option value="ar">Arabic</option>
+              </select>
+            </label>
+            <button
+              class="form-btn"
+              id="compare-btn"
+              style="height: 41px"
+              type="button"
+            >
+              <i class="bi bi-arrow-left-right"></i>
+              Compare
+            </button>
+          </div>
+          <div class="comparison-summary" id="comparison-summary"></div>
+          <div class="missing-fields" id="missing-fields"></div>
+        </section>
+      </section>
+    </main>
+    <div class="settings-modal" id="settings-modal" hidden>
+      <div
+        class="settings-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="settings-title"
+      >
+        <button
+          class="settings-close"
+          id="settings-close"
+          type="button"
+          aria-label="Close settings"
+        >
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <h2 id="settings-title"><i class="bi bi-gear"></i> Settings</h2>
+        <p>Change the admin password used by the local server.</p>
+        <form id="password-form">
+          <label for="current-password">Current password</label>
+          <input
+            id="current-password"
+            type="password"
+            required
+            autocomplete="current-password"
+          />
+          <label for="new-password">New password</label>
+          <input
+            id="new-password"
+            type="password"
+            required
+            minlength="6"
+            autocomplete="new-password"
+          />
+          <label for="confirm-password">Confirm new password</label>
+          <input
+            id="confirm-password"
+            type="password"
+            required
+            minlength="6"
+            autocomplete="new-password"
+          />
+          <button class="form-btn form-btn-primary" type="submit">
+            <i class="bi bi-key"></i> Change password
+          </button>
+          <p class="settings-status" id="settings-status" role="status"></p>
+        </form>
+      </div>
+    </div>
+    <script>
+      const tabs = {
+        hero: (key) =>
+          [
+            "quote",
+            "name",
+            "profession",
+            "description",
+            "technos",
+            "more",
+          ].includes(key),
+        about: (key) =>
+          key.startsWith("about") ||
+          key.startsWith("education") ||
+          key.startsWith("tech") ||
+          ["technologies", "tech-count", "youcode", "e-learning"].includes(key),
+        experience: (key) =>
+          key.startsWith("exp") || key.startsWith("contributions"),
+        stats: (key) =>
+          key.includes("stats") ||
+          key.startsWith("account") ||
+          key.startsWith("total-") ||
+          key.endsWith("-count") ||
+          ["commit-graph", "more-stats"].includes(key),
+        contacts: (key) =>
+          key.startsWith("contact") ||
+          [
+            "linkedin:",
+            "email",
+            "whatsapp",
+            "github",
+            "instagram",
+            "copy",
+            "copy-email",
+            "start-chat",
+            "visit-profile",
+          ].includes(key),
+      };
+      const languageSelect = document.getElementById("language-select");
+      const translationSearch = document.getElementById("translation-search");
+      const fields = document.getElementById("fields");
+      const status = document.getElementById("editor-status");
+      const settingsModal = document.getElementById("settings-modal");
+      const passwordForm = document.getElementById("password-form");
+      const settingsStatus = document.getElementById("settings-status");
+      const attributeForm = document.getElementById("attribute-form");
+      const attributeKey = document.getElementById("attribute-key");
+      const attributeValue = document.getElementById("attribute-value");
+      const comparisonPanel = document.getElementById("comparison-panel");
+      const comparisonSource = document.getElementById("comparison-source");
+      const comparisonTarget = document.getElementById("comparison-target");
+      const comparisonSummary = document.getElementById("comparison-summary");
+      const missingFields = document.getElementById("missing-fields");
+      const storedAdminPassword = localStorage.getItem("admin_password");
+      if (!storedAdminPassword) {
+        window.location.replace("/admin/login.html");
+      }
+      const originalFetch = window.fetch.bind(window);
+      window.fetch = (resource, options = {}) => {
+        if (typeof resource === "string" && resource.startsWith("/api/")) {
+          options.headers = {
+            ...(options.headers || {}),
+            "X-Admin-Password": storedAdminPassword,
+          };
+        }
+        return originalFetch(resource, options).then((response) => {
+          if (response.status === 401) {
+            localStorage.removeItem("admin_password");
+            window.location.replace("/admin/login.html");
+          }
+          return response;
+        });
+      };
+      const tabNames = [...Object.keys(tabs), "comparison"];
+      const languageCodes = ["en", "fr", "ar"];
+      const urlParams = new URLSearchParams(window.location.search);
+      let activeTab = "hero";
+      let translations = {};
+      let originalTranslations = {};
+      let searchTerm = "";
+      let saveQueue = Promise.resolve();
+      const customTabs = {};
+      const comparisonTab = "comparison";
+      const languageNames = { en: "English", fr: "French", ar: "Arabic" };
+
+      const savedLanguage = urlParams.get("lang");
+      const savedSource = urlParams.get("from");
+      const savedTarget = urlParams.get("to");
+      if (languageCodes.includes(savedLanguage)) {
+        languageSelect.value = savedLanguage;
+      }
+      if (languageCodes.includes(savedSource)) {
+        comparisonSource.value = savedSource;
+      }
+      if (languageCodes.includes(savedTarget)) {
+        comparisonTarget.value = savedTarget;
+      }
+
+      if (tabNames.includes(urlParams.get("tab"))) {
+        activeTab = urlParams.get("tab");
+        document.querySelectorAll(".tab-btn").forEach((button) => {
+          button.classList.toggle("active", button.dataset.tab === activeTab);
+        });
+      }
+
+      function updateUrlState() {
+        const nextUrl = new URL(window.location.href);
+        nextUrl.searchParams.set("tab", activeTab);
+        nextUrl.searchParams.set("lang", languageSelect.value);
+        nextUrl.searchParams.set("from", comparisonSource.value);
+        nextUrl.searchParams.set("to", comparisonTarget.value);
+        window.history.replaceState({}, "", nextUrl);
+      }
+
+      function languagePath(language) {
+        return `/api/lang/${language}.json`;
+      }
+
+      function setStatus(message, isError = false) {
+        status.textContent = message;
+        status.classList.toggle("error", isError);
+      }
+
+      function getTabForKey(key) {
+        return (
+          customTabs[key] ||
+          Object.keys(tabs).find((tab) => tabs[tab](key)) ||
+          "hero"
+        );
+      }
+
+      function renderFields() {
+        const showingComparison = activeTab === comparisonTab;
+        comparisonPanel.classList.toggle("is-visible", showingComparison);
+        fields.classList.toggle("is-hidden", showingComparison);
+        if (activeTab === comparisonTab) {
+          compareLanguages();
+          return;
+        }
+        fields.innerHTML = "";
+        const keys = Object.keys(translations).filter(
+          (key) =>
+            getTabForKey(key) === activeTab &&
+            (key.toLowerCase().includes(searchTerm) ||
+              String(translations[key]).toLowerCase().includes(searchTerm)),
+        );
+        if (!keys.length) {
+          fields.innerHTML =
+            '<p class="empty-state">No translation fields in this tab.</p>';
+          return;
+        }
+        keys.forEach((key) => {
+          const wrapper = document.createElement("div");
+          wrapper.className = "translation-field";
+          const fieldHeader = document.createElement("div");
+          fieldHeader.className = "translation-field-header";
+          const keyInput = document.createElement("input");
+          keyInput.className = "translation-key";
+          keyInput.value = key;
+          keyInput.disabled = true;
+          keyInput.dataset.originalKey = key;
+          const editKeyButton = document.createElement("button");
+          editKeyButton.className = "edit-key-btn";
+          editKeyButton.type = "button";
+          editKeyButton.title = `Edit ${key}`;
+          editKeyButton.setAttribute("aria-label", `Edit ${key}`);
+          editKeyButton.innerHTML =
+            '<i class="bi bi-pencil-square"></i><span>Edit</span>';
+          editKeyButton.addEventListener("click", (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            keyInput.disabled = false;
+            keyInput.focus();
+            keyInput.select();
+            editKeyButton.classList.add("editing");
+          });
+          keyInput.addEventListener("blur", () => {
+            const oldKey = keyInput.dataset.originalKey;
+            const newKey = keyInput.value.trim();
+            if (!newKey || newKey === oldKey) {
+              keyInput.value = oldKey;
+              keyInput.disabled = true;
+              editKeyButton.classList.remove("editing");
+              return;
+            }
+            if (Object.prototype.hasOwnProperty.call(translations, newKey)) {
+              setStatus(`The attribute "${newKey}" already exists`, true);
+              keyInput.value = oldKey;
+              keyInput.disabled = true;
+              editKeyButton.classList.remove("editing");
+              return;
+            }
+            translations[newKey] = translations[oldKey];
+            delete translations[oldKey];
+            if (customTabs[oldKey]) {
+              customTabs[newKey] = customTabs[oldKey];
+              delete customTabs[oldKey];
+            }
+            keyInput.dataset.originalKey = newKey;
+            keyInput.value = newKey;
+            keyInput.disabled = true;
+            editKeyButton.title = `Edit ${newKey}`;
+            editKeyButton.setAttribute("aria-label", `Edit ${newKey}`);
+            editKeyButton.classList.remove("editing");
+            setStatus(`${newKey} renamed in ${languageSelect.value}.json`);
+            saveLanguage();
+            renderFields();
+          });
+          const deleteKeyButton = document.createElement("button");
+          deleteKeyButton.className = "delete-key-btn";
+          deleteKeyButton.type = "button";
+          deleteKeyButton.title = `Delete ${key}`;
+          deleteKeyButton.setAttribute("aria-label", `Delete ${key}`);
+          deleteKeyButton.innerHTML =
+            '<i class="bi bi-trash3"></i><span>Delete</span>';
+          deleteKeyButton.addEventListener("click", () => {
+            if (
+              !window.confirm(
+                `Delete the "${key}" attribute from ${languageSelect.value}.json?`,
+              )
+            )
+              return;
+            delete translations[key];
+            delete customTabs[key];
+            saveLanguage();
+            renderFields();
+          });
+          fieldHeader.append(keyInput, editKeyButton, deleteKeyButton);
+          const input = document.createElement("textarea");
+          input.value = translations[key];
+          input.dataset.key = key;
+          input.rows = translations[key].length > 120 ? 5 : 2;
+          input.addEventListener("input", (event) => {
+            translations[event.target.dataset.key] = event.target.value;
+            setStatus("Unsaved changes");
+          });
+          input.addEventListener("blur", saveLanguage);
+          wrapper.append(fieldHeader, input);
+          fields.appendChild(wrapper);
+        });
+      }
+
+      async function getLanguageData(language) {
+        const response = await fetch(languagePath(language), {
+          cache: "no-store",
+        });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      }
+
+      async function compareLanguages() {
+        if (comparisonSource.value === comparisonTarget.value) {
+          comparisonSummary.textContent = "Choose two different languages.";
+          missingFields.innerHTML = "";
+          return;
+        }
+        try {
+          const [sourceData, targetData, englishData] = await Promise.all([
+            getLanguageData(comparisonSource.value),
+            getLanguageData(comparisonTarget.value),
+            getLanguageData("en"),
+          ]);
+          const missingKeys = Object.keys(sourceData).filter(
+            (key) => !Object.prototype.hasOwnProperty.call(targetData, key),
+          );
+          const referenceData =
+            comparisonSource.value === "en" ? sourceData : englishData;
+          comparisonSummary.textContent = missingKeys.length
+            ? `${missingKeys.length} key${missingKeys.length === 1 ? "" : "s"} missing in ${languageNames[comparisonTarget.value]}`
+            : `No keys missing in ${languageNames[comparisonTarget.value]}`;
+          missingFields.innerHTML = "";
+          missingKeys.forEach((key) => {
+            const card = document.createElement("article");
+            card.className = "missing-field";
+            const heading = document.createElement("div");
+            heading.className = "missing-field-heading";
+            heading.innerHTML = `<strong>${key}</strong><span>Missing in ${languageNames[comparisonTarget.value]}</span>`;
+            const value = document.createElement("textarea");
+            value.value = referenceData[key] ?? sourceData[key] ?? "";
+            value.rows = String(value.value).length > 120 ? 5 : 2;
+            value.title = "English value when available; edit before adding";
+            const addButton = document.createElement("button");
+            addButton.className = "form-btn form-btn-primary";
+            addButton.type = "button";
+            addButton.innerHTML = '<i class="bi bi-plus-lg"></i> Add to target';
+            addButton.addEventListener("click", async () => {
+              await addMissingKey(
+                key,
+                value.value,
+                comparisonTarget.value,
+                addButton,
+                card,
+              );
+            });
+            card.append(heading, value, addButton);
+            missingFields.appendChild(card);
+          });
+        } catch (error) {
+          comparisonSummary.textContent =
+            "Could not load the language files. Start the server first.";
+          missingFields.innerHTML = "";
+        }
+      }
+
+      async function addMissingKey(key, value, targetLanguage, button, card) {
+        try {
+          const targetData = await getLanguageData(targetLanguage);
+          targetData[key] = value;
+          const response = await fetch(languagePath(targetLanguage), {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(targetData),
+          });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          button.disabled = true;
+          button.innerHTML = '<i class="bi bi-check-lg"></i> Added';
+          card.classList.add("is-added");
+          comparisonSummary.textContent = `${key} added to ${languageNames[targetLanguage]}`;
+        } catch (error) {
+          setStatus("Could not add the key to the target language.", true);
+        }
+      }
+
+      async function loadLanguage(language) {
+        try {
+          const response = await fetch(languagePath(language), {
+            cache: "no-store",
+          });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const data = await response.json();
+          originalTranslations = JSON.parse(JSON.stringify(data));
+          translations = data;
+          renderFields();
+          setStatus(
+            `${Object.keys(data).length} fields loaded from ${language}.json`,
+          );
+        } catch (error) {
+          translations = {};
+          originalTranslations = {};
+          renderFields();
+          setStatus(
+            `Could not load ${language}.json. Run the site through a local server.`,
+            true,
+          );
+        }
+      }
+
+      async function saveLanguage() {
+        saveQueue = saveQueue.then(async () => {
+          try {
+            const response = await fetch(languagePath(languageSelect.value), {
+              method: "PUT",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(translations),
+            });
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            originalTranslations = JSON.parse(JSON.stringify(translations));
+            setStatus(`${languageSelect.value}.json saved to the server`);
+          } catch (error) {
+            setStatus(
+              "Could not save. Start the portfolio server first.",
+              true,
+            );
+          }
+        });
+        return saveQueue;
+      }
+
+      async function undoLanguage() {
+        try {
+          await saveQueue;
+          const response = await fetch(
+            `${languagePath(languageSelect.value)}/undo`,
+            {
+              method: "POST",
+            },
+          );
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          await loadLanguage(languageSelect.value);
+          setStatus(`${languageSelect.value}.json restored from backup`);
+        } catch (error) {
+          setStatus("No backup is available for this language.", true);
+        }
+      }
+
+      function openAttributeForm() {
+        attributeForm.hidden = false;
+        attributeKey.focus();
+      }
+
+      function closeAttributeForm() {
+        attributeForm.hidden = true;
+        attributeForm.reset();
+      }
+
+      function closeSettings() {
+        settingsModal.hidden = true;
+        passwordForm.reset();
+        settingsStatus.textContent = "";
+      }
+
+      document.querySelectorAll(".tab-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+          document.querySelector(".tab-btn.active").classList.remove("active");
+          button.classList.add("active");
+          activeTab = button.dataset.tab;
+          updateUrlState();
+          renderFields();
+        });
+      });
+      languageSelect.addEventListener("change", () => {
+        updateUrlState();
+        loadLanguage(languageSelect.value);
+      });
+      translationSearch.addEventListener("input", (event) => {
+        searchTerm = event.target.value.trim().toLowerCase();
+        renderFields();
+      });
+      document
+        .getElementById("compare-btn")
+        .addEventListener("click", compareLanguages);
+      comparisonSource.addEventListener("change", () => {
+        updateUrlState();
+        compareLanguages();
+      });
+      comparisonTarget.addEventListener("change", () => {
+        updateUrlState();
+        compareLanguages();
+      });
+      document
+        .getElementById("add-attribute-btn")
+        .addEventListener("click", openAttributeForm);
+      document.getElementById("undo-btn").addEventListener("click", () => {
+        if (
+          window.confirm(
+            `Undo the last change in ${languageSelect.value}.json?`,
+          )
+        ) {
+          undoLanguage();
+        }
+      });
+      document
+        .getElementById("cancel-attribute-btn")
+        .addEventListener("click", closeAttributeForm);
+      attributeForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const key = attributeKey.value.trim();
+        if (!key) return;
+        if (Object.prototype.hasOwnProperty.call(translations, key)) {
+          setStatus(`The attribute "${key}" already exists`, true);
+          attributeKey.focus();
+          return;
+        }
+        customTabs[key] = activeTab;
+        translations[key] = attributeValue.value;
+        saveLanguage();
+        closeAttributeForm();
+        renderFields();
+        setStatus(`${key} added to ${languageSelect.value}.json`);
+      });
+
+      document.getElementById("settings-btn").addEventListener("click", () => {
+        settingsModal.hidden = false;
+        document.getElementById("current-password").focus();
+      });
+      document
+        .getElementById("settings-close")
+        .addEventListener("click", closeSettings);
+      settingsModal.addEventListener("click", (event) => {
+        if (event.target === settingsModal) closeSettings();
+      });
+      passwordForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const currentPassword =
+          document.getElementById("current-password").value;
+        const newPassword = document.getElementById("new-password").value;
+        const confirmPassword =
+          document.getElementById("confirm-password").value;
+        if (newPassword !== confirmPassword) {
+          settingsStatus.textContent = "The new passwords do not match.";
+          return;
+        }
+        settingsStatus.textContent = "Updating password...";
+        try {
+          const response = await fetch("/api/admin/password", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-Admin-Password": currentPassword,
+            },
+            body: JSON.stringify({ currentPassword, newPassword }),
+          });
+          if (!response.ok) throw new Error("Password change failed");
+          localStorage.setItem("admin_password", newPassword);
+          settingsStatus.textContent = "Password changed successfully.";
+          setTimeout(closeSettings, 700);
+        } catch (error) {
+          settingsStatus.textContent = "Could not change the password.";
+        }
+      });
+      document
+        .getElementById("logout-btn")
+        .addEventListener("click", async () => {
+          try {
+            await fetch("/api/admin/logout", { method: "POST" });
+          } finally {
+            localStorage.removeItem("admin_password");
+            window.location.replace("/admin/login.html");
+          }
+        });
+      updateUrlState();
+      loadLanguage(languageSelect.value);
+    </script>
+  </body>
+</html>

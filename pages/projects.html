@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -29,12 +29,77 @@
       sizes="120x120"
       href="images/favicon.ico"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css"
+    />
     <link href="https://fonts.cdnfonts.com/css/cookie" rel="stylesheet" />
     <script src="/scripts/script.js" defer></script>
     <meta name="theme-color" content="#ffffff" />
     <title>Othman Kharbouch</title>
   </head>
   <header class="header">
+    <div class="mobile-sidebar">
+      <div class="mobile-pages">
+        <div class="mobile-pages-title" data-translate="Quick Navigation"></div>
+        <a href="/" class="mobile-page" data-translate="Home page"></a>
+        <div class="mobile-pages-title" data-translate="Languages"></div>
+        <a
+          class="mobile-page mobile-lang"
+          onclick="
+            setLang('en');
+            setMobileSidebarCollapsed(true);
+          "
+        >
+          <span class="fi fi-us mobile-lang-flag"></span>
+          <span class="mobile-lang-text" data-translate="English">English</span>
+        </a>
+        <a
+          class="mobile-page mobile-lang"
+          onclick="
+            setLang('fr');
+            setMobileSidebarCollapsed(true);
+          "
+        >
+          <span class="fi fi-fr mobile-lang-flag"></span>
+          <span class="mobile-lang-text" data-translate="French">French</span>
+        </a>
+        <a
+          class="mobile-page mobile-lang"
+          onclick="
+            setLang('ar');
+            setMobileSidebarCollapsed(true);
+          "
+        >
+          <span class="fi fi-sa mobile-lang-flag"></span>
+          <span class="mobile-lang-text" data-translate="Arabic">Arabic</span>
+        </a>
+      </div>
+      <div class="sidebar-button"><i class="bi bi-list"></i></div>
+      <div class="mobile-pages-title" data-translate="Downloads"></div>
+      <div class="mobile-cv-downloader">
+        <a
+          href="assets/cv/OTMAN_KHARBOUCH_FULLSTACK_FR.pdf"
+          class="mobile-page"
+          data-translate="Download CV"
+          download
+        >
+        </a>
+      </div>
+    </div>
+    <div class="mobile-island">
+      <div class="current-lang" id="currentLang"></div>
+      <div class="ping">
+        <div class="status-text" id="status-text"></div>
+        <div class="speed" id="ping-value"></div>
+      </div>
+      <div class="download-cv">
+        <a href="assets/cv/OTMAN_KHARBOUCH_FULLSTACK_FR.pdf" download>
+          <div class="download-cv-btn">
+            <i class="bi bi-person-vcard"></i></div
+        ></a>
+      </div>
+    </div>
     <div class="quote">
       <h3 class="quote-text">"We love what we do, so we do it best".</h3>
     </div>
@@ -77,30 +142,50 @@
       <div class="hero-section section" id="section3">
         <div class="projects-header">
           <div class="projects-search">
-            <p class="projects-small">
-              Search
-            </p>
-            <input type="text" class="projects-search-inp" placeholder="Search for projects">
+            <p class="projects-small">Search</p>
+            <input
+              type="text"
+              class="projects-search-inp"
+              placeholder="Search for projects"
+            />
           </div>
           <div class="spliter"></div>
           <div class="projects-sort">
             <p class="projects-small">Sort projects</p>
             <div class="sort-options">
-              <button class="sort-option">Date <i class="bi bi-calendar-event-fill"></i></button>
-              <button class="sort-option">Size <i class="bi bi-bounding-box-circles"></i></button>
-              <button class="sort-option">Difficulty <i class="bi bi-emoji-angry-fill"></i></button>
-              <button class="sort-option">Cost <i class="bi bi-coin"></i></button>
+              <button class="sort-option">
+                Date <i class="bi bi-calendar-event-fill"></i>
+              </button>
+              <button class="sort-option">
+                Size <i class="bi bi-bounding-box-circles"></i>
+              </button>
+              <button class="sort-option">
+                Difficulty <i class="bi bi-emoji-angry-fill"></i>
+              </button>
+              <button class="sort-option">
+                Cost <i class="bi bi-coin"></i>
+              </button>
             </div>
           </div>
           <div class="spliter"></div>
           <div class="projects-filter">
             <p class="projects-small">Filter projects</p>
             <div class="sort-options">
-              <button class="sort-option">Website <i class="bi bi-browser-chrome"></i></button>
-              <button class="sort-option">CMD tool <i class="bi bi-terminal-fill"></i></button>
-              <button class="sort-option">Game <i class="bi bi-joystick"></i></button>
-              <button class="sort-option">Mobile app <i class="bi bi-android2"></i></button>
-              <button class="sort-option">Others <i class="bi bi-columns-gap"></i></button>
+              <button class="sort-option">
+                Website <i class="bi bi-browser-chrome"></i>
+              </button>
+              <button class="sort-option">
+                CMD tool <i class="bi bi-terminal-fill"></i>
+              </button>
+              <button class="sort-option">
+                Game <i class="bi bi-joystick"></i>
+              </button>
+              <button class="sort-option">
+                Mobile app <i class="bi bi-android2"></i>
+              </button>
+              <button class="sort-option">
+                Others <i class="bi bi-columns-gap"></i>
+              </button>
             </div>
           </div>
           <div class="blocker">
@@ -114,7 +199,7 @@
                 <div
                   class="project-img"
                   style="
-                    background-image: url('../assets/projects/allomedia2.jpg');
+                    background-image: url(&quot;../assets/projects/allomedia2.jpg&quot;);
                   "
                 ></div>
                 <div class="project-texts">
@@ -189,7 +274,7 @@
                 <div
                   class="project-img"
                   style="
-                    background-image: url('../assets/projects/quicktable.webp');
+                    background-image: url(&quot;../assets/projects/quicktable.webp&quot;);
                   "
                 ></div>
                 <div class="project-texts">
@@ -275,7 +360,9 @@
               <div class="project-card-header">
                 <div
                   class="project-img"
-                  style="background-image: url('../assets/projects/hint.webp')"
+                  style="
+                    background-image: url(&quot;../assets/projects/hint.webp&quot;);
+                  "
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
@@ -353,7 +440,9 @@
               <div class="project-card-header">
                 <div
                   class="project-img"
-                  style="background-image: url('../assets/projects/ixo.png')"
+                  style="
+                    background-image: url(&quot;../assets/projects/ixo.png&quot;);
+                  "
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
@@ -431,7 +520,7 @@
                 <div
                   class="project-img"
                   style="
-                    background-image: url('../assets/projects/allomedia.webp');
+                    background-image: url(&quot;../assets/projects/allomedia.webp&quot;);
                   "
                 ></div>
                 <div class="project-texts">
@@ -504,7 +593,7 @@
                 <div
                   class="project-img"
                   style="
-                    background-image: url('../assets/projects/fast-med-icon.jpg');
+                    background-image: url(&quot;../assets/projects/fast-med-icon.jpg&quot;);
                   "
                 ></div>
                 <div class="project-texts">
@@ -578,7 +667,9 @@
               <div class="project-card-header">
                 <div
                   class="project-img"
-                  style="background-image: url('../assets/projects/jss.jpg')"
+                  style="
+                    background-image: url(&quot;../assets/projects/jss.jpg&quot;);
+                  "
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
@@ -655,7 +746,9 @@
               <div class="project-card-header">
                 <div
                   class="project-img"
-                  style="background-image: url('../assets/projects/evanto.jpg')"
+                  style="
+                    background-image: url(&quot;../assets/projects/evanto.jpg&quot;);
+                  "
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
@@ -727,7 +820,9 @@
               <div class="project-card-header">
                 <div
                   class="project-img"
-                  style="background-image: url('../assets/projects/commix.png')"
+                  style="
+                    background-image: url(&quot;../assets/projects/commix.png&quot;);
+                  "
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
@@ -780,7 +875,9 @@
               <div class="project-card-header">
                 <div
                   class="project-img"
-                  style="background-image: url('../assets/projects/whatsbot.png')"
+                  style="
+                    background-image: url(&quot;../assets/projects/whatsbot.png&quot;);
+                  "
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
@@ -789,7 +886,8 @@
                   </div>
 
                   <div class="project-desc-add">
-                    This project was developed in 1 day as an experiment project.
+                    This project was developed in 1 day as an experiment
+                    project.
                   </div>
                   <div class="project-btns">
                     <a
@@ -806,7 +904,8 @@
               </div>
               <div class="project-card-bottom">
                 <div class="project-desc">
-                  A WhatsApp mass message sender, fill your database with phone numbers and start sending messages.
+                  A WhatsApp mass message sender, fill your database with phone
+                  numbers and start sending messages.
                 </div>
                 <div class="card-technos">
                   <div class="tech-">
@@ -850,7 +949,9 @@
               <div class="project-card-header">
                 <div
                   class="project-img"
-                  style="background-image: url('../assets/projects/wordlister.png')"
+                  style="
+                    background-image: url(&quot;../assets/projects/wordlister.png&quot;);
+                  "
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
@@ -859,7 +960,8 @@
                   </div>
 
                   <div class="project-desc-add">
-                    This project was developed in 1 day as an experiment project.
+                    This project was developed in 1 day as an experiment
+                    project.
                   </div>
                   <div class="project-btns">
                     <a
@@ -876,7 +978,8 @@
               </div>
               <div class="project-card-bottom">
                 <div class="project-desc">
-                  A word list generator CMD tool, enter keywords and get a generated file with all possible and logical combinations.
+                  A word list generator CMD tool, enter keywords and get a
+                  generated file with all possible and logical combinations.
                 </div>
                 <div class="card-technos">
                   <div class="tech-">
@@ -902,7 +1005,9 @@
               <div class="project-card-header">
                 <div
                   class="project-img"
-                  style="background-image: url('../assets/projects/terminal-paint.png')"
+                  style="
+                    background-image: url(&quot;../assets/projects/terminal-paint.png&quot;);
+                  "
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
@@ -911,7 +1016,8 @@
                   </div>
 
                   <div class="project-desc-add">
-                    This project was developed in 2 days as an experiment project.
+                    This project was developed in 2 days as an experiment
+                    project.
                   </div>
                   <div class="project-btns">
                     <a
@@ -928,7 +1034,8 @@
               </div>
               <div class="project-card-bottom">
                 <div class="project-desc">
-                  A terminal painting app that lets you draw with shapes and colors, then export your artwork to JSON or PNG.
+                  A terminal painting app that lets you draw with shapes and
+                  colors, then export your artwork to JSON or PNG.
                 </div>
                 <div class="card-technos">
                   <div class="tech-">
@@ -961,7 +1068,7 @@
                 <div
                   class="project-img"
                   style="
-                    background-image: url('../assets/projects/docteur24.jpg');
+                    background-image: url(&quot;../assets/projects/docteur24.jpg&quot;);
                   "
                 ></div>
                 <div class="project-texts">
@@ -1033,7 +1140,7 @@
                 <div
                   class="project-img"
                   style="
-                    background-image: url('../assets/projects/poker4fun.jpg');
+                    background-image: url(&quot;../assets/projects/poker4fun.jpg&quot;);
                   "
                 ></div>
                 <div class="project-texts">
@@ -1104,7 +1211,9 @@
               <div class="project-card-header">
                 <div
                   class="project-img"
-                  style="background-image: url('../assets/projects/quizix.jpg')"
+                  style="
+                    background-image: url(&quot;../assets/projects/quizix.jpg&quot;);
+                  "
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
@@ -1163,7 +1272,7 @@
                 <div
                   class="project-img"
                   style="
-                    background-image: url('../assets/projects/fakesocials.jpg');
+                    background-image: url(&quot;../assets/projects/fakesocials.jpg&quot;);
                   "
                 ></div>
                 <div class="project-texts">
@@ -1232,7 +1341,9 @@
               <div class="project-card-header">
                 <div
                   class="project-img"
-                  style="background-image: url('../assets/projects/wikitm.png')"
+                  style="
+                    background-image: url(&quot;../assets/projects/wikitm.png&quot;);
+                  "
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
@@ -1331,3 +1442,38 @@
     border-radius: 10px;
   }
 </style>
+<script>
+  const statusIcon = document.getElementById("status-icon");
+  const statusText = document.getElementById("status-text");
+  const pingValue = document.getElementById("ping-value");
+
+  async function measurePing() {
+    const pingUrl = "assets/images/otman_favicon.png";
+    const start = performance.now();
+    try {
+      await fetch(pingUrl, { method: "HEAD", cache: "no-store" });
+      const ping = Math.round(performance.now() - start);
+      updateStatus(true, ping);
+    } catch {
+      updateStatus(false);
+    }
+  }
+  function updateStatus(isOnline, ping = null) {
+    if (isOnline) {
+      //statusIcon.className = "bi bi-wifi text-success";
+      statusText.textContent = "Online";
+      pingValue.textContent = ping !== null ? `${ping} ms` : "";
+    } else {
+      //statusIcon.className = "bi bi-wifi-off text-danger";
+      statusText.textContent = "Offline";
+      pingValue.textContent = "";
+    }
+  }
+
+  // Check connection every 10 seconds
+  setInterval(measurePing, 10000);
+  window.addEventListener("online", measurePing);
+  window.addEventListener("offline", () => updateStatus(false));
+
+  measurePing();
+</script>

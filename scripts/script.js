@@ -94,6 +94,9 @@ function scrollUpIntoView(btn, element) {
 }
 
 function indexDown() {
+  const indexEl = document.getElementById("index");
+  if (!indexEl) return;
+
   lang = localStorage.getItem("lang") || "en";
   const indexes =
     lang == "en"
@@ -115,7 +118,7 @@ function indexDown() {
           "STATS",
           "CONTACT",
         ];
-  document.getElementById("index").innerHTML = indexes[index - 1];
+  indexEl.innerHTML = indexes[index - 1];
   if (index > 1 && index < 7) {
     if (document.getElementById("lineFull2")) {
       document.getElementById("lineFull2").outerHTML =
@@ -149,8 +152,10 @@ function indexDown() {
                 </div>
             `;
     }
-    document.querySelector("#prev-index").innerText = indexes[index - 2];
-    document.querySelector("#next-index").innerText = indexes[index];
+    const prevIndexEl = document.querySelector("#prev-index");
+    const nextIndexEl = document.querySelector("#next-index");
+    if (prevIndexEl) prevIndexEl.innerText = indexes[index - 2];
+    if (nextIndexEl) nextIndexEl.innerText = indexes[index];
 
     document.querySelectorAll(".index-text").forEach((el) => {
       el.style.animationName = "index-text-animation";
@@ -166,8 +171,10 @@ function indexDown() {
                 <div class="line-full" id="lineFull2"></div>
             `;
     }
-    document.querySelector("#prev-index").innerText = indexes[index - 2];
-    document.querySelector("#next-index").innerText = "CONTACT";
+    const prevIndexEl = document.querySelector("#prev-index");
+    const nextIndexEl = document.querySelector("#next-index");
+    if (prevIndexEl) prevIndexEl.innerText = indexes[index - 2];
+    if (nextIndexEl) nextIndexEl.innerText = "CONTACT";
     document.querySelectorAll(".index-text").forEach((el) => {
       el.style.animationName = "index-text-animation";
     });
@@ -182,11 +189,13 @@ function indexDown() {
                 <div class="line-full" id="lineFull"></div>
             `;
     }
+    const nextIndexEl = document.querySelector("#next-index");
     if (index == 1) {
-      document.querySelector("#next-index").innerText = "ABOUT";
+      if (nextIndexEl) nextIndexEl.innerText = "ABOUT";
     } else {
-      document.querySelector("#prev-index").innerText = indexes[index - 2];
-      document.querySelector("#next-index").innerText = indexes[index];
+      const prevIndexEl = document.querySelector("#prev-index");
+      if (prevIndexEl) prevIndexEl.innerText = indexes[index - 2];
+      if (nextIndexEl) nextIndexEl.innerText = indexes[index];
     }
   }
 
@@ -579,6 +588,7 @@ function makeNotification(icon, message, id) {
 const notificationContainer = document.getElementById("notification-container");
 
 function notify(icon, message) {
+  if (!notificationContainer) return;
   if (document.querySelectorAll(`.type-${icon}`).length > 0) {
     return;
   }
@@ -911,6 +921,7 @@ function openEducation(num) {
 }
 function animation() {
   const loader = document.querySelector(".loading-animation");
+  if (!loader) return;
 
   const stopAnimation = () => {
     loader.style.display = "none";
@@ -945,11 +956,13 @@ function animation() {
     }, 3000);
   }, 1000);
 }
-if (welcomed !== "true") {
-  localStorage.setItem("welcomed", "true");
-  animation();
-} else {
-  document.querySelector(".loading-animation").style.display = "none";
+if (document.querySelector(".loading-animation")) {
+  if (welcomed !== "true") {
+    localStorage.setItem("welcomed", "true");
+    animation();
+  } else {
+    document.querySelector(".loading-animation").style.display = "none";
+  }
 }
 animation();
 
@@ -1069,7 +1082,8 @@ async function setLang(lang) {
       : "Language has been set to English",
   ); */
 
-  const response = await fetch(`./lang/${lang}.json`);
+  const basePath = window.location.pathname.includes("/pages/") ? "../" : "./";
+  const response = await fetch(`${basePath}lang/${lang}.json`);
   const translations = await response.json();
 
   document.querySelectorAll("[data-translate]").forEach((el) => {
@@ -1099,25 +1113,28 @@ window.addEventListener("DOMContentLoaded", () => {
 
 // Restore navigation index on load and wire navigation buttons
 window.addEventListener("DOMContentLoaded", () => {
-  // ensure index variable is in range
-  if (!index || isNaN(index) || index < 1) index = 1;
-  if (index > 7) index = 7;
+  if (document.getElementById("index")) {
+    // ensure index variable is in range
+    if (!index || isNaN(index) || index < 1) index = 1;
+    if (index > 7) index = 7;
 
-  // update labels and UI
-  indexDown();
+    // update labels and UI
+    indexDown();
 
-  const downBtn = document.getElementById("down");
-  const upBtn = document.getElementById("up");
+    const downBtn = document.getElementById("down");
+    const upBtn = document.getElementById("up");
 
-  if (index > 1 && upBtn) upBtn.style.display = "block";
-  else if (upBtn) upBtn.style.display = "none";
+    if (index > 1 && upBtn) upBtn.style.display = "block";
+    else if (upBtn) upBtn.style.display = "none";
 
-  if (index < 7 && downBtn) downBtn.style.display = "block";
-  else if (downBtn) downBtn.style.display = "none";
+    if (index < 7 && downBtn) downBtn.style.display = "block";
+    else if (downBtn) downBtn.style.display = "none";
 
-  // set initial click handlers so they move relative to current index
-  if (downBtn)
-    downBtn.onclick = () => scrollDownIntoView(downBtn, Math.min(7, index + 1));
-  if (upBtn)
-    upBtn.onclick = () => scrollUpIntoView(upBtn, Math.max(1, index - 1));
+    // set initial click handlers so they move relative to current index
+    if (downBtn)
+      downBtn.onclick = () =>
+        scrollDownIntoView(downBtn, Math.min(7, index + 1));
+    if (upBtn)
+      upBtn.onclick = () => scrollUpIntoView(upBtn, Math.max(1, index - 1));
+  }
 });
