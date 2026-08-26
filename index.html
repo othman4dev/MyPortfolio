@@ -131,6 +131,11 @@
   <header class="header">
     <div class="mobile-island">
       <div class="current-lang" id="currentLang"></div>
+      <i
+        id="status-icon1"
+        style="font-size: 24px"
+        class="bi bi-wifi-off text-danger"
+      ></i>
       <div class="ping">
         <div class="status-text" id="status-text"></div>
         <div class="speed" id="ping-value"></div>
@@ -229,8 +234,8 @@
 
         <div id="connection-status" class="speed-test">
           <i id="status-icon" class="bi bi-wifi-off text-danger"></i>
-          <span id="status-text" class="status-text">Offline</span>
-          <span id="ping-value" class="speed"></span>
+          <span id="status-text1" class="status-text">Offline</span>
+          <span id="ping-value1" class="speed"></span>
           <br />
           <span id="time"></span>
         </div>
@@ -991,7 +996,12 @@
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
-                    <h1 class="project-title">QuickTable</h1>
+                    <h1
+                      class="project-title"
+                      data-translate="p-quicktable-title"
+                    >
+                      QuickTable
+                    </h1>
                     <p class="project-date" data-translate="p1-date"></p>
                   </div>
 
@@ -1632,12 +1642,11 @@
             <div class="blob"></div>
             <div class="fakeblob"></div>
           </div>
-          <div></div>
-          <button class="more-exp" id="freelance">
-            <i class="bi bi-info-circle-fill"></i
-            ><span data-translate="exp-note"></span>
-          </button>
         </div>
+        <button class="more-exp" id="freelance">
+          <i class="bi bi-info-circle-fill"></i
+          ><span data-translate="exp-note"></span>
+        </button>
       </div>
       <div class="hero-section section" id="section5">
         <div class="mobile-index" data-translate="SERVICES"></div>
@@ -2515,6 +2524,10 @@
   const statusText = document.getElementById("status-text");
   const pingValue = document.getElementById("ping-value");
 
+  const statusIcon1 = document.getElementById("status-icon1");
+  const statusText1 = document.getElementById("status-text1");
+  const pingValue1 = document.getElementById("ping-value1");
+
   async function measurePing() {
     const pingUrl = "assets/images/otman_favicon.png";
     const start = performance.now();
@@ -2532,10 +2545,16 @@
       statusIcon.className = "bi bi-wifi text-success";
       statusText.textContent = "Online";
       pingValue.textContent = ping !== null ? `${ping} ms` : "";
+      statusIcon1.className = "bi bi-wifi text-success";
+      statusText1.textContent = "Online";
+      pingValue1.textContent = ping !== null ? `${ping} ms` : "";
     } else {
       statusIcon.className = "bi bi-wifi-off text-danger";
       statusText.textContent = "Offline";
       pingValue.textContent = "";
+      statusIcon1.className = "bi bi-wifi-off text-danger";
+      statusText1.textContent = "Offline";
+      pingValue1.textContent = "";
     }
   }
 

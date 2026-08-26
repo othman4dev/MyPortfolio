@@ -89,6 +89,11 @@
     </div>
     <div class="mobile-island">
       <div class="current-lang" id="currentLang"></div>
+      <i
+        id="status-icon1"
+        style="font-size: 24px"
+        class="bi bi-wifi-off text-danger"
+      ></i>
       <div class="ping">
         <div class="status-text" id="status-text"></div>
         <div class="speed" id="ping-value"></div>
@@ -101,97 +106,153 @@
       </div>
     </div>
     <div class="quote">
-      <h3 class="quote-text">"We love what we do, so we do it best".</h3>
+      <h3 class="quote-text" data-translate="quote"></h3>
     </div>
     <div class="pages">
-      <a href="../index.html" class="page">GO BACK TO PORTFOLIO</a>
+      <a href="../index.html" class="page" data-translate="GO BACK TO PORTFOLIO"
+        >GO BACK TO PORTFOLIO</a
+      >
     </div>
   </header>
   <body>
     <div class="fixed">
       <div class="side-bar">
         <div class="sidebar-links">
-          <a href="https://github.com/othman4dev">
+          <a href="https://github.com/othman4dev" target="_blank">
             <div class="sidebar-link">
               <i class="bi bi-github"></i>
             </div>
           </a>
-          <a href="https://www.linkedin.com/in/otman-kharbouch-ba44552a1/">
+          <a
+            href="https://www.linkedin.com/in/otman-kharbouch-ba44552a1/"
+            target="_blank"
+          >
             <div class="sidebar-link">
               <i class="bi bi-linkedin"></i>
             </div>
           </a>
-          <a href="https://www.instagram.com/othman.is.me/">
+          <a href="https://www.instagram.com/othman.is.me/" target="_blank">
             <div class="sidebar-link">
               <i class="bi bi-instagram"></i>
             </div>
           </a>
+          <a href="https://wa.me/212704606597" target="_blank">
+            <div class="sidebar-link">
+              <i class="bi bi-whatsapp"></i>
+            </div>
+          </a>
         </div>
-        <div class="sidebar-indexes">
-          <a href="../index.html" class="sidebar-index">BACK</a>
+        <div>
+          <div class="cv-downloader">
+            <a href="assets/cv/OTMAN_KHARBOUCH_FULLSTACK_FR.pdf" download>
+              <button class="download-btn" title="Download CV">
+                <i class="bi bi-person-vcard"></i>
+                <p class="download-text" data-translate="cv"></p>
+              </button>
+            </a>
+          </div>
+          <div class="lang-changer" onblur="chooseLang()">
+            <button class="download-btn" onclick="chooseLang()">
+              <i class="bi bi-globe2"></i>
+              <p class="download-text" data-translate="lang"></p>
+            </button>
+            <div class="lang-modal" id="langModal">
+              <button
+                class="lang-option"
+                onclick="
+                  setLang('en');
+                  chooseLang();
+                "
+              >
+                <span class="fi fi-us"></span>
+              </button>
+              <button
+                class="lang-option"
+                onclick="
+                  setLang('fr');
+                  chooseLang();
+                "
+              >
+                <span class="fi fi-fr"></span>
+              </button>
+              <button
+                class="lang-option lang-disabled"
+                title="Currently unavailable"
+              >
+                <span class="fi fi-sa"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="connection-status" class="speed-test">
+          <i id="status-icon" class="bi bi-wifi-off text-danger"></i>
+          <span id="status-text1" class="status-text">Offline</span>
+          <span id="ping-value1" class="speed"></span>
+          <br />
+          <span id="time"></span>
         </div>
       </div>
       <div class="indexer">
-        <div class="line-full" id="lineFull"></div>
-        <p id="index" class="current-index index-text">PROJECTS</p>
-        <div class="line-full" id="lineFull"></div>
+        <div class="line-full" id="lineFull1"></div>
+        <p id="index1" class="current-index index-text">PROJECTS</p>
+        <div class="line-full" id="lineFull1"></div>
       </div>
     </div>
     <div id="lens-effect"></div>
     <main id="main">
       <div class="hero-section section" id="section3">
-        <div class="projects-header">
-          <div class="projects-search">
-            <p class="projects-small">Search</p>
-            <input
-              type="text"
-              class="projects-search-inp"
-              placeholder="Search for projects"
-            />
-          </div>
-          <div class="spliter"></div>
-          <div class="projects-sort">
-            <p class="projects-small">Sort projects</p>
-            <div class="sort-options">
-              <button class="sort-option">
-                Date <i class="bi bi-calendar-event-fill"></i>
-              </button>
-              <button class="sort-option">
-                Size <i class="bi bi-bounding-box-circles"></i>
-              </button>
-              <button class="sort-option">
-                Difficulty <i class="bi bi-emoji-angry-fill"></i>
-              </button>
-              <button class="sort-option">
-                Cost <i class="bi bi-coin"></i>
-              </button>
-            </div>
-          </div>
-          <div class="spliter"></div>
-          <div class="projects-filter">
-            <p class="projects-small">Filter projects</p>
-            <div class="sort-options">
-              <button class="sort-option">
-                Website <i class="bi bi-browser-chrome"></i>
-              </button>
-              <button class="sort-option">
-                CMD tool <i class="bi bi-terminal-fill"></i>
-              </button>
-              <button class="sort-option">
-                Game <i class="bi bi-joystick"></i>
-              </button>
-              <button class="sort-option">
-                Mobile app <i class="bi bi-android2"></i>
-              </button>
-              <button class="sort-option">
-                Others <i class="bi bi-columns-gap"></i>
-              </button>
-            </div>
-          </div>
-          <div class="blocker">
-            <p>This tool will be enabled soon.</p>
-          </div>
-        </div>
+        <!-- <div class="projects-header"> -->
+        <!-- <div class="projects-search"> -->
+        <!-- <p class="projects-small">Search</p> -->
+        <!-- <input -->
+        <!-- type="text" -->
+        <!-- class="projects-search-inp" -->
+        <!-- placeholder="Search for projects" -->
+        <!-- /> -->
+        <!-- </div> -->
+        <!-- <div class="spliter"></div> -->
+        <!-- <div class="projects-sort"> -->
+        <!-- <p class="projects-small">Sort projects</p> -->
+        <!-- <div class="sort-options"> -->
+        <!-- <button class="sort-option"> -->
+        <!-- Date <i class="bi bi-calendar-event-fill"></i> -->
+        <!-- </button> -->
+        <!-- <button class="sort-option"> -->
+        <!-- Size <i class="bi bi-bounding-box-circles"></i> -->
+        <!-- </button> -->
+        <!-- <button class="sort-option"> -->
+        <!-- Difficulty <i class="bi bi-emoji-angry-fill"></i> -->
+        <!-- </button> -->
+        <!-- <button class="sort-option"> -->
+        <!-- Cost <i class="bi bi-coin"></i> -->
+        <!-- </button> -->
+        <!-- </div> -->
+        <!-- </div> -->
+        <!-- <div class="spliter"></div> -->
+        <!-- <div class="projects-filter"> -->
+        <!-- <p class="projects-small">Filter projects</p> -->
+        <!-- <div class="sort-options"> -->
+        <!-- <button class="sort-option"> -->
+        <!-- Website <i class="bi bi-browser-chrome"></i> -->
+        <!-- </button> -->
+        <!-- <button class="sort-option"> -->
+        <!-- CMD tool <i class="bi bi-terminal-fill"></i> -->
+        <!-- </button> -->
+        <!-- <button class="sort-option"> -->
+        <!-- Game <i class="bi bi-joystick"></i> -->
+        <!-- </button> -->
+        <!-- <button class="sort-option"> -->
+        <!-- Mobile app <i class="bi bi-android2"></i> -->
+        <!-- </button> -->
+        <!-- <button class="sort-option"> -->
+        <!-- Others <i class="bi bi-columns-gap"></i> -->
+        <!-- </button> -->
+        <!-- </div> -->
+        <!-- </div> -->
+        <!-- <div class="blocker"> -->
+        <!-- <p>This tool will be enabled soon.</p> -->
+        <!-- </div> -->
+        <!-- </div> -->
         <div class="project-cards">
           <div class="project-card card">
             <div class="inner">
@@ -204,21 +265,24 @@
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
-                    <h1 class="project-title">AlloMedia 2</h1>
-                    <p class="project-date">October 2024</p>
+                    <h1
+                      class="project-title"
+                      data-translate="p-allo-title"
+                    ></h1>
+                    <p class="project-date" data-translate="p-allo-date"></p>
                   </div>
 
-                  <div class="project-desc-add">
-                    This project was completed in 1 week as a standard
-                    authentication system for all comming projects
-                  </div>
+                  <div
+                    class="project-desc-add"
+                    data-translate="p-allo-desc1"
+                  ></div>
                   <div class="project-btns">
                     <a
                       href="https://github.com/othman4dev/alloMedia2"
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Repository
+                        <span data-translate="visit-repo"></span>
                         <i class="bi bi-box-arrow-up-right"></i>
                       </button>
                     </a>
@@ -226,11 +290,7 @@
                 </div>
               </div>
               <div class="project-card-bottom">
-                <div class="project-desc">
-                  This is an authentication system well designed and secured
-                  that might be able to be used in all comming projects. it uses
-                  the good practices of JWT and Bcrypt and many more.
-                </div>
+                <div class="project-desc" data-translate="p-allo-desc2"></div>
                 <div class="card-technos">
                   <div class="tech-">
                     <img
@@ -279,21 +339,28 @@
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
-                    <h1 class="project-title">QuickTable</h1>
-                    <p class="project-date">April 2024</p>
+                    <h1
+                      class="project-title"
+                      data-translate="p-quicktable-title"
+                    ></h1>
+                    <p
+                      class="project-date"
+                      data-translate="p-quicktable-date"
+                    ></p>
                   </div>
 
-                  <div class="project-desc-add">
-                    This project was completed in 1 month and served as the
-                    final assignment for YouCode's first year
-                  </div>
+                  <div
+                    class="project-desc-add"
+                    data-translate="p-quicktable-desc1"
+                  ></div>
                   <div class="project-btns">
                     <a
                       href="https://quicktable.coders-strike.tech/"
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Project <i class="bi bi-box-arrow-up-right"></i>
+                        <span data-translate="visit-project"></span>
+                        <i class="bi bi-box-arrow-up-right"></i>
                       </button>
                     </a>
                     <a
@@ -301,7 +368,7 @@
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Repository
+                        <span data-translate="visit-repo"></span>
                         <i class="bi bi-box-arrow-up-right"></i>
                       </button>
                     </a>
@@ -309,11 +376,10 @@
                 </div>
               </div>
               <div class="project-card-bottom">
-                <div class="project-desc">
-                  This solution allows users to easily book tables at cafes and
-                  restaurants directly from the menu, helping businesses
-                  efficiently manage reservations and optimize table occupancy.
-                </div>
+                <div
+                  class="project-desc"
+                  data-translate="p-quicktable-desc2"
+                ></div>
                 <div class="card-technos">
                   <div class="tech-">
                     <img
@@ -366,17 +432,22 @@
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
-                    <h1 class="project-title">Hint</h1>
-                    <p class="project-date">October 2024</p>
+                    <h1
+                      class="project-title"
+                      data-translate="p-hint-title"
+                    ></h1>
+                    <p class="project-date" data-translate="p-hint-date"></p>
                   </div>
 
-                  <div class="project-desc-add">
-                    This project was built in 1 week by a team of 4 developers.
-                  </div>
+                  <div
+                    class="project-desc-add"
+                    data-translate="p-hint-desc1"
+                  ></div>
                   <div class="project-btns">
                     <a title="Will be available soon" class="visit-project">
                       <button class="visit-btn">
-                        Visit Project <i class="bi bi-box-arrow-up-right"></i>
+                        <span data-translate="visit-project"></span>
+                        <i class="bi bi-box-arrow-up-right"></i>
                       </button>
                     </a>
                     <a
@@ -384,7 +455,7 @@
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Repository
+                        <span data-translate="visit-repo"></span>
                         <i class="bi bi-box-arrow-up-right"></i>
                       </button>
                     </a>
@@ -392,11 +463,7 @@
                 </div>
               </div>
               <div class="project-card-bottom">
-                <div class="project-desc">
-                  Hint is a blog platform for Youcode students to share
-                  articles, discuss topics, and interact with each other—all
-                  through a user-friendly interface.
-                </div>
+                <div class="project-desc" data-translate="p-hint-desc2"></div>
                 <div class="card-technos">
                   <div class="tech-">
                     <img
@@ -446,21 +513,21 @@
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
-                    <h1 class="project-title">ixo Multiplayer</h1>
-                    <p class="project-date">September 2024</p>
+                    <h1 class="project-title" data-translate="p-ixo-title"></h1>
+                    <p class="project-date" data-translate="p-ixo-date"></p>
                   </div>
 
-                  <div class="project-desc-add">
-                    This is a minimalistic game, made in 3 days as an
-                    introduction to NodeJS.
-                  </div>
+                  <div
+                    class="project-desc-add"
+                    data-translate="p-ixo-desc1"
+                  ></div>
                   <div class="project-btns">
                     <a
                       href="http://ixo-multiplayer-io.onrender.com/"
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Project ( 50s Delay )
+                        <span data-translate="visit-project"></span>
                         <i class="bi bi-box-arrow-up-right"></i>
                       </button>
                     </a>
@@ -469,7 +536,7 @@
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Repository
+                        <span data-translate="visit-repo"></span>
                         <i class="bi bi-box-arrow-up-right"></i>
                       </button>
                     </a>
@@ -477,12 +544,7 @@
                 </div>
               </div>
               <div class="project-card-bottom">
-                <div class="project-desc">
-                  Ixo-Multiplayer is an online game where two players compete on
-                  a 20x20 grid, aiming to align 5 'X' or 'O' symbols
-                  horizontally, vertically, or diagonally while blocking their
-                  opponent.
-                </div>
+                <div class="project-desc" data-translate="p-ixo-desc2"></div>
                 <div class="card-technos">
                   <div class="tech-">
                     <img
@@ -525,21 +587,24 @@
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
-                    <h1 class="project-title">Auth API - AlloMedia</h1>
-                    <p class="project-date">October 2024</p>
+                    <h1
+                      class="project-title"
+                      data-translate="p-auth-title"
+                    ></h1>
+                    <p class="project-date" data-translate="p-auth-date"></p>
                   </div>
 
-                  <div class="project-desc-add">
-                    This is the initial phase of a larger project developed for
-                    a delivery service company called AlloMedia.
-                  </div>
+                  <div
+                    class="project-desc-add"
+                    data-translate="p-auth-desc1"
+                  ></div>
                   <div class="project-btns">
                     <a
                       href="https://github.com/othman4dev/alloMedia"
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Repository
+                        <span data-translate="visit-repo"></span>
                         <i class="bi bi-box-arrow-up-right"></i>
                       </button>
                     </a>
@@ -547,12 +612,7 @@
                 </div>
               </div>
               <div class="project-card-bottom">
-                <div class="project-desc">
-                  A RESTful API built with Node.js and Express.js for user
-                  authentication and authorization, using JWT tokens to secure
-                  routes. It connects to a MongoDB database to securely store
-                  user data.
-                </div>
+                <div class="project-desc" data-translate="p-auth-desc2"></div>
                 <div class="card-technos">
                   <div class="tech-">
                     <img
@@ -598,21 +658,24 @@
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
-                    <h1 class="project-title">Fast-Med</h1>
-                    <p class="project-date">Jenuary 2023</p>
+                    <h1
+                      class="project-title"
+                      data-translate="p-fastmed-title"
+                    ></h1>
+                    <p class="project-date" data-translate="p-fastmed-date"></p>
                   </div>
 
-                  <div class="project-desc-add">
-                    A project developed for a pharmacy to manage its inventory
-                    and build by a team of 5 developers.
-                  </div>
+                  <div
+                    class="project-desc-add"
+                    data-translate="p-fastmed-desc1"
+                  ></div>
                   <div class="project-btns">
                     <a
                       href="https://github.com/othman4dev/Fast-Med"
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Repository
+                        <span data-translate="visit-repo"></span>
                         <i class="bi bi-box-arrow-up-right"></i>
                       </button>
                     </a>
@@ -620,11 +683,10 @@
                 </div>
               </div>
               <div class="project-card-bottom">
-                <div class="project-desc">
-                  A web application that allows the pharmacy to manage its
-                  inventory, sales, and purchases. It also provides a dashboard
-                  to monitor the pharmacy's performance.
-                </div>
+                <div
+                  class="project-desc"
+                  data-translate="p-fastmed-desc2"
+                ></div>
                 <div class="card-technos">
                   <div class="tech-">
                     <img
@@ -673,21 +735,21 @@
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
-                    <h1 class="project-title">JSS</h1>
-                    <p class="project-date">Mars 2023</p>
+                    <h1 class="project-title" data-translate="p-jss-title"></h1>
+                    <p class="project-date" data-translate="p-jss-date"></p>
                   </div>
 
-                  <div class="project-desc-add">
-                    This is a code preprocessor for JavaScript and CSS,
-                    developed in 1 month.
-                  </div>
+                  <div
+                    class="project-desc-add"
+                    data-translate="p-jss-desc1"
+                  ></div>
                   <div class="project-btns">
                     <a
                       href="https://github.com/othman4dev/jssv2.0"
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Repository
+                        <span data-translate="visit-repo"></span>
                         <i class="bi bi-box-arrow-up-right"></i>
                       </button>
                     </a>
@@ -696,7 +758,7 @@
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Website
+                        <span data-translate="visit-project"></span>
                         <i class="bi bi-box-arrow-up-right"></i>
                       </button>
                     </a>
@@ -704,12 +766,7 @@
                 </div>
               </div>
               <div class="project-card-bottom">
-                <div class="project-desc">
-                  This project is a code preprocessor for JavaScript and CSS. It
-                  add a new way to style the web with a new syntax called JSS
-                  then our compiler translate your code to efficient and clean
-                  JavaScript and CSS code.
-                </div>
+                <div class="project-desc" data-translate="p-jss-desc2"></div>
                 <div class="card-technos">
                   <div class="tech-">
                     <img
@@ -752,32 +809,35 @@
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
-                    <h1 class="project-title">Evento</h1>
-                    <p class="project-date">February 2023</p>
+                    <h1
+                      class="project-title"
+                      data-translate="p-evento-title"
+                    ></h1>
+                    <p class="project-date" data-translate="p-evento-date"></p>
                   </div>
 
-                  <div class="project-desc-add">
-                    This project was developed in 2 weeks for a Youcode ( School
-                    ) exam.
-                  </div>
+                  <div
+                    class="project-desc-add"
+                    data-translate="p-evento-desc1"
+                  ></div>
+
                   <div class="project-btns">
                     <a
                       href="https://github.com/othman4dev/EVENTO"
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Repository
+                        <span data-translate="visit-repo"></span>
                         <i class="bi bi-box-arrow-up-right"></i>
                       </button>
                     </a>
                   </div>
                 </div>
               </div>
+
               <div class="project-card-bottom">
-                <div class="project-desc">
-                  A web application for events and ticketing, allowing users to
-                  buy tickets for events and manage their reservations.
-                </div>
+                <div class="project-desc" data-translate="p-evento-desc2"></div>
+
                 <div class="card-technos">
                   <div class="tech-">
                     <img
@@ -812,9 +872,11 @@
                 </div>
               </div>
             </div>
+
             <div class="blob"></div>
             <div class="fakeblob"></div>
           </div>
+
           <div class="project-card card">
             <div class="inner">
               <div class="project-card-header">
@@ -826,31 +888,35 @@
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
-                    <h1 class="project-title">Commix</h1>
-                    <p class="project-date">October 2024</p>
+                    <h1
+                      class="project-title"
+                      data-translate="p-commix-title"
+                    ></h1>
+                    <p class="project-date" data-translate="p-commix-date"></p>
                   </div>
 
-                  <div class="project-desc-add">
-                    This project was developed in 2 days as an experiment only.
-                  </div>
+                  <div
+                    class="project-desc-add"
+                    data-translate="p-commix-desc1"
+                  ></div>
+
                   <div class="project-btns">
                     <a
                       href="https://github.com/othman4dev/commix"
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Repository
+                        <span data-translate="visit-repo"></span>
                         <i class="bi bi-box-arrow-up-right"></i>
                       </button>
                     </a>
                   </div>
                 </div>
               </div>
+
               <div class="project-card-bottom">
-                <div class="project-desc">
-                  A CMD tool that allow you to fake your GitHub commits stats by
-                  creating fake commits history.
-                </div>
+                <div class="project-desc" data-translate="p-commix-desc2"></div>
+
                 <div class="card-technos">
                   <div class="tech-">
                     <img
@@ -867,9 +933,11 @@
                 </div>
               </div>
             </div>
+
             <div class="blob"></div>
             <div class="fakeblob"></div>
           </div>
+
           <div class="project-card card">
             <div class="inner">
               <div class="project-card-header">
@@ -881,32 +949,41 @@
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
-                    <h1 class="project-title">WhatsBot</h1>
-                    <p class="project-date">June 2025</p>
+                    <h1
+                      class="project-title"
+                      data-translate="p-whatsbot-title"
+                    ></h1>
+                    <p
+                      class="project-date"
+                      data-translate="p-whatsbot-date"
+                    ></p>
                   </div>
 
-                  <div class="project-desc-add">
-                    This project was developed in 1 day as an experiment
-                    project.
-                  </div>
+                  <div
+                    class="project-desc-add"
+                    data-translate="p-whatsbot-desc1"
+                  ></div>
+
                   <div class="project-btns">
                     <a
                       href="https://github.com/othman4dev/whatsbot"
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Repository
+                        <span data-translate="visit-repo"></span>
                         <i class="bi bi-box-arrow-up-right"></i>
                       </button>
                     </a>
                   </div>
                 </div>
               </div>
+
               <div class="project-card-bottom">
-                <div class="project-desc">
-                  A WhatsApp mass message sender, fill your database with phone
-                  numbers and start sending messages.
-                </div>
+                <div
+                  class="project-desc"
+                  data-translate="p-whatsbot-desc2"
+                ></div>
+
                 <div class="card-technos">
                   <div class="tech-">
                     <img
@@ -941,9 +1018,11 @@
                 </div>
               </div>
             </div>
+
             <div class="blob"></div>
             <div class="fakeblob"></div>
           </div>
+
           <div class="project-card card">
             <div class="inner">
               <div class="project-card-header">
@@ -955,32 +1034,35 @@
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
-                    <h1 class="project-title">Wordlister</h1>
-                    <p class="project-date">June 2025</p>
+                    <h1
+                      class="project-title"
+                      data-translate="p-word-title"
+                    ></h1>
+                    <p class="project-date" data-translate="p-word-date"></p>
                   </div>
 
-                  <div class="project-desc-add">
-                    This project was developed in 1 day as an experiment
-                    project.
-                  </div>
+                  <div
+                    class="project-desc-add"
+                    data-translate="p-word-desc1"
+                  ></div>
+
                   <div class="project-btns">
                     <a
                       href="https://github.com/othman4dev/wordlister"
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Repository
+                        <span data-translate="visit-repo"></span>
                         <i class="bi bi-box-arrow-up-right"></i>
                       </button>
                     </a>
                   </div>
                 </div>
               </div>
+
               <div class="project-card-bottom">
-                <div class="project-desc">
-                  A word list generator CMD tool, enter keywords and get a
-                  generated file with all possible and logical combinations.
-                </div>
+                <div class="project-desc" data-translate="p-word-desc2"></div>
+
                 <div class="card-technos">
                   <div class="tech-">
                     <img
@@ -997,9 +1079,11 @@
                 </div>
               </div>
             </div>
+
             <div class="blob"></div>
             <div class="fakeblob"></div>
           </div>
+
           <div class="project-card card">
             <div class="inner">
               <div class="project-card-header">
@@ -1011,32 +1095,35 @@
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
-                    <h1 class="project-title">Terminal-paint</h1>
-                    <p class="project-date">June 2025</p>
+                    <h1
+                      class="project-title"
+                      data-translate="p-paint-title"
+                    ></h1>
+                    <p class="project-date" data-translate="p-pain-date"></p>
                   </div>
 
-                  <div class="project-desc-add">
-                    This project was developed in 2 days as an experiment
-                    project.
-                  </div>
+                  <div
+                    class="project-desc-add"
+                    data-translate="p-paint-desc1"
+                  ></div>
+
                   <div class="project-btns">
                     <a
                       href="https://github.com/othman4dev/terminal-paint"
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Repository
+                        <span data-translate="visit-repo"></span>
                         <i class="bi bi-box-arrow-up-right"></i>
                       </button>
                     </a>
                   </div>
                 </div>
               </div>
+
               <div class="project-card-bottom">
-                <div class="project-desc">
-                  A terminal painting app that lets you draw with shapes and
-                  colors, then export your artwork to JSON or PNG.
-                </div>
+                <div class="project-desc" data-translate="p-paint-desc2"></div>
+
                 <div class="card-technos">
                   <div class="tech-">
                     <img
@@ -1059,9 +1146,11 @@
                 </div>
               </div>
             </div>
+
             <div class="blob"></div>
             <div class="fakeblob"></div>
           </div>
+
           <div class="project-card card">
             <div class="inner">
               <div class="project-card-header">
@@ -1073,30 +1162,29 @@
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
-                    <h1 class="project-title">Docteur24</h1>
-                    <p class="project-date">Juin 2024</p>
+                    <h1 class="project-title" data-translate="p-doc-title"></h1>
+                    <p class="project-date" data-translate="p-doc-date"></p>
                   </div>
 
-                  <div class="project-desc-add">
-                    This project is owned by startup company called Moussasoft.
-                  </div>
+                  <div
+                    class="project-desc-add"
+                    data-translate="p-doc-desc1"
+                  ></div>
+
                   <div class="project-btns">
                     <a href="https://docteur24.com/" class="visit-project">
                       <button class="visit-btn">
-                        Visit Website
+                        <span data-translate="visit-project"></span>
                         <i class="bi bi-box-arrow-up-right"></i>
                       </button>
                     </a>
                   </div>
                 </div>
               </div>
+
               <div class="project-card-bottom">
-                <div class="project-desc">
-                  I contributed to developing this platform, which connects
-                  patients with doctors for online appointments and medical
-                  advice. Initially purchased from Evanto, we enhanced its
-                  services, UI/UX, and security.
-                </div>
+                <div class="project-desc" data-translate="p-doc-desc2"></div>
+
                 <div class="card-technos">
                   <div class="tech-">
                     <img
@@ -1131,9 +1219,11 @@
                 </div>
               </div>
             </div>
+
             <div class="blob"></div>
             <div class="fakeblob"></div>
           </div>
+
           <div class="project-card card">
             <div class="inner">
               <div class="project-card-header">
@@ -1145,42 +1235,45 @@
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
-                    <h1 class="project-title">Poker4Fun</h1>
-                    <p class="project-date">Mars 2024</p>
+                    <h1
+                      class="project-title"
+                      data-translate="p-poker-title"
+                    ></h1>
+                    <p class="project-date" data-translate="p-poker-date"></p>
                   </div>
 
-                  <div class="project-desc-add">
-                    This project is a single player game of poker against bot. (
-                    Under Development )
-                  </div>
+                  <div
+                    class="project-desc-add"
+                    data-translate="p-poker-desc1"
+                  ></div>
+
                   <div class="project-btns">
                     <a
                       href="https://othman4dev.github.io/Poker.io/"
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Website
+                        <span data-translate="visit-project"></span>
                         <i class="bi bi-box-arrow-up-right"></i>
                       </button>
                     </a>
+
                     <a
                       href="https://github.com/othman4dev/Poker.io"
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit Repository
+                        <span data-translate="visit-repo"></span>
                         <i class="bi bi-box-arrow-up-right"></i>
                       </button>
                     </a>
                   </div>
                 </div>
               </div>
+
               <div class="project-card-bottom">
-                <div class="project-desc">
-                  I developed this project as a single-player poker game against
-                  a bot. The game is built with JavaScript and uses the minimax
-                  algorithm to determine the bot's moves.
-                </div>
+                <div class="project-desc" data-translate="p-poker-desc2"></div>
+
                 <div class="card-technos">
                   <div class="tech-">
                     <img
@@ -1203,9 +1296,11 @@
                 </div>
               </div>
             </div>
+
             <div class="blob"></div>
             <div class="fakeblob"></div>
           </div>
+
           <div class="project-card card">
             <div class="inner">
               <div class="project-card-header">
@@ -1217,14 +1312,18 @@
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
-                    <h1 class="project-title">Quizix</h1>
-                    <p class="project-date">August 2022</p>
+                    <h1
+                      class="project-title"
+                      data-translate="p-quiz-title"
+                    ></h1>
+                    <p class="project-date" data-translate="p-quiz-date"></p>
                   </div>
 
-                  <div class="project-desc-add">
-                    This is a freelance project developed for a client who
-                    wanted a quiz platform.
-                  </div>
+                  <div
+                    class="project-desc-add"
+                    data-translate="p-quiz-desc1"
+                  ></div>
+
                   <div class="project-btns">
                     <a class="visit-project">
                       <button class="visit-btn">
@@ -1235,12 +1334,10 @@
                   </div>
                 </div>
               </div>
+
               <div class="project-card-bottom">
-                <div class="project-desc">
-                  Quizix is a quiz platform that allows users to create and
-                  participate in quizzes on various topics. It includes a
-                  leaderboard and a user-friendly interface.
-                </div>
+                <div class="project-desc" data-translate="p-quiz-desc2"></div>
+
                 <div class="card-technos">
                   <div class="tech-">
                     <img
@@ -1251,7 +1348,7 @@
                   <div class="tech-">
                     <img
                       src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"
-                      alt="JavaScript Badge"
+                      alt="JavaScript"
                     />
                   </div>
                   <div class="tech-">
@@ -1263,9 +1360,11 @@
                 </div>
               </div>
             </div>
+
             <div class="blob"></div>
             <div class="fakeblob"></div>
           </div>
+
           <div class="project-card card">
             <div class="inner">
               <div class="project-card-header">
@@ -1277,40 +1376,42 @@
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
-                    <h1 class="project-title">Fake Socials</h1>
-                    <p class="project-date">Juin 2022</p>
+                    <h1
+                      class="project-title"
+                      data-translate="p-fake-title"
+                    ></h1>
+                    <p class="project-date" data-translate="p-fake-date"></p>
                   </div>
 
-                  <div class="project-desc-add">
-                    This is a personal fun project that allow content creators
-                    to create custom conversations with fake social media
-                    profiles.
-                  </div>
+                  <div
+                    class="project-desc-add"
+                    data-translate="p-fake-desc1"
+                  ></div>
+
                   <div class="project-btns">
                     <a
                       href="https://github.com/othman4dev/Fake-Socials"
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit repository
+                        <span data-translate="visit-repo"></span>
                         <i class="bi bi-box-arrow-up-right"></i>
                       </button>
                     </a>
+
                     <a href="https://fakesocials.tech/" class="visit-project">
                       <button class="visit-btn">
-                        Visit Website
+                        <span data-translate="visit-project"></span>
                         <i class="bi bi-box-arrow-up-right"></i>
                       </button>
                     </a>
                   </div>
                 </div>
               </div>
+
               <div class="project-card-bottom">
-                <div class="project-desc">
-                  Fake Socials is a fun project that allows content creators to
-                  create custom conversations with fake social media profiles
-                  and export their creations as images.
-                </div>
+                <div class="project-desc" data-translate="p-fake-desc2"></div>
+
                 <div class="card-technos">
                   <div class="tech-">
                     <img
@@ -1333,9 +1434,11 @@
                 </div>
               </div>
             </div>
+
             <div class="blob"></div>
             <div class="fakeblob"></div>
           </div>
+
           <div class="project-card card">
             <div class="inner">
               <div class="project-card-header">
@@ -1347,34 +1450,35 @@
                 ></div>
                 <div class="project-texts">
                   <div class="project-header">
-                    <h1 class="project-title">Wiki.Tm</h1>
-                    <p class="project-date">December 2023</p>
+                    <h1
+                      class="project-title"
+                      data-translate="p-wiki-title"
+                    ></h1>
+                    <p class="project-date" data-translate="p-wiki-title"></p>
                   </div>
 
-                  <div class="project-desc-add">
-                    This is a exam project developed in 1 week for Youcode (
-                    School ).
-                  </div>
+                  <div
+                    class="project-desc-add"
+                    data-translate="p-wiki-desc1"
+                  ></div>
+
                   <div class="project-btns">
                     <a
                       href="https://github.com/othman4dev/Fake-Socials"
                       class="visit-project"
                     >
                       <button class="visit-btn">
-                        Visit repository
+                        <span data-translate="visit-repo"></span>
                         <i class="bi bi-box-arrow-up-right"></i>
                       </button>
                     </a>
                   </div>
                 </div>
               </div>
+
               <div class="project-card-bottom">
-                <div class="project-desc">
-                  Wiki.Tm is a web application that allows users to search for
-                  articles or post their own articles on various topics. It
-                  includes a user-friendly interface and a search feature and
-                  has many roles like admin, editor, and user.
-                </div>
+                <div class="project-desc" data-translate="p-wiki-desc2"></div>
+
                 <div class="card-technos">
                   <div class="tech-">
                     <img
@@ -1403,6 +1507,7 @@
                 </div>
               </div>
             </div>
+
             <div class="blob"></div>
             <div class="fakeblob"></div>
           </div>
@@ -1447,6 +1552,10 @@
   const statusText = document.getElementById("status-text");
   const pingValue = document.getElementById("ping-value");
 
+  const statusIcon1 = document.getElementById("status-icon1");
+  const statusText1 = document.getElementById("status-text1");
+  const pingValue1 = document.getElementById("ping-value1");
+
   async function measurePing() {
     const pingUrl = "assets/images/otman_favicon.png";
     const start = performance.now();
@@ -1458,15 +1567,22 @@
       updateStatus(false);
     }
   }
+
   function updateStatus(isOnline, ping = null) {
     if (isOnline) {
-      //statusIcon.className = "bi bi-wifi text-success";
+      statusIcon.className = "bi bi-wifi text-success";
       statusText.textContent = "Online";
       pingValue.textContent = ping !== null ? `${ping} ms` : "";
+      statusIcon1.className = "bi bi-wifi text-success";
+      statusText1.textContent = "Online";
+      pingValue1.textContent = ping !== null ? `${ping} ms` : "";
     } else {
-      //statusIcon.className = "bi bi-wifi-off text-danger";
+      statusIcon.className = "bi bi-wifi-off text-danger";
       statusText.textContent = "Offline";
       pingValue.textContent = "";
+      statusIcon1.className = "bi bi-wifi-off text-danger";
+      statusText1.textContent = "Offline";
+      pingValue1.textContent = "";
     }
   }
 
@@ -1476,4 +1592,71 @@
   window.addEventListener("offline", () => updateStatus(false));
 
   measurePing();
+
+  async function setLang(lang) {
+    if (localStorage.getItem("lang")) {
+      localStorage.removeItem("lang");
+      localStorage.setItem("lang", lang);
+    } else {
+      localStorage.setItem("lang", lang);
+    }
+
+    /* notify(
+    "bi-globe2",
+    lang === "fr"
+      ? "La langue a été définie sur le français"
+      : "Language has been set to English",
+  ); */
+
+    const basePath = window.location.pathname.includes("/pages/")
+      ? "../"
+      : "./";
+    const response = await fetch(`${basePath}lang/${lang}.json`);
+    const translations = await response.json();
+
+    document.querySelectorAll("[data-translate]").forEach((el) => {
+      const key = el.getAttribute("data-translate");
+      el.innerHTML = translations[key] || key;
+    });
+
+    // Optionally store lang in localStorage
+    localStorage.setItem("lang", lang);
+    // update current language circle in header
+    try {
+      const current = document.getElementById("currentLang");
+      if (current) {
+        const map = { en: "fi fi-us", fr: "fi fi-fr", ar: "fi fi-sa" };
+        const cls = map[lang] || "fi fi-us";
+        current.innerHTML = `<span class="${cls}"></span>`;
+      }
+    } catch (e) {}
+  }
+  // Load language from localStorage on page load
+  window.addEventListener("DOMContentLoaded", () => {
+    const savedLang = localStorage.getItem("lang") || "en";
+    document.documentElement.setAttribute("lang", savedLang);
+
+    setLang(savedLang);
+  });
+
+  // Initial check
+  document.getElementById("time").innerText = new Date().toLocaleTimeString(
+    "en-US",
+    {
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    },
+  );
+
+  setInterval(() => {
+    document.getElementById("time").innerText = new Date().toLocaleTimeString(
+      "en-US",
+      {
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+      },
+    );
+  }, 1000);
 </script>

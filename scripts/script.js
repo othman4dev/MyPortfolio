@@ -872,10 +872,10 @@ window.onload = () => {
   checkResolutionAndNotify();
 };
 
-window.addEventListener("resize", () => {
-  checkIfUserWithPhoneOrTablet();
-  /* checkResolutionAndNotify(); */
-});
+// window.addEventListener("resize", () => {
+//   checkIfUserWithPhoneOrTablet();
+//   /* checkResolutionAndNotify(); */
+// });
 
 const techTrack = document.querySelector(".technos-inner");
 

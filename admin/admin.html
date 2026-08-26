@@ -38,6 +38,7 @@
       <div class="tab-selector">
         <button class="tab-btn active" data-tab="hero">Hero</button>
         <button class="tab-btn" data-tab="about">About &amp; Education</button>
+        <button class="tab-btn" data-tab="projects">Projects</button>
         <button class="tab-btn" data-tab="experience">Experience</button>
         <button class="tab-btn" data-tab="stats">Stats</button>
         <button class="tab-btn" data-tab="contacts">Contacts</button>
@@ -196,6 +197,7 @@
           key.startsWith("education") ||
           key.startsWith("tech") ||
           ["technologies", "tech-count", "youcode", "e-learning"].includes(key),
+        projects: (key) => key.startsWith("p-"),
         experience: (key) =>
           key.startsWith("exp") || key.startsWith("contributions"),
         stats: (key) =>

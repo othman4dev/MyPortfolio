@@ -510,12 +510,104 @@
     flex-wrap: wrap;
   }
 }
+@media screen and (max-width: 768px) {
+  .project-desc-add {
+    font-size: 16px;
+    overflow: visible !important;
+  }
+  .project-desc {
+    font-size: 16px;
+  }
+  .project-cards {
+    transform: unset;
+    width: 90%;
+  }
+  .about-desc,
+  .education-desc-text {
+    font-size: 16px;
+  }
+  .education-item-title {
+    font-size: 18px;
+  }
+  .techno-search {
+    height: 350px;
+  }
+  .search-result {
+    min-height: 200px;
+  }
+  .search-result img {
+    height: 29px;
+  }
+  .more-exp {
+    width: 90%;
+  }
+  .experience-card {
+    width: 90%;
+    max-width: unset;
+  }
+  .experience-cards {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .project-btns {
+    height: fit-content;
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+  .project-cards {
+    margin-top: 0;
+  }
+  .ag-courses_box {
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .ag-courses_item {
+    max-width: unset !important;
+    margin: 0;
+    flex-grow: 0.4;
+  }
+  .ag-courses-item_title {
+    font-size: 18px;
+  }
+  .ag-courses-item_date-box {
+    font-size: 16px;
+  }
+  #section6 {
+    padding-inline: 0;
+  }
+  .repos img {
+    height: 156px;
+  }
+  .commit-graph {
+    overflow-x: scroll;
+  }
+  #section7 {
+    padding-inline: 0;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+  }
+  .contacts-mobile {
+    width: 90%;
+  }
+  .contact-mobile .contact-text a {
+    width: 100%;
+  }
+  .contact-mobile .contact-text button {
+    width: 70%;
+    max-width: 70%;
+    min-width: 70%;
+  }
+  .contact-mobile .contact-title {
+    font-size: 18px;
+  }
+}
 @media screen and (max-width: 767px) {
   #section4 {
     max-height: unset;
-  }
-  .project-cards {
-    width: 140vw;
   }
   .pages {
     gap: 0.7rem;
@@ -533,6 +625,345 @@
 }
 
 @media screen and (max-width: 733px) {
+  /* test */
+  .pages {
+    display: none;
+  }
+  .mobile-sidebar {
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50vw;
+    z-index: 1000;
+    background-color: #1f293b;
+    transform: translateX(-100%);
+    transition: transform 300ms ease;
+  }
+  .mobile-pages {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    color: white !important;
+  }
+  .mobile-page:first-of-type {
+    border-top: 1px solid #374151;
+  }
+  .mobile-sidebar {
+    display: block;
+  }
+  .mobile-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    padding: 10px 20px;
+    text-align: center;
+    border-bottom: 1px solid #374151;
+    color: white !important;
+  }
+  .mobile-pages-title {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    padding: 10px 20px;
+    width: 100%;
+    text-align: start;
+    color: #fff;
+  }
+  .sidebar-button {
+    /* make the button fixed so it stays visible even when sidebar translates away */
+    position: fixed;
+    top: 5px;
+    right: -40px;
+    width: 40px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: #141a25;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 1100;
+  }
+
+  /* collapsed state: move sidebar fully out of view to the right */
+  .mobile-sidebar.collapsed {
+    transform: translateX(0%);
+  }
+
+  .card-desc {
+    max-width: 98vw;
+  }
+  .about-desc {
+    font-size: 16px;
+    overflow: hidden;
+    line-height: 1.5;
+    padding-bottom: 10px;
+    padding-top: 6px;
+    padding-inline: 10px;
+  }
+  .card-body {
+    max-width: 98vw;
+  }
+  .project-card {
+    max-height: unset;
+  }
+  .project-card-header {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  .project-card .inner {
+    padding: 5px;
+  }
+  .main-card {
+    max-width: 98vw;
+    box-shadow: none;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+  }
+  .education .inner {
+    max-width: 98vw;
+  }
+  .card-header {
+    max-height: unset;
+  }
+  .education-desc-text {
+    font-size: 16px;
+    line-height: 1.5;
+    padding-bottom: 10px;
+    padding-top: 6px;
+  }
+  .education-item-title {
+    font-size: 18px;
+  }
+  .project-img {
+    max-height: unset;
+    width: 100%;
+    min-height: 150px;
+  }
+  .project-desc-add,
+  .project-desc {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .project-card .tech- img {
+    height: 30px;
+  }
+  .visit-project {
+    height: 30px;
+    margin-right: 5px;
+  }
+  #section3 {
+    margin-top: 80px;
+    padding: 0px 5px;
+  }
+  .project-cards {
+    width: 95%;
+  }
+  .project-card {
+    min-width: unset;
+  }
+  .experience-cards {
+    width: 95%;
+  }
+  #section4 {
+    margin-top: 80px;
+  }
+  .experience-card {
+    min-width: unset;
+    width: 100%;
+    justify-content: center;
+  }
+  .more-exp {
+    text-align: left;
+    margin: 5px;
+  }
+  .ag-courses-item_title {
+    min-height: 40px;
+  }
+  .ag-courses_item {
+    margin-inline: 0px;
+    width: 100%;
+  }
+  #section6 {
+    padding-inline: 5px;
+  }
+  #section6 .main-card {
+    min-width: unset;
+    width: 100%;
+  }
+  .commits-img {
+    height: 83px;
+  }
+  .contacts-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 100px;
+  }
+  .contact-mobile a {
+    width: 90%;
+  }
+  .contact-mobile button {
+    width: 90%;
+  }
+  .contact-mobile a button {
+    width: 100%;
+  }
+  .copy-text span {
+    font-size: 13px;
+  }
+  .mobile-island {
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+    min-width: 70%;
+    border-radius: 200px;
+    background-color: #141a25;
+    padding: 10px;
+    color: #fff;
+    gap: 10px;
+  }
+  .header {
+    height: fit-content;
+  }
+  .contact-mobile .contact-title {
+    font-size: 17px;
+  }
+  .current-lang {
+    overflow: hidden;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: #1f293b;
+    display: flex;
+    align-items: center;
+  }
+  #section1 {
+    min-height: 104vh;
+  }
+  .mobile-island .status-text {
+    font-size: 12px;
+  }
+  .mobile-island .speed {
+    font-size: 10px;
+  }
+  .main-card {
+    min-width: 98vw;
+  }
+  .mobile-island .current-lang span {
+    width: 100%;
+    height: 100%;
+  }
+  .mobile-page {
+    align-items: center;
+    display: flex;
+    justify-content: start;
+  }
+  .mobile-page span {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .download-cv {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+  .download-cv-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #fff;
+  }
+  .experience-card {
+    max-height: unset;
+    height: fit-content;
+  }
+  .experience-img {
+    min-height: 130px;
+  }
+  #section7 {
+    padding-inline: 10px;
+  }
+  .experience-cards {
+    min-height: 1250px;
+  }
+  .projects-header {
+    display: none;
+  }
+  .message-text {
+    margin-bottom: 100px;
+    margin-top: 50px;
+    text-align: center;
+  }
+  .education-modal {
+    width: 95%;
+    max-height: unset;
+    height: 98%;
+    overflow-y: scroll;
+  }
+  .education-part1 {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .swiper {
+    width: 100%;
+  }
+  .swiper-text {
+    width: 100%;
+    margin-top: 15px;
+  }
+  .education-part2 {
+    padding-inline: 0;
+  }
+  .education-modal-title {
+    padding-inline: 0px;
+    margin-top: 10px;
+  }
+  .education-modal-desc {
+    font-size: 16px;
+  }
+  .education-list {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .education-part2 span {
+    font-size: 16px;
+  }
+  .flex-lists {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .contact-icon i {
+    font-size: 45px;
+    color: #374a6c;
+    background-color: #fff;
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .education-modal {
+    scrollbar-width: none;
+  }
+  /*test*/
   .blob {
     display: none;
   }
@@ -687,6 +1118,17 @@
     margin-bottom: 15px;
     text-align: center;
   }
+  .contact-mobile {
+    padding-left: 20%;
+    border-radius: 10px;
+  }
+
+  #section3 {
+    padding-inline: 0;
+  }
+  .project-cards {
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 712px) {
@@ -707,6 +1149,10 @@
   .card-body {
     flex-wrap: wrap;
   }
+
+  .card-header {
+    max-height: unset;
+  }
 }
 @media screen and (max-width: 700px) {
   .project-cards {
@@ -717,7 +1163,6 @@
     justify-items: center;
     transform: none !important;
     min-width: unset;
-    width: unset;
   }
   .project-cards {
     margin-top: 30px;

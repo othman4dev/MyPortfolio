@@ -154,11 +154,17 @@ function handlePasswordChange(request, response) {
   request.on("end", async () => {
     try {
       const data = JSON.parse(body);
-      if (!data.currentPassword || !data.newPassword || data.newPassword.length < 6) {
+      if (
+        !data.currentPassword ||
+        !data.newPassword ||
+        data.newPassword.length < 6
+      ) {
         return sendJson(response, 400, { error: "Invalid password data" });
       }
       if (!(await verifyPassword(data.currentPassword))) {
-        return sendJson(response, 401, { error: "Current password is incorrect" });
+        return sendJson(response, 401, {
+          error: "Current password is incorrect",
+        });
       }
       const newHash = await createPasswordHash(data.newPassword);
       const envContent = fs.readFileSync(envFile, "utf8");
@@ -167,9 +173,11 @@ function handlePasswordChange(request, response) {
         `ADMIN_PASSWORD_HASH=${newHash}`,
       );
       fs.writeFile(`${envFile}.tmp`, updatedEnv, "utf8", (writeError) => {
-        if (writeError) return sendJson(response, 500, { error: "Could not update .env" });
+        if (writeError)
+          return sendJson(response, 500, { error: "Could not update .env" });
         fs.rename(`${envFile}.tmp`, envFile, (renameError) => {
-          if (renameError) return sendJson(response, 500, { error: "Could not replace .env" });
+          if (renameError)
+            return sendJson(response, 500, { error: "Could not replace .env" });
           adminPasswordHash = newHash;
           sendJson(response, 200, { changed: true });
         });
@@ -396,7 +404,8 @@ const server = http.createServer((request, response) => {
   }
   if (url.pathname === "/api/admin/password") {
     authenticateApiRequest(request).then((authenticated) => {
-      if (!authenticated) return sendJson(response, 401, { error: "Authentication required" });
+      if (!authenticated)
+        return sendJson(response, 401, { error: "Authentication required" });
       handlePasswordChange(request, response);
     });
     return;
