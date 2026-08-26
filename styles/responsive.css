@@ -1091,4 +1091,7 @@
     align-items: center;
     justify-content: center;
   }
+  .education-modal {
+    scrollbar-width: none;
+  }
 }
