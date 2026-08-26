@@ -58,29 +58,58 @@
     <div class="mobile-pages">
       <div class="mobile-pages-title" data-translate="Quick Navigation"></div>
       <a
-        onclick="toSection(1)"
+        onclick="
+          toSection(1);
+          toggleMobileSidebar();
+        "
         class="mobile-page"
         data-translate="PROFILE"
       ></a>
-      <a onclick="toSection(2)" class="mobile-page" data-translate="ABOUT"></a>
       <a
-        onclick="toSection(3)"
+        onclick="
+          toSection(2);
+          toggleMobileSidebar();
+        "
+        class="mobile-page"
+        data-translate="ABOUT"
+      ></a>
+      <a
+        onclick="
+          toSection(3);
+          toggleMobileSidebar();
+        "
         class="mobile-page"
         data-translate="PROJECTS"
       ></a>
       <a
-        onclick="toSection(4)"
+        onclick="
+          toSection(4);
+          toggleMobileSidebar();
+        "
         class="mobile-page"
         data-translate="EXPERIENCES"
       ></a>
       <a
-        onclick="toSection(5)"
+        onclick="
+          toSection(5);
+          toggleMobileSidebar();
+        "
         class="mobile-page"
         data-translate="SERVICES"
       ></a>
-      <a onclick="toSection(6)" class="mobile-page" data-translate="STATS"></a>
       <a
-        onclick="toSection(7)"
+        onclick="
+          toSection(6);
+          toggleMobileSidebar();
+        "
+        class="mobile-page"
+        data-translate="STATS"
+      ></a>
+      <a
+        onclick="
+          toSection(7);
+          toggleMobileSidebar();
+        "
         class="mobile-page"
         data-translate="CONTACT"
       ></a>
@@ -89,7 +118,7 @@
         class="mobile-page mobile-lang"
         onclick="
           setLang('en');
-          setMobileSidebarCollapsed(true);
+          toggleMobileSidebar();
         "
       >
         <span class="fi fi-us mobile-lang-flag"></span>
@@ -99,7 +128,7 @@
         class="mobile-page mobile-lang"
         onclick="
           setLang('fr');
-          setMobileSidebarCollapsed(true);
+          toggleMobileSidebar();
         "
       >
         <span class="fi fi-fr mobile-lang-flag"></span>
@@ -109,7 +138,7 @@
         class="mobile-page mobile-lang"
         onclick="
           setLang('ar');
-          setMobileSidebarCollapsed(true);
+          toggleMobileSidebar();
         "
       >
         <span class="fi fi-sa mobile-lang-flag"></span>
@@ -124,6 +153,7 @@
         class="mobile-page"
         data-translate="Download CV"
         download
+        onclick="toggleMobileSidebar()"
       >
       </a>
     </div>

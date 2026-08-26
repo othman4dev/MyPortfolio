@@ -763,24 +763,24 @@ document.addEventListener(
   { passive: true },
 );
 
-// Any interaction inside the sidebar (links, buttons, touches) should collapse it — except the toggle button
-document.addEventListener(
-  "pointerup",
-  (e) => {
-    try {
-      const sidebar = document.querySelector(".mobile-sidebar");
-      if (!sidebar) return;
-      // if the interaction originated inside the sidebar
-      if (sidebar.contains(e.target)) {
-        // ignore clicks on the toggle button itself
-        if (e.target.closest && e.target.closest(".sidebar-button")) return;
-        // collapse after a tiny timeout to allow link navigation/default actions
-        setTimeout(() => setMobileSidebarCollapsed(true), 50);
-      }
-    } catch (err) {}
-  },
-  { passive: true },
-);
+// // Any interaction inside the sidebar (links, buttons, touches) should collapse it — except the toggle button
+// document.addEventListener(
+//   "pointerup",
+//   (e) => {
+//     try {
+//       const sidebar = document.querySelector(".mobile-sidebar");
+//       if (!sidebar) return;
+//       // if the interaction originated inside the sidebar
+//       if (sidebar.contains(e.target)) {
+//         // ignore clicks on the toggle button itself
+//         if (e.target.closest && e.target.closest(".sidebar-button")) return;
+//         // collapse after a tiny timeout to allow link navigation/default actions
+//         setTimeout(() => setMobileSidebarCollapsed(true), 50);
+//       }
+//     } catch (err) {}
+//   },
+//   { passive: true },
+// );
 
 /* Text animate initializer
    - Detects elements with `.text-animate`

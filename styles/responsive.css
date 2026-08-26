@@ -1539,4 +1539,7 @@
   .education-modal {
     scrollbar-width: none;
   }
+  .icon::after {
+    display: none;
+  }
 }

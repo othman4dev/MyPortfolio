@@ -42,13 +42,18 @@
     <div class="mobile-sidebar">
       <div class="mobile-pages">
         <div class="mobile-pages-title" data-translate="Quick Navigation"></div>
-        <a href="/" class="mobile-page" data-translate="Home page"></a>
+        <a
+          href="/"
+          class="mobile-page"
+          onclick="toggleMobileSidebar()"
+          data-translate="Home page"
+        ></a>
         <div class="mobile-pages-title" data-translate="Languages"></div>
         <a
           class="mobile-page mobile-lang"
           onclick="
             setLang('en');
-            setMobileSidebarCollapsed(true);
+            toggleMobileSidebar();
           "
         >
           <span class="fi fi-us mobile-lang-flag"></span>
@@ -58,7 +63,7 @@
           class="mobile-page mobile-lang"
           onclick="
             setLang('fr');
-            setMobileSidebarCollapsed(true);
+            toggleMobileSidebar();
           "
         >
           <span class="fi fi-fr mobile-lang-flag"></span>
@@ -68,7 +73,7 @@
           class="mobile-page mobile-lang"
           onclick="
             setLang('ar');
-            setMobileSidebarCollapsed(true);
+            toggleMobileSidebar();
           "
         >
           <span class="fi fi-sa mobile-lang-flag"></span>
