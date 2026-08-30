@@ -1542,4 +1542,15 @@
   .icon::after {
     display: none;
   }
+  .commit-graph {
+    justify-content: start;
+  }
+  .commit-graph img {
+    width: fit-content;
+    height: 115px;
+  }
+  .stats-container .commit-graph {
+    flex-direction: column;
+    align-items: start;
+  }
 }
