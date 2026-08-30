@@ -1138,3 +1138,37 @@ window.addEventListener("DOMContentLoaded", () => {
       upBtn.onclick = () => scrollUpIntoView(upBtn, Math.max(1, index - 1));
   }
 });
+
+// function quickLangToggle() {
+//   console.log("Double Clicked");
+
+//   const curLang = localStorage.getItem("lang");
+
+//   if (curLang === "en") {
+//     setLang("fr");
+//   } else if (curLang === "fr") {
+//     setLang("en");
+//   }
+// }
+
+let lastTap = 0;
+
+document.querySelector("#currentLang").addEventListener("pointerup", () => {
+  const now = Date.now();
+
+  if (now - lastTap < 300) {
+    toggleLanguage();
+  }
+
+  lastTap = now;
+});
+
+function toggleLanguage() {
+  const curLang = localStorage.getItem("lang");
+
+  if (curLang === "en") {
+    setLang("fr");
+  } else if (curLang === "fr") {
+    setLang("en");
+  }
+}
