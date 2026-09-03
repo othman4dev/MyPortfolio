@@ -1,236 +1,296 @@
-# 🚀 Otman Kharbouch - Interactive Portfolio
-
 <div align="center">
-  
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20Portfolio-blue?style=for-the-badge&logo=vercel)](https://othman4dev.tech)
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/othman4dev)
 
-**A uniquely designed, interactive portfolio showcasing modern web development skills**
+<img src="assets/images/favicon2.png" alt="Otman Kharbouch logo" width="110" />
+
+# Otman Kharbouch — Interactive Portfolio
+
+**A hand-crafted, multilingual, single-page portfolio with its own zero-dependency back-office.**
+
+*"I love what I do, so I do it best."*
+
+<br/>
+
+[![Live Site](https://img.shields.io/badge/Live_Site-othman4dev.site-2ea44f?style=for-the-badge&logo=vercel&logoColor=white)](https://othman4dev.site)
+[![GitHub](https://img.shields.io/badge/GitHub-othman4dev-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/othman4dev)
+[![License](https://img.shields.io/badge/License-Custom-orange?style=for-the-badge)](#-license--usage-terms)
+
+<br/>
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
+![Swiper](https://img.shields.io/badge/Swiper.js-6332F6?style=flat-square&logo=swiper&logoColor=white)
+![i18n](https://img.shields.io/badge/i18n-EN_·_FR_·_AR-blueviolet?style=flat-square)
 
 </div>
 
 ---
 
-## ✨ About This Portfolio
+## 📖 Table of Contents
 
-This is a **completely original and unique portfolio design** that you won't find anywhere else on the web. Every pixel, animation, and interaction has been carefully crafted from scratch, demonstrating true creativity and technical expertise in both **design** and **development**.
-
-### 🎨 Design Philosophy
-- **100% Original Design** - No templates, no copies, pure creativity
-- **Interactive Storytelling** - Each section tells a part of the developer's journey
-- **Immersive Experience** - Smooth animations and engaging transitions
-- **Mobile-First Approach** - Responsive design that works on all devices ( Under development )
+- [Overview](#-overview)
+- [Live Tour](#-live-tour)
+- [Feature Highlights](#-feature-highlights)
+- [The Back-Office](#-the-back-office-bo)
+- [Tech Stack](#-tech-stack)
+- [Architecture & Project Structure](#-architecture--project-structure)
+- [Getting Started](#-getting-started)
+- [Customization Guide](#-customization-guide)
+- [License & Usage Terms](#-license--usage-terms)
+- [Contact](#-contact)
 
 ---
 
-## 🛠️ Technologies & Tools Used
+## 🎯 Overview
 
-### Frontend Core
+This is a **100% original, template-free portfolio** — every section, animation and interaction was designed and coded from scratch. It's more than a static page: it ships with a **secure, self-hosted content back-office** that lets me edit every piece of text, in three languages, without ever touching the source code.
+
+| | |
+|---|---|
+| 🌍 **Multilingual** | English · French · Arabic, switchable on the fly |
+| 🧭 **Storytelling UX** | Seven vertically-navigated chapters that flow into one another |
+| 🛠️ **Own CMS** | A dependency-free Node.js back-office to edit all content |
+| 🔒 **Secure by design** | Scrypt-hashed auth, HttpOnly sessions, timing-safe checks |
+| ⚡ **Framework-free front-end** | Pure HTML/CSS/JS — fast, lightweight, no build step |
+| 📱 **Responsive** | Tuned for mobile, tablet and desktop |
+
+> **Live at 👉 [othman4dev.site](https://othman4dev.site)**
+
+---
+
+## 🖼️ Live Tour
+
+A section-by-section walkthrough of the experience.
+
+### 1. Profile — The Hero
+The landing chapter: name, title, a live technologies marquee, quick social rail, downloadable CV and a real-time connection indicator.
+
+![Profile section](assets/screenshots/section1.png)
+
+### 2. About & Education
+A personal introduction paired with an academic timeline (YouCode × UM6P, Codecademy, FreeCodeCamp) and a **searchable index of 64+ technologies**.
+
+![About & Education section](assets/screenshots/section2.png)
+
+### 3. Projects
+A curated grid of flagship builds — QuickTable, Hint, Ixo-Multiplayer and Auth API — each with its stack, live link and repository.
+
+![Projects section](assets/screenshots/section3.png)
+
+### 4. Experiences
+Professional journey cards for **Cegedim** (full-time) and **Moussasoft** (internship), complete with per-role tech stacks and contribution notes.
+
+![Experiences section](assets/screenshots/section4.png)
+
+### 5. Services
+Nine service offerings spanning design, front-end, mobile, back-end, databases and DevOps/Cloud.
+
+![Services section](assets/screenshots/section5.png)
+
+### 6. Stats
+A live **GitHub dashboard**: account overview, contribution heatmap, streaks, and a most-used-languages breakdown.
+
+![Stats section](assets/screenshots/section6.png)
+
+### 7. Contact
+A friendly "Feel free to contact me" closer with expandable social cards for LinkedIn, email, WhatsApp, GitHub and Instagram.
+
+![Contact section](assets/screenshots/section7.png)
+
+---
+
+## 🌟 Feature Highlights
+
+- **🧭 Chapter navigation** — a unique vertical rail with smooth section-to-section transitions.
+- **🌍 Real internationalization** — content lives in JSON (`lang/en.json`, `fr.json`, `ar.json`), including full RTL support for Arabic.
+- **📊 Live GitHub stats** — contribution graph, streaks and language stats rendered dynamically.
+- **🎭 Hand-coded animations** — lens transitions, hover effects and typed/animated text, no heavy libraries.
+- **📄 One-click CV download** — always serving the latest résumé.
+- **📶 Connection awareness** — an on-page online/offline + latency indicator.
+- **📱 Mobile island & sidebar** — a bespoke mobile navigation pattern with double-tap interactions.
+
+---
+
+## 🛡️ The Back-Office (BO)
+
+What makes this portfolio special is its **custom, self-hosted content management back-office** — written in **plain Node.js with zero external dependencies** ([server.js](server.js)).
+
+### Why it exists
+Text lives in language JSON files, not hard-coded in HTML. The BO gives a friendly UI to edit that content safely — so copy can be refined in any language without redeploying or editing code.
+
+### Dashboard at a glance
+Reachable at `/admin/admin.html` (protected — redirects to a login screen when unauthenticated), organized into tabs that mirror the public sections:
+
+| Tab | Purpose |
+|-----|---------|
+| **Hero** | Edit the profile/landing copy |
+| **About & Education** | Manage bio and the academic timeline |
+| **Projects** | Update project titles, descriptions & metadata |
+| **Experience** | Maintain professional history entries |
+| **Stats** | Tune the stats section labels |
+| **Contacts** | Edit contact details |
+| **Compare** | Diff language files side-by-side to keep translations in sync |
+
+Plus a live **language switcher (EN/FR/AR)**, an **attribute search**, **add-attribute** and **undo** controls.
+
+### Security & safety model
+- 🔑 **Scrypt password hashing** with per-user salt (no plaintext secrets stored).
+- 🍪 **Session cookies** that are `HttpOnly`, `SameSite=Strict` and server-tracked.
+- ⏱️ **Timing-safe comparison** to defend against timing attacks.
+- 🔐 **Credentials via `.env`** (`ADMIN_USER`, `ADMIN_PASSWORD_HASH`) — in-app password change writes back atomically.
+- 💾 **Automatic backups** — the last 3 snapshots per language are kept, with one-click **undo/restore**.
+- 🧯 **Payload guarding** — request bodies are capped to prevent abuse.
+- 🛟 **Local-first** — the dashboard explicitly edits the local content only; production stays untouched until you deploy.
+
+### API surface
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/api/admin/login` | Authenticate and open a session |
+| `POST` | `/api/admin/logout` | Destroy the current session |
+| `GET`  | `/api/admin/status` | Health/auth status check |
+| `POST` | `/api/admin/password` | Change the admin password |
+| `GET`  | `/api/lang/{en\|fr\|ar}.json` | Read a language file |
+| `PUT`  | `/api/lang/{en\|fr\|ar}.json` | Save edits (auto-backup first) |
+| `POST` | `/api/lang/{en\|fr\|ar}.json/undo` | Restore the previous snapshot |
+
+---
+
+## 🧰 Tech Stack
+
+**Front-end**
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-*Soon this project will use React as a frontend framework*.
-
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-
-### Frameworks & Libraries
-![Bootstrap Icons](https://img.shields.io/badge/Bootstrap%20Icons-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+**Libraries & Icons**
 ![Swiper.js](https://img.shields.io/badge/Swiper.js-6332F6?style=for-the-badge&logo=swiper&logoColor=white)
+![Bootstrap Icons](https://img.shields.io/badge/Bootstrap%20Icons-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+![Flag Icons](https://img.shields.io/badge/Flag%20Icons-EF4444?style=for-the-badge)
 
-
-### Features & Functionality
-- **🌐 Multi-language Support** (English, French, Arabic)
-- **📱 Responsive Design** - Mobile, Tablet, Desktop optimized
-- **🎭 Smooth Animations** - CSS animations and transitions
-- **📊 Interactive Elements** - Dynamic content loading
-- **🎨 Custom UI Components** - Original design elements
-- **📄 PDF Integration** - Downloadable CV
-- **🎯 Section Navigation** - Smooth scrolling between sections
-
-### Project Structure
-```
-📁 assets/
-  ├── 📁 cv/ - Resume files
-  ├── 📁 experiences/ - Company logos
-  ├── 📁 images/ - Profile and UI images
-  ├── 📁 projects/ - Project screenshots
-  ├── 📁 schools/ - Educational institution logos
-  └── 📁 technos/ - Technology icons
-
-📁 lang/ - Multi-language JSON files
-📁 pages/ - Additional portfolio pages
-📁 scripts/ - JavaScript functionality
-📁 styles/ - CSS styling and responsive design
-```
+**Back-office**
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![No Dependencies](https://img.shields.io/badge/Zero%20Dependencies-000000?style=for-the-badge&logo=npm&logoColor=white)
 
 ---
 
-## 🌟 Key Features
+## 🏗️ Architecture & Project Structure
 
-### 🎯 Interactive Navigation
-- Unique vertical section navigation with visual indicators
-- Smooth scrolling between portfolio sections
-- Dynamic content updates based on scroll position
+```
+MyPortfolio/
+├── index.html            # Single-page portfolio (7 sections)
+├── server.js             # Zero-dependency Node.js server + back-office API
+├── CNAME                 # Custom domain (othman4dev.site)
+│
+├── admin/
+│   ├── admin.html        # Back-office dashboard UI
+│   └── login.html        # Authentication screen
+│
+├── pages/
+│   └── projects.html     # Full projects listing page
+│
+├── lang/                 # 🌍 Content source of truth
+│   ├── en.json           # English strings
+│   ├── fr.json           # French strings
+│   └── ar.json           # Arabic strings (RTL)
+│
+├── scripts/
+│   └── script.js         # Navigation, i18n, animations, GitHub stats
+│
+├── styles/
+│   ├── style.css         # Core styling
+│   ├── responsive.css    # Breakpoints & mobile layouts
+│   └── admin.css         # Back-office styling
+│
+└── assets/
+    ├── cv/               # Downloadable résumés
+    ├── experiences/      # Company logos
+    ├── images/           # Portrait, favicons, UI art
+    ├── projects/         # Project artwork
+    ├── schools/          # Education logos & swiper media
+    ├── screenshots/      # Section previews (used in this README)
+    └── technos/          # Technology icons
+```
 
-### 🌍 Internationalization
-- **3 Languages Supported**: English, French, Arabic
-- Dynamic language switching
-- Localized content for all sections
-
-### 📱 Responsive Design
-- Mobile-first approach
-- Tablet and desktop optimizations
-- Cross-browser compatibility
-
-### 🎨 Visual Excellence
-- **Custom animations** and hover effects
-- **Lens effect** transitions between sections
-- **Gradient overlays** and modern color schemes
-- **Typography hierarchy** with custom fonts
-
-### 📊 Portfolio Sections
-1. **Profile** - Introduction and hero section
-2. **About** - Personal background and education
-3. **Projects** - Showcase of development work
-4. **Experience** - Professional background
-5. **Services** - Skills and offerings
-6. **Stats** - Achievements and metrics
-7. **Contact** - Get in touch information
+**Data flow:** `lang/*.json` → rendered by `scripts/script.js` into `index.html`. The back-office (`server.js`) reads and writes those same JSON files, so **content and presentation stay fully decoupled**.
 
 ---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
+- [Node.js](https://nodejs.org/) 18+ (for the back-office & local server)
 - A modern web browser
-- Basic understanding of HTML/CSS/JavaScript (for customization)
 
-### Installation & Usage
+### 1. Clone
+```bash
+git clone https://github.com/othman4dev/MyPortfolio.git
+cd MyPortfolio
+```
 
-1. **Clone or Download** this repository
-   ```bash
-   git clone https://github.com/othman4dev/MyPortfolio.git
-   ```
+### 2. Run the server
+```bash
+node server.js
+```
+The site is served at **http://localhost:3000** (override with the `PORT` env var).
 
-2. **Open the project**
-   ```bash
-   cd portfolio
-   ```
+### 3. Configure the back-office
+Create a `.env` file in the project root:
+```env
+ADMIN_USER=admin
+ADMIN_PASSWORD_HASH=<salt:hash>   # scrypt "salt:key" pair
+PORT=3000
+```
+Then visit **http://localhost:3000/admin/admin.html** — you'll be redirected to the login screen, and once authenticated you can edit every piece of content live.
 
-3. **Launch the portfolio**
-   - Open `index.html` in your web browser
-   - Or use a local server for the full experience:
-   ```bash
-   # Using Python
-   python -m http.server 8000
-   
-   # Using Node.js
-   npx serve .
-   ```
-
-4. **Explore the features**
-   - Navigate through sections using the sidebar
-   - Test language switching
-   - View projects and experience sections
-   - Check responsive design on different devices
+> Prefer a quick static preview without the BO? Just open `index.html` in your browser.
 
 ---
 
 ## 🎨 Customization Guide
 
-### Personalizing Content
-1. **Update personal information** in `lang/en.json`, `lang/fr.json`, `lang/ar.json`
-2. **Replace images** in the `assets/images/` directory
-3. **Add your projects** by updating the projects section in language files
-4. **Modify colors** in `styles/style.css` to match your brand
-
-### Adding New Sections
-1. Create new section HTML in `index.html`
-2. Add corresponding CSS in `styles/style.css`
-3. Update navigation in `scripts/script.js`
-4. Add translations in language files
+| Want to change… | Edit… |
+|-----------------|-------|
+| Any text (any language) | The back-office, or directly `lang/en.json` / `fr.json` / `ar.json` |
+| Portrait / favicons / art | Files in `assets/images/` |
+| Project artwork | `assets/projects/` |
+| Colors & visual identity | `styles/style.css` |
+| Responsive behavior | `styles/responsive.css` |
+| Navigation & interactions | `scripts/script.js` |
 
 ---
 
 ## 📄 License & Usage Terms
 
-### 🚨 Important Notice
+> ### 🚨 This is an original, personal design.
 
-This portfolio design is **unique and original**. While the code is available for reference and inspiration, please **DO NOT use this template as-is** for your own portfolio. Instead:
+The code is public for **reference and learning**. Please respect the craft that went into it:
 
-✅ **DO**: Use this as inspiration for your own unique design  
-✅ **DO**: Learn from the code structure and techniques used  
-✅ **DO**: Adapt individual components for your projects  
+| ✅ Do | ❌ Don't |
+|-------|----------|
+| Draw inspiration for your own unique design | Copy the design and pass it off as yours |
+| Learn from the structure & techniques | Re-use it as-is without meaningful changes |
+| Adapt individual components for your projects | Remove attribution |
 
-❌ **DON'T**: Copy the entire design and claim it as your own  
-❌ **DON'T**: Use this template without significant modifications  
-❌ **DON'T**: Remove attribution or present this work as original  
-
-### 🤝 Want a Similar Portfolio?
-
-If you love this design style and want me to create a **unique, custom portfolio** for you, I'd be happy to discuss it! Each portfolio I create is completely original and tailored to the individual.
-
-**Contact me** to discuss your project:
-- 📧 Email: [your-email@example.com]
-- 💼 LinkedIn: [Your LinkedIn Profile]
-- 🐙 GitHub: [@othman4dev](https://github.com/othman4dev)
+**Want a custom, one-of-a-kind portfolio like this?** I build each one from scratch — [reach out](#-contact) and let's talk.
 
 ---
 
-## 🎯 Why This Portfolio Stands Out
-
-### 🏆 Unique Design Elements
-- **Original concept** - No existing templates or themes used
-- **Custom animations** - Hand-coded CSS animations
-- **Interactive storytelling** - Each section flows naturally into the next
-- **Attention to detail** - Every element carefully crafted
-
-### 💡 Technical Innovation
-- **Smooth section transitions** with custom JavaScript
-- **Multi-language architecture** with JSON-based content
-- **Responsive design** without frameworks
-- **Performance optimized** - Fast loading and smooth interactions
-
-### 🎨 Visual Identity
-- **Cohesive color scheme** - Professional yet modern
-- **Typography hierarchy** - Clear information structure
-- **Visual balance** - Perfect spacing and layout
-- **Brand consistency** - Unified design language throughout
-
----
-
-## 🙏 Acknowledgments
-
-This portfolio represents countless hours of:
-- **Design iteration** and creative exploration
-- **Code optimization** and performance tuning
-- **User experience** testing and refinement
-- **Cross-browser** compatibility ensuring
-
-Special thanks to the web development community for inspiration and the various open-source tools that made this project possible.
-
----
-
-## 📞 Get in Touch
-
-Interested in collaborating or have questions about the portfolio?
-
-**Let's connect and create something amazing together!**
+## 📞 Contact
 
 <div align="center">
 
-[![Portfolio](https://img.shields.io/badge/View%20Portfolio-Live%20Demo-blue?style=for-the-badge)](https://othman4dev.tech)
-[![Email](https://img.shields.io/badge/Email-Contact%20Me-red?style=for-the-badge&logo=gmail)](mailto:otmankharbouch813@gmail.com)
+[![Portfolio](https://img.shields.io/badge/Portfolio-othman4dev.site-2ea44f?style=for-the-badge&logo=vercel&logoColor=white)](https://othman4dev.site)
+[![Email](https://img.shields.io/badge/Email-Contact_Me-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:otmankharbouch813@gmail.com)
+[![GitHub](https://img.shields.io/badge/GitHub-othman4dev-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/othman4dev)
+[![Instagram](https://img.shields.io/badge/Instagram-othman.is.me-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/othman.is.me/)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-Chat-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/212704606597)
 
-</div>
-
----
-
-<div align="center">
+<br/>
 
 **Made with ❤️ by Otman Kharbouch**
 
-*If you found this portfolio inspiring, consider giving it a ⭐ on GitHub!*
+*If this project inspired you, consider leaving a ⭐ — it means a lot.*
 
 </div>
